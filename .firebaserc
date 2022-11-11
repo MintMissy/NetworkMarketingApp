@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "networkmarketingapp-5d6ae": {
+      "hosting": {
+        "NetworkMarketingApp": [
+          "networkmarketingapp-5d6ae"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "networkmarketingapp-5d6ae"
+  }
+}

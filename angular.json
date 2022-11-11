@@ -102,6 +102,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "NetworkMarketingApp:build:production",
+            "firebaseProject": "networkmarketingapp-5d6ae",
+            "firebaseHostingSite": "networkmarketingapp-5d6ae"
+          }
         }
       }
     }

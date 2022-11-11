@@ -7,6 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +27,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         deps: [HttpClient],
       },
     }),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase()),
   ],
   providers: [],
   bootstrap: [AppComponent],
