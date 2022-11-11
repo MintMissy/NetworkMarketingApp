@@ -1,0 +1,27 @@
+.toolbar {
+  height: 3.5rem;
+}
+
+.current-page {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.divider {
+  margin-inline: auto;
+}
+
+.search {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 1rem;
+  border: none;
+  width: 10rem;
+  transition: width 0.15s;
+
+  &:hover,
+  &:focus {
+    width: 15rem;
+    outline: none;
+  }
+}

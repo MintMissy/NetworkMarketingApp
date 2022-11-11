@@ -1,4 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --clr-light-1: #ffffff;
+  --clr-light-2: #e3e8e9;
+  --clr-light-3: #e5ebec;
+  --clr-light-4: #cbd8d8;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  --clr-dark-1: #000000;
+  --clr-dark-2: rgb(13, 13, 14);
+  --clr-dark-3: rgb(28, 29, 29);
+  --clr-dark-4: #353536;
+
+  --clr-primary-1: #0ed2ec;
+  --clr-primary-2: #00ffea;
+  --clr-primary-3: #18d3c3;
+
+  --clr-secondary-1: #fbff06;
+  --clr-secondary-2: #ffda06;
+
+  --clr-error: #ff3838;
+  --clr-warning: #ff9735;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--clr-light-3);
+}
+
+.container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: var(--clr-light-1);
+  text-decoration: none;
+}
+
+p {
+  color: var(--clr-light-2);
+  font-size: 1rem;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--clr-light-1);
+}
