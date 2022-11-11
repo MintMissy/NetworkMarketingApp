@@ -12,16 +12,21 @@
 }
 
 .search {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.9rem;
-  border-radius: 1rem;
-  border: none;
-  width: 10rem;
-  transition: width 0.15s;
+  display: none;
 
-  &:hover,
-  &:focus {
-    width: 15rem;
-    outline: none;
+  @media screen and (min-width: 450px) {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 1rem;
+    border: none;
+    transition: width 0.15s;
+    display: block;
+    width: 10rem;
+
+    &:hover,
+    &:focus {
+      width: 15rem;
+      outline: none;
+    }
   }
 }
