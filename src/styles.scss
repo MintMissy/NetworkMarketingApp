@@ -4,7 +4,7 @@
 $my-primary: mat.define-palette(mat.$light-blue-palette, 700);
 $my-accent: mat.define-palette(mat.$yellow-palette, 800);
 
-$my-theme: mat.define-light-theme(
+$my-theme: mat.define-dark-theme(
   (
     color: (
       primary: $my-primary,

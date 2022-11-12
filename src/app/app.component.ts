@@ -1,6 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +15,18 @@ export class AppComponent {
     if (this.sidenav.opened) {
       this.sidenav.close();
     } else {
+      this.sidenav.open();
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: UIEvent) {
+    // @ts-ignore
+    if (event.target.innerWidth < 500) {
+      this.sidenav.mode = 'over';
+      this.sidenav.close();
+    } else {
+      this.sidenav.mode = 'side';
       this.sidenav.open();
     }
   }
