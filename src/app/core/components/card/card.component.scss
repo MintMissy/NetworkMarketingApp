@@ -1,12 +1,7 @@
 .card-image {
   height: 175px;
-  overflow: hidden;
-  display: flex;
-
-  img {
-    width: 100%;
-    place-self: center;
-  }
+  background-position: center;
+  background-size: cover;
 }
 
 .card-content {
@@ -21,6 +16,8 @@
     color: var(--clr-light-4);
     font-weight: 300;
     letter-spacing: 1px;
+    line-height: 1.1rem;
+    margin: 0.35rem 0;
   }
 
   h1 {
@@ -37,8 +34,13 @@
     color: var(--clr-light-4);
   }
 
+  .card-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
   .second-button {
-    margin-left: 1rem;
     color: var(--clr-light-3);
   }
 }

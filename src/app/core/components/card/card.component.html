@@ -1,20 +1,20 @@
 <article class="card">
-  <div class="card-image">
-    <img [src]="imageSource" alt="" aria-hidden="true" />
-  </div>
+  <div class="card-image" [ngStyle]="{ backgroundImage: 'url(' + imageSource + ')' }"></div>
   <div class="card-content">
     <h2>{{ subtitle }}</h2>
     <h1>{{ title }}</h1>
     <p>{{ content }}</p>
-    <a [routerLink]="primaryButtonLink">
-      <button mat-raised-button color="primary">
-        {{ primaryButtonText }}
-      </button>
-    </a>
-    <a [routerLink]="secondaryButtonLink">
-      <button mat-stroked-button class="second-button">
-        {{ secondaryButtonText }}
-      </button>
-    </a>
+    <div class="card-actions">
+      <a [routerLink]="primaryButtonLink">
+        <button mat-raised-button color="primary">
+          {{ primaryButtonText }}
+        </button>
+      </a>
+      <a [routerLink]="secondaryButtonLink">
+        <button mat-stroked-button class="second-button">
+          {{ secondaryButtonText }}
+        </button>
+      </a>
+    </div>
   </div>
 </article>
