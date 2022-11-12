@@ -1,0 +1,44 @@
+.card-image {
+  height: 175px;
+  overflow: hidden;
+  display: flex;
+
+  img {
+    width: 100%;
+    place-self: center;
+  }
+}
+
+.card-content {
+  padding: 0.75rem 1.5rem 1.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+  h2 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    color: var(--clr-light-4);
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--clr-light-4);
+  }
+
+  .second-button {
+    margin-left: 1rem;
+    color: var(--clr-light-3);
+  }
+}

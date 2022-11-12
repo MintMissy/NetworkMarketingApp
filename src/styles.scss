@@ -105,3 +105,10 @@ h2 {
     background: var(--clr-neutral-2);
   }
 }
+
+.card {
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  background-color: var(--clr-dark-5);
+}
