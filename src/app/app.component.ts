@@ -20,7 +20,9 @@ export class AppComponent {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: UIEvent) {
+  onResize(event: UIEvent): void {
+    // TODO close sidenav after clicking in the button
+    // TODO add backdrop shadow that will close sidenav when innerWidth < 500
     // @ts-ignore
     if (event.target.innerWidth < 500) {
       this.sidenav.mode = 'over';
