@@ -18,9 +18,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './core/components/sidenav/sidenav.component';
 import { SidenavButtonComponent } from './core/components/sidenav-button/sidenav-button.component';
+import { SidenavDirective } from './core/directives/sidenav.directive';
 
 @NgModule({
-  declarations: [AppComponent, ToolbarComponent, FooterComponent, SidenavComponent, SidenavButtonComponent],
+  declarations: [
+    AppComponent,
+    ToolbarComponent,
+    FooterComponent,
+    SidenavComponent,
+    SidenavButtonComponent,
+    SidenavDirective,
+  ],
   imports: [
     MatToolbarModule,
     MatIconModule,
