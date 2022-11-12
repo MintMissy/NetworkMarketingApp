@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -6,8 +6,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ToolbarComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class ToolbarComponent {
+  @Output() sideNavButtonClick = new EventEmitter<void>();
 }

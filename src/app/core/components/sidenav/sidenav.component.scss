@@ -1,0 +1,18 @@
+:host,
+.buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.buttons-group {
+  h2 {
+    font-size: 1rem;
+    padding-left: 1rem;
+    color: var(--clr-light-1);
+    margin-bottom: -0.5rem;
+  }
+
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--clr-dark-4);
+}

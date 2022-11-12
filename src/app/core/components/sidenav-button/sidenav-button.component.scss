@@ -1,0 +1,35 @@
+.button {
+  width: 100%;
+  text-align: left;
+}
+
+.button,
+.icon {
+  color: var(--clr-light-4);
+}
+
+:not(.active) .button:hover {
+  &,
+  .icon {
+    color: var(--clr-light-1);
+  }
+}
+
+.active {
+  button,
+  .icon {
+    color: var(--clr-accent-light);
+  }
+
+  button {
+    background-color: var(--clr-dark-5);
+  }
+
+  .icon {
+    font-variation-settings: "FILL" 1;
+  }
+}
+
+.icon {
+  margin-right: 0.75rem;
+}

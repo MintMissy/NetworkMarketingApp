@@ -1,5 +1,12 @@
-<app-toolbar></app-toolbar>
+<app-toolbar (sideNavButtonClick)="toggleSidenav()"></app-toolbar>
 <main>
-  <router-outlet></router-outlet>
+  <mat-drawer-container hasBackdrop="false">
+    <mat-drawer #sidenav mode="side" opened="true">
+      <nav>
+        <app-sidenav></app-sidenav>
+      </nav>
+    </mat-drawer>
+    <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
+  </mat-drawer-container>
 </main>
 <app-footer></app-footer>

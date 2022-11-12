@@ -23,8 +23,9 @@ $my-theme: mat.define-light-theme(
 
   --clr-dark-1: #000000;
   --clr-dark-2: rgb(13, 13, 14);
-  --clr-dark-3: rgb(28, 29, 29);
-  --clr-dark-4: #353536;
+  --clr-dark-3: rgb(31, 36, 36);
+  --clr-dark-4: #2d3538;
+  --clr-dark-5: #30393a;
 
   --clr-primary: #0288d1;
   --clr-primary-light: #1dbfff;
@@ -48,7 +49,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--clr-light-1);
+  background-color: var(--clr-dark-3);
 }
 
 .container {
@@ -71,4 +72,11 @@ h2 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   color: var(--clr-light-1);
+}
+
+.material-icons {
+  font-family: "Material Symbols Outlined";
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 300;
 }

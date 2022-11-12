@@ -15,13 +15,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidenavComponent } from './core/components/sidenav/sidenav.component';
+import { SidenavButtonComponent } from './core/components/sidenav-button/sidenav-button.component';
 
 @NgModule({
-  declarations: [AppComponent, ToolbarComponent, FooterComponent],
+  declarations: [AppComponent, ToolbarComponent, FooterComponent, SidenavComponent, SidenavButtonComponent],
   imports: [
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatSidenavModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -1,3 +1,25 @@
 main {
   min-height: 90vh;
+  display: flex;
+  flex: 1 1 auto;
+}
+
+mat-drawer-container {
+  width: 100%;
+}
+
+.mat-drawer-content,
+.mat-drawer {
+  background-color: var(--clr-dark-3);
+  color: var(--clr-light-1);
+}
+
+mat-drawer-content {
+  width: 100%;
+  padding: 1rem;
+}
+
+mat-drawer {
+  width: 250px;
+  padding: 0.5rem;
 }
