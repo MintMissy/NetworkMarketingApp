@@ -1,5 +1,10 @@
 .cards-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+
+  app-card {
+    min-width: 250px;
+    flex: 1;
+  }
 }
