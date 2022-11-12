@@ -31,7 +31,7 @@
   }
 }
 
-.divider{
+.divider {
   margin-inline: auto;
 }
 
@@ -43,13 +43,11 @@
     font-size: 0.9rem;
     border-radius: 1rem;
     border: none;
-    transition: width 0.15s;
     display: block;
     width: 10rem;
 
     &:hover,
     &:focus {
-      width: 15rem;
       outline: none;
     }
   }
