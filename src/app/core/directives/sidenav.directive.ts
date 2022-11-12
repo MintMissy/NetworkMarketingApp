@@ -1,13 +1,5 @@
-import {
-  AfterViewInit,
-  Directive,
-  ElementRef,
-  HostListener,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { MatDrawer, MatDrawerContainer, MatSidenav } from '@angular/material/sidenav';
+import { Directive, HostListener, Input, OnInit } from '@angular/core';
+import { MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
 
 @Directive({
   selector: '[appSidenav]',
@@ -15,6 +7,7 @@ import { MatDrawer, MatDrawerContainer, MatSidenav } from '@angular/material/sid
 export class SidenavDirective implements OnInit {
   @Input() drawerContainer!: MatDrawerContainer;
   @Input() drawer!: MatDrawer;
+  @Input() sidenavHideScreenWidth!: number;
   private innerWidth: number = 0;
 
   constructor() {}
@@ -25,7 +18,6 @@ export class SidenavDirective implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: UIEvent): void {
-    // TODO close sidenav after clicking in the button
     // @ts-ignore
     this.setInnerWidth(event.target.innerWidth);
   }
@@ -36,7 +28,7 @@ export class SidenavDirective implements OnInit {
   }
 
   private updateElementView(): void {
-    if (this.innerWidth < 600) {
+    if (this.innerWidth < this.sidenavHideScreenWidth) {
       this.drawer.mode = 'over';
       this.drawer.close();
       this.drawerContainer.hasBackdrop = true;

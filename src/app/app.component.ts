@@ -1,4 +1,4 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -8,7 +8,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AppComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
-  
+  sidenavHideScreenWidth = 700;
+
   constructor() {}
 
   toggleSidenav() {
@@ -16,6 +17,12 @@ export class AppComponent {
       this.sidenav.close();
     } else {
       this.sidenav.open();
+    }
+  }
+
+  onSidenavButtonClick() {
+    if (window.innerWidth < this.sidenavHideScreenWidth) {
+      this.toggleSidenav();
     }
   }
 }
