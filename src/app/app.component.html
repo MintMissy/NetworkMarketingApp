@@ -1,7 +1,13 @@
 <app-toolbar (sideNavButtonClick)="toggleSidenav()"></app-toolbar>
 <main>
-  <mat-drawer-container hasBackdrop="false">
-    <mat-drawer #sidenav mode="side" opened="true" appSidenav [sidenav]="sidenav">
+  <mat-drawer-container
+    hasBackdrop="true"
+    #drawerContainer
+    appSidenav
+    [drawerContainer]="drawerContainer"
+    [drawer]="sidenav"
+  >
+    <mat-drawer #sidenav mode="side" opened="true">
       <nav>
         <app-sidenav></app-sidenav>
       </nav>

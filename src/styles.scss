@@ -80,3 +80,7 @@ h2 {
   line-height: 1.5rem;
   font-weight: 300;
 }
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  background-color: rgba(0, 0, 0, 0.3);
+}
