@@ -21,6 +21,9 @@ $my-theme: mat.define-dark-theme(
   --clr-light-3: #e5ebec;
   --clr-light-4: #cbd8d8;
 
+  --clr-neutral-1: #828686;
+  --clr-neutral-2: #606464;
+
   --clr-dark-1: #000000;
   --clr-dark-2: rgb(13, 13, 14);
   --clr-dark-3: rgb(31, 36, 36);
@@ -83,4 +86,20 @@ h2 {
 
 .mat-drawer-backdrop.mat-drawer-shown {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-dark-4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-neutral-1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-neutral-2);
 }
