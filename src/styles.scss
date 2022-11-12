@@ -88,18 +88,20 @@ h2 {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--clr-dark-4);
-}
+  ::-webkit-scrollbar-track {
+    background: var(--clr-dark-4);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--clr-neutral-1);
-}
+  ::-webkit-scrollbar-thumb {
+    background: var(--clr-neutral-1);
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--clr-neutral-2);
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-neutral-2);
+  }
 }
