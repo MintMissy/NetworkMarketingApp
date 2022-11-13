@@ -8,9 +8,8 @@ describe('SidenavButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SidenavButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [SidenavButtonComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SidenavButtonComponent);
     component = fixture.componentInstance;

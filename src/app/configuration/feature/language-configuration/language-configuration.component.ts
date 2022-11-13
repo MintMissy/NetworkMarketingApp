@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,13 +8,10 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './language-configuration.component.html',
   styleUrls: ['./language-configuration.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LanguageConfigurationComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

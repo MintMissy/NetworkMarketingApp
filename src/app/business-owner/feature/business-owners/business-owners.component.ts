@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,13 +8,10 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './business-owners.component.html',
   styleUrls: ['./business-owners.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BusinessOwnersComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

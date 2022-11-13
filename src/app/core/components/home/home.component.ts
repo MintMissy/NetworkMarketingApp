@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { CardComponent } from '../card/card.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',

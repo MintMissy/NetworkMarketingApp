@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';

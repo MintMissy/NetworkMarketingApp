@@ -1,24 +1,24 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideDatabase, getDatabase } from '@angular/fire/database';
-import { ToolbarComponent } from './core/components/toolbar/toolbar.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SidenavComponent } from './core/components/sidenav/sidenav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgModule } from '@angular/core';
 import { SidenavButtonComponent } from './core/components/sidenav-button/sidenav-button.component';
+import { SidenavComponent } from './core/components/sidenav/sidenav.component';
 import { SidenavDirective } from './core/directives/sidenav.directive';
+import { ToolbarComponent } from './core/components/toolbar/toolbar.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [

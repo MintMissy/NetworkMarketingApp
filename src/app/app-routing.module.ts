@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BusinessOwnersComponent } from './business-owner/feature/business-owners/business-owners.component';
-import { LanguageConfigurationComponent } from './configuration/feature/language-configuration/language-configuration.component';
-import { HomeComponent } from './core/components/home/home.component';
-import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
+
 import { CreditsComponent } from './credits/feature/credits/credits.component';
-import { ShopsComponent } from './shop/feature/shops/shops.component';
+import { HomeComponent } from './core/components/home/home.component';
+import { LanguageConfigurationComponent } from './configuration/feature/language-configuration/language-configuration.component';
+import { NgModule } from '@angular/core';
+import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
