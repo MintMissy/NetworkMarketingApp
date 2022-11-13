@@ -30,8 +30,8 @@ const routes: Routes = [
   {
     path: 'products/new',
     loadComponent: () =>
-      import('./product/feature/add-product-form/add-product-form.component').then(
-        (c) => c.AddProductFormComponent
+      import('./product/feature/add-product/add-product.component').then(
+        (c) => c.AddProductComponent
       ),
   },
   {

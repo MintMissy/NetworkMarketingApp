@@ -2,14 +2,14 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-edit-product-form',
+  selector: 'app-edit-product',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './edit-product-form.component.html',
-  styleUrls: ['./edit-product-form.component.scss'],
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EditProductFormComponent implements OnInit {
+export class EditProductComponent implements OnInit {
 
   constructor() { }
 
