@@ -28,6 +28,13 @@ const routes: Routes = [
       import('./shop/feature/shops/shops.component').then((c) => c.ShopsComponent),
   },
   {
+    path: 'products/new',
+    loadComponent: () =>
+      import('./product/feature/add-product-form/add-product-form.component').then(
+        (c) => c.AddProductFormComponent
+      ),
+  },
+  {
     path: 'credits',
     loadComponent: () =>
       import('./credits/feature/credits/credits.component').then((c) => CreditsComponent),
