@@ -19,7 +19,7 @@ export class BusinessCardComponent {
   constructor() {}
 
   get imageUrl(): string {
-    const background = this.business.backgroundImage;
+    const background = this.business.details.backgroundImage;
     if (background == undefined || background == null || background == '') {
       return 'assets/images/cards/businesses.avif';
     }
