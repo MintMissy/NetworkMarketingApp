@@ -1,5 +1,5 @@
 export interface Product {
-  id?: number;
+  id?: string;
   shopId?: string;
   details: ProductDetails;
   saleStatistics: SaleStatistics;

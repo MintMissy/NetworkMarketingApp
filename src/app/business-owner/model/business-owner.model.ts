@@ -1,11 +1,25 @@
 export interface BusinessOwner {
-  id: number;
-  name: string;
+  id?: string;
+  details: PersonDetails;
+  contactDetails: ContactDetails;
+  address: Address;
+  ownedBusinesses: string[];
+}
+
+export interface PersonDetails {
+  firstName: string;
+  surname: string;
+  avatar: string;
+}
+
+export interface ContactDetails {
+  email: string;
   telephone: number;
-  city: string;
+}
+
+export interface Address {
   street: string;
   localNumber: string;
+  postalCode: string;
   country: string;
-  postcode: string;
-  ownedBusinessesIds: number[];
 }
