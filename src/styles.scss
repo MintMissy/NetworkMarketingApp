@@ -2,7 +2,7 @@
 
 @include mat.core();
 $my-primary: mat.define-palette(mat.$light-blue-palette, 700);
-$my-accent: mat.define-palette(mat.$yellow-palette, 800);
+$my-accent: mat.define-palette(mat.$yellow-palette, 600);
 
 $my-theme: mat.define-dark-theme(
   (
@@ -106,9 +106,54 @@ h2 {
   }
 }
 
+.items-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .card {
   border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   background-color: var(--clr-dark-5);
+
+  .card-banner {
+    height: 175px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .card-content {
+    padding: 0.75rem 1.5rem 1.5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+    h2 {
+      font-size: 0.9rem;
+      color: var(--clr-light-4);
+      font-weight: 300;
+      letter-spacing: 1px;
+      line-height: 1.1rem;
+      margin: 0.35rem 0;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      font-weight: 300;
+      color: var(--clr-light-4);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+  }
 }

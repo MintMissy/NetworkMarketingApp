@@ -19,6 +19,7 @@ export class CardComponent {
   @Input() content!: string;
   @Input() primaryButtonText!: string;
   @Input() primaryButtonLink!: string;
+  @Input() primaryButtonColor: string = 'primary';
   @Input() secondaryButtonText!: string;
   @Input() secondaryButtonLink!: string;
 }

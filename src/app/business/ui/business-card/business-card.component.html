@@ -1,0 +1,11 @@
+<article class="card">
+  <div class="card-image" [ngStyle]="{ backgroundImage: 'url(' + imageUrl + ')' }"></div>
+  <div class="card-content">
+    <h1>{{ business.companyName }}</h1>
+    <p>{{ business.ownerId }}</p>
+    <p>{{ business.parentBusinessId }}</p>
+    <a [routerLink]="'business/' + business.id">
+      <button mat-raised-button color="primary">View Business</button>
+    </a>
+  </div>
+</article>
