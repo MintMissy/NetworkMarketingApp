@@ -1,5 +1,12 @@
 app-card,
-app-business-card {
+app-business-owner-card {
   min-width: min(280px, 70vw);
+}
+
+app-business-owner-card {
   flex: 1;
+}
+
+app-card {
+  flex: 2;
 }
