@@ -13,7 +13,8 @@ export const environment = {
     messagingSenderId: '730426565183',
     measurementId: 'G-WBH28XDMEZ',
   },
-  production: false
+  production: false,
+  endpointUrl: 'https://networkmarketingapp-5d6ae-default-rtdb.firebaseio.com/',
 };
 
 /*
