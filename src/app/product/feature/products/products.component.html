@@ -1,0 +1,17 @@
+<div class="items-container">
+    <app-card
+      imageSource="assets/images/cards/start-business.avif"
+      subtitle="New Opportunities"
+      title="Create Business"
+      content="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur provident omnis ab,
+      suscipit architecto itaque"
+      primaryButtonLink="businesses/create"
+      primaryButtonText="Add Product"
+      primaryButtonColor="accent"
+    ></app-card>
+    <app-product-card
+      *ngFor="let product of products | async"
+      [product]="product"
+    ></app-product-card>
+  </div>
+  

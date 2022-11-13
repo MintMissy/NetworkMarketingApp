@@ -1,0 +1,12 @@
+app-card,
+app-product-card {
+  min-width: min(280px, 70vw);
+}
+
+app-product-card {
+  flex: 1;
+}
+
+app-card {
+  flex: 2;
+}
