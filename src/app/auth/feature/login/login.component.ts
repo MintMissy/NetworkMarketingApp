@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MediaListComponent } from '../../ui/media-list/media-list.component';
 import { RouterModule } from '@angular/router';
+import { getPasswordValidators } from '../../utils/password-validator';
 
 @Component({
   selector: 'app-login',
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
   buildForm(): FormGroup {
     return this._formBuilder.group({
       email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required],
+      password: ['', ...getPasswordValidators()],
     });
   }
 }

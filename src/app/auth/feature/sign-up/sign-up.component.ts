@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { getPasswordValidators, passwordsMatchValidator } from '../../utils/password-validator';
 
 import { AuthenticationService } from '../../data-access/authentication.service';
 import { ChangeInputTypeDirective } from 'src/app/core/directives/change-input-type.directive';
@@ -41,10 +42,13 @@ export class SignUpComponent implements OnInit {
   signUp() {}
 
   buildForm(): FormGroup {
-    return this._formBuilder.group({
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required],
-      repeatedPassword: ['', Validators.required],
-    });
+    return this._formBuilder.group(
+      {
+        email: ['', Validators.required, Validators.email],
+        password: ['', ...getPasswordValidators()],
+        repeatedPassword: ['', ...getPasswordValidators()],
+      },
+      { validators: passwordsMatchValidator }
+    );
   }
 }
