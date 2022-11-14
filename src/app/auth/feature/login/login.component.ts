@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+import { ChangeInputTypeDirective } from 'src/app/core/directives/change-input-type.directive';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MediaListComponent,
     ReactiveFormsModule,
+    ChangeInputTypeDirective
   ],
   templateUrl: './login.component.html',
   styleUrls: ['../auth-form-styles.scss'],

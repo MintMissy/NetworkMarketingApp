@@ -84,6 +84,10 @@ h2 {
   font-weight: 300;
 }
 
+.material-icons-filled {
+  font-variation-settings: "FILL" 1;
+}
+
 .mat-drawer-backdrop.mat-drawer-shown {
   background-color: rgba(0, 0, 0, 0.3);
 }
