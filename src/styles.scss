@@ -159,3 +159,41 @@ h2 {
     }
   }
 }
+
+mat-form-field {
+  display: block !important;
+  max-width: 100%;
+
+  mat-icon {
+    padding-right: 0.5rem;
+    color: var(--clr-light-4);
+    font-size: 1.5rem;
+  }
+}
+
+.card-padded {
+  padding: 1rem;
+  border-color: var(--clr-dark-4);
+}
+
+.card--form {
+  background: var(--clr-dark-3);
+}
+
+.form-container {
+  max-width: 800px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+}
+
+.mat-form-field {
+  width: 100%;
+}

@@ -1,26 +1,33 @@
-<div class="card">
+<div class="card card-padded card--form">
   <p>Business Details</p>
   <mat-form-field appearance="outline">
     <mat-label>Company Name</mat-label>
     <input matInput placeholder="Company Name" value="" type="string" />
-    <mat-icon matPrefix>person</mat-icon>
+    <mat-icon matPrefix>edit</mat-icon>
   </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Business Type</mat-label>
-    <mat-select placeholder="Business Type">
-      <!-- <mat-option *ngFor="let item of items" [value]="item.value">
+  <div class="input-group">
+    <mat-form-field appearance="outline" class="input-business-type">
+      <mat-label>Business Type</mat-label>
+      <mat-select placeholder="Business Type">
+        <!-- <mat-option *ngFor="let item of items" [value]="item.value">
           {{ item.viewValue }}
         </mat-option> -->
-    </mat-select>
-    <mat-icon matPrefix>business</mat-icon>
-  </mat-form-field>
+      </mat-select>
+      <mat-icon matPrefix>business</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="input-network-name">
+      <mat-label>Network Name</mat-label>
+      <input matInput placeholder="Banner Url" value="" type="string" disabled="" />
+      <mat-icon matPrefix>hub</mat-icon>
+    </mat-form-field>
+  </div>
   <mat-form-field appearance="outline">
     <mat-label>Company Description</mat-label>
     <textarea
       matInput
       cdkTextareaAutosize
-      cdkAutosizeMinRows="1"
-      cdkAutosizeMaxRows="5"
+      cdkAutosizeMinRows="3"
+      cdkAutosizeMaxRows="6"
       placeholder="Company Description"
       value=""
     ></textarea>
@@ -32,9 +39,10 @@
     <mat-icon matPrefix>link</mat-icon>
   </mat-form-field>
   <!-- TODO banner preview -->
-  <mat-form-field appearance="outline">
-    <mat-label>Network Name</mat-label>
-    <input matInput placeholder="Banner Url" value="" type="string" disabled="" />
-    <mat-icon matPrefix>hub</mat-icon>
-  </mat-form-field>
+  <p>Banner Preview</p>
+  <img
+    class="banner-preview"
+    src="https://images.unsplash.com/photo-1523800378286-dae1f0dae656?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1076&q=80"
+    alt=""
+  />
 </div>

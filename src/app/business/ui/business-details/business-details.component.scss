@@ -1,4 +1,9 @@
-.card {
-  padding: 1rem;
-  border-color: var(--clr-dark-4);
+.input-business-type,
+.input-network-name {
+  flex: 1;
+}
+
+.banner-preview {
+  max-width: 100%;
+  border-radius: 0.75rem;
 }
