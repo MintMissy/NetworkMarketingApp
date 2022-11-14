@@ -1,27 +1,31 @@
-<div class="card">
+<div class="card card--padded card--form">
   <p>Address</p>
+  <div class="input-group">
+    <mat-form-field appearance="outline">
+      <mat-label>Street</mat-label>
+      <input matInput placeholder="Street" value="" type="string" />
+      <mat-icon matPrefix>traffic</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Local Number</mat-label>
+      <input matInput placeholder="Local Number" value="" type="string" />
+    </mat-form-field>
+  </div>
+  <div class="input-group">
+    <mat-form-field appearance="outline">
+      <mat-label>Postal Code</mat-label>
+      <input matInput placeholder="Postal Code" value="" type="string" />
+      <mat-icon matPrefix>signpost</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>City</mat-label>
+      <input matInput placeholder="City" value="" type="string" />
+      <mat-icon matPrefix>location_city</mat-icon>
+    </mat-form-field>
+  </div>
   <mat-form-field appearance="outline">
     <mat-label>Country</mat-label>
     <input matInput placeholder="Country" value="" type="string" />
     <mat-icon matPrefix>language</mat-icon>
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>City</mat-label>
-    <input matInput placeholder="City" value="" type="string" />
-    <mat-icon matPrefix>location_city</mat-icon>
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Street</mat-label>
-    <input matInput placeholder="Street" value="" type="string" />
-    <mat-icon matPrefix>traffic</mat-icon>
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Local Number</mat-label>
-    <input matInput placeholder="Local Number" value="" type="string" />
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Postal Code</mat-label>
-    <input matInput placeholder="Postal Code" value="" type="string" />
-    <mat-icon matPrefix>signpost</mat-icon>
   </mat-form-field>
 </div>
