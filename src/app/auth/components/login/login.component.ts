@@ -7,14 +7,14 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-sign-up',
+  selector: 'app-login',
   standalone: true,
   imports: [CommonModule, MatInputModule, MatButtonModule, RouterModule, MatIconModule],
-  templateUrl: './sign-up.component.html',
+  templateUrl: './login.component.html',
   styleUrls: ['../auth-form-styles.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignUpComponent implements OnInit {
+export class LoginComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}

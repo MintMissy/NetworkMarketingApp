@@ -9,9 +9,7 @@ const routes: Routes = [
       {
         path: 'login',
         loadComponent: () =>
-          import('./components/login-component/login-component.component').then(
-            (c) => c.LoginComponentComponent
-          ),
+          import('./components/login/login.component').then((c) => c.LoginComponent),
       },
       {
         path: 'signup',

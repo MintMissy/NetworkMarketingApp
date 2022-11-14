@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-content">
-    <h1>Sign Up</h1>
+    <h1>Sign in</h1>
     <mat-form-field appearance="outline">
       <mat-label>Login</mat-label>
       <input matInput placeholder="Login" value="" type="text" />
@@ -11,8 +11,8 @@
       <input matInput placeholder="Password" value="" type="password" />
       <mat-icon matPrefix>lock</mat-icon>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="auth-button">Sign Up</button>
-    <p class="media-auth-description">or sign up using</p>
+    <button mat-raised-button color="primary" class="auth-button">Login</button>
+    <p class="media-auth-description">or login using</p>
     <div class="media-auth">
       <button mat-mini-fab class="google-fab">
         <img src="assets/images/media/google.png" alt="Login with Google" />
@@ -24,7 +24,7 @@
         <img src="assets/images/media/github.png" alt="Login with Github" />
       </button>
     </div>
-    <p class="account-description">Already have an account?</p>
-    <a routerLink="/auth/login">Log in</a>
+    <p class="account-description">Don't have an account?</p>
+    <a routerLink="/auth/signup">Sign Up</a>
   </div>
 </div>

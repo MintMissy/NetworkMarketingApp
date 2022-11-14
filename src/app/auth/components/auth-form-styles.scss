@@ -1,0 +1,100 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 0.25rem;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 1rem;
+  }
+}
+
+.card {
+  min-width: min(100%, 400px);
+  transform: translateY(-5%);
+  background: linear-gradient(var(--clr-dark-2), var(--clr-dark-3) 100%);
+  border: 2px solid var(--clr-dark-4);
+  border-radius: 1rem;
+  padding: 1rem 0;
+  max-width: 400px;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    padding: 2rem 0.5rem 1rem;
+  }
+
+  &-content {
+    box-shadow: none;
+    max-width: 16rem;
+    margin-inline: auto;
+  }
+
+  h1 {
+    font-weight: 500;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  mat-form-field {
+    display: block;
+
+    mat-icon {
+      padding-right: 0.5rem;
+      color: var(--clr-light-4);
+      font-size: 1.5rem;
+    }
+  }
+
+  .auth-button {
+    margin-top: 1rem;
+    width: 100%;
+    margin-inline: auto;
+    display: block;
+  }
+}
+
+.media-auth-description {
+  margin-top: 1.5rem;
+}
+
+.media-auth {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+
+  button {
+    background-color: var(--clr-light-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  .google-fab img {
+    width: 65%;
+  }
+
+  .facebook-fab {
+    background-color: #1877f2;
+  }
+
+  .github-fab {
+    background-color: black;
+  }
+}
+
+.account-description {
+  margin-top: 2rem;
+}
