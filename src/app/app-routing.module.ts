@@ -38,7 +38,7 @@ const routes: Routes = [
       import('./credits/feature/credits/credits.component').then((c) => CreditsComponent),
   },
   { path: '404', component: NotFoundPageComponent },
-  { path: '**', redirectTo: '404' },
+  { path: '**', redirectTo: '404', pathMatch: 'full' },
 ];
 
 @NgModule({
