@@ -2,14 +2,14 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-business-owner-form',
+  selector: 'app-businessman-form',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './business-owner-form.component.html',
-  styleUrls: ['./business-owner-form.component.scss'],
+  templateUrl: './businessman-form.component.html',
+  styleUrls: ['./businessman-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BusinessOwnerFormComponent implements OnInit {
+export class BusinessmanFormComponent implements OnInit {
 
   constructor() { }
 

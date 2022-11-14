@@ -1,7 +1,7 @@
 import { Address } from 'src/app/core/models/address.model';
 import { ContactDetails } from 'src/app/core/models/contact-details.model';
 
-export interface BusinessOwner {
+export interface Businessman {
   id?: string;
   details: PersonDetails;
   contactDetails: ContactDetails;

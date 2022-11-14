@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditBusinessOwnerComponent } from './edit-business-owner.component';
+import { EditBusinessManComponent } from './edit-businessman.component';
 
 describe('EditBusinessOwnerComponent', () => {
-  let component: EditBusinessOwnerComponent;
-  let fixture: ComponentFixture<EditBusinessOwnerComponent>;
+  let component: EditBusinessManComponent;
+  let fixture: ComponentFixture<EditBusinessManComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ EditBusinessOwnerComponent ]
-    })
-    .compileComponents();
+      imports: [EditBusinessManComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(EditBusinessOwnerComponent);
+    fixture = TestBed.createComponent(EditBusinessManComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

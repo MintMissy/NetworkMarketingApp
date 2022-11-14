@@ -1,9 +1,12 @@
 ## Todo
 
+- [ ] reusable component lists
 - [ ] forms
-- [ ] guards
 - [ ] resolvers
+- [ ] services
 - [ ] ngrx
+- [ ] auth
+- [ ] guards
 
 **Home Page**
 

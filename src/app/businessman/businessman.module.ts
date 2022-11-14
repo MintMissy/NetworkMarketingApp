@@ -10,9 +10,7 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         loadComponent: () =>
-          import('./feature/business-owners/business-owners.component').then(
-            (c) => c.BusinessOwnersComponent
-          ),
+          import('./feature/businessmen/businessmen.component').then((c) => c.BusinessMenComponent),
       },
       {
         path: ':id',
@@ -22,8 +20,8 @@ const routes: Routes = [
       {
         path: ':id/edit',
         loadComponent: () =>
-          import('./feature/edit-business-owner/edit-business-owner.component').then(
-            (c) => c.EditBusinessOwnerComponent
+          import('./feature/edit-businessman/edit-businessman.component').then(
+            (c) => c.EditBusinessManComponent
           ),
       },
     ],
@@ -34,4 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BusinessOwnerRoutingModule {}
+export class BusinessManRoutingModule {}

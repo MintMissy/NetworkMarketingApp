@@ -1,4 +1,4 @@
-import { BusinessOwner } from '../model/business-owner.model';
+import { Businessman } from '../model/businessman.model';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class BusinessOwnerService {
 
   getOwners(id: string) {}
 
-  addOwner(owner: BusinessOwner) {}
+  addOwner(owner: Businessman) {}
 
-  updateOwner(owner: BusinessOwner) {}
+  updateOwner(owner: Businessman) {}
 }
