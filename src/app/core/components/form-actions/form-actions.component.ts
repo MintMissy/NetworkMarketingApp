@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,6 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormActionsComponent implements OnInit {
+  @Output() submit = new EventEmitter<void>();
+  @Output() discard = new EventEmitter<void>();
+
   constructor() {}
 
   ngOnInit(): void {}

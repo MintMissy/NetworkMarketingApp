@@ -1,2 +1,4 @@
-<button mat-raised-button type="submit" color="primary">Save Changes</button>
-<button mat-raised-button class="discard-button">Discard</button>
+<button mat-raised-button type="submit" color="primary" (click)="submit.emit()">
+  Save Changes
+</button>
+<button mat-raised-button class="discard-button" (click)="discard.emit()">Discard</button>

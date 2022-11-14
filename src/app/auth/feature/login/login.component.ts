@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 import { ChangeInputTypeDirective } from 'src/app/core/directives/change-input-type.directive';
 import { CommonModule } from '@angular/common';
+import { InvalidInputIconDirective } from 'src/app/core/directives/invalid-input-icon.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MediaListComponent,
     ReactiveFormsModule,
-    ChangeInputTypeDirective
+    ChangeInputTypeDirective,
+    InvalidInputIconDirective,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['../auth-form-styles.scss'],
@@ -35,7 +37,9 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.buildForm();
   }
 
-  login() {}
+  login() {
+    console.log(this.loginForm);
+  }
 
   buildForm(): FormGroup {
     return this._formBuilder.group({
