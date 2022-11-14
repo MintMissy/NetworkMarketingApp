@@ -8,4 +8,5 @@ export interface Shop {
 export interface ShopDetails {
   name: string;
   description: string;
+  shopBanner: string;
 }

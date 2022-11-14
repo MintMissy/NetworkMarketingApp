@@ -1,0 +1,31 @@
+<div class="card card--padded card--form">
+  <p>Address</p>
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" value="" type="string" />
+    <mat-icon matPrefix>edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Shop Description</mat-label>
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="3"
+      cdkAutosizeMaxRows="6"
+      placeholder="Company Description"
+      value=""
+    ></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Banner Url</mat-label>
+    <input matInput placeholder="Banner Url" value="" type="string" />
+    <mat-icon matPrefix>link</mat-icon>
+  </mat-form-field>
+  <p>Banner Preview</p>
+  <img
+    class="banner-preview"
+    src="https://images.unsplash.com/photo-1523800378286-dae1f0dae656?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1076&q=80"
+    alt=""
+    aria-hidden="true"
+  />
+</div>
