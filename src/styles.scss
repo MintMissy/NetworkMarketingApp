@@ -117,6 +117,8 @@ h2 {
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   background-color: var(--clr-dark-5);
+  background: linear-gradient(var(--clr-dark-2), var(--clr-dark-3) 100%);
+  border: 2px solid var(--clr-dark-5);
 
   .card-banner {
     height: 175px;

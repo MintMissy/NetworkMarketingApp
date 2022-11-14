@@ -1,8 +1,11 @@
-import { Product } from 'src/app/shop/model/product.model';
-
 export interface Shop {
   id: number;
   businessId: number;
+  shopDetails: ShopDetails;
+  productIds: string[];
+}
+
+export interface ShopDetails {
   name: string;
-  products: Product[];
+  description: string;
 }

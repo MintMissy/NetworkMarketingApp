@@ -1,3 +1,10 @@
+## Todo
+
+- [ ] forms
+- [ ] guards
+- [ ] resolvers
+- [ ] ngrx
+
 **Home Page**
 
 - [ ] Statistics: how many businesses, how many products, how many business owners

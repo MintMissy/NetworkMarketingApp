@@ -1,1 +1,40 @@
-<p>business-details works!</p>
+<div class="card">
+  <p>Business Details</p>
+  <mat-form-field appearance="outline">
+    <mat-label>Company Name</mat-label>
+    <input matInput placeholder="Company Name" value="" type="string" />
+    <mat-icon matPrefix>person</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Business Type</mat-label>
+    <mat-select placeholder="Business Type">
+      <!-- <mat-option *ngFor="let item of items" [value]="item.value">
+          {{ item.viewValue }}
+        </mat-option> -->
+    </mat-select>
+    <mat-icon matPrefix>business</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Company Description</mat-label>
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="5"
+      placeholder="Company Description"
+      value=""
+    ></textarea>
+    <mat-icon matPrefix>description</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Banner Url</mat-label>
+    <input matInput placeholder="Banner Url" value="" type="string" />
+    <mat-icon matPrefix>link</mat-icon>
+  </mat-form-field>
+  <!-- TODO banner preview -->
+  <mat-form-field appearance="outline">
+    <mat-label>Network Name</mat-label>
+    <input matInput placeholder="Banner Url" value="" type="string" disabled="" />
+    <mat-icon matPrefix>hub</mat-icon>
+  </mat-form-field>
+</div>

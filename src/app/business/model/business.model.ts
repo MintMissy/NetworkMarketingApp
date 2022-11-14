@@ -4,8 +4,8 @@ import { ContactDetails } from 'src/app/core/models/contact-details.model';
 
 export interface Business {
   id?: string;
-  parentBusinessId: number | null;
-  storeId: number;
+  parentBusinessId: string | null;
+  shopId: string | null;
   details: BusinessDetails;
   address: Address;
   contactDetails: ContactDetails;
@@ -13,7 +13,8 @@ export interface Business {
 
 export interface BusinessDetails {
   companyName: string;
+  description: string;
   type: BusinessType;
-  ownerId: number;
+  ownerId: string;
   backgroundImage: string;
 }
