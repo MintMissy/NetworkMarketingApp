@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthenticationService } from '../../data-access/authentication.service';
 import { ChangeInputTypeDirective } from 'src/app/core/directives/change-input-type.directive';
 import { CommonModule } from '@angular/common';
+import { InvalidInputIconDirective } from 'src/app/core/directives/invalid-input-icon.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     MediaListComponent,
     ReactiveFormsModule,
     ChangeInputTypeDirective,
+    InvalidInputIconDirective,
   ],
   templateUrl: './sign-up.component.html',
   styleUrls: ['../auth-form-styles.scss'],
@@ -40,7 +42,7 @@ export class SignUpComponent implements OnInit {
 
   buildForm(): FormGroup {
     return this._formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
       password: ['', Validators.required],
       repeatedPassword: ['', Validators.required],
     });

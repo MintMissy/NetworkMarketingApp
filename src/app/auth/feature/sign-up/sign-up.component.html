@@ -1,46 +1,67 @@
 <form class="card" [formGroup]="signUpForm" (ngSubmit)="signUp()">
   <div class="card-content">
     <h1>Sign Up</h1>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" *ngIf="{ control: signUpForm.controls['email'] } as email">
       <mat-label>Email</mat-label>
       <input matInput placeholder="Email" type="email" formControlName="email" />
-      <mat-icon matPrefix>mail</mat-icon>
+      <mat-icon
+        matPrefix
+        appInvalidInputIcon
+        [invalid]="email.control.errors != null && email.control.touched"
+        >mail</mat-icon
+      >
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: signUpForm.controls['password'] } as password"
+    >
       <mat-label>Password</mat-label>
       <input
         matInput
-        #password
+        #passwordInput
         placeholder="Password"
         type="password"
         autocomplete="on"
         formControlName="password"
       />
-      <mat-icon matPrefix>lock</mat-icon>
+      <mat-icon
+        matPrefix
+        appInvalidInputIcon
+        [invalid]="password.control.errors != null && password.control.touched"
+        >lock</mat-icon
+      >
       <mat-icon
         class="material-icons-filled suffix-icon"
         matSuffix
         appChangeInputType
-        [input]="password"
+        [input]="passwordInput"
         >visibility</mat-icon
       >
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: signUpForm.controls['repeatedPassword'] } as repeatedPassword"
+    >
       <mat-label>Repeat Password</mat-label>
       <input
-        #repeatPassword
+        #repeatPasswordInput
         matInput
         placeholder="Repeat Password"
         type="password"
         autocomplete="on"
         formControlName="repeatedPassword"
       />
-      <mat-icon matPrefix>lock</mat-icon>
+      <mat-icon
+        matPrefix
+        appInvalidInputIcon
+        [invalid]="repeatedPassword.control.errors != null && repeatedPassword.control.touched"
+        >lock</mat-icon
+      >
       <mat-icon
         class="material-icons-filled suffix-icon"
         matSuffix
         appChangeInputType
-        [input]="repeatPassword"
+        [input]="repeatPasswordInput"
         >visibility</mat-icon
       >
     </mat-form-field>

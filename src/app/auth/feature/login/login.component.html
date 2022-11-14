@@ -1,10 +1,15 @@
 <form class="card" [formGroup]="loginForm" (ngSubmit)="login()">
   <div class="card-content">
     <h1>Sign in</h1>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" *ngIf="{ control: loginForm.controls['email'] } as email">
       <mat-label>Email</mat-label>
       <input matInput placeholder="Email" type="email" formControlName="email" />
-      <mat-icon matPrefix>mail</mat-icon>
+      <mat-icon
+        matPrefix
+        appInvalidInputIcon
+        [invalid]="email.control.errors != null && email.control.touched"
+        >mail</mat-icon
+      >
     </mat-form-field>
     <mat-form-field
       appearance="outline"
