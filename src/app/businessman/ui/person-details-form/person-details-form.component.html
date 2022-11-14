@@ -1,1 +1,26 @@
-<p>person-details-form works!</p>
+<div class="card card--padded card--form">
+  <p>Person Details</p>
+  <div class="input-group">
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" value="" type="string" />
+      <mat-icon matPrefix>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Surname</mat-label>
+      <input matInput placeholder="Surname" value="" type="surnmae" />
+    </mat-form-field>
+  </div>
+  <mat-form-field appearance="outline">
+    <mat-label>Avatar Url</mat-label>
+    <input matInput placeholder="Avatar Url" value="" type="string" />
+    <mat-icon matPrefix>link</mat-icon>
+  </mat-form-field>
+  <p>Avatar Preview</p>
+  <img
+    class="avatar-preview"
+    src="https://pbs.twimg.com/media/D8dDZukXUAAXLdY.jpg"
+    alt=""
+    aria-hidden="true"
+  />
+</div>
