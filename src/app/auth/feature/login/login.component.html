@@ -40,7 +40,12 @@
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit" class="auth-button">Login</button>
     <p class="media-auth-description">or login using</p>
-    <app-media-list class="media-auth"></app-media-list>
+    <app-media-list
+      class="media-auth"
+      (googleIconClick)="googleLogin()"
+      (facebookIconClick)="facebookLogin()"
+      (githubIconClick)="githubLogin()"
+    ></app-media-list>
     <p class="account-description">Don't have an account?</p>
     <a routerLink="/auth/signup">Sign Up</a>
   </div>

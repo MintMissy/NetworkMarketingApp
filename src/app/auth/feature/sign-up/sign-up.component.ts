@@ -41,6 +41,18 @@ export class SignUpComponent implements OnInit {
 
   signUp() {}
 
+  googleSignUp() {
+    return this._authService.googleLogin();
+  }
+
+  facebookSignUp() {
+    return this._authService.facebookLogin();
+  }
+
+  githubSignUp() {
+    return this._authService.githubLogin();
+  }
+
   buildForm(): FormGroup {
     return this._formBuilder.group(
       {

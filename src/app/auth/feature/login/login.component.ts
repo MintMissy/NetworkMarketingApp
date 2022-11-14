@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+import { AuthenticationService } from '../../data-access/authentication.service';
 import { ChangeInputTypeDirective } from 'src/app/core/directives/change-input-type.directive';
 import { CommonModule } from '@angular/common';
 import { InvalidInputIconDirective } from 'src/app/core/directives/invalid-input-icon.directive';
@@ -32,7 +33,7 @@ import { getPasswordValidators } from '../../utils/password-validator';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private _authService: AuthenticationService) {}
 
   ngOnInit(): void {
     this.loginForm = this.buildForm();
@@ -40,6 +41,18 @@ export class LoginComponent implements OnInit {
 
   login() {
     console.log(this.loginForm);
+  }
+
+  googleLogin() {
+    return this._authService.googleLogin();
+  }
+
+  facebookLogin() {
+    return this._authService.facebookLogin();
+  }
+
+  githubLogin() {
+    return this._authService.githubLogin();
   }
 
   buildForm(): FormGroup {
