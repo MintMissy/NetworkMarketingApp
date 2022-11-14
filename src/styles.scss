@@ -1,7 +1,7 @@
 @use "@angular/material" as mat;
 
 @include mat.core();
-$my-primary: mat.define-palette(mat.$light-blue-palette, 700);
+$my-primary: mat.define-palette(mat.$light-blue-palette, A700);
 $my-accent: mat.define-palette(mat.$yellow-palette, 600);
 
 $my-theme: mat.define-dark-theme(
@@ -113,7 +113,7 @@ h2 {
 }
 
 .card {
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   background-color: var(--clr-dark-5);

@@ -6,7 +6,7 @@
   padding: 0 0.25rem;
 
   @media screen and (min-width: 768px) {
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -15,7 +15,6 @@
   transform: translateY(-5%);
   background: linear-gradient(var(--clr-dark-2), var(--clr-dark-3) 100%);
   border: 2px solid var(--clr-dark-4);
-  border-radius: 1rem;
   padding: 1rem 0;
   max-width: 400px;
   text-align: center;
