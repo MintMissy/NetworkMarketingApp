@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 import { AddressFormComponent } from 'src/app/core/components/address-form/address-form.component';
 import { BusinessDetailsComponent } from '../business-details/business-details.component';
@@ -23,6 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BusinessFormComponent implements OnInit {
+  @Input() title: string = 'Default Title';
+
   constructor() {}
 
   ngOnInit(): void {}
