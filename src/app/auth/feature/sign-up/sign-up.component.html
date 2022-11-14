@@ -16,19 +16,9 @@
       <input matInput placeholder="Repeat Password" value="" type="password" />
       <mat-icon matPrefix>lock</mat-icon>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="auth-button">Sign Up</button>
+    <button mat-raised-button color="primary" type="button" class="auth-button">Sign Up</button>
     <p class="media-auth-description">or sign up using</p>
-    <div class="media-auth">
-      <button mat-mini-fab class="google-fab">
-        <img src="assets/images/media/google.png" alt="Login with Google" />
-      </button>
-      <button mat-mini-fab class="facebook-fab">
-        <img src="assets/images/media/facebook.png" alt="Login with Facebook" />
-      </button>
-      <button mat-mini-fab class="github-fab">
-        <img src="assets/images/media/github.png" alt="Login with Github" />
-      </button>
-    </div>
+    <app-media-list class="media-auth"></app-media-list>
     <p class="account-description">Already have an account?</p>
     <a routerLink="/auth/login">Log in</a>
   </div>

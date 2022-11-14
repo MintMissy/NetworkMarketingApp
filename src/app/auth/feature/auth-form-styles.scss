@@ -46,42 +46,8 @@
 .media-auth-description {
   margin-top: 1.5rem;
 }
-
 .media-auth {
   margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-
-  button {
-    background-color: var(--clr-light-1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.15s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  img {
-    max-width: 100%;
-    border-radius: 100%;
-    overflow: hidden;
-  }
-
-  .google-fab img {
-    width: 65%;
-  }
-
-  .facebook-fab {
-    background-color: #1877f2;
-  }
-
-  .github-fab {
-    background-color: black;
-  }
 }
 
 .account-description {
