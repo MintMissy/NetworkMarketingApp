@@ -11,7 +11,7 @@ export class AuthServiceService {
   constructor() {}
 
   isLoggedIn(): boolean {
-    return false;
+    return this.user.getValue() != null;
   }
 
   login(): void {}

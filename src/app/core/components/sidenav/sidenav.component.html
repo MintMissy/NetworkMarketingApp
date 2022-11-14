@@ -1,3 +1,4 @@
+<!-- Available Pages -->
 <div class="buttons-group">
   <h2>Available Pages</h2>
   <app-sidenav-button
@@ -21,10 +22,27 @@
   <app-sidenav-button
     (click)="onButtonClick()"
     text="Owners"
-    link="owners"
+    link="businessman"
     icon="people"
   ></app-sidenav-button>
 </div>
+<!-- My Businesses -->
+<div class="buttons-group" *ngIf="isUserLoggedIn()">
+  <h2>My Businesses</h2>
+  <app-sidenav-button
+    (click)="onButtonClick()"
+    text="My Companies"
+    link="businesses"
+    icon="business"
+  ></app-sidenav-button>
+  <app-sidenav-button
+    (click)="onButtonClick()"
+    text="My Shops"
+    link="shops"
+    icon="shop"
+  ></app-sidenav-button>
+</div>
+<!-- General Settings -->
 <div class="buttons-group">
   <h2>General Settings</h2>
   <app-sidenav-button
@@ -34,6 +52,7 @@
     icon="language"
   ></app-sidenav-button>
 </div>
+<!-- Information -->
 <div class="buttons-group">
   <h2>Information</h2>
   <app-sidenav-button
@@ -41,5 +60,32 @@
     text="About Project"
     link="credits"
     icon="information"
+  ></app-sidenav-button>
+</div>
+<!-- Session (user is logged out) -->
+<div class="buttons-group" *ngIf="!isUserLoggedIn()">
+  <h2>Session</h2>
+  <app-sidenav-button
+    (click)="onButtonClick()"
+    text="Login"
+    link="auth/login"
+    icon="login"
+  ></app-sidenav-button>
+  <app-sidenav-button
+    (click)="onButtonClick()"
+    text="Sign Up"
+    link="auth/signup"
+    icon="editnote"
+  ></app-sidenav-button>
+</div>
+<!-- Session (user is logged in) -->
+<!-- TODO implement logout -->
+<div class="buttons-group" *ngIf="isUserLoggedIn()">
+  <h2>Session</h2>
+  <app-sidenav-button
+    (click)="onButtonClick()"
+    text="Log Out"
+    link=""
+    icon="logout"
   ></app-sidenav-button>
 </div>

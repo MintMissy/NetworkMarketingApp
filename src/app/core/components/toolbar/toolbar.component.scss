@@ -34,21 +34,3 @@
 .divider {
   margin-inline: auto;
 }
-
-.search {
-  display: none;
-
-  @media screen and (min-width: 500px) {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-    border-radius: 1rem;
-    border: none;
-    display: block;
-    width: 10rem;
-
-    &:hover,
-    &:focus {
-      outline: none;
-    }
-  }
-}

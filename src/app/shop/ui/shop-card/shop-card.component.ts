@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { Shop } from '../../model/store.model';
+import { Shop } from '../../model/shop.model';
 
 @Component({
   selector: 'app-shop-card',

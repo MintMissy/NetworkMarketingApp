@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
+import { AuthServiceService } from 'src/app/auth/data-access/auth-service.service';
+
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -8,6 +10,12 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
 })
 export class SidenavComponent {
   @Output() buttonClick = new EventEmitter<void>();
+
+  constructor(private authService: AuthServiceService) {}
+
+  isUserLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
 
   onButtonClick() {
     this.buttonClick.emit();
