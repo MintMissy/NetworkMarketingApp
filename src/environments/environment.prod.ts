@@ -9,5 +9,6 @@ export const environment = {
     messagingSenderId: '730426565183',
     measurementId: 'G-WBH28XDMEZ',
   },
-  production: true
+  production: true,
+  endpointUrl: 'https://networkmarketingapp-5d6ae-default-rtdb.firebaseio.com/',
 };
