@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
-import { AuthServiceService } from 'src/app/auth/data-access/auth-service.service';
+import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,10 +11,10 @@ import { AuthServiceService } from 'src/app/auth/data-access/auth-service.servic
 export class SidenavComponent {
   @Output() buttonClick = new EventEmitter<void>();
 
-  constructor(private authService: AuthServiceService) {}
+  constructor(private _authService: AuthenticationService) {}
 
   isUserLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
+    return this._authService.isLoggedIn();
   }
 
   onButtonClick() {

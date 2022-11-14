@@ -8,12 +8,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class BusinessService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private _httpClient: HttpClient) {}
 
   getBusiness(id: string) {}
 
   getBusinesses(): Observable<Business[]> {
-    return this.httpClient.get<Business[]>(environment.endpointUrl + 'businesses.json');
+    return this._httpClient.get<Business[]>(environment.endpointUrl + 'businesses.json');
   }
 
   addBusiness(business: Business) {}

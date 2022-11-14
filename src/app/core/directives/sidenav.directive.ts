@@ -8,7 +8,7 @@ export class SidenavDirective implements OnInit {
   @Input() drawerContainer!: MatDrawerContainer;
   @Input() drawer!: MatDrawer;
   @Input() sidenavHideScreenWidth!: number;
-  private innerWidth: number = 0;
+  private _innerWidth: number = 0;
 
   constructor() {}
 
@@ -23,12 +23,12 @@ export class SidenavDirective implements OnInit {
   }
 
   private setInnerWidth(newWidth: number): void {
-    this.innerWidth = newWidth;
+    this._innerWidth = newWidth;
     this.updateElementView();
   }
 
   private updateElementView(): void {
-    if (this.innerWidth < this.sidenavHideScreenWidth) {
+    if (this._innerWidth < this.sidenavHideScreenWidth) {
       this.drawer.mode = 'over';
       this.drawer.close();
       this.drawerContainer.hasBackdrop = true;

@@ -20,9 +20,9 @@ import { Observable } from 'rxjs';
 export class BusinessesComponent implements OnInit {
   businesses!: Observable<Business[]>;
 
-  constructor(private businessService: BusinessService) {}
+  constructor(private _businessService: BusinessService) {}
 
   ngOnInit(): void {
-    this.businesses = this.businessService.getBusinesses();
+    this.businesses = this._businessService.getBusinesses();
   }
 }

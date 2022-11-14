@@ -1,19 +1,25 @@
-<form class="card">
+<form class="card" [formGroup]="signUpForm" (submit)="signUp()">
   <div class="card-content">
     <h1>Sign Up</h1>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="Email" value="" type="email" />
+      <input matInput placeholder="Email" value="" type="email" formControlName="email" />
       <mat-icon matPrefix>mail</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput placeholder="Password" value="" type="password" />
+      <input matInput placeholder="Password" value="" type="password" formControlName="password" />
       <mat-icon matPrefix>lock</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Repeat Password</mat-label>
-      <input matInput placeholder="Repeat Password" value="" type="password" />
+      <input
+        matInput
+        placeholder="Repeat Password"
+        value=""
+        type="password"
+        formControlName="repeatedPassword"
+      />
       <mat-icon matPrefix>lock</mat-icon>
     </mat-form-field>
     <button mat-raised-button color="primary" type="button" class="auth-button">Sign Up</button>

@@ -8,16 +8,16 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ProductService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private _httpClient: HttpClient) {}
 
   getProduct(id: string): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(environment.endpointUrl + 'products.json');
+    return this._httpClient.get<Product[]>(environment.endpointUrl + 'products.json');
   }
 
   getProducts() {}
 
   addProduct(product: Product) {
-    return this.httpClient.post(environment.endpointUrl + 'products.json', product);
+    return this._httpClient.post(environment.endpointUrl + 'products.json', product);
   }
 
   updateProduct(product: Product) {}

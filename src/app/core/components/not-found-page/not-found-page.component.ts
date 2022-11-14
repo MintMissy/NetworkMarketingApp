@@ -13,11 +13,11 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotFoundPageComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private _router: Router) {}
 
   ngOnInit(): void {}
 
   moveToHomepage() {
-    this.router.navigate(['/']);
+    this._router.navigate(['/']);
   }
 }
