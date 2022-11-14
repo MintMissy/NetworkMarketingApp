@@ -14,15 +14,23 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        loadComponent: () =>
-          import('./feature/businessman/businessman.component').then((c) => c.BusinessmanComponent),
-      },
-      {
-        path: ':id/edit',
-        loadComponent: () =>
-          import('./feature/edit-businessman/edit-businessman.component').then(
-            (c) => c.EditBusinessManComponent
-          ),
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            loadComponent: () =>
+              import('./feature/businessman/businessman.component').then(
+                (c) => c.BusinessmanComponent
+              ),
+          },
+          {
+            path: 'edit',
+            loadComponent: () =>
+              import('./feature/edit-businessman/edit-businessman.component').then(
+                (c) => c.EditBusinessManComponent
+              ),
+          },
+        ],
       },
     ],
   },

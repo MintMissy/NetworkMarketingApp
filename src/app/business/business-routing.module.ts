@@ -21,15 +21,21 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        loadComponent: () =>
-          import('./feature/business/business.component').then((c) => c.BusinessComponent),
-      },
-      {
-        path: ':id/edit',
-        loadComponent: () =>
-          import('./feature/edit-business/edit-business.component').then(
-            (c) => c.EditBusinessComponent
-          ),
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            loadComponent: () =>
+              import('./feature/business/business.component').then((c) => c.BusinessComponent),
+          },
+          {
+            path: 'edit',
+            loadComponent: () =>
+              import('./feature/edit-business/edit-business.component').then(
+                (c) => c.EditBusinessComponent
+              ),
+          },
+        ],
       },
     ],
   },
