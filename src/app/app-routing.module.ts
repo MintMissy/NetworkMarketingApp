@@ -19,9 +19,7 @@ const routes: Routes = [
   {
     path: 'businessman',
     loadChildren: () =>
-      import('./business-owner/business-owner-routing.module').then(
-        (m) => m.BusinessOwnerRoutingModule
-      ),
+      import('./businessman/businessman-routing.module').then((m) => m.BusinessmanRoutingModule),
   },
   {
     path: 'configuration',
