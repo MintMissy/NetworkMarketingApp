@@ -10,6 +10,7 @@ export interface ProductDetails {
   description: string;
   image: string;
   price: number;
+  bannerUrl: string;
 }
 
 export interface SaleStatistics {
