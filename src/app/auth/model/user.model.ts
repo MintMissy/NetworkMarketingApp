@@ -1,10 +1,15 @@
 export class User {
-  // kind:string;
-  // idToken:string;
-  // email:string;
-  // refreshToken:string;
-  // expiresIn: number;
-  // localId: string;
+  constructor(
+    public email: string,
+    public localId: string,
+    private _token: string,
+    private _expirationDate: Date
+  ) {}
 
-  constructor() {}
+  get token() {
+    if (new Date() > this._expirationDate) {
+      return null;
+    }
+    return this._token;
+  }
 }

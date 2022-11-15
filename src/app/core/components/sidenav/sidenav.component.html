@@ -27,7 +27,7 @@
   ></app-sidenav-button>
 </div>
 <!-- My Businesses -->
-<div class="buttons-group" *ngIf="isUserLoggedIn()">
+<div class="buttons-group" *ngIf="isUserLoggedIn">
   <h2>My Businesses</h2>
   <app-sidenav-button
     (click)="onButtonClick()"
@@ -63,7 +63,7 @@
   ></app-sidenav-button>
 </div>
 <!-- Session (user is logged out) -->
-<div class="buttons-group" *ngIf="!isUserLoggedIn()">
+<div class="buttons-group" *ngIf="!isUserLoggedIn">
   <h2>Session</h2>
   <app-sidenav-button
     (click)="onButtonClick()"
@@ -78,12 +78,10 @@
     icon="editnote"
   ></app-sidenav-button>
 </div>
-<!-- Session (user is logged in) -->
-<!-- TODO implement logout -->
-<div class="buttons-group" *ngIf="isUserLoggedIn()">
+<div class="buttons-group" *ngIf="isUserLoggedIn">
   <h2>Session</h2>
   <app-sidenav-button
-    (click)="onButtonClick()"
+    (click)="onLogoutButtonClick()"
     text="Log Out"
     link=""
     icon="logout"

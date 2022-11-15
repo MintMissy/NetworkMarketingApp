@@ -1,8 +1,9 @@
-import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 import { AccountData } from '../model/account-data.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AuthProvider } from '@angular/fire/auth';
 import { AuthResponseData } from '../model/auth-response-data.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -13,7 +14,7 @@ import { User } from '../model/user.model';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  user = new BehaviorSubject<User | null>(null);
+  userSubject = new BehaviorSubject<User | null>(null);
 
   constructor(
     private _angularFireAuth: AngularFireAuth,
@@ -22,7 +23,7 @@ export class AuthenticationService {
   ) {}
 
   isLoggedIn(): boolean {
-    return this.user.getValue() != null;
+    return this.userSubject.getValue() != null;
   }
 
   emailLogin(accountData: AccountData): Observable<AuthResponseData> {
@@ -36,7 +37,19 @@ export class AuthenticationService {
         'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB9LF0rwuGOtws-ybfEryLCE3CBvyzj510',
         requestBody
       )
-      .pipe(catchError(this.mapResponseErrorToMessage));
+      .pipe(catchError(this.convertResponseErrorToMessage), tap(this.handleUserChange.bind(this)));
+  }
+
+  handleUserChange(response: AuthResponseData): void {
+    const user = new User(
+      response.email,
+      response.localId,
+      response.idToken,
+      new Date(new Date().getTime() + +response.expiresIn * 1000)
+    );
+
+    this.userSubject.next(user);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   googleLogin() {
@@ -51,18 +64,25 @@ export class AuthenticationService {
     return this.authLogin(new GithubAuthProvider());
   }
 
-  authLogin(provider: any) {
+  private authLogin(provider: AuthProvider) {
     return this._angularFireAuth
       .signInWithPopup(provider)
-      .then((result) => {
+      .then((response) => {
         console.log('successful login');
+        console.log(response);
+
+        // TODO handle getting information from other requests
+        // this.handleUserChange(response.credential).bind(this);
         this._router.navigate(['']);
       })
-      .catch((errorResponse) => this.mapResponseErrorToMessage(errorResponse));
+      .catch((errorResponse) => this.convertResponseErrorToMessage(errorResponse));
   }
 
   logout(): void {
-    this._angularFireAuth.signOut();
+    this._angularFireAuth.signOut().then(() => {});
+    this._router.navigate(['']);
+    this.userSubject.next(null);
+    localStorage.removeItem('user');
   }
 
   createAccount(newAccountData: AccountData): Observable<AuthResponseData> {
@@ -76,10 +96,10 @@ export class AuthenticationService {
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB9LF0rwuGOtws-ybfEryLCE3CBvyzj510',
         requestBody
       )
-      .pipe(catchError(this.mapResponseErrorToMessage));
+      .pipe(catchError(this.convertResponseErrorToMessage), tap(this.handleUserChange.bind(this)));
   }
 
-  mapResponseErrorToMessage(errorResponse: any): Observable<never> {
+  convertResponseErrorToMessage(errorResponse: any): Observable<never> {
     if (!errorResponse.error || !errorResponse.error.error) {
       return throwError(() => new Error('UNKNOWN_ERROR'));
     }
