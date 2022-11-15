@@ -2,5 +2,5 @@
   <h1>{{ title }}</h1>
   <app-product-details-form></app-product-details-form>
   <app-product-sale-statistics></app-product-sale-statistics>
-  <app-form-actions></app-form-actions>
+  <app-form-actions (submit)="onSubmit()"></app-form-actions>
 </form>

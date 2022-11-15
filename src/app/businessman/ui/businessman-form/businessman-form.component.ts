@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { AddressFormComponent } from 'src/app/core/components/address-form/address-form.component';
 import { CommonModule } from '@angular/common';
@@ -15,13 +16,44 @@ import { PersonDetailsFormComponent } from '../person-details-form/person-detail
     AddressFormComponent,
     ContactDetailsFormComponent,
     FormActionsComponent,
+    ReactiveFormsModule
   ],
   templateUrl: './businessman-form.component.html',
   styleUrls: ['./businessman-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BusinessmanFormComponent implements OnInit {
-  constructor() {}
+  @Input() title: string = 'Default Title';
+  businessmanForm!: FormGroup;
 
-  ngOnInit(): void {}
+  constructor(private _formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.businessmanForm = this.getForm();
+  }
+
+  onSubmit() {
+    const value = this.businessmanForm.value;
+  }
+
+  private getForm(): FormGroup<any> {
+    return this._formBuilder.group({
+      details: this._formBuilder.group({
+        firstName: [''],
+        surname: [''],
+        avatar: [''],
+      }),
+      address: this._formBuilder.group({
+        country: [''],
+        city: [''],
+        street: [''],
+        localNumber: [''],
+        postalCode: [''],
+      }),
+      contactDetails: this._formBuilder.group({
+        email: [''],
+        telephone: [0],
+      }),
+    });
+  }
 }

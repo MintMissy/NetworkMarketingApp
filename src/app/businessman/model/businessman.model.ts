@@ -4,8 +4,8 @@ import { ContactDetails } from 'src/app/core/models/contact-details.model';
 export interface Businessman {
   id?: string;
   details: PersonDetails;
-  contactDetails: ContactDetails;
   address: Address;
+  contactDetails: ContactDetails;
   ownedBusinesses: string[];
 }
 

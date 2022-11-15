@@ -13,7 +13,5 @@ import { MatInputModule } from '@angular/material/input';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonDetailsFormComponent implements OnInit {
-  constructor() {}
-
   ngOnInit(): void {}
 }

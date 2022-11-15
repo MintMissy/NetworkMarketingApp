@@ -38,13 +38,10 @@ export class BusinessFormComponent implements OnInit {
 
   onSubmit() {
     const value = this.businessForm.value;
-    this.businessService.addBusiness(value).subscribe((data) => {});
   }
 
   private getForm(): FormGroup<any> {
     return this._formBuilder.group({
-      parentBusinessId: [''],
-      shopId: [''],
       details: this._formBuilder.group({
         companyName: [''],
         description: [''],

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { FormActionsComponent } from 'src/app/core/components/form-actions/form-actions.component';
-import { Product } from '../../model/product.model';
 import { ProductDetailsFormComponent } from '../product-details-form/product-details-form.component';
 import { ProductSaleStatisticsComponent } from '../product-sale-statistics/product-sale-statistics.component';
 
@@ -14,6 +14,7 @@ import { ProductSaleStatisticsComponent } from '../product-sale-statistics/produ
     FormActionsComponent,
     ProductDetailsFormComponent,
     ProductSaleStatisticsComponent,
+    ReactiveFormsModule,
   ],
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss'],
@@ -21,9 +22,31 @@ import { ProductSaleStatisticsComponent } from '../product-sale-statistics/produ
 })
 export class ProductFormComponent implements OnInit {
   @Input() title: string = 'Default Title';
-  @Input() product!: Product;
+  productForm!: FormGroup;
 
-  constructor() {}
+  constructor(private _formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productForm = this.getForm();
+  }
+
+  onSubmit() {
+    const value = this.productForm.value;
+  }
+
+  private getForm(): FormGroup<any> {
+    return this._formBuilder.group({
+      details: this._formBuilder.group({
+        name: [''],
+        description: [''],
+        image: [''],
+        price: [0],
+        bannerUrl: [''],
+      }),
+      saleStatistics: this._formBuilder.group({
+        amountInStorage: [0],
+        soldAmount: [0],
+      }),
+    });
+  }
 }

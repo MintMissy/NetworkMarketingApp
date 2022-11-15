@@ -1,7 +1,7 @@
 export interface Shop {
   id: number;
   businessId: number;
-  shopDetails: ShopDetails;
+  details: ShopDetails;
   productIds: string[];
 }
 
