@@ -11,11 +11,20 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   sidenavHideScreenWidth = 700;
-
+  isUserLoggedIn = false;
   constructor(private _authService: AuthenticationService) {}
 
   ngOnInit(): void {
-    this._authService.autoLogin()
+    this._authService.autoLogin();
+
+    this._authService.userSubject.subscribe((newUser) => {
+      if (newUser == null) {
+        this.isUserLoggedIn = false;
+        return;
+      }
+
+      this.isUserLoggedIn = true;
+    });
   }
 
   toggleSidenav() {
@@ -24,6 +33,10 @@ export class AppComponent implements OnInit {
     } else {
       this.sidenav.open();
     }
+  }
+
+  onLogOut(): void {
+    this._authService.logout();
   }
 
   onSidenavButtonClick() {

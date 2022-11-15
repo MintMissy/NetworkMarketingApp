@@ -10,7 +10,11 @@
   >
     <mat-drawer #sidenav mode="side" opened="true">
       <nav>
-        <app-sidenav (buttonClick)="onSidenavButtonClick()"></app-sidenav>
+        <app-sidenav
+          (buttonClick)="onSidenavButtonClick()"
+          (logoutButtonClick)="onLogOut()"
+          [isUserLoggedIn]="isUserLoggedIn"
+        ></app-sidenav>
       </nav>
     </mat-drawer>
     <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>

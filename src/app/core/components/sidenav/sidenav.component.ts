@@ -1,6 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
-
-import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,28 +6,16 @@ import { AuthenticationService } from 'src/app/auth/data-access/authentication.s
   styleUrls: ['./sidenav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent {
   @Output() buttonClick = new EventEmitter<void>();
-  isUserLoggedIn: boolean = false;
-
-  // TODO move logic to smart component
-  constructor(private _authService: AuthenticationService) {}
-
-  ngOnInit(): void {
-    this._authService.userSubject.subscribe((newUser) => {
-      if (newUser == null) {
-        this.isUserLoggedIn = false;
-        return;
-      }
-      this.isUserLoggedIn = true;
-    });
-  }
+  @Output() logoutButtonClick = new EventEmitter<void>();
+  @Input() isUserLoggedIn: boolean = false;
 
   onButtonClick() {
     this.buttonClick.emit();
   }
 
   onLogoutButtonClick() {
-    this._authService.logout();
+    this.logoutButtonClick.emit();
   }
 }
