@@ -12,7 +12,7 @@ export class ProductEffects {
     return this.actions$.pipe(
       ofType(ProductActions.loadProduct),
       mergeMap((action) => {
-        return this.productService.getProduct(action.productId).pipe(
+        return this.productService.getProduct(action.id).pipe(
           map((product) => {
             return ProductActions.addProduct({ product: product });
           })

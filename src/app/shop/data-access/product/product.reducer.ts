@@ -13,7 +13,7 @@ export const productsInitialState = productsAdapter.getInitialState();
 
 export const productsReducer = createReducer(
   productsInitialState,
-  on(ProductActions.addProduct, (state, { product }) => {
+  on(ProductActions.addProduct, ProductActions.insertProductSuccess, (state, { product }) => {
     return productsAdapter.addOne(product, state);
   }),
   on(ProductActions.addProducts, (state, { products }) => {

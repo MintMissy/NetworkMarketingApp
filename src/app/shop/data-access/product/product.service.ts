@@ -14,7 +14,7 @@ export class ProductService {
     return this._httpClient.get<Product>(environment.endpointUrl + `products/${id}`);
   }
 
-  getProducts() {
+  getProducts(): Observable<Product[]> {
     return this._httpClient.get<Product[]>(environment.endpointUrl + 'products.json');
   }
 
