@@ -14,7 +14,5 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('test');
-  }
+  ngOnInit(): void {}
 }

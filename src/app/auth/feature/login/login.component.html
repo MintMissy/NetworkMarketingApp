@@ -4,6 +4,10 @@
     <mat-form-field appearance="outline" *ngIf="{ control: loginForm.controls['email'] } as email">
       <mat-label>Email</mat-label>
       <input matInput placeholder="Email" type="email" formControlName="email" />
+      <mat-error class="error-container">
+        <span *ngIf="email.control.hasError('required')">Email is required</span>
+        <span *ngIf="email.control.hasError('email')">Email is invalid</span>
+      </mat-error>
       <mat-icon
         matPrefix
         appInvalidInputIcon
@@ -24,6 +28,14 @@
         autocomplete="on"
         formControlName="password"
       />
+      <mat-error class="error-container">
+        <span *ngIf="password.control.hasError('required')">Password is required</span>
+        <span *ngIf="password.control.hasError('minlength')">Password is too short</span>
+        <span *ngIf="password.control.hasError('maxlength')">Password is too long</span>
+        <span *ngIf="password.control.hasError('pattern')"
+          >Password must contain at least 1 number and letter</span
+        >
+      </mat-error>
       <mat-icon
         matPrefix
         appInvalidInputIcon
@@ -39,6 +51,7 @@
       >
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit" class="auth-button">Login</button>
+    <mat-error class="form-response-error">{{ errorMessage }}</mat-error>
     <p class="media-auth-description">or login using</p>
     <app-media-list
       class="media-auth"

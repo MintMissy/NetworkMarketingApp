@@ -1,8 +1,4 @@
-export interface ExistingAccountData {
-  name: string;
+export interface AccountData {
+  email: string;
   password: string;
-}
-
-export interface NewAccountData extends ExistingAccountData {
-  repeatPassword: string;
 }

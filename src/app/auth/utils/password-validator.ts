@@ -14,8 +14,8 @@ export function getPasswordValidators() {
   ];
 }
 
-export function passwordsMatchValidator(group: AbstractControl): ValidationErrors | null {
-  const password = group.get('password');
-  const repeatedPassword = group.get('repeatPassword');
-  return password === repeatedPassword ? null : { notSame: true };
+export function createMatchValidator(form: AbstractControl): ValidationErrors | null {
+  const password = form.get('password')?.value;
+  const repeatedPassword = form.get('repeatedPassword')?.value;
+  return password == repeatedPassword ? null : { nomatch: true };
 }
