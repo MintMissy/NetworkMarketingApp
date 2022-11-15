@@ -15,6 +15,7 @@ import { User } from '../model/user.model';
 })
 export class AuthenticationService {
   userSubject = new BehaviorSubject<User | null>(null);
+  autoLogOutTimeout!: NodeJS.Timeout;
 
   constructor(
     private _angularFireAuth: AngularFireAuth,
@@ -40,6 +41,41 @@ export class AuthenticationService {
       .pipe(catchError(this.convertResponseErrorToMessage), tap(this.handleUserChange.bind(this)));
   }
 
+  autoLogin() {
+    const data = localStorage.getItem('user');
+    if (data == null) {
+      return;
+    }
+
+    const userData: {
+      email: string;
+      _localId: string;
+      _token: string;
+      _expirationDate: string;
+    } = JSON.parse(data);
+
+    const user = new User(
+      userData.email,
+      userData._localId,
+      userData._token,
+      new Date(userData._expirationDate)
+    );
+
+    if (user.token) {
+      this.userSubject.next(user);
+    }
+
+    const date = new Date().getTime();
+    const expirationDate = new Date(userData._expirationDate).getTime();
+    this.autoLogOut((expirationDate - date) / 1000);
+  }
+
+  autoLogOut(expirationDate: number) {
+    this.autoLogOutTimeout = setTimeout(() => {
+      this.logout();
+    }, expirationDate * 1000);
+  }
+
   handleUserChange(response: AuthResponseData): void {
     const user = new User(
       response.email,
@@ -50,6 +86,7 @@ export class AuthenticationService {
 
     this.userSubject.next(user);
     localStorage.setItem('user', JSON.stringify(user));
+    this.autoLogOut(+response.expiresIn * 1000);
   }
 
   googleLogin() {
@@ -83,6 +120,10 @@ export class AuthenticationService {
     this._router.navigate(['']);
     this.userSubject.next(null);
     localStorage.removeItem('user');
+
+    if (this.autoLogOutTimeout) {
+      clearTimeout(this.autoLogOutTimeout);
+    }
   }
 
   createAccount(newAccountData: AccountData): Observable<AuthResponseData> {

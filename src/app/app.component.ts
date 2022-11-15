@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
+import { AuthenticationService } from './auth/data-access/authentication.service';
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -11,9 +12,11 @@ export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   sidenavHideScreenWidth = 700;
 
-  constructor() {}
+  constructor(private _authService: AuthenticationService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._authService.autoLogin()
+  }
 
   toggleSidenav() {
     if (this.sidenav.opened) {
