@@ -1,12 +1,13 @@
-import { BusinessOwnerService } from './business-owner.service';
 import { TestBed } from '@angular/core/testing';
 
-describe('BusinessOwnerService', () => {
-  let service: BusinessOwnerService;
+import { BusinessmanService } from './businessman.service';
+
+describe('BusinessmanService', () => {
+  let service: BusinessmanService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BusinessOwnerService);
+    service = TestBed.inject(BusinessmanService);
   });
 
   it('should be created', () => {
