@@ -17,5 +17,15 @@ export class FormActionsComponent implements OnInit {
 
   constructor() {}
 
+  onSubmitClick(event: Event) {
+    event.preventDefault();
+    this.submit.emit();
+  }
+
+  onDiscardClick(event: Event) {
+    event.preventDefault();
+    this.discard.emit();
+  }
+
   ngOnInit(): void {}
 }

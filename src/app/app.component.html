@@ -13,7 +13,7 @@
         <app-sidenav
           (buttonClick)="onSidenavButtonClick()"
           (logoutButtonClick)="onLogOut()"
-          [isUserLoggedIn]="isUserLoggedIn"
+          [isUserLoggedIn]="!!(isUserLoggedIn | async)"
         ></app-sidenav>
       </nav>
     </mat-drawer>

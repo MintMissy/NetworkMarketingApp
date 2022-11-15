@@ -16,7 +16,9 @@ export class BusinessService {
     return this._httpClient.get<Business[]>(environment.endpointUrl + 'businesses.json');
   }
 
-  addBusiness(business: Business) {}
+  addBusiness(business: Business) {
+    return this._httpClient.post(environment.endpointUrl + 'businesses.json', business);
+  }
 
   updateBusiness(business: Business) {}
 }

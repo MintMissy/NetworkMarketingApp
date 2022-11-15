@@ -1,4 +1,4 @@
-<button mat-raised-button type="submit" color="primary" (click)="submit.emit()">
+<button mat-raised-button type="submit" color="primary" (click)="onSubmitClick($event)">
   Save Changes
 </button>
-<button mat-raised-button class="discard-button" (click)="discard.emit()">Discard</button>
+<button mat-raised-button class="discard-button" (click)="onDiscardClick($event)">Discard</button>

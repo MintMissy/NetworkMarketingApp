@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import {
@@ -20,7 +14,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MediaListComponent } from '../../ui/media-list/media-list.component';
-import { Subscription } from 'rxjs';
 import { errorToTranslateString } from '../../utils/error-message-parser';
 
 @Component({
@@ -41,11 +34,10 @@ import { errorToTranslateString } from '../../utils/error-message-parser';
   styleUrls: ['../auth-form-styles.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignUpComponent implements OnInit, OnDestroy {
+export class SignUpComponent implements OnInit {
   signUpForm!: FormGroup;
   errorMessage: string = '';
   showLoadingSpinner: boolean = false;
-  private subscription!: Subscription;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -58,45 +50,38 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.buildForm();
   }
 
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
   signUp() {
     if (!this.signUpForm.valid) {
       return;
     }
 
     this.showLoadingSpinner = true;
-
-    const observer = {
-      next: (response: any) => {
-        this.showLoadingSpinner = false;
-        this.errorMessage = '';
-        this._router.navigate(['auth', 'login']);
-      },
-      error: (errorMessage: string) => {
-        this.showLoadingSpinner = false;
-        this.errorMessage = errorToTranslateString(errorMessage);
-        this._changeDetectorRef.detectChanges();
-      },
-    };
-
-    this.subscription = this._authService.createAccount(this.signUpForm.value).subscribe(observer);
+    this.handleRequest(this._authService.createAccount(this.signUpForm.value));
   }
 
   googleSignUp() {
-    return this._authService.googleLogin();
+    this.handleRequest(this._authService.googleLogin());
   }
 
   facebookSignUp() {
-    return this._authService.facebookLogin();
+    this.handleRequest(this._authService.facebookLogin());
   }
 
   githubSignUp() {
-    return this._authService.githubLogin();
+    this.handleRequest(this._authService.githubLogin());
+  }
+
+  handleRequest(promise: Promise<any>) {
+    promise
+      .then((response: any) => {
+        this.showLoadingSpinner = false;
+        this.errorMessage = '';
+      })
+      .catch((errorMessage: string) => {
+        this.showLoadingSpinner = false;
+        this.errorMessage = errorToTranslateString(errorMessage);
+        this._changeDetectorRef.detectChanges();
+      });
   }
 
   buildForm(): void {

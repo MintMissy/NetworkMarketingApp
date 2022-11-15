@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { AuthenticationService } from './auth/data-access/authentication.service';
+import { BehaviorSubject } from 'rxjs';
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -11,20 +12,11 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   sidenavHideScreenWidth = 700;
-  isUserLoggedIn = false;
+  isUserLoggedIn!: BehaviorSubject<boolean>;
   constructor(private _authService: AuthenticationService) {}
 
   ngOnInit(): void {
-    this._authService.autoLogin();
-
-    this._authService.userSubject.subscribe((newUser) => {
-      if (newUser == null) {
-        this.isUserLoggedIn = false;
-        return;
-      }
-
-      this.isUserLoggedIn = true;
-    });
+    this.isUserLoggedIn = this._authService.isLoggedIn$;
   }
 
   toggleSidenav() {

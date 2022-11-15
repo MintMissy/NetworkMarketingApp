@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 
@@ -16,7 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MediaListComponent } from '../../ui/media-list/media-list.component';
-import { Subscription } from 'rxjs';
 import { errorToTranslateString } from '../../utils/error-message-parser';
 import { getPasswordValidators } from '../../utils/password-validator';
 
@@ -38,11 +31,10 @@ import { getPasswordValidators } from '../../utils/password-validator';
   styleUrls: ['../auth-form-styles.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage: string = '';
   showLoadingSpinner: boolean = false;
-  private subscription!: Subscription;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -55,46 +47,39 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginForm = this.buildForm();
   }
 
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
   login() {
     if (!this.loginForm.valid) {
       return;
     }
 
     this.showLoadingSpinner = true;
-
-    const observer = {
-      next: (response: any) => {
-        this.showLoadingSpinner = false;
-        this.errorMessage = '';
-        this._router.navigate(['']);
-      },
-      error: (errorResponse: Error) => {
-        // this.openedDialog.close();
-        this.showLoadingSpinner = false;
-        this.errorMessage = errorToTranslateString(errorResponse.message);
-        this._changeDetectorRef.detectChanges();
-      },
-    };
-
-    this.subscription = this._authService.emailLogin(this.loginForm.value).subscribe(observer);
+    this.handleRequest(this._authService.emailLogin(this.loginForm.value));
   }
 
   googleLogin() {
-    return this._authService.googleLogin();
+    this.handleRequest(this._authService.googleLogin());
   }
 
   facebookLogin() {
-    return this._authService.facebookLogin();
+    this.handleRequest(this._authService.facebookLogin());
   }
 
   githubLogin() {
-    return this._authService.githubLogin();
+    this.handleRequest(this._authService.githubLogin());
+  }
+
+  handleRequest(promise: Promise<any>) {
+    promise
+      .then((response: any) => {
+        this.showLoadingSpinner = false;
+        this.errorMessage = '';
+        this._router.navigate(['']);
+      })
+      .catch((errorResponse: Error) => {
+        this.showLoadingSpinner = false;
+        this.errorMessage = errorToTranslateString(errorResponse.message);
+        this._changeDetectorRef.detectChanges();
+      });
   }
 
   buildForm(): FormGroup {
