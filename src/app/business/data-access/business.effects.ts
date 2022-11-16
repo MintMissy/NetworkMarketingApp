@@ -1,10 +1,10 @@
-import * as BusinessActions from './business.actions'
+import * as BusinessActions from './business.actions';
 
-import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, map, mergeMap, of } from "rxjs";
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, map, mergeMap, of } from 'rxjs';
 
-import { BusinessService } from "./business.service";
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import { BusinessService } from './business.service';
 
 @Injectable()
 export class BusinessEffects {

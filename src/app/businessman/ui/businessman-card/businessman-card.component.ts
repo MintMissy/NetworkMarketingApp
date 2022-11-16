@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
-import { Businessman } from '../../model/businessman.model';
 import { CommonModule } from '@angular/common';
+import { Businessman } from '../../model/businessman.model';
 
 @Component({
   selector: 'app-businessman-card',

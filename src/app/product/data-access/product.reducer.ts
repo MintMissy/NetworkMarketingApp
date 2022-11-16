@@ -1,6 +1,6 @@
 import * as ProductActions from './product.actions';
 
-import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
 import { Product } from '../model/product.model';

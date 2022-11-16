@@ -6,9 +6,9 @@ import {
   UrlTree,
 } from '@angular/router';
 
-import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 
 @Injectable({
   providedIn: 'root',

@@ -33,7 +33,7 @@ const routes: Routes = [
             path: 'edit',
             loadComponent: () =>
               import('./feature/edit-shop/edit-shop.component').then((c) => c.EditShopComponent),
-              canActivate: [OwnedShopGuard]
+            canActivate: [OwnedShopGuard],
           },
           {
             path: 'products',

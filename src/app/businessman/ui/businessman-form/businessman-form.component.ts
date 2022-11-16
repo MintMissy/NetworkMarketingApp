@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { AddressFormComponent } from 'src/app/core/components/forms/address-form/address-form.component';
 import { CommonModule } from '@angular/common';
+import { AddressFormComponent } from 'src/app/core/components/forms/address-form/address-form.component';
 import { ContactDetailsFormComponent } from 'src/app/core/components/forms/contact-details-form/contact-details-form.component';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
 import { PersonDetailsFormComponent } from '../person-details-form/person-details-form.component';

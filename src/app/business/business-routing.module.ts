@@ -1,8 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 
+import { NgModule } from '@angular/core';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { ExistingBusinessGuard } from './guard/existing-business.guard';
-import { NgModule } from '@angular/core';
 import { OwnedBusinessGuard } from './guard/owned-business.guard';
 
 const routes: Routes = [

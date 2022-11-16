@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { AuthenticationService } from './auth/data-access/authentication.service';
-import { BehaviorSubject } from 'rxjs';
 import { MatSidenav } from '@angular/material/sidenav';
+import { BehaviorSubject } from 'rxjs';
+import { AuthenticationService } from './auth/data-access/authentication.service';
 
 @Component({
   selector: 'app-root',

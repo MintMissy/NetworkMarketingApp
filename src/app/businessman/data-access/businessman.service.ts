@@ -1,11 +1,11 @@
-import { Businessman } from '../model/businessman.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Businessman } from '../model/businessman.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BusinessmanService {
   constructor(private _httpClient: HttpClient) {}
@@ -23,7 +23,10 @@ export class BusinessmanService {
   }
 
   updateBusinessman(businessman: Businessman) {
-    return this._httpClient.put(environment.endpointUrl + `businessmen/${businessman.id}`, businessman);
+    return this._httpClient.put(
+      environment.endpointUrl + `businessmen/${businessman.id}`,
+      businessman
+    );
   }
 
   deleteBusinessman(id: string) {

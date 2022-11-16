@@ -27,7 +27,15 @@ export const deleteShopSuccess = createAction(
   props<{ id: string }>()
 );
 export const deleteShopFailed = createAction('[Shops] Delete Shop Failed', props<{ id: string }>());
-export function addProduct(addProduct: any, arg1: (state: any, { product }: { product: any; }) => any): import("@ngrx/store").ReducerTypes<import("@ngrx/entity").EntityState<Shop>, readonly import("@ngrx/store").ActionCreator<string, import("@ngrx/store").Creator<any[], object>>[]> {
-    throw new Error('Function not implemented.');
+export function addProduct(
+  addProduct: any,
+  arg1: (state: any, { product }: { product: any }) => any
+): import('@ngrx/store').ReducerTypes<
+  import('@ngrx/entity').EntityState<Shop>,
+  readonly import('@ngrx/store').ActionCreator<
+    string,
+    import('@ngrx/store').Creator<any[], object>
+  >[]
+> {
+  throw new Error('Function not implemented.');
 }
-

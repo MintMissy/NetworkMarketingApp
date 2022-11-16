@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { CardComponent } from 'src/app/core/components/card/card.component';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
 import { RouterModule } from '@angular/router';
+import { Observable } from 'rxjs';
+import { CardComponent } from 'src/app/core/components/card/card.component';
 import { Shop } from '../../model/shop.model';
 import { ShopCardComponent } from '../../ui/shop-card/shop-card.component';
 

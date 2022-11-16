@@ -1,6 +1,6 @@
 import * as BusinessmanActions from './businessman.actions';
 
-import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
 import { Businessman } from '../model/businessman.model';

@@ -1,6 +1,6 @@
 import * as BusinessActions from './business.actions';
 
-import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
 import { Business } from '../model/business.model';

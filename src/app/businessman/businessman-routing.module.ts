@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { ExistingBusinessmanGuard } from './guard/existing-businessman.guard';
 import { NgModule } from '@angular/core';
+import { ExistingBusinessmanGuard } from './guard/existing-businessman.guard';
 import { UserProfileGuard } from './guard/user-profile.guard';
 
 const routes: Routes = [

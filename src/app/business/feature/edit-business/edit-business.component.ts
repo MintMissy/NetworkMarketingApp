@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { BusinessFormComponent } from '../../ui/business-form/business-form.component';
 import { CommonModule } from '@angular/common';
+import { BusinessFormComponent } from '../../ui/business-form/business-form.component';
 
 @Component({
   selector: 'app-edit-business',

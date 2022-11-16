@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { AddressFormComponent } from 'src/app/core/components/forms/address-form/address-form.component';
-import { BusinessDetailsComponent } from '../business-details/business-details.component';
-import { BusinessService } from '../../data-access/business.service';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { AddressFormComponent } from 'src/app/core/components/forms/address-form/address-form.component';
 import { ContactDetailsFormComponent } from 'src/app/core/components/forms/contact-details-form/contact-details-form.component';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
-import { MatButtonModule } from '@angular/material/button';
+import { BusinessService } from '../../data-access/business.service';
+import { BusinessDetailsComponent } from '../business-details/business-details.component';
 
 @Component({
   selector: 'app-business-form',

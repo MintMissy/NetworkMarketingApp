@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { CardComponent } from 'src/app/core/components/card/card.component';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CardComponent } from 'src/app/core/components/card/card.component';
 import { Product } from '../../model/product.model';
 import { ProductCardComponent } from '../../ui/product-card/product-card.component';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsComponent implements OnInit {
-  products!: Observable<Product[]>
+  products!: Observable<Product[]>;
 
   constructor() {}
 

@@ -9,13 +9,10 @@ import { ProductFormComponent } from '../../ui/product-form/product-form.compone
   imports: [CommonModule, ProductFormComponent],
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditProductComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

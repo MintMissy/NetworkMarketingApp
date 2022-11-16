@@ -1,13 +1,13 @@
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { AuthProvider, User } from '@angular/fire/auth';
-import { BehaviorSubject, Observable, first, map } from 'rxjs';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { BehaviorSubject, first, map, Observable } from 'rxjs';
 
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FirebaseUserResponse } from '../model/firebase-user-response.model';
 import { Injectable } from '@angular/core';
-import { LoginData } from '../model/login-data.model';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { FirebaseUserResponse } from '../model/firebase-user-response.model';
+import { LoginData } from '../model/login-data.model';
 
 @Injectable({
   providedIn: 'root',

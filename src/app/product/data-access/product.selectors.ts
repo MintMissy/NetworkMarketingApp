@@ -7,10 +7,7 @@ export const PRODUCTS_STATE_NAME = 'products';
 export const selectProductsState =
   createFeatureSelector<fromProducts.ProductsState>(PRODUCTS_STATE_NAME);
 
-export const selectProductIds = createSelector(
-  selectProductsState,
-  fromProducts.selectProductIds
-);
+export const selectProductIds = createSelector(selectProductsState, fromProducts.selectProductIds);
 
 export const selectProductEntities = createSelector(
   selectProductsState,

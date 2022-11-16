@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { BusinessFormComponent } from '../../ui/business-form/business-form.component';
 import { CommonModule } from '@angular/common';
+import { BusinessFormComponent } from '../../ui/business-form/business-form.component';
 
 @Component({
   selector: 'app-add-business',
@@ -9,13 +9,10 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, BusinessFormComponent],
   templateUrl: './add-business.component.html',
   styleUrls: ['./add-business.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddBusinessComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

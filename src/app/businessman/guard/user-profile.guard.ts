@@ -1,6 +1,6 @@
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Injectable, Injector } from '@angular/core';
-import { Observable, map, tap } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { map, Observable, tap } from 'rxjs';
 
 import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 import { BusinessmanGuard } from './businessman.guard';

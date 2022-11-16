@@ -1,16 +1,16 @@
 import {
-  BusinessmenState,
   businessmenReducer,
+  BusinessmenState,
 } from './businessman/data-access/businessman.reducer';
-import { ProductsState, productsReducer } from './product/data-access/product.reducer';
-import { ShopsState, shopsReducer } from './shop/data-access/shop.reducer';
+import { productsReducer, ProductsState } from './product/data-access/product.reducer';
+import { shopsReducer, ShopsState } from './shop/data-access/shop.reducer';
 
+import { businessesReducer } from './business/data-access/business.reducer';
 import { BUSINESSES_STATE_NAME } from './business/data-access/business.selectors';
-import { BUSINESSMEN_STATE_NAME } from './businessman/data-access/businessman.selectors';
 import { Business } from './business/model/business.model';
+import { BUSINESSMEN_STATE_NAME } from './businessman/data-access/businessman.selectors';
 import { PRODUCTS_STATE_NAME } from './product/data-access/product.selectors';
 import { SHOPS_STATE_NAME } from './shop/data-access/shop.selectors';
-import { businessesReducer } from './business/data-access/business.reducer';
 
 export interface AppState {
   [SHOPS_STATE_NAME]: ShopsState;

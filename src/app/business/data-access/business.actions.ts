@@ -5,7 +5,10 @@ import { Business } from '../model/business.model';
 export const loadBusiness = createAction('[Business] Load Business', props<{ id: string }>());
 export const loadBusinesses = createAction('[Business] Load Products');
 export const addBusiness = createAction('[Business] Add Business', props<{ business: Business }>());
-export const addBusinesses = createAction('[Business] Add Business', props<{ businesses: Business[] }>());
+export const addBusinesses = createAction(
+  '[Business] Add Business',
+  props<{ businesses: Business[] }>()
+);
 
 export const updateBusiness = createAction(
   '[Business] Update Business',
