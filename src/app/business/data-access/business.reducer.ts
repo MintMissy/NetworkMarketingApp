@@ -1,9 +1,9 @@
-import * as BusinessActions from './business.actions'
+import * as BusinessActions from './business.actions';
 
-import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
-import { createReducer, on } from "@ngrx/store";
+import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
+import { createReducer, on } from '@ngrx/store';
 
-import { Business } from "../model/business.model";
+import { Business } from '../model/business.model';
 
 export interface BusinessState extends EntityState<Business> {}
 
@@ -26,3 +26,9 @@ export const businessesReducer = createReducer(
     return businessesAdapter.removeOne(id, state);
   })
 );
+
+const { selectIds, selectEntities, selectAll, selectTotal } = businessesAdapter.getSelectors();
+export const selectBusinessIds = selectIds;
+export const selectBusinessEntities = selectEntities;
+export const selectAllBusinesses = selectAll;
+export const selectBusinessTotal = selectTotal;
