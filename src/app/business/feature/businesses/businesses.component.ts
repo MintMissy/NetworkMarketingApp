@@ -25,9 +25,5 @@ export class BusinessesComponent implements OnInit {
   ngOnInit(): void {
     this._store.dispatch(loadBusinesses());
     this.businesses$ = this._store.select(selectAllBusinesses);
-    this.businesses$.subscribe((businesses) => {
-      console.log('===========');
-      console.log(businesses);
-    });
   }
 }

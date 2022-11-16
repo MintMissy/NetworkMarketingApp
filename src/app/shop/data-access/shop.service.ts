@@ -1,8 +1,11 @@
+import { Observable, map } from 'rxjs';
+
+import { FirebasePostResponse } from 'src/app/core/model/firebase-post-response.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Shop } from '../model/shop.model';
+import { databaseGetObjectsAdapter } from 'src/app/core/util/get-list-utils';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,11 +18,16 @@ export class ShopService {
   }
 
   getShops(): Observable<Shop[]> {
-    return this._httpClient.get<Shop[]>(environment.endpointUrl + 'shops');
+    return this._httpClient
+      .get<{ [id: string]: Shop }>(environment.endpointUrl + 'shops')
+      .pipe(map((shop) => databaseGetObjectsAdapter(shop)));
   }
 
   insertShop(shop: Shop) {
-    return this._httpClient.post(environment.endpointUrl + `shops/${shop.id}`, shop);
+    return this._httpClient.post<FirebasePostResponse>(
+      environment.endpointUrl + `shops/${shop.id}`,
+      shop
+    );
   }
 
   updateShop(shop: Shop) {

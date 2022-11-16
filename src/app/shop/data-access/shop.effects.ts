@@ -40,9 +40,10 @@ export class ShopsEffects {
       ofType(ShopActions.insertShop),
       mergeMap((action) => {
         return this.shopService.insertShop(action.shop).pipe(
-          map(() => {
+          map((response) => {
             this.redirect();
-            return ShopActions.insertShopSuccess({ shop: action.shop });
+            const clonedShop = { ...action.shop, id: response.name };
+            return ShopActions.insertShopSuccess({ shop: clonedShop });
           }),
           catchError(() => of(ShopActions.insertShopFailed({ shop: action.shop })))
         );
