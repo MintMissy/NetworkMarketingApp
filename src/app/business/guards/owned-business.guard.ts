@@ -4,7 +4,7 @@ import { Observable, map, mergeMap, tap } from 'rxjs';
 
 import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 import { BusinessGuard } from './business.guard';
-import { getBusinessmanEntity } from 'src/app/businessman/data-access/businessman.selectors';
+import { selectBusinessmanEntity } from 'src/app/businessman/data-access/businessman.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +24,7 @@ export class OwnedBusinessGuard extends BusinessGuard implements CanActivate {
 
     const userId = this._authService.getUserData().uid;
     const userOwnedBusinesses = this.store
-      .select(getBusinessmanEntity(userId))
+      .select(selectBusinessmanEntity(userId))
       .pipe(map((user) => (user?.ownedBusinesses === undefined ? [] : user.ownedBusinesses)));
 
     return userOwnedBusinesses.pipe(

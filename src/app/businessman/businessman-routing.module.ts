@@ -1,6 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 
+import { ExistingBusinessmanGuard } from './guards/existing-businessman.guard';
 import { NgModule } from '@angular/core';
+import { UserProfileGuard } from './guards/user-profile.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +16,7 @@ const routes: Routes = [
       },
       {
         path: ':id',
+        canActivate: [ExistingBusinessmanGuard],
         children: [
           {
             path: '',
@@ -29,6 +32,7 @@ const routes: Routes = [
               import('./feature/edit-businessman/edit-businessman.component').then(
                 (c) => c.EditBusinessManComponent
               ),
+            canActivate: [UserProfileGuard],
           },
         ],
       },
