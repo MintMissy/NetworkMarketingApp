@@ -1,25 +1,34 @@
+import { Observable, map } from 'rxjs';
+
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Business } from '../model/business.model';
+import { FirebasePostResponse } from 'src/app/core/model/firebase-post-response.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { databaseGetObjectsAdapter } from 'src/app/core/util/get-list-utils';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BusinessService {
-  constructor(private _httpClient: HttpClient) {}
+  constructor(private _httpClient: HttpClient, private _database: AngularFirestore) {}
 
   getBusiness(id: string): Observable<Business> {
     return this._httpClient.get<Business>(environment.endpointUrl + `businesses/${id}`);
   }
 
   getBusinesses(): Observable<Business[]> {
-    return this._httpClient.get<Business[]>(environment.endpointUrl + 'businesses.json');
+    return this._httpClient
+      .get<{ [id: string]: Business }>(environment.endpointUrl + 'businesses.json')
+      .pipe(map((businesses) => databaseGetObjectsAdapter(businesses)));
   }
 
   insertBusiness(business: Business) {
-    return this._httpClient.post(environment.endpointUrl + 'businesses.json', business);
+    return this._httpClient.post<FirebasePostResponse>(
+      environment.endpointUrl + 'businesses.json',
+      business
+    );
   }
 
   updateBusiness(business: Business) {

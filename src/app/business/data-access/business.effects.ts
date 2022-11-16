@@ -38,11 +38,12 @@ export class BusinessEffects {
       ofType(BusinessActions.insertBusiness),
       mergeMap((action) => {
         return this.businessService.insertBusiness(action.business).pipe(
-          map(() => {
+          map((response) => {
             this.redirect();
-            return BusinessActions.insertBusinessSuccess({ business: action.business });
+            const clonedBusiness = { ...action.business, id: response.name };
+            return BusinessActions.insertBusinessSuccess({ business: clonedBusiness });
           }),
-          catchError(() => of(BusinessActions.insertBusiness({ business: action.business })))
+          catchError(() => of(BusinessActions.insertBusinessFailed({ business: action.business })))
         );
       })
     );
