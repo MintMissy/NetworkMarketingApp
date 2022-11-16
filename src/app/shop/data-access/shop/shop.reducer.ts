@@ -26,3 +26,9 @@ export const shopsReducer = createReducer(
     return shopsAdapter.removeOne(id, state);
   })
 );
+
+const { selectIds, selectEntities, selectAll, selectTotal } = shopsAdapter.getSelectors();
+export const selectShopIds = selectIds;
+export const selectShopsEntities = selectEntities;
+export const selectAllShops = selectAll;
+export const selectShopsTotal = selectTotal;

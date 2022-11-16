@@ -1,6 +1,6 @@
 export interface Shop {
-  id: number;
-  businessId: number;
+  id: String;
+  businessId: string;
   details: ShopDetails;
   productIds: string[];
 }
