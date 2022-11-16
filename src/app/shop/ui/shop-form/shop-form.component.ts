@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
-import { FormActionsComponent } from 'src/app/core/components/form-actions/form-actions.component';
+import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
 import { ShopDetailsFormComponent } from '../shop-details-form/shop-details-form.component';
 
 @Component({
@@ -33,7 +33,7 @@ export class ShopFormComponent implements OnInit {
         name: [''],
         description: [''],
         shopBanner: [''],
-      })
+      }),
     });
   }
 }

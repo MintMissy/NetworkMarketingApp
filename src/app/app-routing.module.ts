@@ -1,12 +1,13 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { CreditsComponent } from './credits/feature/credits/credits.component';
-import { HomeComponent } from './core/components/home/home.component';
+import { HomePageComponent } from './core/components/home-page/home-page.component';
 import { NgModule } from '@angular/core';
+import { NotAuthGuard } from './auth/guards/not-auth.guard';
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomePageComponent },
   {
     path: 'businesses',
     loadChildren: () =>
@@ -15,6 +16,7 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth-routing.module').then((m) => m.AuthRoutingModule),
+    canActivate: [NotAuthGuard]
   },
   {
     path: 'businessman',

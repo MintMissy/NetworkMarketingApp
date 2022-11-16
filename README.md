@@ -3,9 +3,9 @@
 - [ ] reusable component lists
 - [ ] forms
 - [ ] resolvers
-- [ ] services
-- [ ] ngrx
-- [ ] auth
+- [X] services
+- [X] ngrx
+- [X] auth
 - [ ] guards
 
 **Home Page**

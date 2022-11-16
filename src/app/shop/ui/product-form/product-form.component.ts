@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
-import { FormActionsComponent } from 'src/app/core/components/form-actions/form-actions.component';
+import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
 import { ProductDetailsFormComponent } from '../product-details-form/product-details-form.component';
 import { ProductSaleStatisticsComponent } from '../product-sale-statistics/product-sale-statistics.component';
 

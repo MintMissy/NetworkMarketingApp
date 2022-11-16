@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from '../auth/guards/auth.guard';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
           import('./feature/add-business/add-business.component').then(
             (c) => c.AddBusinessComponent
           ),
+        canActivate: [AuthGuard],
       },
       {
         path: ':id',
@@ -34,6 +36,7 @@ const routes: Routes = [
               import('./feature/edit-business/edit-business.component').then(
                 (c) => c.EditBusinessComponent
               ),
+            canActivate: [AuthGuard],
           },
         ],
       },
