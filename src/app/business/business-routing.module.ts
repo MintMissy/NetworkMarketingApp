@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { ExistingBusinessGuard } from './guard/existing-business.guard';
 import { OwnedBusinessGuard } from './guard/owned-business.guard';
+import { BusinessIdResolver } from './resolver/business-id.resolver';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       {
         path: ':id',
         canActivate: [ExistingBusinessGuard],
+        resolve: [BusinessIdResolver],
         children: [
           {
             path: '',
