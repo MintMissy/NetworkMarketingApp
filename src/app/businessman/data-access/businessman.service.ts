@@ -1,8 +1,11 @@
+import { Observable, map } from 'rxjs';
+
+import { Businessman } from '../model/businessman.model';
+import { FirebasePostResponse } from 'src/app/core/model/firebase-post-response.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { databaseGetObjectsAdapter } from 'src/app/core/util/get-list-utils';
 import { environment } from 'src/environments/environment';
-import { Businessman } from '../model/businessman.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,11 +18,16 @@ export class BusinessmanService {
   }
 
   getBusinessmen(): Observable<Businessman[]> {
-    return this._httpClient.get<Businessman[]>(environment.endpointUrl + 'businessmen.json');
+    return this._httpClient
+      .get<{ [id: string]: Businessman }>(environment.endpointUrl + 'businessmen.json')
+      .pipe(map((businessmen) => databaseGetObjectsAdapter(businessmen)));
   }
 
   insertBusinessman(businessman: Businessman) {
-    return this._httpClient.post(environment.endpointUrl + 'businessmen.json', businessman);
+    return this._httpClient.post<FirebasePostResponse>(
+      environment.endpointUrl + 'businessmen.json',
+      businessman
+    );
   }
 
   updateBusinessman(businessman: Businessman) {

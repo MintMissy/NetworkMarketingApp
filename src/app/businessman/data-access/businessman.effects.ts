@@ -40,9 +40,10 @@ export class BusinessmanEffects {
       ofType(BusinessmanActions.insertBusinessman),
       mergeMap((action) => {
         return this.businessmanService.insertBusinessman(action.businessman).pipe(
-          map(() => {
+          map((response) => {
             this.redirect();
-            return BusinessmanActions.insertBusinessmanSuccess({ businessman: action.businessman });
+            const clonedBusinessman = { ...action.businessman, id: response.name };
+            return BusinessmanActions.insertBusinessmanSuccess({ businessman: clonedBusinessman });
           }),
           catchError(() =>
             of(BusinessmanActions.insertBusinessmanFailed({ businessman: action.businessman }))
