@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ExistingBusinessmanGuard } from './guard/existing-businessman.guard';
 import { UserProfileGuard } from './guard/user-profile.guard';
+import { BusinessmanIdResolver } from './resolver/businessman-id.resolver';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       {
         path: ':id',
         canActivate: [ExistingBusinessmanGuard],
+        resolve: [BusinessmanIdResolver],
         children: [
           {
             path: '',
