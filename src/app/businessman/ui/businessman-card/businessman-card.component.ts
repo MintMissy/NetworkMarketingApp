@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
 import { Businessman } from '../../model/businessman.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-businessman-card',
@@ -12,7 +12,7 @@ import { Businessman } from '../../model/businessman.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BusinessmanCardComponent implements OnInit {
-  @Input() businessOwner!: Businessman;
+  @Input() businessman!: Businessman;
 
   constructor() {}
 

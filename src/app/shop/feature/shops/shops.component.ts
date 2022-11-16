@@ -1,24 +1,25 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { AppState } from 'src/app/app.state';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CardComponent } from 'src/app/core/components/card/card.component';
+import { RouterModule } from '@angular/router';
 import { Shop } from '../../model/shop.model';
-import { ShopCardComponent } from '../../ui/shop-card/shop-card.component';
+import { ShopsListComponent } from '../../ui/shops-list/shops-list.component';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-shops',
   standalone: true,
-  imports: [CommonModule, RouterModule, CardComponent, ShopCardComponent],
+  imports: [CommonModule, RouterModule, ShopsListComponent],
   templateUrl: './shops.component.html',
   styleUrls: ['./shops.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShopsComponent implements OnInit {
-  shops!: Observable<Shop[]>;
+  shops$!: Observable<Shop[]>;
 
-  constructor() {}
+  constructor(private _store: Store<AppState>) {}
 
   ngOnInit(): void {}
 }

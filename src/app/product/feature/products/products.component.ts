@@ -1,24 +1,27 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { AppState } from 'src/app/app.state';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CardComponent } from 'src/app/core/components/card/card.component';
 import { Product } from '../../model/product.model';
-import { ProductCardComponent } from '../../ui/product-card/product-card.component';
+import { ProductsListComponent } from '../../ui/products-list/products-list.component';
+import { RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, RouterModule, CardComponent, ProductCardComponent],
+  imports: [CommonModule, RouterModule, ProductsListComponent],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsComponent implements OnInit {
-  products!: Observable<Product[]>;
+  products$!: Observable<Product[]>;
 
-  constructor() {}
+  constructor(private _store: Store<AppState>) {
+    // this.products$ = this._store.select()
+  }
 
   ngOnInit(): void {}
 }
