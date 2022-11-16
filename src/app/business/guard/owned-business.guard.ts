@@ -1,10 +1,10 @@
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Injectable, Injector } from '@angular/core';
-import { Observable, map, mergeMap, tap } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { map, mergeMap, Observable, tap } from 'rxjs';
 
 import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
+import { selectBusinessmanBusinesses } from 'src/app/businessman/data-access/businessman.selectors';
 import { BusinessGuard } from './business.guard';
-import { selectBusinessmanEntity } from 'src/app/businessman/data-access/businessman.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -23,9 +23,7 @@ export class OwnedBusinessGuard extends BusinessGuard implements CanActivate {
     );
 
     const userId = this._authService.getUserData().uid;
-    const userOwnedBusinesses = this.store
-      .select(selectBusinessmanEntity(userId))
-      .pipe(map((user) => (user?.ownedBusinesses === undefined ? [] : user.ownedBusinesses)));
+    const userOwnedBusinesses = this.store.select(selectBusinessmanBusinesses(userId));
 
     return userOwnedBusinesses.pipe(
       mergeMap((businesses) =>

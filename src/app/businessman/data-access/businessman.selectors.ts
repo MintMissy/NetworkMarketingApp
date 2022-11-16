@@ -28,7 +28,18 @@ export const selectBusinessmanTotal = createSelector(
 );
 
 export const selectBusinessmanEntity = (id: string) => {
+  return createSelector(selectBusinessmanState, (state) => getBusinessman(state, id));
+};
+
+export const selectBusinessmanBusinesses = (id: string) => {
   return createSelector(selectBusinessmanState, (state) => {
-    return Object.values({ ...state.entities }).find((entity) => entity?.id == id);
+    const businessman = getBusinessman(state, id);
+    return businessman == undefined ? [] : businessman.ownedBusinesses;
   });
 };
+
+function getBusinessman(businessmenState: fromBusinessman.BusinessmenState, businessmanId: string) {
+  return Object.values({ ...businessmenState.entities }).find(
+    (entity) => entity?.id == businessmanId
+  );
+}

@@ -1,36 +1,36 @@
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
-import { AuthenticationService } from './auth/data-access/authentication.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
-import { BusinessEffects } from './business/data-access/business.effects';
-import { BusinessmanEffects } from './businessman/data-access/businessman.effects';
-import { EffectsModule } from '@ngrx/effects';
+import { NgModule } from '@angular/core';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
-import { FooterComponent } from './core/components/footer/footer.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgModule } from '@angular/core';
-import { ProductEffects } from './product/data-access/product.effects';
-import { ShopsEffects } from './shop/data-access/shop.effects';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { appReducer } from './app.state';
+import { AuthenticationService } from './auth/data-access/authentication.service';
+import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
+import { BusinessEffects } from './business/data-access/business.effects';
+import { BusinessmanEffects } from './businessman/data-access/businessman.effects';
+import { FooterComponent } from './core/components/footer/footer.component';
 import { SidenavButtonComponent } from './core/components/navigation/sidenav-button/sidenav-button.component';
 import { SidenavComponent } from './core/components/navigation/sidenav/sidenav.component';
-import { SidenavDirective } from './core/directives/sidenav.directive';
-import { StoreModule } from '@ngrx/store';
 import { ToolbarComponent } from './core/components/navigation/toolbar/toolbar.component';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { appReducer } from './app.state';
-import { environment } from '../environments/environment';
+import { SidenavDirective } from './core/directive/sidenav.directive';
+import { ProductEffects } from './product/data-access/product.effects';
+import { ShopsEffects } from './shop/data-access/shop.effects';
 
 @NgModule({
   declarations: [

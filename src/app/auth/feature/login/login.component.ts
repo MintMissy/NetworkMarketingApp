@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 
-import { AuthenticationService } from '../../data-access/authentication.service';
-import { ChangeInputTypeDirective } from 'src/app/core/directives/change-input-type.directive';
 import { CommonModule } from '@angular/common';
-import { InvalidInputIconDirective } from 'src/app/core/directives/invalid-input-icon.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { ChangeInputTypeDirective } from 'src/app/core/directive/change-input-type.directive';
+import { InvalidInputIconDirective } from 'src/app/core/directive/invalid-input-icon.directive';
+import { AuthenticationService } from '../../data-access/authentication.service';
 import { MediaListComponent } from '../../ui/media-list/media-list.component';
 import { errorToTranslateString } from '../../utils/error-message-parser';
 import { getPasswordValidators } from '../../utils/password-validator';

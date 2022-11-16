@@ -1,9 +1,9 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '../auth/guards/auth.guard';
-import { ExistingBusinessGuard } from './guards/existing-business.guard';
+import { ExistingBusinessGuard } from './guard/existing-business.guard';
 import { NgModule } from '@angular/core';
-import { OwnedBusinessGuard } from './guards/owned-business.guard';
+import { OwnedBusinessGuard } from './guard/owned-business.guard';
 
 const routes: Routes = [
   {

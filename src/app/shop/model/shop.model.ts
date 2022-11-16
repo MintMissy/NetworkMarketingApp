@@ -1,5 +1,5 @@
 export interface Shop {
-  id: String;
+  id: string;
   businessId: string;
   details: ShopDetails;
   productIds: string[];

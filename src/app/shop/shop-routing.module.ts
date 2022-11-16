@@ -1,6 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { NgModule } from '@angular/core';
+import { ExistingShopGuard } from './guard/existing-shop.guard';
+import { OwnedShopGuard } from './guard/owned-shop.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +21,7 @@ const routes: Routes = [
       },
       {
         path: ':shopId',
+        canActivate: [ExistingShopGuard],
         children: [
           {
             path: '',
@@ -30,6 +33,7 @@ const routes: Routes = [
             path: 'edit',
             loadComponent: () =>
               import('./feature/edit-shop/edit-shop.component').then((c) => c.EditShopComponent),
+              canActivate: [OwnedShopGuard]
           },
           {
             path: 'products',
