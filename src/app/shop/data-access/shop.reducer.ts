@@ -3,7 +3,7 @@ import * as ShopActions from './shop.actions';
 import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
-import { Shop } from '../../model/shop.model';
+import { Shop } from '../model/shop.model';
 
 export interface ShopsState extends EntityState<Shop> {}
 
