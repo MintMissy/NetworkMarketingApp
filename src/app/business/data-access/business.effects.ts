@@ -3,8 +3,9 @@ import * as BusinessActions from './business.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of } from 'rxjs';
 
-import { Injectable } from '@angular/core';
 import { BusinessService } from './business.service';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class BusinessEffects {
@@ -37,7 +38,10 @@ export class BusinessEffects {
       ofType(BusinessActions.insertBusiness),
       mergeMap((action) => {
         return this.businessService.insertBusiness(action.business).pipe(
-          map(() => BusinessActions.insertBusinessSuccess({ business: action.business })),
+          map(() => {
+            this.redirect();
+            return BusinessActions.insertBusinessSuccess({ business: action.business });
+          }),
           catchError(() => of(BusinessActions.insertBusiness({ business: action.business })))
         );
       })
@@ -47,7 +51,10 @@ export class BusinessEffects {
     ofType(BusinessActions.updateBusiness),
     mergeMap((action) => {
       return this.businessService.updateBusiness(action.business).pipe(
-        map(() => BusinessActions.updateBusinessSuccess({ business: action.business })),
+        map(() => {
+          this.redirect();
+          return BusinessActions.updateBusinessSuccess({ business: action.business });
+        }),
         catchError(() => of(BusinessActions.updateBusinessFailed({ business: action.business })))
       );
     })
@@ -56,11 +63,22 @@ export class BusinessEffects {
     ofType(BusinessActions.deleteBusiness),
     mergeMap((action) => {
       return this.businessService.deleteBusiness(action.id).pipe(
-        map(() => BusinessActions.deleteBusinessSuccess({ id: action.id })),
+        map(() => {
+          this.redirect();
+          return BusinessActions.deleteBusinessSuccess({ id: action.id });
+        }),
         catchError(() => of(BusinessActions.deleteBusinessFailed({ id: action.id })))
       );
     })
   );
 
-  constructor(private actions$: Actions, private businessService: BusinessService) {}
+  private redirect() {
+    this._router.navigate(['businesses', 'my']);
+  }
+
+  constructor(
+    private actions$: Actions,
+    private businessService: BusinessService,
+    private _router: Router
+  ) {}
 }

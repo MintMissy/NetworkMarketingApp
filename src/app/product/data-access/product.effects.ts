@@ -5,6 +5,7 @@ import { catchError, map, mergeMap, of } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 import { ProductService } from './product.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ProductEffects {
@@ -37,7 +38,10 @@ export class ProductEffects {
       ofType(ProductActions.insertProduct),
       mergeMap((action) => {
         return this.productService.insertProduct(action.product).pipe(
-          map(() => ProductActions.insertProductSuccess({ product: action.product })),
+          map(() => {
+            this.redirect();
+            return ProductActions.insertProductSuccess({ product: action.product });
+          }),
           catchError(() => of(ProductActions.insertProductFailed({ product: action.product })))
         );
       })
@@ -47,7 +51,10 @@ export class ProductEffects {
     ofType(ProductActions.updateProduct),
     mergeMap((action) => {
       return this.productService.updateProduct(action.product).pipe(
-        map(() => ProductActions.updateProductSuccess({ product: action.product })),
+        map(() => {
+          this.redirect();
+          return ProductActions.updateProductSuccess({ product: action.product });
+        }),
         catchError(() => of(ProductActions.updateProductFailed({ product: action.product })))
       );
     })
@@ -56,11 +63,22 @@ export class ProductEffects {
     ofType(ProductActions.deleteProduct),
     mergeMap((action) => {
       return this.productService.deleteProduct(action.id).pipe(
-        map(() => ProductActions.deleteProductSuccess({ id: action.id })),
+        map(() => {
+          this.redirect();
+          return ProductActions.deleteProductSuccess({ id: action.id });
+        }),
         catchError(() => of(ProductActions.deleteProductFailed({ id: action.id })))
       );
     })
   );
 
-  constructor(private actions$: Actions, private productService: ProductService) {}
+  private redirect() {
+    this._router.navigate(['..']);
+  }
+
+  constructor(
+    private actions$: Actions,
+    private productService: ProductService,
+    private _router: Router
+  ) {}
 }

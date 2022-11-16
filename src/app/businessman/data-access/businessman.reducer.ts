@@ -1,6 +1,6 @@
 import * as BusinessmanActions from './businessman.actions';
 
-import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
 import { Businessman } from '../model/businessman.model';
@@ -21,7 +21,7 @@ export const businessmenReducer = createReducer(
     }
   ),
   on(BusinessmanActions.addBusinessmen, (state, { businessmen }) => {
-    return businessmenAdapter.addMany(businessmen, state);
+    return businessmenAdapter.addMany(Object.values(businessmen), state);
   }),
   on(BusinessmanActions.updateBusinessmanSuccess, (state, { businessman }) => {
     return businessmenAdapter.upsertOne(businessman, state);

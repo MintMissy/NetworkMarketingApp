@@ -3,8 +3,9 @@ import * as BusinessmanActions from './businessman.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of } from 'rxjs';
 
-import { Injectable } from '@angular/core';
 import { BusinessmanService } from './businessman.service';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -39,9 +40,10 @@ export class BusinessmanEffects {
       ofType(BusinessmanActions.insertBusinessman),
       mergeMap((action) => {
         return this.businessmanService.insertBusinessman(action.businessman).pipe(
-          map(() =>
-            BusinessmanActions.insertBusinessmanSuccess({ businessman: action.businessman })
-          ),
+          map(() => {
+            this.redirect();
+            return BusinessmanActions.insertBusinessmanSuccess({ businessman: action.businessman });
+          }),
           catchError(() =>
             of(BusinessmanActions.insertBusinessmanFailed({ businessman: action.businessman }))
           )
@@ -53,7 +55,10 @@ export class BusinessmanEffects {
     ofType(BusinessmanActions.updateBusinessman),
     mergeMap((action) => {
       return this.businessmanService.updateBusinessman(action.businessman).pipe(
-        map(() => BusinessmanActions.updateBusinessmanSuccess({ businessman: action.businessman })),
+        map(() => {
+          this.redirect();
+          return BusinessmanActions.updateBusinessmanSuccess({ businessman: action.businessman });
+        }),
         catchError(() =>
           of(BusinessmanActions.updateBusinessmanFailed({ businessman: action.businessman }))
         )
@@ -64,11 +69,22 @@ export class BusinessmanEffects {
     ofType(BusinessmanActions.deleteBusinessman),
     mergeMap((action) => {
       return this.businessmanService.deleteBusinessman(action.id).pipe(
-        map(() => BusinessmanActions.deleteBusinessmanSuccess({ id: action.id })),
+        map(() => {
+          this.redirect();
+          return BusinessmanActions.deleteBusinessmanSuccess({ id: action.id });
+        }),
         catchError(() => of(BusinessmanActions.deleteBusinessmanFailed({ id: action.id })))
       );
     })
   );
 
-  constructor(private actions$: Actions, private businessmanService: BusinessmanService) {}
+  private redirect() {
+    this._router.navigate(['businesses', 'my']);
+  }
+
+  constructor(
+    private actions$: Actions,
+    private businessmanService: BusinessmanService,
+    private _router: Router
+  ) {}
 }

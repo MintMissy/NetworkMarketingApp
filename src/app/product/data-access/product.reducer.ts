@@ -1,6 +1,6 @@
 import * as ProductActions from './product.actions';
 
-import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
 import { Product } from '../model/product.model';
@@ -17,7 +17,7 @@ export const productsReducer = createReducer(
     return productsAdapter.addOne(product, state);
   }),
   on(ProductActions.addProducts, (state, { products }) => {
-    return productsAdapter.addMany(products, state);
+    return productsAdapter.addMany(Object.values(products), state);
   }),
   on(ProductActions.updateProductSuccess, (state, { product }) => {
     return productsAdapter.upsertOne(product, state);

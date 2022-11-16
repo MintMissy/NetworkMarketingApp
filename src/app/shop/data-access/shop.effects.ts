@@ -4,6 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of } from 'rxjs';
 
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ShopService } from './shop.service';
 
 @Injectable({
@@ -39,7 +40,10 @@ export class ShopsEffects {
       ofType(ShopActions.insertShop),
       mergeMap((action) => {
         return this.shopService.insertShop(action.shop).pipe(
-          map(() => ShopActions.insertShopSuccess({ shop: action.shop })),
+          map(() => {
+            this.redirect();
+            return ShopActions.insertShopSuccess({ shop: action.shop });
+          }),
           catchError(() => of(ShopActions.insertShopFailed({ shop: action.shop })))
         );
       })
@@ -49,7 +53,10 @@ export class ShopsEffects {
     ofType(ShopActions.updateShop),
     mergeMap((action) => {
       return this.shopService.updateShop(action.shop).pipe(
-        map(() => ShopActions.updateShopSuccess({ shop: action.shop })),
+        map(() => {
+          this.redirect();
+          return ShopActions.updateShopSuccess({ shop: action.shop });
+        }),
         catchError(() => of(ShopActions.updateShopFailed({ shop: action.shop })))
       );
     })
@@ -58,11 +65,22 @@ export class ShopsEffects {
     ofType(ShopActions.deleteShop),
     mergeMap((action) => {
       return this.shopService.deleteShop(action.id).pipe(
-        map(() => ShopActions.deleteShopSuccess({ id: action.id })),
+        map(() => {
+          this.redirect();
+          return ShopActions.deleteShopSuccess({ id: action.id });
+        }),
         catchError(() => of(ShopActions.deleteShopFailed({ id: action.id })))
       );
     })
   );
 
-  constructor(private actions$: Actions, private shopService: ShopService) {}
+  private redirect() {
+    this._router.navigate(['shops', 'my']);
+  }
+
+  constructor(
+    private actions$: Actions,
+    private shopService: ShopService,
+    private _router: Router
+  ) {}
 }

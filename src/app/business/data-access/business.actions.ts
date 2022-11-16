@@ -6,7 +6,7 @@ export const loadBusiness = createAction('[Business] Load Business', props<{ id:
 export const loadBusinesses = createAction('[Business] Load Products');
 export const addBusiness = createAction('[Business] Add Business', props<{ business: Business }>());
 export const addBusinesses = createAction(
-  '[Business] Add Business',
+  '[Business] Add Businesses',
   props<{ businesses: Business[] }>()
 );
 
