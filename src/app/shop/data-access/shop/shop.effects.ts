@@ -9,7 +9,7 @@ import { ShopService } from './shop.service';
 @Injectable({
   providedIn: 'root',
 })
-export class NameEffects {
+export class ShopsEffects {
   loadShop$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(ShopActions.loadShop),
