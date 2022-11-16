@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { OwnedShopGuard } from '../shop/guard/owned-shop.guard';
 import { ExistingProductGuard } from './guard/existing-product.guard';
+import { ProductIdResolver } from './resolver/product-id.resolver';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   {
     path: ':productId',
     canActivate: [ExistingProductGuard],
+    resolve: [ProductIdResolver],
     children: [
       {
         path: '',
