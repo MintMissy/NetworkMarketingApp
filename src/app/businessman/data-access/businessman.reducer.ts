@@ -30,3 +30,9 @@ export const businessmenReducer = createReducer(
     return businessmenAdapter.removeOne(id, state);
   })
 );
+
+const { selectIds, selectEntities, selectAll, selectTotal } = businessmenAdapter.getSelectors();
+export const selectBusinessmanIds = selectIds;
+export const selectBusinessmanEntities = selectEntities;
+export const selectAllBusinessmen = selectAll;
+export const selectBusinessmanTotal = selectTotal;
