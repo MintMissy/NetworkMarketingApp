@@ -1,19 +1,19 @@
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AuthProvider, User } from '@angular/fire/auth';
 import { BehaviorSubject, Observable, first, map } from 'rxjs';
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
-import { AccountData } from '../model/account-data.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AuthProvider } from '@angular/fire/auth';
-import { FirebaseUser } from '../model/user.model';
+import { FirebaseUserResponse } from '../model/firebase-user-response.model';
 import { Injectable } from '@angular/core';
+import { LoginData } from '../model/login-data.model';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private userData: any;
+  private userData!: User;
   private credentialData: any;
   isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
@@ -24,6 +24,7 @@ export class AuthenticationService {
   ) {
     this._angularFireAuth.authState.subscribe((user) => {
       if (user) {
+        // @ts-ignore
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
@@ -40,7 +41,7 @@ export class AuthenticationService {
     return this.credentialData;
   }
 
-  getUserData() {
+  getUserData(): User {
     return this.userData;
   }
 
@@ -51,7 +52,7 @@ export class AuthenticationService {
     );
   }
 
-  createAccount(newAccountData: AccountData) {
+  createAccount(newAccountData: LoginData) {
     return this._angularFireAuth.setPersistence('local').then(() => {
       return this._angularFireAuth
         .createUserWithEmailAndPassword(newAccountData.email, newAccountData.password)
@@ -67,7 +68,7 @@ export class AuthenticationService {
     this._router.navigate(['']);
   }
 
-  emailLogin(accountData: AccountData) {
+  emailLogin(accountData: LoginData) {
     return this._angularFireAuth.setPersistence('local').then(() => {
       return this._angularFireAuth
         .signInWithEmailAndPassword(accountData.email, accountData.password)
@@ -84,7 +85,7 @@ export class AuthenticationService {
 
   setUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this._angularFireStore.doc(`users/${user.uid}`);
-    const userData: FirebaseUser = {
+    const userData: FirebaseUserResponse = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,

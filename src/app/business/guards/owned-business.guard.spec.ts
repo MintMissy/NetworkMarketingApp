@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EditBusinessGuard } from './edit-business.guard';
+import { OwnedBusinessGuard } from './owned-business.guard';
 
-describe('EditBusinessGuard', () => {
-  let guard: EditBusinessGuard;
+describe('OwnedBusinessGuard', () => {
+  let guard: OwnedBusinessGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(EditBusinessGuard);
+    guard = TestBed.inject(OwnedBusinessGuard);
   });
 
   it('should be created', () => {

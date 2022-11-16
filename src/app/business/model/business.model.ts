@@ -5,6 +5,7 @@ import { ContactDetails } from 'src/app/core/models/contact-details.model';
 export interface Business {
   id?: string;
   parentBusinessId: string | null;
+  ownerId: string;
   shopId: string[];
   details: BusinessDetails;
   address: Address;

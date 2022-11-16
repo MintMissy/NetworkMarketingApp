@@ -27,7 +27,7 @@ export const selectBusinessTotal = createSelector(
   fromBusiness.selectBusinessTotal
 );
 
-export const getBusinessEntity = (id: string) => {
+export const selectBusinessEntity = (id: string) => {
   return createSelector(selectBusinessState, (state) => {
     return Object.values({ ...state.entities }).find((entity) => entity?.id == id);
   });
