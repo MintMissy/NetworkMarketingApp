@@ -1,9 +1,10 @@
-import { Injectable, Injector } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { map, mergeMap, Observable, tap } from 'rxjs';
+import { Injectable, Injector } from '@angular/core';
+import { Observable, map, mergeMap, tap } from 'rxjs';
+
 import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
-import { selectBusinessmanBusinesses } from 'src/app/businessman/data-access/businessman.selectors';
 import { ShopGuard } from './shop.guard';
+import { selectBusinessmanBusinesses } from 'src/app/businessman/data-access/businessman.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -17,10 +18,9 @@ export class OwnedShopGuard extends ShopGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const userData = this._authService.getUserData();
     const shopId = this.getSelectedShop().pipe(map((shop) => (shop === undefined ? '' : shop.id)));
 
-    const userId = this._authService.getUserData().uid;
+    const userId = this._authService.getUserId();
     const userOwnedShops = this.store.select(selectBusinessmanBusinesses(userId));
 
     return userOwnedShops.pipe(

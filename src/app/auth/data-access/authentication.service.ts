@@ -1,20 +1,20 @@
-import { AuthProvider, User } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AuthProvider, User } from '@angular/fire/auth';
+import { BehaviorSubject, Observable, first, map } from 'rxjs';
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import { BehaviorSubject, first, map, Observable } from 'rxjs';
 
-import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Router } from '@angular/router';
 import { FirebaseUserResponse } from '../model/firebase-user-response.model';
+import { Injectable } from '@angular/core';
 import { LoginData } from '../model/login-data.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private userData!: User;
   private credentialData: any;
+  userData$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
   isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
@@ -25,11 +25,12 @@ export class AuthenticationService {
     this._angularFireAuth.authState.subscribe((user) => {
       if (user) {
         // @ts-ignore
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
+        this.userData$.next(user);
+        localStorage.setItem('user', JSON.stringify(user));
         JSON.parse(localStorage.getItem('user')!);
         this.isLoggedIn$.next(true);
       } else {
+        this.userData$.next(null);
         localStorage.removeItem('user');
         JSON.parse(localStorage.getItem('user')!);
         this.isLoggedIn$.next(false);
@@ -37,12 +38,13 @@ export class AuthenticationService {
     });
   }
 
-  getCredentialData() {
-    return this.credentialData;
+  getUserId(): string {
+    const user = this.userData$.getValue();
+    return user === null ? '' : user.uid;
   }
 
-  getUserData(): User {
-    return this.userData;
+  getCredentialData() {
+    return this.credentialData;
   }
 
   isLoggedIn(): Observable<boolean> {

@@ -1,1 +1,3 @@
-export enum BusinessType {}
+export enum BusinessType {
+  UNSET,
+}

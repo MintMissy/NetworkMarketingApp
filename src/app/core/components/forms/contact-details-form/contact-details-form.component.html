@@ -1,14 +1,14 @@
-<div class="card card--padded card--form">
+<div class="card card--padded card--form" [formGroup]="contactGroup">
   <p>Contact</p>
   <div class="input-group">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="Email" value="" type="email" />
+      <input matInput placeholder="Email" value="" type="email" formControlName="email" />
       <mat-icon matPrefix>mail</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Phone Number</mat-label>
-      <input matInput placeholder="Phone Number" value="" type="tel" />
+      <input matInput placeholder="Phone Number" value="" type="tel" formControlName="telephone" />
       <mat-icon matPrefix>call</mat-icon>
     </mat-form-field>
   </div>

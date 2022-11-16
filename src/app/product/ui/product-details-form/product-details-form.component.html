@@ -1,14 +1,14 @@
-<div class="card card--padded card--form">
+<div class="card card--padded card--form" [formGroup]="productDetailsGroup">
   <p>Product Details</p>
   <div class="input-group">
     <mat-form-field appearance="outline">
       <mat-label>Product Name</mat-label>
-      <input matInput placeholder="Product Name" value="" type="string" />
+      <input matInput placeholder="Product Name" value="" type="string" formControlName="name" />
       <mat-icon matPrefix>edit</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Price</mat-label>
-      <input matInput placeholder="Price" value="" type="number" />
+      <input matInput placeholder="Price" value="" type="number" formControlName="price" />
       <mat-icon matPrefix>attach_money</mat-icon>
     </mat-form-field>
   </div>
@@ -21,11 +21,12 @@
       cdkAutosizeMaxRows="6"
       placeholder="Product Description"
       value=""
+      formControlName="description"
     ></textarea>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Banner Url</mat-label>
-    <input matInput placeholder="Banner Url" value="" type="string" />
+    <input matInput placeholder="Banner Url" value="" type="string" formControlName="image" />
     <mat-icon matPrefix>link</mat-icon>
   </mat-form-field>
   <!-- TODO banner preview -->

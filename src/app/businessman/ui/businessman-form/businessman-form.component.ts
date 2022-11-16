@@ -1,8 +1,16 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { CommonModule } from '@angular/common';
 import { AddressFormComponent } from 'src/app/core/components/forms/address-form/address-form.component';
+import { Businessman } from '../../model/businessman.model';
+import { CommonModule } from '@angular/common';
 import { ContactDetailsFormComponent } from 'src/app/core/components/forms/contact-details-form/contact-details-form.component';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
 import { PersonDetailsFormComponent } from '../person-details-form/person-details-form.component';
@@ -24,6 +32,9 @@ import { PersonDetailsFormComponent } from '../person-details-form/person-detail
 })
 export class BusinessmanFormComponent implements OnInit {
   @Input() title: string = 'Default Title';
+  @Input() businessman: Businessman = this.getDummyBusinessman();
+  @Output() submit = new EventEmitter<Businessman>();
+  @Output() discard = new EventEmitter<void>();
   businessmanForm!: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {}
@@ -32,28 +43,54 @@ export class BusinessmanFormComponent implements OnInit {
     this.businessmanForm = this.getForm();
   }
 
+  getFormGroup(name: string) {
+    return this.businessmanForm.get(name) as FormGroup;
+  }
+
   onSubmit() {
-    const value = this.businessmanForm.value;
+    this.submit.emit(this.businessmanForm.value);
   }
 
   private getForm(): FormGroup<any> {
     return this._formBuilder.group({
       details: this._formBuilder.group({
-        firstName: [''],
-        surname: [''],
-        avatar: [''],
+        firstName: [this.businessman.details.firstName],
+        surname: [this.businessman.details.surname],
+        avatar: [this.businessman.details.avatar],
       }),
       address: this._formBuilder.group({
-        country: [''],
-        city: [''],
-        street: [''],
-        localNumber: [''],
-        postalCode: [''],
+        country: [this.businessman.address.country],
+        city: [this.businessman.address.city],
+        street: [this.businessman.address.street],
+        localNumber: [this.businessman.address.localNumber],
+        postalCode: [this.businessman.address.postalCode],
       }),
       contactDetails: this._formBuilder.group({
-        email: [''],
-        telephone: [0],
+        email: [this.businessman.contactDetails.email],
+        telephone: [this.businessman.contactDetails.telephone],
       }),
     });
+  }
+
+  getDummyBusinessman(): Businessman {
+    return {
+      details: {
+        firstName: '',
+        surname: '',
+        avatar: '',
+      },
+      address: {
+        country: '',
+        city: '',
+        street: '',
+        localNumber: '',
+        postalCode: '',
+      },
+      contactDetails: {
+        email: '',
+        telephone: null,
+      },
+      ownedBusinesses: [],
+    };
   }
 }

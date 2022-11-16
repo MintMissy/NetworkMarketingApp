@@ -1,13 +1,22 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
 import { AddressFormComponent } from 'src/app/core/components/forms/address-form/address-form.component';
+import { Business } from '../../model/business.model';
+import { BusinessDetailsComponent } from '../business-details/business-details.component';
+import { BusinessService } from '../../data-access/business.service';
+import { BusinessType } from '../../model/business-type.enum';
+import { CommonModule } from '@angular/common';
 import { ContactDetailsFormComponent } from 'src/app/core/components/forms/contact-details-form/contact-details-form.component';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
-import { BusinessService } from '../../data-access/business.service';
-import { BusinessDetailsComponent } from '../business-details/business-details.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-business-form',
@@ -27,39 +36,76 @@ import { BusinessDetailsComponent } from '../business-details/business-details.c
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BusinessFormComponent implements OnInit {
+  @Output() submit = new EventEmitter<Business>();
+  @Output() discard = new EventEmitter<void>();
   @Input() title: string = 'Default Title';
+  @Input() business: Business = this.getDummyBusiness();
   businessForm!: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder, private businessService: BusinessService) {}
+  constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.businessForm = this.getForm();
   }
 
   onSubmit() {
-    const value = this.businessForm.value;
+    if (!this.businessForm.valid) {
+      return;
+    }
+
+    this.submit.emit(this.businessForm.value);
+  }
+
+  getFormGroup(name: string) {
+    return this.businessForm.get(name) as FormGroup;
   }
 
   private getForm(): FormGroup<any> {
     return this._formBuilder.group({
       details: this._formBuilder.group({
-        companyName: [''],
-        description: [''],
-        type: [''],
-        ownerId: [''],
-        backgroundImage: [''],
+        companyName: [this.business.details.companyName],
+        description: [this.business.details.description],
+        type: [this.business.details.type],
+        ownerId: [this.business.details.ownerId],
+        backgroundImage: [this.business.details.backgroundImage],
       }),
       address: this._formBuilder.group({
-        country: [''],
-        city: [''],
-        street: [''],
-        localNumber: [''],
-        postalCode: [''],
+        country: [this.business.address.country],
+        city: [this.business.address.city],
+        street: [this.business.address.street],
+        localNumber: [this.business.address.localNumber],
+        postalCode: [this.business.address.postalCode],
       }),
       contactDetails: this._formBuilder.group({
-        email: [''],
-        telephone: [0],
+        email: [this.business.contactDetails.email],
+        telephone: [this.business.contactDetails.telephone],
       }),
     });
+  }
+
+  getDummyBusiness(): Business {
+    return {
+      parentBusinessId: null,
+      ownerId: '',
+      shopIds: [],
+      details: {
+        companyName: '',
+        description: '',
+        type: BusinessType.UNSET,
+        ownerId: '',
+        backgroundImage: '',
+      },
+      address: {
+        country: '',
+        city: '',
+        street: '',
+        localNumber: '',
+        postalCode: '',
+      },
+      contactDetails: {
+        email: '',
+        telephone: null,
+      },
+    };
   }
 }

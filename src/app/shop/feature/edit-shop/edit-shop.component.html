@@ -1,1 +1,7 @@
-<app-shop-form title="Edit Shop"></app-shop-form>
+<app-shop-form
+  *ngIf="shop$ | async as shop"
+  title="Edit Shop"
+  (submit)="onSubmit($event)"
+  (discard)="onDiscard()"
+  [shop]="shop"
+></app-shop-form>

@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { MatSidenav } from '@angular/material/sidenav';
-import { BehaviorSubject } from 'rxjs';
 import { AuthenticationService } from './auth/data-access/authentication.service';
+import { BehaviorSubject } from 'rxjs';
+import { MatSidenav } from '@angular/material/sidenav';
+import { User } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +14,13 @@ export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   sidenavHideScreenWidth = 700;
   isUserLoggedIn!: BehaviorSubject<boolean>;
+  userData$!: BehaviorSubject<User | null>;
+
   constructor(private _authService: AuthenticationService) {}
 
   ngOnInit(): void {
     this.isUserLoggedIn = this._authService.isLoggedIn$;
+    this.userData$ = this._authService.userData$;
   }
 
   toggleSidenav() {

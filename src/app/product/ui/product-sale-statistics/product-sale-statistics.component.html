@@ -1,14 +1,26 @@
-<div class="card card--padded card--form">
+<div class="card card--padded card--form" [formGroup]="saleStatisticsGroup">
   <p>Storage and Statistics</p>
   <div class="input-group">
     <mat-form-field appearance="outline">
       <mat-label>Amount in Storage</mat-label>
-      <input matInput placeholder="Amount in Storage" value="" type="string" />
+      <input
+        matInput
+        placeholder="Amount in Storage"
+        value=""
+        type="string"
+        formControlName="amountInStorage"
+      />
       <mat-icon matPrefix>edit</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Sold Amount</mat-label>
-      <input matInput placeholder="Sold Amount" value="" type="number" />
+      <input
+        matInput
+        placeholder="Sold Amount"
+        value=""
+        type="number"
+        formControlName="soldAmount"
+      />
       <mat-icon matPrefix>attach_money</mat-icon>
     </mat-form-field>
   </div>

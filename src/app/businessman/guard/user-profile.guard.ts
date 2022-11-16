@@ -1,6 +1,6 @@
-import { Injectable, Injector } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { map, Observable, tap } from 'rxjs';
+import { Injectable, Injector } from '@angular/core';
+import { Observable, map, tap } from 'rxjs';
 
 import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 import { BusinessmanGuard } from './businessman.guard';
@@ -17,9 +17,9 @@ export class UserProfileGuard extends BusinessmanGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const userData = this._authService.getUserData();
+    const userId = this._authService.getUserId();
     return this.getSelectedBusinessman().pipe(
-      map((businessman) => businessman?.id === userData.uid),
+      map((businessman) => businessman?.id === userId),
       tap((value) => {
         if (!value) {
           this.redirectToBusinessmanPage();

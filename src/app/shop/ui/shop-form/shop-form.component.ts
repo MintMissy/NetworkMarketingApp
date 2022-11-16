@@ -1,8 +1,16 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
+import { Shop } from '../../model/shop.model';
 import { ShopDetailsFormComponent } from '../shop-details-form/shop-details-form.component';
 
 @Component({
@@ -14,6 +22,9 @@ import { ShopDetailsFormComponent } from '../shop-details-form/shop-details-form
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShopFormComponent implements OnInit {
+  @Output() submit = new EventEmitter<Shop>();
+  @Output() discard = new EventEmitter<void>();
+  @Input() shop: Shop = this.getDummyShop();
   @Input() title: string = 'Default Title';
   shopForm!: FormGroup;
 
@@ -24,7 +35,15 @@ export class ShopFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const value = this.shopForm.value;
+    if (!this.shopForm.valid) {
+      return;
+    }
+
+    this.submit.emit(this.shopForm.value);
+  }
+
+  getFormGroup(name: string) {
+    return this.shopForm.get(name) as FormGroup;
   }
 
   private getForm(): FormGroup<any> {
@@ -35,5 +54,18 @@ export class ShopFormComponent implements OnInit {
         shopBanner: [''],
       }),
     });
+  }
+
+  getDummyShop(): Shop {
+    return {
+      id: '',
+      businessId: '',
+      details: {
+        name: '',
+        description: '',
+        shopBanner: '',
+      },
+      productIds: [],
+    };
   }
 }

@@ -1,4 +1,4 @@
 export interface ContactDetails {
   email: string;
-  telephone: number;
+  telephone: number | null;
 }

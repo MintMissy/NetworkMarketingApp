@@ -1,1 +1,7 @@
-<app-business-form title="Edit Business"></app-business-form>
+<app-business-form
+  *ngIf="business$ | async as business"
+  title="Edit Business"
+  (submit)="onSubmit($event)"
+  (discard)="onDiscard()"
+  [business]="business"
+></app-business-form>

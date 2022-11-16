@@ -1,15 +1,22 @@
-<div class="card card--padded card--form">
+<div class="card card--padded card--form" [formGroup]="businessDetailsGroup">
   <p>Business Details</p>
   <mat-form-field appearance="outline">
     <mat-label>Company Name</mat-label>
-    <input matInput placeholder="Company Name" value="" type="string" />
+    <input
+      matInput
+      placeholder="Company Name"
+      value=""
+      type="string"
+      formControlName="companyName"
+    />
     <mat-icon matPrefix>edit</mat-icon>
   </mat-form-field>
   <div class="input-group">
     <mat-form-field appearance="outline" class="input-business-type">
       <mat-label>Business Type</mat-label>
       <mat-select placeholder="Business Type">
-        <!-- <mat-option *ngFor="let item of items" [value]="item.value">
+        // TODO add business types
+        <!-- <mat-option *ngFor="let item of items" [value]="item.value" formControlName="type">
           {{ item.viewValue }}
         </mat-option> -->
       </mat-select>
@@ -30,19 +37,28 @@
       cdkAutosizeMaxRows="6"
       placeholder="Company Description"
       value=""
+      formControlName="description"
     ></textarea>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Banner Url</mat-label>
-    <input matInput placeholder="Banner Url" value="" type="string" />
+    <input
+      matInput
+      placeholder="Banner Url"
+      value=""
+      type="string"
+      formControlName="backgroundImage"
+    />
     <mat-icon matPrefix>link</mat-icon>
   </mat-form-field>
   <!-- TODO banner preview -->
-  <p>Banner Preview</p>
-  <img
-    class="banner-preview"
-    src="https://images.unsplash.com/photo-1523800378286-dae1f0dae656?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1076&q=80"
-    alt=""
-    aria-hidden="true"
-  />
+  <ng-container *ngIf="businessDetailsGroup.get('backgroundImage')?.value">
+    <p>Banner Preview</p>
+    <img
+      class="banner-preview"
+      [src]="businessDetailsGroup.get('backgroundImage')?.value"
+      alt=""
+      aria-hidden="true"
+    />
+  </ng-container>
 </div>

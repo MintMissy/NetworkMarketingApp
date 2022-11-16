@@ -1,1 +1,5 @@
-<app-shop-form title="Create new Shop"></app-shop-form>
+<app-shop-form
+  title="Create new Shop"
+  (submit)="onSubmit($event)"
+  (discard)="onDiscard()"
+></app-shop-form>

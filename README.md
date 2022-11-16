@@ -2,7 +2,7 @@
 
 - [ ] reusable component lists
 - [ ] forms
-- [ ] resolvers
+- [x] resolvers
 - [x] services
 - [x] ngrx
 - [x] auth

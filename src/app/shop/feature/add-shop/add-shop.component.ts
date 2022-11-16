@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { AppState } from 'src/app/app.state';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { Shop } from '../../model/shop.model';
 import { ShopFormComponent } from '../../ui/shop-form/shop-form.component';
+import { Store } from '@ngrx/store';
+import { insertShop } from '../../data-access/shop.actions';
 
 @Component({
   selector: 'app-add-shop',
@@ -12,7 +17,15 @@ import { ShopFormComponent } from '../../ui/shop-form/shop-form.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddShopComponent implements OnInit {
-  constructor() {}
+  constructor(private _router: Router, private _store: Store<AppState>) {}
 
   ngOnInit(): void {}
+
+  onSubmit(shop: Shop) {
+    this._store.dispatch(insertShop({ shop: shop }));
+  }
+
+  onDiscard() {
+    this._router.navigate(['shops', 'my']);
+  }
 }

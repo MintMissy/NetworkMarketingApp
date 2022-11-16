@@ -51,6 +51,12 @@
     link="configuration/language"
     icon="language"
   ></app-sidenav-button>
+  <app-sidenav-button
+    (click)="onButtonClick()"
+    text="My Profile"
+    [link]="'businessmen/' + loggedInUser?.uid"
+    icon="person"
+  ></app-sidenav-button>
 </div>
 <!-- Information -->
 <div class="buttons-group">

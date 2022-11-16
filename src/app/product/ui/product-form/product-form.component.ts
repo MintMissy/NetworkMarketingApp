@@ -1,8 +1,16 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
+import { Product } from '../../model/product.model';
 import { ProductDetailsFormComponent } from '../product-details-form/product-details-form.component';
 import { ProductSaleStatisticsComponent } from '../product-sale-statistics/product-sale-statistics.component';
 
@@ -21,6 +29,9 @@ import { ProductSaleStatisticsComponent } from '../product-sale-statistics/produ
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductFormComponent implements OnInit {
+  @Output() submit = new EventEmitter<Product>();
+  @Output() discard = new EventEmitter<void>();
+  @Input() product: Product = getDummyProduct();
   @Input() title: string = 'Default Title';
   productForm!: FormGroup;
 
@@ -31,7 +42,15 @@ export class ProductFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const value = this.productForm.value;
+    if (!this.productForm.valid) {
+      return;
+    }
+
+    this.submit.emit(this.productForm.value);
+  }
+
+  getFormGroup(name: string) {
+    return this.productForm.get(name) as FormGroup;
   }
 
   private getForm(): FormGroup<any> {
@@ -41,7 +60,6 @@ export class ProductFormComponent implements OnInit {
         description: [''],
         image: [''],
         price: [0],
-        bannerUrl: [''],
       }),
       saleStatistics: this._formBuilder.group({
         amountInStorage: [0],
@@ -49,4 +67,19 @@ export class ProductFormComponent implements OnInit {
       }),
     });
   }
+}
+
+function getDummyProduct(): Product {
+  return {
+    details: {
+      name: '',
+      description: '',
+      image: '',
+      price: 0,
+    },
+    saleStatistics: {
+      amountInStorage: 0,
+      soldAmount: 0,
+    },
+  };
 }

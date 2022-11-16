@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
+import { User } from '@angular/fire/auth';
+
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -10,6 +12,7 @@ export class SidenavComponent {
   @Output() buttonClick = new EventEmitter<void>();
   @Output() logoutButtonClick = new EventEmitter<void>();
   @Input() isUserLoggedIn: boolean = false;
+  @Input() loggedInUser!: User | null;
 
   onButtonClick() {
     this.buttonClick.emit();

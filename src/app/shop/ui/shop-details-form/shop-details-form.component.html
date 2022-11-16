@@ -1,8 +1,8 @@
-<div class="card card--padded card--form">
+<div class="card card--padded card--form" [formGroup]="shopDetailsGroup">
   <p>Address</p>
   <mat-form-field appearance="outline">
     <mat-label>Name</mat-label>
-    <input matInput placeholder="Name" value="" type="string" />
+    <input matInput placeholder="Name" value="" type="string" formControlName="name" />
     <mat-icon matPrefix>edit</mat-icon>
   </mat-form-field>
   <mat-form-field appearance="outline">
@@ -14,11 +14,12 @@
       cdkAutosizeMaxRows="6"
       placeholder="Company Description"
       value=""
+      formControlName="description"
     ></textarea>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Banner Url</mat-label>
-    <input matInput placeholder="Banner Url" value="" type="string" />
+    <input matInput placeholder="Banner Url" value="" type="string" formControlName="shopBanner" />
     <mat-icon matPrefix>link</mat-icon>
   </mat-form-field>
   <p>Banner Preview</p>

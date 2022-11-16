@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,12 +8,14 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-contact-details-form',
   standalone: true,
-  imports: [CommonModule, MatInputModule, MatIconModule],
+  imports: [CommonModule, MatInputModule, MatIconModule, ReactiveFormsModule],
   templateUrl: './contact-details-form.component.html',
   styleUrls: ['./contact-details-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactDetailsFormComponent implements OnInit {
+  @Input() contactGroup!: FormGroup;
+
   constructor() {}
 
   ngOnInit(): void {}

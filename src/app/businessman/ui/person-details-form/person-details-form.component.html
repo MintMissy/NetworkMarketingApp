@@ -1,19 +1,19 @@
-<div class="card card--padded card--form">
+<div class="card card--padded card--form" [formGroup]="personDetailsGroup">
   <p>Person Details</p>
   <div class="input-group">
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
-      <input matInput placeholder="First Name" value="" type="string" />
+      <input matInput placeholder="First Name" value="" type="string" formControlName="firstName" />
       <mat-icon matPrefix>person</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Surname</mat-label>
-      <input matInput placeholder="Surname" value="" type="surnmae" />
+      <input matInput placeholder="Surname" value="" type="surnmae" formControlName="surname" />
     </mat-form-field>
   </div>
   <mat-form-field appearance="outline">
     <mat-label>Avatar Url</mat-label>
-    <input matInput placeholder="Avatar Url" value="" type="string" />
+    <input matInput placeholder="Avatar Url" value="" type="string" formControlName="avatar" />
     <mat-icon matPrefix>link</mat-icon>
   </mat-form-field>
   <p>Avatar Preview</p>
