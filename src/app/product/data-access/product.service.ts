@@ -1,8 +1,11 @@
+import { Observable, map } from 'rxjs';
+
+import { FirebasePostResponse } from 'src/app/core/model/firebase-post-response.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Product } from '../model/product.model';
+import { databaseGetObjectsAdapter } from 'src/app/core/util/get-list-utils';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,11 +18,16 @@ export class ProductService {
   }
 
   getProducts(): Observable<Product[]> {
-    return this._httpClient.get<Product[]>(environment.endpointUrl + 'products.json');
+    return this._httpClient
+      .get<{ [id: string]: Product }>(environment.endpointUrl + 'products.json')
+      .pipe(map((product) => databaseGetObjectsAdapter(product)));
   }
 
   insertProduct(product: Product) {
-    return this._httpClient.post(environment.endpointUrl + 'products.json', product);
+    return this._httpClient.post<FirebasePostResponse>(
+      environment.endpointUrl + 'products.json',
+      product
+    );
   }
 
   updateProduct(product: Product) {

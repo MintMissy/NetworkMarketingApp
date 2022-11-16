@@ -38,9 +38,10 @@ export class ProductEffects {
       ofType(ProductActions.insertProduct),
       mergeMap((action) => {
         return this.productService.insertProduct(action.product).pipe(
-          map(() => {
+          map((response) => {
             this.redirect();
-            return ProductActions.insertProductSuccess({ product: action.product });
+            const clonedProduct = { ...action.product, id: response.name };
+            return ProductActions.insertProductSuccess({ product: clonedProduct });
           }),
           catchError(() => of(ProductActions.insertProductFailed({ product: action.product })))
         );
