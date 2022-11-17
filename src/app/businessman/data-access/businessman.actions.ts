@@ -12,7 +12,7 @@ export const addBusinessman = createAction(
   props<{ businessman: Businessman }>()
 );
 export const addBusinessmen = createAction(
-  '[Businessman] Add Businessman',
+  '[Businessman] Add Businessmen',
   props<{ businessmen: Businessman[] }>()
 );
 

@@ -17,7 +17,10 @@ export class BusinessService {
   getBusinesses(): Observable<Business[]> {
     return this._httpClient
       .get<{ [id: string]: Business }>(environment.endpointUrl + 'businesses.json')
-      .pipe(map((businesses) => databaseGetObjectsAdapter(businesses)));
+      .pipe(
+        map((businesses) => (businesses !== undefined && businesses !== null ? businesses : {})),
+        map((businesses) => databaseGetObjectsAdapter(businesses))
+      );
   }
 
   insertBusiness(business: Business) {

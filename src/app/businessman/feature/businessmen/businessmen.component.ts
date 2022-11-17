@@ -20,7 +20,7 @@ import { selectAllBusinessmen } from '../../data-access/businessman.selectors';
   styleUrls: ['./businessmen.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BusinessMenComponent implements OnInit {
+export class BusinessmenComponent implements OnInit {
   businessmen$!: Observable<Businessman[]>;
   userData$!: Observable<User | null>;
 

@@ -19,7 +19,7 @@ const routes: Routes = [
     canActivate: [NotAuthGuard],
   },
   {
-    path: 'businessman',
+    path: 'businessmen',
     loadChildren: () =>
       import('./businessman/businessman-routing.module').then((m) => m.BusinessmanRoutingModule),
   },

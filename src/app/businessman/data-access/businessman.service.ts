@@ -20,7 +20,12 @@ export class BusinessmanService {
   getBusinessmen(): Observable<Businessman[]> {
     return this._httpClient
       .get<{ [id: string]: Businessman }>(environment.endpointUrl + 'businessmen.json')
-      .pipe(map((businessmen) => databaseGetObjectsAdapter(businessmen)));
+      .pipe(
+        map((businessmen) =>
+          businessmen !== undefined && businessmen !== null ? businessmen : {}
+        ),
+        map((businessmen) => databaseGetObjectsAdapter(businessmen))
+      );
   }
 
   insertBusinessman(businessman: Businessman) {
@@ -32,12 +37,12 @@ export class BusinessmanService {
 
   updateBusinessman(businessman: Businessman) {
     return this._httpClient.put(
-      environment.endpointUrl + `businessmen/${businessman.id}`,
+      environment.endpointUrl + `businessmen/${businessman.id}.json`,
       businessman
     );
   }
 
   deleteBusinessman(id: string) {
-    return this._httpClient.delete(environment.endpointUrl + `businessmen/${id}`);
+    return this._httpClient.delete(environment.endpointUrl + `businessmen/${id}.json`);
   }
 }

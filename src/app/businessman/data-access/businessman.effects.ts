@@ -52,32 +52,36 @@ export class BusinessmanEffects {
       })
     );
   });
-  updateBusinessman$ = this.actions$.pipe(
-    ofType(BusinessmanActions.updateBusinessman),
-    mergeMap((action) => {
-      return this.businessmanService.updateBusinessman(action.businessman).pipe(
-        map(() => {
-          this.redirect();
-          return BusinessmanActions.updateBusinessmanSuccess({ businessman: action.businessman });
-        }),
-        catchError(() =>
-          of(BusinessmanActions.updateBusinessmanFailed({ businessman: action.businessman }))
-        )
-      );
-    })
-  );
-  deleteBusinessman$ = this.actions$.pipe(
-    ofType(BusinessmanActions.deleteBusinessman),
-    mergeMap((action) => {
-      return this.businessmanService.deleteBusinessman(action.id).pipe(
-        map(() => {
-          this.redirect();
-          return BusinessmanActions.deleteBusinessmanSuccess({ id: action.id });
-        }),
-        catchError(() => of(BusinessmanActions.deleteBusinessmanFailed({ id: action.id })))
-      );
-    })
-  );
+  updateBusinessman$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(BusinessmanActions.updateBusinessman),
+      mergeMap((action) => {
+        return this.businessmanService.updateBusinessman(action.businessman).pipe(
+          map(() => {
+            this.redirect();
+            return BusinessmanActions.updateBusinessmanSuccess({ businessman: action.businessman });
+          }),
+          catchError(() =>
+            of(BusinessmanActions.updateBusinessmanFailed({ businessman: action.businessman }))
+          )
+        );
+      })
+    );
+  });
+  deleteBusinessman$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(BusinessmanActions.deleteBusinessman),
+      mergeMap((action) => {
+        return this.businessmanService.deleteBusinessman(action.id).pipe(
+          map(() => {
+            this.redirect();
+            return BusinessmanActions.deleteBusinessmanSuccess({ id: action.id });
+          }),
+          catchError(() => of(BusinessmanActions.deleteBusinessmanFailed({ id: action.id })))
+        );
+      })
+    );
+  });
 
   private redirect() {
     this._router.navigate(['businesses', 'my']);

@@ -13,6 +13,7 @@
 - [x] ngrx
 - [x] auth
 - [x] guards
+- [ ] load single piece of data on visiting x site
 
 **Home Page**
 
