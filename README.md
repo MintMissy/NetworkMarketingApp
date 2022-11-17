@@ -1,6 +1,6 @@
 ## Todo
 
-- [ ] reusable component lists
+- [x] reusable component lists
 - [ ] forms
 - [x] resolvers
 - [x] services
@@ -18,6 +18,7 @@
 
 - [ ] View business
 - [ ] Create business
+- [ ] init businessman
 
 **Business Page**
 

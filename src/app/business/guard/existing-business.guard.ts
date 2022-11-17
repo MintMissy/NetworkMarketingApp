@@ -1,6 +1,6 @@
-import { Injectable, Injector } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { map, Observable, tap } from 'rxjs';
+import { Injectable, Injector } from '@angular/core';
+import { Observable, map, tap } from 'rxjs';
 
 import { BusinessGuard } from './business.guard';
 
@@ -16,7 +16,7 @@ export class ExistingBusinessGuard extends BusinessGuard implements CanActivate 
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.getSelectedBusiness().pipe(
+    return this.getSelectedBusiness(route.paramMap).pipe(
       map((business) => business !== undefined),
       tap((value) => {
         if (!value) {

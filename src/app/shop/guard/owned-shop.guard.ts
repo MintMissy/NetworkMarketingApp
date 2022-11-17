@@ -18,7 +18,9 @@ export class OwnedShopGuard extends ShopGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const shopId = this.getSelectedShop().pipe(map((shop) => (shop === undefined ? '' : shop.id)));
+    const shopId = this.getSelectedShop(route.paramMap).pipe(
+      map((shop) => (shop === undefined ? '' : shop.id))
+    );
 
     const userId = this._authService.getUserId();
     const userOwnedShops = this.store.select(selectBusinessmanBusinesses(userId));

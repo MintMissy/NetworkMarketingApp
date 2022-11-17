@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { Business } from '../../model/business.model';
 import { BusinessCardComponent } from '../business-card/business-card.component';
 import { CommonModule } from '@angular/common';
+import { User } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-businesses-list',
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class BusinessesListComponent implements OnInit {
   @Input() businesses!: Business[] | null;
+  @Input() userData!: User | null;
 
   constructor() {}
 

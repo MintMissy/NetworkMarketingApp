@@ -1,11 +1,19 @@
 <article class="card">
   <div class="card-image" [ngStyle]="{ backgroundImage: 'url(' + imageUrl + ')' }"></div>
   <div class="card-content">
-    <!-- <h1>{{  }}</h1> -->
-    <!-- <p>{{ business.ownerId }}</p>
-    <p>{{ business.parentBusinessId }}</p> -->
-    <a [routerLink]="'business/' + business.id">
-      <button mat-raised-button color="primary">View Business</button>
-    </a>
+    <h1>{{ business.details.companyName }}</h1>
+    <p>{{ business.details.description }}</p>
+    <!-- <p>{{ business.parentBusinessId }}</p> -->
+    <div class="card-actions">
+      <a [routerLink]="'/businesses/' + business.id">
+        <button mat-raised-button color="primary">View Business</button>
+      </a>
+      <a [routerLink]="'/businesses/' + business.id + '/edit'" *ngIf="userId === business.ownerId">
+        <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
+      </a>
+      <button mat-stroked-button color="" *ngIf="userId === business.ownerId">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </div>
 </article>

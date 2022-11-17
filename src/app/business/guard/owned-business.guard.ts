@@ -18,7 +18,7 @@ export class OwnedBusinessGuard extends BusinessGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const selectedBusiness = this.getSelectedBusiness().pipe(
+    const selectedBusiness = this.getSelectedBusiness(route.paramMap).pipe(
       map((business) => (business?.ownerId === undefined ? '' : business.ownerId))
     );
 
@@ -26,9 +26,11 @@ export class OwnedBusinessGuard extends BusinessGuard implements CanActivate {
     const userOwnedBusinesses = this.store.select(selectBusinessmanBusinesses(userId));
 
     return userOwnedBusinesses.pipe(
-      mergeMap((businesses) =>
-        selectedBusiness.pipe(map((selectedBusiness) => businesses.includes(selectedBusiness)))
-      ),
+      mergeMap((businesses) => {
+        return selectedBusiness.pipe(
+          map((selectedBusiness) => businesses.includes(selectedBusiness))
+        );
+      }),
       tap((value) => {
         if (!value) {
           this.redirectToBusinessesPage();

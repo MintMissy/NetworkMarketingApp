@@ -1,6 +1,7 @@
-import { Injectable, Injector } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { map, Observable, tap } from 'rxjs';
+import { Injectable, Injector } from '@angular/core';
+import { Observable, map, tap } from 'rxjs';
+
 import { ProductGuard } from './product.guard';
 
 @Injectable({
@@ -15,7 +16,7 @@ export class ExistingProductGuard extends ProductGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.getSelectedProduct().pipe(
+    return this.getSelectedProduct(route.paramMap).pipe(
       map((product) => product !== undefined),
       tap((value) => {
         if (!value) {

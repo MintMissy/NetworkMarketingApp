@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
+import { Business } from '../../model/business.model';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { Business } from '../../model/business.model';
 
 @Component({
   selector: 'app-business-card',
@@ -16,6 +16,8 @@ import { Business } from '../../model/business.model';
 })
 export class BusinessCardComponent {
   @Input() business!: Business;
+  @Input() userId!: string | undefined;
+
   constructor() {}
 
   get imageUrl(): string {
@@ -23,6 +25,7 @@ export class BusinessCardComponent {
     if (background == undefined || background == null || background == '') {
       return 'assets/images/cards/businesses.avif';
     }
+
     return background;
   }
 }

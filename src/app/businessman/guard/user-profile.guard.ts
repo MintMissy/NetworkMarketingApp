@@ -18,7 +18,7 @@ export class UserProfileGuard extends BusinessmanGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const userId = this._authService.getUserId();
-    return this.getSelectedBusinessman().pipe(
+    return this.getSelectedBusinessman(route.paramMap).pipe(
       map((businessman) => businessman?.id === userId),
       tap((value) => {
         if (!value) {

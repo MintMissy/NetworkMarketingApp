@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { Product } from '../../model/product.model';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { User } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-products-list',
@@ -14,6 +15,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 })
 export class ProductsListComponent implements OnInit {
   @Input() products!: Product[] | null;
+  @Input() userData!: User | null;
 
   constructor() {}
 

@@ -1,3 +1,7 @@
 <div class="items-container">
-  <app-business-card *ngFor="let business of businesses" [business]="business"></app-business-card>
+  <app-business-card
+    *ngFor="let business of businesses"
+    [business]="business"
+    [userId]="userData?.uid"
+  ></app-business-card>
 </div>

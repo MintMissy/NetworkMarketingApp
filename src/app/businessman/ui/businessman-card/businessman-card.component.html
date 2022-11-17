@@ -1,1 +1,21 @@
-<p>business-owner-card works!</p>
+<article class="card">
+  <div
+    class="card-image"
+    [ngStyle]="{ backgroundImage: 'url(' + businessman.details.avatar + ')' }"
+  ></div>
+  <div class="card-content">
+    <h1>{{ businessman.details.firstName + " " + businessman.details.surname }}</h1>
+    <!-- <p>{{ businessman.details }}</p> -->
+    <div class="card-actions">
+      <a [routerLink]="'/businessesmen/' + businessman.id">
+        <button mat-raised-button color="primary">View Businessman</button>
+      </a>
+      <a
+        [routerLink]="'/businessesmen/' + businessman.id + '/edit'"
+        *ngIf="userId === businessman.id"
+      >
+        <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
+      </a>
+    </div>
+  </div>
+</article>

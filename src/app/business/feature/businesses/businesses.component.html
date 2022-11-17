@@ -1,3 +1,6 @@
 <div class="items-container">
-  <app-businesses-list [businesses]="businesses$ | async"></app-businesses-list>
+  <app-businesses-list
+    [businesses]="businesses$ | async"
+    [userData]="userData$ | async"
+  ></app-businesses-list>
 </div>

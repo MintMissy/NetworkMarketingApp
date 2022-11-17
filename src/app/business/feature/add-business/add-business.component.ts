@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { AppState } from 'src/app/app.state';
+import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 import { Business } from '../../model/business.model';
 import { BusinessFormComponent } from '../../ui/business-form/business-form.component';
 import { CommonModule } from '@angular/common';
@@ -17,15 +18,35 @@ import { insertBusiness } from '../../data-access/business.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddBusinessComponent implements OnInit {
-  constructor(private _router: Router, private _store: Store<AppState>) {}
+  constructor(
+    private _router: Router,
+    private _store: Store<AppState>,
+    private _authService: AuthenticationService
+  ) {}
 
   ngOnInit(): void {}
 
   onSubmit(business: Business) {
+    const userId = this._authService.userData$.value?.uid;
+    if (userId == undefined) {
+      this.redirect();
+      return;
+    }
+
+    business.ownerId = userId;
+    business.shopIds = [];
+
+    // TODO set parent business
+    business.parentBusinessId = null;
+
     this._store.dispatch(insertBusiness({ business: business }));
   }
 
   onDiscard() {
+    this.redirect();
+  }
+
+  redirect() {
     this._router.navigate(['businesses']);
   }
 }
