@@ -3,7 +3,7 @@ import { createAction, props } from '@ngrx/store';
 import { Business } from '../model/business.model';
 
 export const loadBusiness = createAction('[Business] Load Business', props<{ id: string }>());
-export const loadBusinesses = createAction('[Business] Load Products');
+export const loadBusinesses = createAction('[Business] Load Businesses');
 export const addBusiness = createAction('[Business] Add Business', props<{ business: Business }>());
 export const addBusinesses = createAction(
   '[Business] Add Businesses',

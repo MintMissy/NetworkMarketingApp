@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthenticationService } from './auth/data-access/authentication.service';
 import { BehaviorSubject } from 'rxjs';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Store } from '@ngrx/store';
 import { User } from '@angular/fire/auth';
 
 @Component({
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   isUserLoggedIn!: BehaviorSubject<boolean>;
   userData$!: BehaviorSubject<User | null>;
 
-  constructor(private _authService: AuthenticationService) {}
+  constructor(private _authService: AuthenticationService, private _store: Store) {}
 
   ngOnInit(): void {
     this.isUserLoggedIn = this._authService.isLoggedIn$;

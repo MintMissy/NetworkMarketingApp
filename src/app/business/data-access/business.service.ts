@@ -14,10 +14,6 @@ import { environment } from 'src/environments/environment';
 export class BusinessService {
   constructor(private _httpClient: HttpClient, private _database: AngularFirestore) {}
 
-  getBusiness(id: string): Observable<Business> {
-    return this._httpClient.get<Business>(environment.endpointUrl + `businesses/${id}`);
-  }
-
   getBusinesses(): Observable<Business[]> {
     return this._httpClient
       .get<{ [id: string]: Business }>(environment.endpointUrl + 'businesses.json')
@@ -32,10 +28,13 @@ export class BusinessService {
   }
 
   updateBusiness(business: Business) {
-    return this._httpClient.put(environment.endpointUrl + `businesses/${business.id}`, business);
+    return this._httpClient.put(
+      environment.endpointUrl + `businesses/${business.id}.json`,
+      business
+    );
   }
 
   deleteBusiness(id: string) {
-    return this._httpClient.delete(environment.endpointUrl + `businesses/${id}`);
+    return this._httpClient.delete(environment.endpointUrl + `businesses/${id}.json`);
   }
 }

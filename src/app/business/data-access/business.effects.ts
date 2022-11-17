@@ -9,19 +9,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class BusinessEffects {
-  loadProduct$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(BusinessActions.loadBusiness),
-      mergeMap((action) => {
-        return this.businessService.getBusiness(action.id).pipe(
-          map((business) => {
-            return BusinessActions.addBusiness({ business: business });
-          })
-        );
-      })
-    );
-  });
-  loadProducts$ = createEffect(() => {
+  loadBusiness$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(BusinessActions.loadBusinesses),
       mergeMap(() => {
@@ -33,7 +21,7 @@ export class BusinessEffects {
       })
     );
   });
-  insertProduct$ = createEffect(() => {
+  insertBusiness = createEffect(() => {
     return this.actions$.pipe(
       ofType(BusinessActions.insertBusiness),
       mergeMap((action) => {
@@ -48,30 +36,37 @@ export class BusinessEffects {
       })
     );
   });
-  updateProduct$ = this.actions$.pipe(
-    ofType(BusinessActions.updateBusiness),
-    mergeMap((action) => {
-      return this.businessService.updateBusiness(action.business).pipe(
-        map(() => {
-          this.redirect();
-          return BusinessActions.updateBusinessSuccess({ business: action.business });
-        }),
-        catchError(() => of(BusinessActions.updateBusinessFailed({ business: action.business })))
-      );
-    })
-  );
-  deleteProduct$ = this.actions$.pipe(
-    ofType(BusinessActions.deleteBusiness),
-    mergeMap((action) => {
-      return this.businessService.deleteBusiness(action.id).pipe(
-        map(() => {
-          this.redirect();
-          return BusinessActions.deleteBusinessSuccess({ id: action.id });
-        }),
-        catchError(() => of(BusinessActions.deleteBusinessFailed({ id: action.id })))
-      );
-    })
-  );
+  updateBusiness$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(BusinessActions.updateBusiness),
+      mergeMap((action) => {
+        return this.businessService.updateBusiness(action.business).pipe(
+          map(() => {
+            this.redirect();
+            return BusinessActions.updateBusinessSuccess({ business: action.business });
+          }),
+          catchError(() => of(BusinessActions.updateBusinessFailed({ business: action.business })))
+        );
+      })
+    );
+  });
+  deleteBusiness$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(BusinessActions.deleteBusiness),
+      mergeMap((action) => {
+        console.log('test');
+        return this.businessService.deleteBusiness(action.id).pipe(
+          map(() => {
+            console.log('test');
+
+            this.redirect();
+            return BusinessActions.deleteBusinessSuccess({ id: action.id });
+          }),
+          catchError(() => of(BusinessActions.deleteBusinessFailed({ id: action.id })))
+        );
+      })
+    );
+  });
 
   private redirect() {
     this._router.navigate(['businesses', 'my']);

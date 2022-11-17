@@ -2,5 +2,6 @@
   <app-businesses-list
     [businesses]="businesses$ | async"
     [userData]="userData$ | async"
+    (deleteClick)="deleteClick($event)"
   ></app-businesses-list>
 </div>

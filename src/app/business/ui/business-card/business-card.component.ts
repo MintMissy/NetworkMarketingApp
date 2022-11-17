@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Business } from '../../model/business.model';
 import { CommonModule } from '@angular/common';
@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BusinessCardComponent {
+  @Output() deleteClick = new EventEmitter<Business>();
   @Input() business!: Business;
   @Input() userId!: string | undefined;
 

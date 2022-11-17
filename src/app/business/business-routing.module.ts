@@ -1,7 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '../auth/guards/auth.guard';
-import { BusinessIdResolver } from './resolver/business-id.resolver';
 import { ExistingBusinessGuard } from './guard/existing-business.guard';
 import { NgModule } from '@angular/core';
 import { OwnedBusinessGuard } from './guard/owned-business.guard';
@@ -27,7 +26,6 @@ const routes: Routes = [
       {
         path: ':id',
         canActivate: [ExistingBusinessGuard],
-        resolve: [BusinessIdResolver],
         children: [
           {
             path: '',

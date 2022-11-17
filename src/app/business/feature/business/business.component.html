@@ -1,1 +1,4 @@
 <p>business works!</p>
+<div *ngIf="business$ | async as business">
+  {{ business.details.companyName }}
+</div>

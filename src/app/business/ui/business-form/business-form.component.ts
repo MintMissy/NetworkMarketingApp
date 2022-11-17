@@ -62,6 +62,7 @@ export class BusinessFormComponent implements OnInit {
 
   private getForm(): FormGroup<any> {
     return this._formBuilder.group({
+      id: [this.business.id],
       details: this._formBuilder.group({
         companyName: [this.business.details.companyName],
         description: [this.business.details.description],
@@ -85,6 +86,7 @@ export class BusinessFormComponent implements OnInit {
 
   getDummyBusiness(): Business {
     return {
+      id: '',
       parentBusinessId: null,
       ownerId: '',
       shopIds: [],

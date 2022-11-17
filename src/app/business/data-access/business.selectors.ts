@@ -32,3 +32,9 @@ export const selectBusinessEntity = (id: string) => {
     return Object.values({ ...state.entities }).find((entity) => entity?.id == id);
   });
 };
+
+export const selectBusinessesByUser = (id: string) => {
+  return createSelector(selectBusinessState, (state) => {
+    return Object.values({ ...state.entities }).filter(business => business?.ownerId === id);
+  });
+};

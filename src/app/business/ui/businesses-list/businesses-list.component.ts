@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Business } from '../../model/business.model';
 import { BusinessCardComponent } from '../business-card/business-card.component';
@@ -14,6 +14,7 @@ import { User } from '@angular/fire/auth';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BusinessesListComponent implements OnInit {
+  @Output() deleteClick = new EventEmitter<Business>();
   @Input() businesses!: Business[] | null;
   @Input() userData!: User | null;
 

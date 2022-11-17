@@ -11,7 +11,12 @@
       <a [routerLink]="'/businesses/' + business.id + '/edit'" *ngIf="userId === business.ownerId">
         <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
       </a>
-      <button mat-stroked-button color="" *ngIf="userId === business.ownerId">
+      <button
+        mat-stroked-button
+        color=""
+        *ngIf="userId === business.ownerId"
+        (click)="deleteClick.emit(business)"
+      >
         <mat-icon>delete</mat-icon>
       </button>
     </div>

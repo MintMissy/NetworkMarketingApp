@@ -4,7 +4,7 @@ import { Observable, map, mergeMap, tap } from 'rxjs';
 
 import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 import { BusinessGuard } from './business.guard';
-import { selectBusinessmanBusinesses } from 'src/app/businessman/data-access/businessman.selectors';
+import { selectBusinessesByUser } from '../data-access/business.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,11 @@ export class OwnedBusinessGuard extends BusinessGuard implements CanActivate {
     );
 
     const userId = this._authService.getUserId();
-    const userOwnedBusinesses = this.store.select(selectBusinessmanBusinesses(userId));
+    // const userOwnedBusinesses = this.store.select(selectBusinessmanBusinesses(userId));
+
+    const userOwnedBusinesses = this.store
+      .select(selectBusinessesByUser(userId))
+      .pipe(map((businesses) => businesses.map((element) => element?.ownerId)));
 
     return userOwnedBusinesses.pipe(
       mergeMap((businesses) => {

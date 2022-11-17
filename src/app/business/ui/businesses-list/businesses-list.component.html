@@ -3,5 +3,6 @@
     *ngFor="let business of businesses"
     [business]="business"
     [userId]="userData?.uid"
+    (deleteClick)="deleteClick.emit($event)"
   ></app-business-card>
 </div>
