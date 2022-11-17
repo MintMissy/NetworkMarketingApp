@@ -21,7 +21,9 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this._httpClient
       .get<{ [id: string]: Product }>(environment.endpointUrl + 'products.json')
-      .pipe(map((product) => databaseGetObjectsAdapter(product)));
+      .pipe(
+        map((products) => (products !== undefined && products !== null ? products : {})),
+        map((product) => databaseGetObjectsAdapter(product)));
   }
 
   insertProduct(product: Product) {

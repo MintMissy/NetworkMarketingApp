@@ -20,7 +20,10 @@ export class ShopService {
   getShops(): Observable<Shop[]> {
     return this._httpClient
       .get<{ [id: string]: Shop }>(environment.endpointUrl + 'shops.json')
-      .pipe(map((shop) => databaseGetObjectsAdapter(shop)));
+      .pipe(
+        map((shops) => (shops !== undefined && shops !== null ? shops : {})),
+        map((shop) => databaseGetObjectsAdapter(shop))
+      );
   }
 
   insertShop(shop: Shop) {
