@@ -14,6 +14,11 @@ import { environment } from 'src/environments/environment';
 export class BusinessService {
   constructor(private _httpClient: HttpClient, private _database: AngularFirestore) {}
 
+  getBusiness(id: string): Observable<Business> {
+    return this._httpClient
+      .get<Business>(environment.endpointUrl + `businesses/${id}.json`);
+  }
+
   getBusinesses(): Observable<Business[]> {
     return this._httpClient
       .get<{ [id: string]: Business }>(environment.endpointUrl + 'businesses.json')

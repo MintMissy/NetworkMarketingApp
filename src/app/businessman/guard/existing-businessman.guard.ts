@@ -3,8 +3,7 @@ import { Injectable, Injector } from '@angular/core';
 import { Observable, filter, first, map, tap } from 'rxjs';
 
 import { BusinessmanGuard } from './businessman.guard';
-import { loadBusinessmen } from '../data-access/businessman.actions';
-import { select } from '@ngrx/store';
+import { loadBusinessman } from '../data-access/businessman.actions';
 import { selectAllBusinessmen } from '../data-access/businessman.selectors';
 
 @Injectable({
@@ -24,32 +23,18 @@ export class ExistingBusinessmanGuard extends BusinessmanGuard implements CanAct
       return false;
     }
 
-    return this.store.pipe(
-      select(selectAllBusinessmen),
+    return this.store.select(selectAllBusinessmen).pipe(
       tap((businessmen) => {
         if (businessmen.length === 0) {
-          this.store.dispatch(loadBusinessmen());
+          this.store.dispatch(loadBusinessman({ id: businessmanId }));
         }
       }),
+      // Renavigation is handled in the effect on load businessman effect
+      // At this point I haven't found a more design friendly and optimal way
+      // to do this issue
       filter((businessmen) => businessmen.length > 0),
-      map((businessmen) =>
-        businessmen.map((businessman) => businessman.id).includes(businessmanId)
-      ),
-      tap((isExisting) => {
-        if (!isExisting) {
-          this.redirectToBusinessmanPage();
-        }
-      }),
+      map(() => true),
       first()
-    );
-
-    return this.getSelectedBusinessman(route.paramMap).pipe(
-      map((businessman) => businessman !== undefined),
-      tap((value) => {
-        if (!value) {
-          this.redirectToBusinessmanPage();
-        }
-      })
     );
   }
 }

@@ -3,8 +3,7 @@ import { Injectable, Injector } from '@angular/core';
 import { Observable, filter, first, map, tap } from 'rxjs';
 
 import { BusinessGuard } from './business.guard';
-import { loadBusinesses } from '../data-access/business.actions';
-import { select } from '@ngrx/store';
+import { loadBusiness } from '../data-access/business.actions';
 import { selectAllBusinesses } from '../data-access/business.selectors';
 
 @Injectable({
@@ -25,20 +24,17 @@ export class ExistingBusinessGuard extends BusinessGuard implements CanActivate 
       return false;
     }
 
-    return this.store.pipe(
-      select(selectAllBusinesses),
+    return this.store.select(selectAllBusinesses).pipe(
       tap((businesses) => {
         if (businesses.length === 0) {
-          this.store.dispatch(loadBusinesses());
+          this.store.dispatch(loadBusiness({ id: businessId }));
         }
       }),
+      // Renavigation is handled in the effect on load business effect
+      // At this point I haven't found a more design friendly and optimal way
+      // to do this issue
       filter((businesses) => businesses.length > 0),
-      map((businesses) => businesses.map((business) => business.id).includes(businessId)),
-      tap((isExisting) => {
-        if (!isExisting) {
-          this.redirectToBusinessesPage();
-        }
-      }),
+      map(() => true),
       first()
     );
   }

@@ -2,10 +2,11 @@ import { createAction, props } from '@ngrx/store';
 
 import { Shop } from '../model/shop.model';
 
+export const empty = createAction('[Shops] Empty');
 export const loadShop = createAction('[Shops] Load Shop', props<{ id: string }>());
 export const loadShops = createAction('[Shops] Load Shops');
 export const addShop = createAction('[Shops] Add Shop', props<{ shop: Shop }>());
-export const addShops = createAction('[Shops] Add Shop', props<{ shops: Shop[] }>());
+export const addShops = createAction('[Shops] Add Shops', props<{ shops: Shop[] }>());
 
 export const updateShop = createAction('[Shops] Update Shop', props<{ shop: Shop }>());
 export const updateShopSuccess = createAction(

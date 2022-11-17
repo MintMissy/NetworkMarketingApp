@@ -15,6 +15,10 @@ export class ProductEffects {
       mergeMap((action) => {
         return this.productService.getProduct(action.id).pipe(
           map((product) => {
+            if (product === null) {
+              this.redirect();
+              return ProductActions.empty();
+            }
             return ProductActions.addProduct({ product: product });
           })
         );
@@ -48,30 +52,34 @@ export class ProductEffects {
       })
     );
   });
-  updateProduct$ = this.actions$.pipe(
-    ofType(ProductActions.updateProduct),
-    mergeMap((action) => {
-      return this.productService.updateProduct(action.product).pipe(
-        map(() => {
-          this.redirect();
-          return ProductActions.updateProductSuccess({ product: action.product });
-        }),
-        catchError(() => of(ProductActions.updateProductFailed({ product: action.product })))
-      );
-    })
-  );
-  deleteProduct$ = this.actions$.pipe(
-    ofType(ProductActions.deleteProduct),
-    mergeMap((action) => {
-      return this.productService.deleteProduct(action.id).pipe(
-        map(() => {
-          this.redirect();
-          return ProductActions.deleteProductSuccess({ id: action.id });
-        }),
-        catchError(() => of(ProductActions.deleteProductFailed({ id: action.id })))
-      );
-    })
-  );
+  updateProduct$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ProductActions.updateProduct),
+      mergeMap((action) => {
+        return this.productService.updateProduct(action.product).pipe(
+          map(() => {
+            this.redirect();
+            return ProductActions.updateProductSuccess({ product: action.product });
+          }),
+          catchError(() => of(ProductActions.updateProductFailed({ product: action.product })))
+        );
+      })
+    );
+  });
+  deleteProduct$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ProductActions.deleteProduct),
+      mergeMap((action) => {
+        return this.productService.deleteProduct(action.id).pipe(
+          map(() => {
+            this.redirect();
+            return ProductActions.deleteProductSuccess({ id: action.id });
+          }),
+          catchError(() => of(ProductActions.deleteProductFailed({ id: action.id })))
+        );
+      })
+    );
+  });
 
   private redirect() {
     this._router.navigate(['..']);

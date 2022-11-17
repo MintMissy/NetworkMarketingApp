@@ -1,9 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { NgModule } from '@angular/core';
 import { ExistingShopGuard } from './guard/existing-shop.guard';
+import { NgModule } from '@angular/core';
 import { OwnedShopGuard } from './guard/owned-shop.guard';
-import { ShopResolver } from './resolver/shop.resolver';
 
 const routes: Routes = [
   {
@@ -23,7 +22,6 @@ const routes: Routes = [
       {
         path: ':shopId',
         canActivate: [ExistingShopGuard],
-        resolve: [ShopResolver],
         children: [
           {
             path: '',

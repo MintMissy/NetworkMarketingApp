@@ -11,6 +11,22 @@ import { Router } from '@angular/router';
 export class BusinessEffects {
   loadBusiness$ = createEffect(() => {
     return this.actions$.pipe(
+      ofType(BusinessActions.loadBusiness),
+      mergeMap((action) => {
+        return this.businessService.getBusiness(action.id).pipe(
+          map((business) => {
+            if (business === null) {
+              this.redirect();
+              return BusinessActions.empty();
+            }
+            return BusinessActions.addBusiness({ business: business });
+          })
+        );
+      })
+    );
+  });
+  loadBusinesses$ = createEffect(() => {
+    return this.actions$.pipe(
       ofType(BusinessActions.loadBusinesses),
       mergeMap(() => {
         return this.businessService.getBusinesses().pipe(
@@ -54,11 +70,8 @@ export class BusinessEffects {
     return this.actions$.pipe(
       ofType(BusinessActions.deleteBusiness),
       mergeMap((action) => {
-        console.log('test');
         return this.businessService.deleteBusiness(action.id).pipe(
           map(() => {
-            console.log('test');
-
             this.redirect();
             return BusinessActions.deleteBusinessSuccess({ id: action.id });
           }),
@@ -69,7 +82,7 @@ export class BusinessEffects {
   });
 
   private redirect() {
-    this._router.navigate(['businesses', 'my']);
+    this._router.navigate(['businesses']);
   }
 
   constructor(

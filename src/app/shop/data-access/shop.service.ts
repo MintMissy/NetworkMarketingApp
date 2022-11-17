@@ -14,27 +14,27 @@ export class ShopService {
   constructor(private _httpClient: HttpClient) {}
 
   getShop(id: string): Observable<Shop> {
-    return this._httpClient.get<Shop>(environment.endpointUrl + `shops/${id}`);
+    return this._httpClient.get<Shop>(environment.endpointUrl + `shops/${id}.json`);
   }
 
   getShops(): Observable<Shop[]> {
     return this._httpClient
-      .get<{ [id: string]: Shop }>(environment.endpointUrl + 'shops')
+      .get<{ [id: string]: Shop }>(environment.endpointUrl + 'shops.json')
       .pipe(map((shop) => databaseGetObjectsAdapter(shop)));
   }
 
   insertShop(shop: Shop) {
     return this._httpClient.post<FirebasePostResponse>(
-      environment.endpointUrl + `shops/${shop.id}`,
+      environment.endpointUrl + `shops/${shop.id}.json`,
       shop
     );
   }
 
   updateShop(shop: Shop) {
-    return this._httpClient.put(environment.endpointUrl + `shops/${shop.id}`, shop);
+    return this._httpClient.put(environment.endpointUrl + `shops/${shop.id}.json`, shop);
   }
 
   deleteShop(id: string) {
-    return this._httpClient.delete(environment.endpointUrl + `shops/${id}`);
+    return this._httpClient.delete(environment.endpointUrl + `shops/${id}.json`);
   }
 }

@@ -1,9 +1,3 @@
-- remove resolver
-- check load actions
-- missing create effect in effects
-- change services
-- change existing guard
-
 ## Todo
 
 - [x] reusable component lists
@@ -13,7 +7,6 @@
 - [x] ngrx
 - [x] auth
 - [x] guards
-- [ ] load single piece of data on visiting x site
 
 **Home Page**
 

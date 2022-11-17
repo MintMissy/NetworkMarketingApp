@@ -17,6 +17,10 @@ export class ShopsEffects {
       mergeMap((action) => {
         return this.shopService.getShop(action.id).pipe(
           map((shop) => {
+            if (shop === null) {
+              this.redirect();
+              return ShopActions.empty();
+            }
             return ShopActions.addShop({ shop: shop });
           })
         );
@@ -50,30 +54,34 @@ export class ShopsEffects {
       })
     );
   });
-  updateShop$ = this.actions$.pipe(
-    ofType(ShopActions.updateShop),
-    mergeMap((action) => {
-      return this.shopService.updateShop(action.shop).pipe(
-        map(() => {
-          this.redirect();
-          return ShopActions.updateShopSuccess({ shop: action.shop });
-        }),
-        catchError(() => of(ShopActions.updateShopFailed({ shop: action.shop })))
-      );
-    })
-  );
-  deleteShop$ = this.actions$.pipe(
-    ofType(ShopActions.deleteShop),
-    mergeMap((action) => {
-      return this.shopService.deleteShop(action.id).pipe(
-        map(() => {
-          this.redirect();
-          return ShopActions.deleteShopSuccess({ id: action.id });
-        }),
-        catchError(() => of(ShopActions.deleteShopFailed({ id: action.id })))
-      );
-    })
-  );
+  updateShop$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ShopActions.updateShop),
+      mergeMap((action) => {
+        return this.shopService.updateShop(action.shop).pipe(
+          map(() => {
+            this.redirect();
+            return ShopActions.updateShopSuccess({ shop: action.shop });
+          }),
+          catchError(() => of(ShopActions.updateShopFailed({ shop: action.shop })))
+        );
+      })
+    );
+  });
+  deleteShop$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ShopActions.deleteShop),
+      mergeMap((action) => {
+        return this.shopService.deleteShop(action.id).pipe(
+          map(() => {
+            this.redirect();
+            return ShopActions.deleteShopSuccess({ id: action.id });
+          }),
+          catchError(() => of(ShopActions.deleteShopFailed({ id: action.id })))
+        );
+      })
+    );
+  });
 
   private redirect() {
     this._router.navigate(['shops', 'my']);

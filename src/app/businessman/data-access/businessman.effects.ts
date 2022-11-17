@@ -17,6 +17,10 @@ export class BusinessmanEffects {
       mergeMap((action) => {
         return this.businessmanService.getBusinessman(action.id).pipe(
           map((businessman) => {
+            if (businessman === null) {
+              this.redirect();
+              return BusinessmanActions.empty();
+            }
             return BusinessmanActions.addBusinessman({ businessman: businessman });
           })
         );

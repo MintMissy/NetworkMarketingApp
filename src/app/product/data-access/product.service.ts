@@ -14,9 +14,10 @@ export class ProductService {
   constructor(private _httpClient: HttpClient) {}
 
   getProduct(id: string): Observable<Product> {
-    return this._httpClient.get<Product>(environment.endpointUrl + `products/${id}`);
+    return this._httpClient.get<Product>(environment.endpointUrl + `products/${id}.json`);
   }
 
+  // TODO get products from specified shop
   getProducts(): Observable<Product[]> {
     return this._httpClient
       .get<{ [id: string]: Product }>(environment.endpointUrl + 'products.json')
@@ -31,10 +32,10 @@ export class ProductService {
   }
 
   updateProduct(product: Product) {
-    return this._httpClient.put(environment.endpointUrl + `products/${product.id}`, product);
+    return this._httpClient.put(environment.endpointUrl + `products/${product.id}.json`, product);
   }
 
   deleteProduct(id: string) {
-    return this._httpClient.delete(environment.endpointUrl + `products/${id}`);
+    return this._httpClient.delete(environment.endpointUrl + `products/${id}.json`);
   }
 }

@@ -14,7 +14,7 @@ export class BusinessmanService {
   constructor(private _httpClient: HttpClient) {}
 
   getBusinessman(id: string): Observable<Businessman> {
-    return this._httpClient.get<Businessman>(environment.endpointUrl + `businessmen/${id}`);
+    return this._httpClient.get<Businessman>(environment.endpointUrl + `businessmen/${id}.json`);
   }
 
   getBusinessmen(): Observable<Businessman[]> {
