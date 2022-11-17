@@ -1,5 +1,5 @@
 import { Address } from 'src/app/core/model/address.model';
-import { BusinessType } from 'src/app/business/model/business-type.enum';
+import { BusinessIndustry } from 'src/app/business/model/business-industry.enum';
 import { ContactDetails } from 'src/app/core/model/contact-details.model';
 
 export interface Business {
@@ -15,7 +15,7 @@ export interface Business {
 export interface BusinessDetails {
   companyName: string;
   description: string;
-  type: BusinessType;
+  industry: BusinessIndustry;
   ownerId: string;
   backgroundImage: string;
 }

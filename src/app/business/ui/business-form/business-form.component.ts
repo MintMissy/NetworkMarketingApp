@@ -11,8 +11,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AddressFormComponent } from 'src/app/core/components/forms/address-form/address-form.component';
 import { Business } from '../../model/business.model';
 import { BusinessDetailsComponent } from '../business-details/business-details.component';
+import { BusinessIndustry } from '../../model/business-industry.enum';
 import { BusinessService } from '../../data-access/business.service';
-import { BusinessType } from '../../model/business-type.enum';
 import { CommonModule } from '@angular/common';
 import { ContactDetailsFormComponent } from 'src/app/core/components/forms/contact-details-form/contact-details-form.component';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
@@ -66,7 +66,7 @@ export class BusinessFormComponent implements OnInit {
       details: this._formBuilder.group({
         companyName: [this.business.details.companyName],
         description: [this.business.details.description],
-        type: [this.business.details.type],
+        industry: [this.business.details.industry],
         ownerId: [this.business.details.ownerId],
         backgroundImage: [this.business.details.backgroundImage],
       }),
@@ -93,7 +93,7 @@ export class BusinessFormComponent implements OnInit {
       details: {
         companyName: '',
         description: '',
-        type: BusinessType.UNSET,
+        industry: BusinessIndustry.UNSET,
         ownerId: '',
         backgroundImage: '',
       },
