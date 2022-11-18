@@ -116,6 +116,10 @@ h2 {
   flex-wrap: wrap;
 }
 
+.items-container--cards > * {
+  min-width: min(320px, 70vw);
+}
+
 .card {
   border-radius: 0.75rem;
   overflow: hidden;
