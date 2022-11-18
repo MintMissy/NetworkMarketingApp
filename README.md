@@ -7,8 +7,8 @@
 - [x] ngrx
 - [x] auth
 - [x] guards
-- [ ] image resolving pipe -> forms (update every x seconds) - directive
-- [ ] form validators
+- [x] image resolving pipe -> forms (update every x seconds) - directive
+- [x] form validators
 - [ ] set form data before passing them to service (owner id etc)
 - [ ] translate app
 

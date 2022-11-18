@@ -1,11 +1,22 @@
 <div class="card card--padded card--form" [formGroup]="shopDetailsGroup">
   <p>Address</p>
-  <mat-form-field appearance="outline">
+  <mat-form-field
+    appearance="outline"
+    *ngIf="{ control: shopDetailsGroup.controls['name'] } as name"
+  >
     <mat-label>Name</mat-label>
     <input matInput placeholder="Name" value="" type="string" formControlName="name" />
+    <mat-error>
+      <span *ngIf="name.control.hasError('required')">Description is required</span>
+      <span *ngIf="name.control.hasError('minlength')">Description is too short</span>
+      <span *ngIf="name.control.hasError('maxlength')">Description is too long</span>
+    </mat-error>
     <mat-icon matPrefix>edit</mat-icon>
   </mat-form-field>
-  <mat-form-field appearance="outline">
+  <mat-form-field
+    appearance="outline"
+    *ngIf="{ control: shopDetailsGroup.controls['description'] } as description"
+  >
     <mat-label>Shop Description</mat-label>
     <textarea
       matInput
@@ -16,17 +27,33 @@
       value=""
       formControlName="description"
     ></textarea>
+    <mat-error>
+      <span *ngIf="description.control.hasError('required')">Description is required</span>
+      <span *ngIf="description.control.hasError('minlength')">Description is too short</span>
+      <span *ngIf="description.control.hasError('maxlength')">Description is too long</span>
+    </mat-error>
   </mat-form-field>
-  <mat-form-field appearance="outline">
+  <mat-form-field
+    appearance="outline"
+    *ngIf="{ control: shopDetailsGroup.controls['shopBanner'] } as shopBanner"
+  >
     <mat-label>Banner Url</mat-label>
     <input matInput placeholder="Banner Url" value="" type="string" formControlName="shopBanner" />
+    <mat-error>
+      <span *ngIf="shopBanner.control.hasError('required')">Banner is required</span>
+      <span *ngIf="shopBanner.control.hasError('pattern')">This image url is invalid</span>
+    </mat-error>
     <mat-icon matPrefix>link</mat-icon>
   </mat-form-field>
-  <p>Banner Preview</p>
-  <img
-    class="banner-preview"
-    src="https://images.unsplash.com/photo-1523800378286-dae1f0dae656?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1076&q=80"
-    alt=""
-    aria-hidden="true"
-  />
+  <ng-container
+    *ngIf="shopDetailsGroup.get('shopBanner')?.value && shopDetailsGroup.get('shopBanner')?.valid"
+  >
+    <p>Banner Preview</p>
+    <img
+      class="banner-preview"
+      [src]="shopDetailsGroup.get('shopBanner')?.value"
+      alt=""
+      aria-hidden="true"
+    />
+  </ng-container>
 </div>
