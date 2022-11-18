@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { AuthenticationService } from './auth/data-access/authentication.service';
-import { BehaviorSubject } from 'rxjs';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { User } from '@angular/fire/auth';
 
@@ -14,14 +14,14 @@ import { User } from '@angular/fire/auth';
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   sidenavHideScreenWidth = 700;
-  isUserLoggedIn!: BehaviorSubject<boolean>;
-  userData$!: BehaviorSubject<User | null>;
+  isUserLoggedIn$!: Observable<boolean>;
+  userData$!: Observable<User | null>;
 
   constructor(private _authService: AuthenticationService, private _store: Store) {}
 
   ngOnInit(): void {
-    this.isUserLoggedIn = this._authService.isLoggedIn$;
-    this.userData$ = this._authService.userData$;
+    this.isUserLoggedIn$ = this._authService.isLoggedIn$.asObservable();
+    this.userData$ = this._authService.userData$.asObservable();
   }
 
   toggleSidenav() {

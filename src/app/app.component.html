@@ -13,7 +13,7 @@
         <app-sidenav
           (buttonClick)="onSidenavButtonClick()"
           (logoutButtonClick)="onLogOut()"
-          [isUserLoggedIn]="!!(isUserLoggedIn | async)"
+          [isUserLoggedIn]="(isUserLoggedIn$ | async)!"
           [loggedInUser]="userData$ | async"
         ></app-sidenav>
       </nav>

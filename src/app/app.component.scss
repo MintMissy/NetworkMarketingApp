@@ -10,7 +10,7 @@ mat-drawer-container {
 
 .mat-drawer-content,
 .mat-drawer {
-  background-color: var(--clr-dark-3);
+  background-color: var(--clr-dark-4);
   color: var(--clr-light-1);
 }
 
@@ -19,8 +19,8 @@ mat-drawer-content {
 }
 
 mat-drawer {
-  background: var(--clr-dark-4);
-  background: linear-gradient(var(--clr-dark-2), var(--clr-dark-3) 100%);
+  background: var(--clr-dark-5);
+  background: linear-gradient(var(--clr-dark-2), var(--clr-dark-4) 100%);
   width: 250px;
   padding: 0.5rem;
 }

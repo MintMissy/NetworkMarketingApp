@@ -52,6 +52,7 @@
     icon="language"
   ></app-sidenav-button>
   <app-sidenav-button
+    *ngIf="isUserLoggedIn"
     (click)="onButtonClick()"
     text="My Profile"
     [link]="'businessmen/' + loggedInUser?.uid"
@@ -89,7 +90,6 @@
   <app-sidenav-button
     (click)="onLogoutButtonClick()"
     text="Log Out"
-    link="dasimqewb"
     icon="logout"
   ></app-sidenav-button>
 </div>

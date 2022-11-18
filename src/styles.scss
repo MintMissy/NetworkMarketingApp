@@ -26,9 +26,10 @@ $my-theme: mat.define-dark-theme(
 
   --clr-dark-1: #000000;
   --clr-dark-2: #0a1119;
-  --clr-dark-3: #121e2a;
-  --clr-dark-4: #1c293c;
-  --clr-dark-5: #24374f;
+  --clr-dark-3: #0e1722;
+  --clr-dark-4: #121e2a;
+  --clr-dark-5: #1c293c;
+  --clr-dark-6: #24374f;
 
   --clr-primary: #0288d1;
   --clr-primary-light: #1dbfff;
@@ -58,7 +59,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--clr-dark-3);
+  background-color: var(--clr-dark-4);
 }
 
 .container {
@@ -104,7 +105,7 @@ h2 {
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--clr-dark-4);
+    background: var(--clr-dark-5);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -130,9 +131,9 @@ h2 {
   border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  background-color: var(--clr-dark-5);
-  background: linear-gradient(var(--clr-dark-2), var(--clr-dark-3) 100%);
-  border: 2px solid var(--clr-dark-5);
+  background-color: var(--clr-dark-6);
+  background: linear-gradient(var(--clr-dark-2), var(--clr-dark-4) 100%);
+  border: 2px solid var(--clr-dark-6);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -185,6 +186,15 @@ h2 {
   }
 }
 
+.card--padded {
+  padding: 1rem;
+  border-color: var(--clr-dark-5);
+}
+
+.card--form {
+  background: var(--clr-dark-3);
+}
+
 mat-form-field {
   display: block !important;
   max-width: 100%;
@@ -194,15 +204,6 @@ mat-form-field {
     color: var(--clr-light-4);
     font-size: 1.5rem;
   }
-}
-
-.card--padded {
-  padding: 1rem;
-  border-color: var(--clr-dark-4);
-}
-
-.card--form {
-  background: var(--clr-dark-3);
 }
 
 .form-container {

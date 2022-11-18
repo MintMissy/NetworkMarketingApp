@@ -96,32 +96,34 @@ export class AuthenticationService {
     return userRef.set(userData, { merge: true });
   }
 
+  logout(): void {
+    this._angularFireAuth.signOut().then(() => {
+      console.log('logging out');
+      localStorage.removeItem('user');
+      this.userData$.next(null);
+      this.isLoggedIn$.next(false);
+      this._router.navigate(['']);
+    });
+  }
+
   googleLogin() {
-    return this.authLogin(new GoogleAuthProvider());
+    return this.loginWithExternalProvider(new GoogleAuthProvider());
   }
 
   facebookLogin() {
-    return this.authLogin(new FacebookAuthProvider());
+    return this.loginWithExternalProvider(new FacebookAuthProvider());
   }
 
   githubLogin() {
-    return this.authLogin(new GithubAuthProvider());
+    return this.loginWithExternalProvider(new GithubAuthProvider());
   }
 
-  private authLogin(provider: AuthProvider) {
+  private loginWithExternalProvider(provider: AuthProvider) {
     return this._angularFireAuth.setPersistence('local').then(() => {
       return this._angularFireAuth.signInWithPopup(provider).then((response) => {
         this.setUserData(response.user);
         this.login(response.credential);
       });
-    });
-  }
-
-  logout(): void {
-    this._angularFireAuth.signOut().then(() => {
-      localStorage.removeItem('user');
-      this.isLoggedIn$.next(false);
-      this._router.navigate(['']);
     });
   }
 }

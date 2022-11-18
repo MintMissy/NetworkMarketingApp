@@ -105,7 +105,7 @@ footer {
 
 .media-icon {
   display: block;
-  background-color: var(--clr-dark-3);
+  background-color: var(--clr-dark-4);
   border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.15s;
@@ -118,6 +118,6 @@ footer {
   }
 
   &:hover {
-    background-color: var(--clr-dark-4);
+    background-color: var(--clr-dark-5);
   }
 }
