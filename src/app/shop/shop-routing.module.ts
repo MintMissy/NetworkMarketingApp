@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from '../auth/guards/auth.guard';
 import { ExistingShopGuard } from './guard/existing-shop.guard';
 import { NgModule } from '@angular/core';
 import { OwnedShopGuard } from './guard/owned-shop.guard';
@@ -15,9 +16,16 @@ const routes: Routes = [
           import('./feature/shops/shops.component').then((c) => c.ShopsComponent),
       },
       {
+        path: 'my',
+        loadComponent: () =>
+          import('./feature/my-shops/my-shops.component').then((c) => c.MyShopsComponent),
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'new',
         loadComponent: () =>
           import('./feature/add-shop/add-shop.component').then((c) => c.AddShopComponent),
+        canActivate: [AuthGuard],
       },
       {
         path: ':shopId',
@@ -33,7 +41,7 @@ const routes: Routes = [
             path: 'edit',
             loadComponent: () =>
               import('./feature/edit-shop/edit-shop.component').then((c) => c.EditShopComponent),
-            canActivate: [OwnedShopGuard],
+            canActivate: [AuthGuard, OwnedShopGuard],
           },
           {
             path: 'products',

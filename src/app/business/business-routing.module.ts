@@ -16,6 +16,14 @@ const routes: Routes = [
           import('./feature/businesses/businesses.component').then((c) => c.BusinessesComponent),
       },
       {
+        path: 'my',
+        loadComponent: () =>
+          import('./feature/my-businesses/my-businesses.component').then(
+            (c) => c.MyBusinessesComponent
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'new',
         loadComponent: () =>
           import('./feature/add-business/add-business.component').then(
