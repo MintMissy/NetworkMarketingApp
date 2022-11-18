@@ -1,0 +1,47 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+$my-primary: mat.define-palette(mat.$light-blue-palette, A700);
+$my-accent: mat.define-palette(mat.$yellow-palette, 600);
+
+$my-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-theme);
+
+:root {
+  --color-light-1: #ffffff;
+  --color-light-2: #f8fbff;
+  --color-light-3: #eaf4ff;
+  --color-light-4: #c4cbd4;
+
+  --color-neutral-1: #828686;
+  --color-neutral-2: #606464;
+
+  --color-dark-1: #000000;
+  --color-dark-2: #0a1119;
+  --color-dark-3: #0e1722;
+  --color-dark-4: #121e2a;
+  --color-dark-5: #1c293c;
+  --color-dark-6: #24374f;
+
+  --color-primary: #0288d1;
+  --color-primary-light: #1dbfff;
+  --color-primary-dark: #005b9f;
+
+  --color-accent: #f9a825;
+  --color-accent-light: #ffdd48;
+  --color-accent-dark: #c17900;
+
+  --color-error: #ff3838;
+  --color-warning: #ff9735;
+}
+
+@import "reset.scss";
+@import "components.scss";

@@ -1,5 +1,5 @@
 footer {
-  background-color: var(--clr-dark-2);
+  background-color: var(--color-dark-2);
 }
 
 .footer-container {
@@ -12,13 +12,13 @@ footer {
 
   p,
   a {
-    color: var(--clr-light-4);
+    color: var(--color-light-4);
     transition: color 0.1s;
     font-size: 0.9rem;
   }
 
   a:hover {
-    color: var(--clr-light-1);
+    color: var(--color-light-1);
     cursor: pointer;
     text-decoration: underline;
   }
@@ -34,7 +34,7 @@ footer {
   }
 
   h2 {
-    color: var(--clr-primary-light);
+    color: var(--color-primary-light);
     font-size: 1.1rem;
     margin-bottom: 0rem;
   }
@@ -105,7 +105,7 @@ footer {
 
 .media-icon {
   display: block;
-  background-color: var(--clr-dark-4);
+  background-color: var(--color-dark-4);
   border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.15s;
@@ -118,6 +118,6 @@ footer {
   }
 
   &:hover {
-    background-color: var(--clr-dark-5);
+    background-color: var(--color-dark-5);
   }
 }

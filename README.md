@@ -7,6 +7,8 @@
 - [x] ngrx
 - [x] auth
 - [x] guards
+- [ ] image resolving pipe -> forms
+- [ ] card button focus
 
 **Home Page**
 

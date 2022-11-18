@@ -10,6 +10,7 @@ export class SidenavButtonComponent {
   @Input() icon!: string;
   @Input() text!: string;
   @Input() link!: string;
+  @Input() activeLinkHighlight = true;
 
   constructor() {}
 }
