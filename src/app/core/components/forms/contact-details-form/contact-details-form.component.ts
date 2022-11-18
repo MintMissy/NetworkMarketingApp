@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,5 +18,16 @@ export class ContactDetailsFormComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.contactGroup
+      .get('email')
+      ?.setValidators([Validators.required, Validators.email, Validators.maxLength(256)]);
+    this.contactGroup
+      .get('telephone')
+      ?.setValidators([
+        Validators.required,
+        Validators.min(9999999999),
+        Validators.max(1000000000000),
+      ]);
+  }
 }

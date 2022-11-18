@@ -1,14 +1,38 @@
 <div class="card card--padded card--form" [formGroup]="contactGroup">
   <p>Contact</p>
   <div class="input-group">
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: contactGroup.controls['email'] } as email"
+    >
       <mat-label>Email</mat-label>
       <input matInput placeholder="Email" value="" type="email" formControlName="email" />
+      <mat-error>
+        <span *ngIf="email.control.hasError('required')">Email is required</span>
+        <span *ngIf="email.control.hasError('email')">Email is invalid</span>
+        <span *ngIf="email.control.hasError('maxlength')">Email is too long</span>
+      </mat-error>
       <mat-icon matPrefix>mail</mat-icon>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: contactGroup.controls['telephone'] } as telephone"
+    >
       <mat-label>Phone Number</mat-label>
-      <input matInput placeholder="Phone Number" value="" type="tel" formControlName="telephone" />
+      <input
+        matInput
+        placeholder="Phone Number"
+        value=""
+        type="number"
+        formControlName="telephone"
+      />
+      <mat-error>
+        <span *ngIf="telephone.control.hasError('required')">Number is required</span>
+        <span *ngIf="telephone.control.hasError('min')"
+          >Number is too short (must contain country code)</span
+        >
+        <span *ngIf="telephone.control.hasError('max')">Number is too long</span>
+      </mat-error>
       <mat-icon matPrefix>call</mat-icon>
     </mat-form-field>
   </div>
