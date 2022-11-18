@@ -1,26 +1,48 @@
 <div class="card card--padded card--form" [formGroup]="personDetailsGroup">
   <p>Person Details</p>
   <div class="input-group">
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: personDetailsGroup.controls['firstName'] } as firstName"
+    >
       <mat-label>First Name</mat-label>
       <input matInput placeholder="First Name" value="" type="string" formControlName="firstName" />
+      <mat-error>
+        <span *ngIf="firstName.control.hasError('maxlength')">First Name is too long</span>
+      </mat-error>
       <mat-icon matPrefix>person</mat-icon>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: personDetailsGroup.controls['surname'] } as surname"
+    >
       <mat-label>Surname</mat-label>
       <input matInput placeholder="Surname" value="" type="surnmae" formControlName="surname" />
+      <mat-error>
+        <span *ngIf="surname.control.hasError('maxlength')">Surname is too long</span>
+      </mat-error>
     </mat-form-field>
   </div>
-  <mat-form-field appearance="outline">
+  <mat-form-field
+    appearance="outline"
+    *ngIf="{ control: personDetailsGroup.controls['avatar'] } as avatar"
+  >
     <mat-label>Avatar Url</mat-label>
     <input matInput placeholder="Avatar Url" value="" type="string" formControlName="avatar" />
+    <mat-error>
+      <span *ngIf="avatar.control.hasError('pattern')">Image url is invalid</span>
+    </mat-error>
     <mat-icon matPrefix>link</mat-icon>
   </mat-form-field>
-  <p>Avatar Preview</p>
-  <img
-    class="avatar-preview"
-    src="https://pbs.twimg.com/media/D8dDZukXUAAXLdY.jpg"
-    alt=""
-    aria-hidden="true"
-  />
+  <ng-container
+    *ngIf="personDetailsGroup.get('avatar')?.value && personDetailsGroup.get('avatar')?.valid"
+  >
+    <p>Avatar Preview</p>
+    <img
+      class="avatar-preview"
+      [src]="personDetailsGroup.get('avatar')?.value"
+      alt=""
+      aria-hidden="true"
+    />
+  </ng-container>
 </div>

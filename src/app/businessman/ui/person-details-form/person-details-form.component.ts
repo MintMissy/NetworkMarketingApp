@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,5 +15,14 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class PersonDetailsFormComponent implements OnInit {
   @Input() personDetailsGroup!: FormGroup;
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.personDetailsGroup.get('firstName')?.setValidators(Validators.max(256));
+    this.personDetailsGroup.get('surname')?.setValidators(Validators.max(256));
+    this.personDetailsGroup
+      .get('avatar')
+      ?.setValidators([
+        Validators.pattern(/(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/g),
+      ]);
+  }
 }
