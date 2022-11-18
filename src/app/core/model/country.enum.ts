@@ -1,4 +1,5 @@
 export enum Country {
+  Undefined = 'UNDEFINED',
   UnitedStates = 'US',
   Afghanistan = 'AF',
   AlandIslands = 'AX',

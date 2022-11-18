@@ -10,10 +10,10 @@
 - [x] form validators
 - [x] set form data before passing them to service (owner id etc)
 - [ ] Save user profile in database
-- [ ] translate app
 - [ ] Business page
 - [ ] Shop page
 - [ ] Product page
+- [ ] translate app
 
 ## Style todo
 

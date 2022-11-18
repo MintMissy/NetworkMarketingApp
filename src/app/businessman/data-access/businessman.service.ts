@@ -30,7 +30,7 @@ export class BusinessmanService {
 
   insertBusinessman(businessman: Businessman) {
     return this._httpClient.post<FirebasePostResponse>(
-      environment.endpointUrl + 'businessmen.json',
+      environment.endpointUrl + `businessmen/${businessman.id}.json`,
       businessman
     );
   }
