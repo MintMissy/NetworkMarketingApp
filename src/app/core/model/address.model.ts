@@ -1,5 +1,7 @@
+import { Country } from './country.enum';
+
 export interface Address {
-  country: string;
+  country: Country;
   city: string;
   street: string;
   localNumber: string;

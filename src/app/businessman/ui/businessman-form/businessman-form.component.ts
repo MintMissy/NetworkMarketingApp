@@ -12,6 +12,7 @@ import { AddressFormComponent } from 'src/app/core/components/forms/address-form
 import { Businessman } from '../../model/businessman.model';
 import { CommonModule } from '@angular/common';
 import { ContactDetailsFormComponent } from 'src/app/core/components/forms/contact-details-form/contact-details-form.component';
+import { Country } from 'src/app/core/model/country.enum';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
 import { PersonDetailsFormComponent } from '../person-details-form/person-details-form.component';
 
@@ -80,7 +81,7 @@ export class BusinessmanFormComponent implements OnInit {
         avatar: '',
       },
       address: {
-        country: '',
+        country: Country.Poland,
         city: '',
         street: '',
         localNumber: '',

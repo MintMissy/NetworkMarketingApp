@@ -15,6 +15,7 @@ import { BusinessIndustry } from '../../model/business-industry.enum';
 import { BusinessService } from '../../data-access/business.service';
 import { CommonModule } from '@angular/common';
 import { ContactDetailsFormComponent } from 'src/app/core/components/forms/contact-details-form/contact-details-form.component';
+import { Country } from 'src/app/core/model/country.enum';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -99,7 +100,7 @@ export class BusinessFormComponent implements OnInit {
         backgroundImage: '',
       },
       address: {
-        country: '',
+        country: Country.Poland,
         city: '',
         street: '',
         localNumber: '',

@@ -1,12 +1,23 @@
 <div class="card card--padded card--form" [formGroup]="addressGroup">
   <p>Address</p>
   <div class="input-group">
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: addressGroup.controls['street'] } as street"
+    >
       <mat-label>Street</mat-label>
       <input matInput placeholder="Street" value="" type="string" formControlName="street" />
+      <mat-error>
+        <span *ngIf="street.control.hasError('required')">Password is required</span>
+        <span *ngIf="street.control.hasError('minlength')">Password is too short</span>
+        <span *ngIf="street.control.hasError('maxlength')">Password is too long</span>
+      </mat-error>
       <mat-icon matPrefix>traffic</mat-icon>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: addressGroup.controls['localNumber'] } as localNumber"
+    >
       <mat-label>Local Number</mat-label>
       <input
         matInput
@@ -15,10 +26,18 @@
         type="string"
         formControlName="localNumber"
       />
+      <mat-error>
+        <span *ngIf="localNumber.control.hasError('required')">Password is required</span>
+        <span *ngIf="localNumber.control.hasError('minlength')">Password is too short</span>
+        <span *ngIf="localNumber.control.hasError('maxlength')">Password is too long</span>
+      </mat-error>
     </mat-form-field>
   </div>
   <div class="input-group">
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: addressGroup.controls['postalCode'] } as postalCode"
+    >
       <mat-label>Postal Code</mat-label>
       <input
         matInput
@@ -27,17 +46,39 @@
         type="string"
         formControlName="postalCode"
       />
+      <mat-error>
+        <span *ngIf="postalCode.control.hasError('required')">Password is required</span>
+        <span *ngIf="postalCode.control.hasError('minlength')">Password is too short</span>
+        <span *ngIf="postalCode.control.hasError('maxlength')">Password is too long</span>
+      </mat-error>
       <mat-icon matPrefix>signpost</mat-icon>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" *ngIf="{ control: addressGroup.controls['city'] } as city">
       <mat-label>City</mat-label>
       <input matInput placeholder="City" value="" type="string" formControlName="city" />
+      <mat-error>
+        <span *ngIf="city.control.hasError('required')">Password is required</span>
+        <span *ngIf="city.control.hasError('minlength')">Password is too short</span>
+        <span *ngIf="city.control.hasError('maxlength')">Password is too long</span>
+      </mat-error>
       <mat-icon matPrefix>location_city</mat-icon>
     </mat-form-field>
   </div>
-  <mat-form-field appearance="outline">
+  <!-- TODO country to dict -->
+  <mat-form-field
+    appearance="outline"
+    class="input-network-name"
+    *ngIf="{ control: addressGroup.controls['country'] } as countryControl"
+  >
     <mat-label>Country</mat-label>
-    <input matInput placeholder="Country" value="" type="string" formControlName="country" />
+    <mat-select placeholder="Country" formControlName="country">
+      <mat-option *ngFor="let country of Country" [value]="country[1]">
+        {{ country[0] }}
+      </mat-option>
+    </mat-select>
     <mat-icon matPrefix>language</mat-icon>
+    <mat-error>
+      <span *ngIf="countryControl.control.hasError('required')">Country is required</span>
+    </mat-error>
   </mat-form-field>
 </div>
