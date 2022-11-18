@@ -42,6 +42,12 @@ $my-theme: mat.define-dark-theme(
   --clr-warning: #ff9735;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
@@ -127,6 +133,9 @@ h2 {
   background-color: var(--clr-dark-5);
   background: linear-gradient(var(--clr-dark-2), var(--clr-dark-3) 100%);
   border: 2px solid var(--clr-dark-5);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   .card-banner {
     height: 175px;
@@ -134,8 +143,14 @@ h2 {
     background-size: cover;
   }
 
-  .card-content {
+  .card-content,
+  .card-actions {
     padding: 0.75rem 1.5rem 1.5rem;
+  }
+
+  .card-content {
+    flex: 1 0 auto;
+    padding-bottom: 0.75rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
@@ -159,14 +174,14 @@ h2 {
       line-height: 1.5rem;
       font-weight: 300;
       color: var(--clr-light-4);
-      margin-bottom: 1rem;
+      margin-bottom: 0;
     }
+  }
 
-    .card-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+  .card-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 }
 

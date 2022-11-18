@@ -5,14 +5,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-card',
+  selector: 'app-content-card',
   standalone: true,
   imports: [CommonModule, MatButtonModule, RouterModule],
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  templateUrl: './content-card.component.html',
+  styleUrls: ['./content-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardComponent {
+export class ContentCardComponent {
   @Input() imageSource!: string;
   @Input() subtitle!: string;
   @Input() title!: string;

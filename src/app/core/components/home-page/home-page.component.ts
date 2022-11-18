@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { AddItemCardComponent } from '../cards/add-item-card/add-item-card.component';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from '../card/card.component';
+import { ContentCardComponent } from '../cards/content-card/content-card.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule, CardComponent],
+  imports: [CommonModule, ContentCardComponent, AddItemCardComponent],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
