@@ -1,1 +1,6 @@
-<app-business-form title="Create new Business" (discard)="onDiscard()" (submit)="onSubmit($event)"></app-business-form>
+<app-business-form
+  title="Create new Business"
+  (discard)="onDiscard()"
+  (submit)="onSubmit($event)"
+  [enabledNetworkSelection]="true"
+></app-business-form>

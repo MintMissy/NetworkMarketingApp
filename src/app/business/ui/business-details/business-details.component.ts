@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 })
 export class BusinessDetailsComponent implements OnInit {
   @Input() businessDetailsGroup!: FormGroup;
+  @Input() enabledNetworkSelection: boolean = false;
   BusinessIndustrySet = BusinessIndustrySet;
 
   constructor() {}
@@ -36,5 +37,8 @@ export class BusinessDetailsComponent implements OnInit {
         Validators.required,
         Validators.pattern(/(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/g),
       ]);
+    if (this.enabledNetworkSelection == false) {
+      this.businessDetailsGroup.get('parentBusinessId')?.disable();
+    }
   }
 }

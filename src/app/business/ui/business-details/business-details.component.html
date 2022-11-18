@@ -43,7 +43,10 @@
       *ngIf="{ control: businessDetailsGroup.controls['parentBusinessId'] } as parentBusinessId"
     >
       <mat-label>Network Name</mat-label>
-      <mat-select placeholder="Network Name" formControlName="parentBusinessId">
+      <mat-select
+        placeholder="Network Name"
+        formControlName="parentBusinessId"
+      >
         <!-- TODO fetch parent businesses -->
         <!-- <mat-option *ngFor="let industryEntry of BusinessIndustrySet" [value]="industryEntry.value">
           {{ industryEntry.key }}

@@ -41,6 +41,7 @@ export class BusinessFormComponent implements OnInit {
   @Output() discard = new EventEmitter<void>();
   @Input() title: string = 'Default Title';
   @Input() business: Business = this.getDummyBusiness();
+  @Input() enabledNetworkSelection = false;
   businessForm!: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {}

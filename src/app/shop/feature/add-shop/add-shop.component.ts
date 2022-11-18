@@ -22,6 +22,7 @@ export class AddShopComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(shop: Shop) {
+    shop.productIds = [];
     this._store.dispatch(insertShop({ shop: shop }));
   }
 

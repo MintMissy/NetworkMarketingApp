@@ -4,17 +4,19 @@ import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-shop-details-form',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatInputModule, ReactiveFormsModule],
+  imports: [CommonModule, MatIconModule, MatInputModule, ReactiveFormsModule, MatSelectModule],
   templateUrl: './shop-details-form.component.html',
   styleUrls: ['./shop-details-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShopDetailsFormComponent implements OnInit {
   @Input() shopDetailsGroup!: FormGroup;
+  @Input() enabledEditingBusiness = false;
 
   constructor() {}
 
@@ -31,5 +33,9 @@ export class ShopDetailsFormComponent implements OnInit {
         Validators.required,
         Validators.pattern(/(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/g),
       ]);
+    this.shopDetailsGroup.get('businessId')?.setValidators([Validators.required]);
+    if (!this.enabledEditingBusiness) {
+      this.shopDetailsGroup.get('businessId')?.disable();
+    }
   }
 }

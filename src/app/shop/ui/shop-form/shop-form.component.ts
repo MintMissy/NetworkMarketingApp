@@ -26,6 +26,7 @@ export class ShopFormComponent implements OnInit {
   @Output() discard = new EventEmitter<void>();
   @Input() shop: Shop = this.getDummyShop();
   @Input() title: string = 'Default Title';
+  @Input() enabledEditingBusiness = false;
   shopForm!: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {}
@@ -49,9 +50,10 @@ export class ShopFormComponent implements OnInit {
   private getForm(): FormGroup<any> {
     return this._formBuilder.group({
       details: this._formBuilder.group({
-        name: [''],
-        description: [''],
-        shopBanner: [''],
+        name: [this.shop.details.name],
+        description: [this.shop.details.description],
+        shopBanner: [this.shop.details.shopBanner],
+        businessId: [this.shop.details.businessId],
       }),
     });
   }
@@ -59,11 +61,11 @@ export class ShopFormComponent implements OnInit {
   getDummyShop(): Shop {
     return {
       id: '',
-      businessId: '',
       details: {
         name: '',
         description: '',
         shopBanner: '',
+        businessId: '',
       },
       productIds: [],
     };

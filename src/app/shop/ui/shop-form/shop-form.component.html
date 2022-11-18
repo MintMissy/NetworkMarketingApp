@@ -1,5 +1,8 @@
 <form class="form-container">
   <h1>{{ title }}</h1>
-  <app-shop-details-form [shopDetailsGroup]="getFormGroup('details')"></app-shop-details-form>
+  <app-shop-details-form
+    [shopDetailsGroup]="getFormGroup('details')"
+    [enabledEditingBusiness]="enabledEditingBusiness"
+  ></app-shop-details-form>
   <app-form-actions (submit)="onSubmit()" (discard)="discard.emit()"></app-form-actions>
 </form>

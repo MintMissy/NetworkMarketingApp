@@ -3,22 +3,21 @@
   <div class="card-content">
     <h1>{{ business.details.companyName }}</h1>
     <p>{{ business.details.description }}</p>
-    <!-- <p>{{ business.parentBusinessId }}</p> -->
-    <div class="card-actions">
-      <a [routerLink]="'/businesses/' + business.id">
-        <button mat-raised-button color="primary">View Business</button>
-      </a>
-      <a [routerLink]="'/businesses/' + business.id + '/edit'" *ngIf="userId === business.ownerId">
-        <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
-      </a>
-      <button
-        mat-stroked-button
-        color=""
-        *ngIf="userId === business.ownerId"
-        (click)="deleteClick.emit(business)"
-      >
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
+  </div>
+  <div class="card-actions">
+    <a [routerLink]="'/businesses/' + business.id">
+      <button mat-raised-button color="primary">View Business</button>
+    </a>
+    <a [routerLink]="'/businesses/' + business.id + '/edit'" *ngIf="userId === business.ownerId">
+      <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
+    </a>
+    <button
+      mat-stroked-button
+      color=""
+      *ngIf="userId === business.ownerId"
+      (click)="deleteClick.emit(business)"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
   </div>
 </article>
