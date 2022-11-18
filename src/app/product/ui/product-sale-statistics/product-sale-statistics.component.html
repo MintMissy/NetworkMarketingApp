@@ -1,18 +1,27 @@
 <div class="card card--padded card--form" [formGroup]="saleStatisticsGroup">
   <p>Storage and Statistics</p>
   <div class="input-group">
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: saleStatisticsGroup.controls['amountInStorage'] } as amountInStorage"
+    >
       <mat-label>Amount in Storage</mat-label>
       <input
         matInput
         placeholder="Amount in Storage"
         value=""
-        type="string"
+        type="number"
         formControlName="amountInStorage"
       />
       <mat-icon matPrefix>edit</mat-icon>
+      <mat-error>
+        <span *ngIf="amountInStorage.control.hasError('min')">Value must be a positive number</span>
+      </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: saleStatisticsGroup.controls['soldAmount'] } as soldAmount"
+    >
       <mat-label>Sold Amount</mat-label>
       <input
         matInput
@@ -22,6 +31,9 @@
         formControlName="soldAmount"
       />
       <mat-icon matPrefix>attach_money</mat-icon>
+      <mat-error>
+        <span *ngIf="soldAmount.control.hasError('min')">Value must be a positive number</span>
+      </mat-error>
     </mat-form-field>
   </div>
 </div>

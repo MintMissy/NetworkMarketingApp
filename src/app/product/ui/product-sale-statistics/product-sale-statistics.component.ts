@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,5 +18,8 @@ export class ProductSaleStatisticsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.saleStatisticsGroup.get('amountInStorage')?.setValidators([Validators.min(0)]);
+    this.saleStatisticsGroup.get('soldAmount')?.setValidators([Validators.min(0)]);
+  }
 }
