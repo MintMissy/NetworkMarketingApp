@@ -3,4 +3,10 @@
     [products]="products$ | async"
     [userData]="userData$ | async"
   ></app-products-list>
+  <!-- TODO add only if user is a shop owner -->
+  <app-add-item-card
+    title="Add Product"
+    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."
+    link="/new"
+  ></app-add-item-card>
 </div>

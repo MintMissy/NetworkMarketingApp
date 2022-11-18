@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { AddItemCardComponent } from 'src/app/core/components/cards/add-item-card/add-item-card.component';
 import { AppState } from 'src/app/app.state';
 import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 import { CommonModule } from '@angular/common';
@@ -13,7 +14,7 @@ import { User } from '@angular/fire/auth';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, RouterModule, ProductsListComponent],
+  imports: [CommonModule, RouterModule, ProductsListComponent, AddItemCardComponent],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

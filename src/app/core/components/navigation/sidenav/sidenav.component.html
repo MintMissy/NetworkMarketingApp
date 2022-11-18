@@ -55,7 +55,7 @@
     *ngIf="isUserLoggedIn"
     (click)="onButtonClick()"
     text="My Profile"
-    [link]="'businessmen/' + loggedInUser?.uid"
+    [link]="'/businessmen/' + loggedInUser?.uid"
     icon="person"
   ></app-sidenav-button>
 </div>

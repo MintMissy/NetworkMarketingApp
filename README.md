@@ -1,4 +1,4 @@
-## Todo
+## Core Todo
 
 - [x] reusable component lists
 - [ ] forms
@@ -7,28 +7,14 @@
 - [x] ngrx
 - [x] auth
 - [x] guards
-- [ ] image resolving pipe -> forms
-- [ ] card button focus
+- [ ] image resolving pipe -> forms (update every x seconds) - directive
+- [ ] form validators
+- [ ] set form data before passing them to service (owner id etc)
+- [ ] translate app
 
-**Home Page**
+## Style todo
 
-- [ ] Statistics: how many businesses, how many products, how many business owners
-- [ ] List of Sub businesses (filtering option)
-- [ ] Become a businessman (create business-owner form)
-
-**Business Owner Page**
-
-- [ ] View business
-- [ ] Create business
-- [ ] init businessman
-
-**Business Page**
-
-- [ ] List of Products
-- [ ] Owner
-- [ ] Add product
-
-**Product Page**
-
-- [ ] Buy
-- [ ] Edit
+- [ ] remove footer
+- [ ] sticky navbar
+- [ ] responsible sidenav
+- [ ] hide browser url on scroll on mobile

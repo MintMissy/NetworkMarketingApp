@@ -1,3 +1,4 @@
 <div class="items-container items-container--cards">
   <app-shop-card *ngFor="let shop of shops" [shop]="shop" [userId]="userData?.uid"></app-shop-card>
+  <ng-content></ng-content>
 </div>
