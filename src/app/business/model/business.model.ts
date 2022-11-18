@@ -4,7 +4,6 @@ import { ContactDetails } from 'src/app/core/model/contact-details.model';
 
 export interface Business {
   id: string;
-  parentBusinessId: string | null;
   ownerId: string;
   shopIds: string[];
   details: BusinessDetails;
@@ -18,4 +17,5 @@ export interface BusinessDetails {
   industry: BusinessIndustry;
   ownerId: string;
   backgroundImage: string;
+  parentBusinessId: string | null;
 }

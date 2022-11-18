@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { BusinessIndustrySet } from '../../model/business-industry.enum';
 import { CommonModule } from '@angular/common';
@@ -21,5 +21,20 @@ export class BusinessDetailsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.businessDetailsGroup
+      .get('companyName')
+      ?.setValidators([Validators.required, Validators.minLength(3), Validators.maxLength(256)]);
+    this.businessDetailsGroup
+      .get('description')
+      ?.setValidators([Validators.required, Validators.minLength(10), Validators.maxLength(512)]);
+    this.businessDetailsGroup.get('parentBusinessId')?.setValidators([Validators.required]);
+    this.businessDetailsGroup.get('industry')?.setValidators([Validators.required]);
+    this.businessDetailsGroup
+      .get('backgroundImage')
+      ?.setValidators([
+        Validators.required,
+        Validators.pattern(/(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/g),
+      ]);
+  }
 }

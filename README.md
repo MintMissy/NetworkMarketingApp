@@ -1,7 +1,7 @@
 ## Core Todo
 
 - [x] reusable component lists
-- [ ] forms
+- [ ] forms sending etc
 - [x] resolvers
 - [x] services
 - [x] ngrx

@@ -4,7 +4,7 @@
     <mat-form-field appearance="outline" *ngIf="{ control: signUpForm.controls['email'] } as email">
       <mat-label>Email</mat-label>
       <input matInput placeholder="Email" type="email" formControlName="email" />
-      <mat-error class="error-container">
+      <mat-error>
         <span *ngIf="email.control.hasError('required')">Email is required</span>
         <span *ngIf="email.control.hasError('email')">Email is invalid</span>
       </mat-error>
@@ -28,7 +28,7 @@
         autocomplete="on"
         formControlName="password"
       />
-      <mat-error class="error-container">
+      <mat-error>
         <span *ngIf="password.control.hasError('required')">Password is required</span>
         <span *ngIf="password.control.hasError('minlength')">Password is too short</span>
         <span *ngIf="password.control.hasError('maxlength')">Password is too long</span>
@@ -63,7 +63,7 @@
         autocomplete="on"
         formControlName="repeatedPassword"
       />
-      <mat-error class="error-container">
+      <mat-error>
         <span *ngIf="repeatedPassword.control.hasError('required')">Password is required</span>
         <span *ngIf="repeatedPassword.control.hasError('minlength')">Password is too short</span>
         <span *ngIf="repeatedPassword.control.hasError('maxlength')">Password is too long</span>

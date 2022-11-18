@@ -37,7 +37,7 @@ export class AddBusinessComponent implements OnInit {
     business.shopIds = [];
 
     // TODO set parent business
-    business.parentBusinessId = null;
+    business.details.parentBusinessId = null;
 
     this._store.dispatch(insertBusiness({ business: business }));
   }

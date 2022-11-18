@@ -1,6 +1,9 @@
 <div class="card card--padded card--form" [formGroup]="businessDetailsGroup">
   <p>Business Details</p>
-  <mat-form-field appearance="outline">
+  <mat-form-field
+    appearance="outline"
+    *ngIf="{ control: businessDetailsGroup.controls['companyName'] } as companyName"
+  >
     <mat-label>Company Name</mat-label>
     <input
       matInput
@@ -9,25 +12,54 @@
       type="string"
       formControlName="companyName"
     />
+    <mat-error>
+      <span *ngIf="companyName.control.hasError('required')">Company Name is required</span>
+      <span *ngIf="companyName.control.hasError('minlength')">Company name is too short</span>
+      <span *ngIf="companyName.control.hasError('maxlength')">Company Name is too long</span>
+    </mat-error>
     <mat-icon matPrefix>edit</mat-icon>
   </mat-form-field>
   <div class="input-group">
-    <mat-form-field appearance="outline" class="input-business-type">
-      <mat-label>Business Type</mat-label>
-      <mat-select placeholder="Business Type" formControlName="industry">
+    <mat-form-field
+      appearance="outline"
+      class="input-business-type"
+      *ngIf="{ control: businessDetailsGroup.controls['industry'] } as industry"
+    >
+      <mat-label>Business Industry</mat-label>
+      <mat-select placeholder="Business Industry" formControlName="industry">
         <mat-option *ngFor="let industryEntry of BusinessIndustrySet" [value]="industryEntry.value">
           {{ industryEntry.key }}
         </mat-option>
       </mat-select>
       <mat-icon matPrefix>business</mat-icon>
+      <mat-error>
+        <span *ngIf="industry.control.hasError('required')">Industry is required</span>
+      </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="outline" class="input-network-name">
+
+    <mat-form-field
+      appearance="outline"
+      class="input-network-name"
+      *ngIf="{ control: businessDetailsGroup.controls['parentBusinessId'] } as parentBusinessId"
+    >
       <mat-label>Network Name</mat-label>
-      <input matInput placeholder="Network Name" value="" type="string" disabled="" />
+      <mat-select placeholder="Network Name" formControlName="parentBusinessId">
+        <!-- TODO fetch parent businesses -->
+        <!-- <mat-option *ngFor="let industryEntry of BusinessIndustrySet" [value]="industryEntry.value">
+          {{ industryEntry.key }}
+        </mat-option> -->
+        <mat-option value="">None</mat-option>
+      </mat-select>
       <mat-icon matPrefix>hub</mat-icon>
+      <mat-error>
+        <span *ngIf="parentBusinessId.control.hasError('required')">Industry is required</span>
+      </mat-error>
     </mat-form-field>
   </div>
-  <mat-form-field appearance="outline">
+  <mat-form-field
+    appearance="outline"
+    *ngIf="{ control: businessDetailsGroup.controls['description'] } as description"
+  >
     <mat-label>Company Description</mat-label>
     <textarea
       matInput
@@ -38,8 +70,16 @@
       value=""
       formControlName="description"
     ></textarea>
+    <mat-error>
+      <span *ngIf="description.control.hasError('required')">Description is required</span>
+      <span *ngIf="description.control.hasError('minlength')">Description is too short</span>
+      <span *ngIf="description.control.hasError('maxlength')">Description is too long</span>
+    </mat-error>
   </mat-form-field>
-  <mat-form-field appearance="outline">
+  <mat-form-field
+    appearance="outline"
+    *ngIf="{ control: businessDetailsGroup.controls['backgroundImage'] } as backgroundImage"
+  >
     <mat-label>Banner Url</mat-label>
     <input
       matInput
@@ -49,9 +89,18 @@
       formControlName="backgroundImage"
     />
     <mat-icon matPrefix>link</mat-icon>
+    <mat-error>
+      <span *ngIf="backgroundImage.control.hasError('required')">Banner is required</span>
+      <span *ngIf="backgroundImage.control.hasError('pattern')">This image url is invalid</span>
+    </mat-error>
   </mat-form-field>
   <!-- TODO banner preview -->
-  <ng-container *ngIf="businessDetailsGroup.get('backgroundImage')?.value">
+  <ng-container
+    *ngIf="
+      businessDetailsGroup.get('backgroundImage')?.value &&
+      businessDetailsGroup.get('backgroundImage')?.valid
+    "
+  >
     <p>Banner Preview</p>
     <img
       class="banner-preview"
