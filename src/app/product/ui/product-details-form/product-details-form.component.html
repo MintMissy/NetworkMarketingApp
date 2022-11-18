@@ -1,18 +1,36 @@
 <div class="card card--padded card--form" [formGroup]="productDetailsGroup">
   <p>Product Details</p>
   <div class="input-group">
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: productDetailsGroup.controls['name'] } as name"
+    >
       <mat-label>Product Name</mat-label>
       <input matInput placeholder="Product Name" value="" type="string" formControlName="name" />
+      <mat-error>
+        <span *ngIf="name.control.hasError('required')">Product Name is required</span>
+        <span *ngIf="name.control.hasError('minlength')">Product name is too short</span>
+        <span *ngIf="name.control.hasError('maxlength')">Product Name is too long</span>
+      </mat-error>
       <mat-icon matPrefix>edit</mat-icon>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      *ngIf="{ control: productDetailsGroup.controls['price'] } as price"
+    >
       <mat-label>Price</mat-label>
       <input matInput placeholder="Price" value="" type="number" formControlName="price" />
+      <mat-error>
+        <span *ngIf="price.control.hasError('required')">Price is required</span>
+        <span *ngIf="price.control.hasError('min')">Price must be a positive number</span>
+      </mat-error>
       <mat-icon matPrefix>attach_money</mat-icon>
     </mat-form-field>
   </div>
-  <mat-form-field appearance="outline">
+  <mat-form-field
+    appearance="outline"
+    *ngIf="{ control: productDetailsGroup.controls['description'] } as description"
+  >
     <mat-label>Product Description</mat-label>
     <textarea
       matInput
@@ -23,18 +41,33 @@
       value=""
       formControlName="description"
     ></textarea>
+    <mat-error>
+      <span *ngIf="description.control.hasError('required')">Description is required</span>
+      <span *ngIf="description.control.hasError('minlength')">Description is too short</span>
+      <span *ngIf="description.control.hasError('maxlength')">Description is too long</span>
+    </mat-error>
   </mat-form-field>
-  <mat-form-field appearance="outline">
+  <mat-form-field
+    appearance="outline"
+    *ngIf="{ control: productDetailsGroup.controls['image'] } as image"
+  >
     <mat-label>Banner Url</mat-label>
     <input matInput placeholder="Banner Url" value="" type="string" formControlName="image" />
     <mat-icon matPrefix>link</mat-icon>
+    <mat-error>
+      <span *ngIf="image.control.hasError('required')">Product banner is required</span>
+      <span *ngIf="image.control.hasError('pattern')">Image url is invalid</span>
+    </mat-error>
   </mat-form-field>
-  <!-- TODO banner preview -->
-  <p>Banner Preview</p>
-  <img
-    class="banner-preview"
-    src="https://images.unsplash.com/photo-1523800378286-dae1f0dae656?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1076&q=80"
-    alt=""
-    aria-hidden="true"
-  />
+  <ng-container
+    *ngIf="productDetailsGroup.get('image')?.value && productDetailsGroup.get('image')?.valid"
+  >
+    <p>Banner Preview</p>
+    <img
+      class="banner-preview"
+      [src]="productDetailsGroup.get('image')?.value"
+      alt=""
+      aria-hidden="true"
+    />
+  </ng-container>
 </div>
