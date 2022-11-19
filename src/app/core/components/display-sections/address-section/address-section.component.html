@@ -11,4 +11,40 @@
       }}
     </span>
   </p>
+  <p>
+    <mat-icon>location_city</mat-icon>
+    City:
+    <span>
+      {{ address.city === null || address.city === "" ? "not provided" : address.city }}
+    </span>
+  </p>
+  <p>
+    <mat-icon>signpost</mat-icon>
+    Post Code:
+    <span>
+      {{
+        address.postalCode === null || address.postalCode === ""
+          ? "not provided"
+          : address.postalCode
+      }}
+    </span>
+  </p>
+  <p>
+    <mat-icon>traffic</mat-icon>
+    Street:
+    <span>
+      {{ address.street === null || address.street === "" ? "not provided" : address.street }}
+    </span>
+  </p>
+  <p>
+    <mat-icon>location_on</mat-icon>
+    Local Number:
+    <span>
+      {{
+        address.localNumber === null || address.localNumber === ""
+          ? "not provided"
+          : address.localNumber
+      }}
+    </span>
+  </p>
 </div>

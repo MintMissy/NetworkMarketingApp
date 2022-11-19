@@ -1,1 +1,5 @@
-<app-businessman-form (submit)="onSubmit()" (discard)="onDiscard()"></app-businessman-form>
+<app-businessman-form
+  (submit)="onSubmit($event)"
+  (discard)="onDiscard()"
+  [businessman]="(businessman$ | async)!"
+></app-businessman-form>

@@ -25,15 +25,15 @@ export class AddressFormComponent implements OnInit {
     this.addressGroup.get('country')?.setValidators([Validators.required]);
     this.addressGroup
       .get('city')
-      ?.setValidators([Validators.required, Validators.minLength(1), Validators.maxLength(100)]);
+      ?.setValidators([Validators.minLength(1), Validators.maxLength(100)]);
     this.addressGroup
       .get('street')
-      ?.setValidators([Validators.required, Validators.minLength(1), Validators.maxLength(100)]);
+      ?.setValidators([Validators.minLength(1), Validators.maxLength(100)]);
     this.addressGroup
       .get('localNumber')
-      ?.setValidators([Validators.required, Validators.minLength(1), Validators.maxLength(15)]);
+      ?.setValidators([Validators.minLength(1), Validators.maxLength(15)]);
     this.addressGroup
       .get('postalCode')
-      ?.setValidators([Validators.required, Validators.minLength(1), Validators.maxLength(15)]);
+      ?.setValidators([Validators.minLength(1), Validators.maxLength(15)]);
   }
 }

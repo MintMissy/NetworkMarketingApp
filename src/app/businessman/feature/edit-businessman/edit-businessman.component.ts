@@ -1,8 +1,14 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { AppState } from 'src/app/app.state';
+import { Businessman } from '../../model/businessman.model';
 import { BusinessmanFormComponent } from '../../ui/businessman-form/businessman-form.component';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectBusinessmanEntity } from '../../data-access/businessman.selectors';
+import { updateBusinessman } from '../../data-access/businessman.actions';
 
 @Component({
   selector: 'app-edit-businessman',
@@ -13,14 +19,28 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditBusinessManComponent implements OnInit {
-  constructor(private _router: Router) {}
+  businessman$!: Observable<Businessman | undefined>;
+  selectedId!: string;
+  constructor(
+    private _router: Router,
+    private _store: Store<AppState>,
+    private _activatedRoute: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectedId = this._activatedRoute.snapshot.paramMap.get('id')!;
+    this.businessman$ = this._store.select(selectBusinessmanEntity(this.selectedId));
+  }
 
-  // TODO submit logic
-  onSubmit() {}
+  onSubmit(businessman: Businessman) {
+    const businessmanClone: Businessman = {
+      ...businessman,
+      id: this.selectedId,
+    };
+    this._store.dispatch(updateBusinessman({ businessman: businessmanClone }));
+  }
 
   onDiscard() {
-    this._router.navigate(['businessmen']);
+    this._router.navigate(['..']);
   }
 }

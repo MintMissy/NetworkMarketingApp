@@ -19,15 +19,9 @@ export class ContactDetailsFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.contactGroup
-      .get('email')
-      ?.setValidators([Validators.required, Validators.email, Validators.maxLength(256)]);
+    this.contactGroup.get('email')?.setValidators([Validators.email, Validators.maxLength(256)]);
     this.contactGroup
       .get('telephone')
-      ?.setValidators([
-        Validators.required,
-        Validators.min(9999999999),
-        Validators.max(1000000000000),
-      ]);
+      ?.setValidators([Validators.min(9999999999), Validators.max(1000000000000)]);
   }
 }
