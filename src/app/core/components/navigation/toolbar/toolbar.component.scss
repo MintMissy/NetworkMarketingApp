@@ -1,6 +1,11 @@
 .toolbar {
-  height: 3.5rem;
+  height: var(--toolbar-height);
   color: var(--color-light-1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
 }
 
 .logo {

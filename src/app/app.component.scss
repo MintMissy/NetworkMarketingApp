@@ -1,20 +1,21 @@
 main {
+  padding-top: var(--toolbar-height);
   min-height: 90vh;
   display: flex;
   flex: 1 1 auto;
 }
 
-mat-drawer-container {
+mat-sidenav-container {
   width: 100%;
 }
 
-.mat-drawer-content,
-.mat-drawer {
+.mat-sidenav-content,
+.mat-sidenav {
   background-color: var(--color-dark-4);
   color: var(--color-light-1);
 }
 
-mat-drawer-content {
+mat-sidenav-content {
   padding: 1rem 0.25rem;
 
   @media screen and (min-width: 700px) {
@@ -22,9 +23,9 @@ mat-drawer-content {
   }
 }
 
-mat-drawer {
+mat-sidenav {
   background: var(--color-dark-5);
   background: linear-gradient(var(--color-dark-2), var(--color-dark-4) 100%);
   width: 250px;
-  padding: 0.5rem;
+  padding: var(--toolbar-height) 0.5rem 0.5rem;
 }

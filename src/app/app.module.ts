@@ -15,7 +15,6 @@ import { BusinessEffects } from './business/data-access/business.effects';
 import { BusinessmanEffects } from './businessman/data-access/businessman.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
-import { FooterComponent } from './core/components/footer/footer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -37,7 +36,6 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     ToolbarComponent,
-    FooterComponent,
     SidenavComponent,
     SidenavButtonComponent,
     SidenavDirective,

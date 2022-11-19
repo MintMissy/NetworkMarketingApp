@@ -15,14 +15,17 @@
 - [ ] Shop page
 - [ ] Product page
 - [ ] translate app
-- [X] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
+- [x] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
 - [ ] Get owned companies
 - [ ] Get owned shops
-- [X] Update mat dialog style
+- [x] Update mat dialog style
+- [ ] Firebase data access rules
+- [ ] About app
+- [ ] Basic information on the home page
 
 ## Style todo
 
-- [ ] remove footer
-- [ ] sticky navbar
-- [ ] responsible sidenav
-- [ ] hide browser url on scroll on mobile
+- [x] remove footer
+- [x] responsive sidenav
+- [x] hide browser url on scroll on mobile
+- [ ] Change logo on navbar

@@ -16,6 +16,8 @@ $my-theme: mat.define-dark-theme(
 @include mat.all-component-themes($my-theme);
 
 :root {
+  --toolbar-height: 3.5rem;
+
   --color-light-1: #ffffff;
   --color-light-2: #f8fbff;
   --color-light-3: #eaf4ff;

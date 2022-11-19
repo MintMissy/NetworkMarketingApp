@@ -1,24 +1,25 @@
-<app-toolbar (sideNavButtonClick)="toggleSidenav()"></app-toolbar>
-<main>
-  <mat-drawer-container
-    hasBackdrop="true"
-    #drawerContainer
-    appSidenav
-    [drawerContainer]="drawerContainer"
-    [drawer]="sidenav"
-    [sidenavHideScreenWidth]="sidenavHideScreenWidth"
-  >
-    <mat-drawer #sidenav mode="side" opened="true">
-      <nav>
-        <app-sidenav
-          (buttonClick)="onSidenavButtonClick()"
-          (logoutButtonClick)="onLogOut()"
-          [isUserLoggedIn]="(isUserLoggedIn$ | async)!"
-          [loggedInUser]="userData$ | async"
-        ></app-sidenav>
-      </nav>
-    </mat-drawer>
-    <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
-  </mat-drawer-container>
-</main>
-<app-footer></app-footer>
+<div class="app-container">
+  <app-toolbar (sideNavButtonClick)="toggleSidenav()"></app-toolbar>
+  <main>
+    <mat-sidenav-container
+      hasBackdrop="true"
+      #drawerContainer
+      appSidenav
+      [drawerContainer]="drawerContainer"
+      [drawer]="sidenav"
+      [sidenavHideScreenWidth]="sidenavHideScreenWidth"
+    >
+      <mat-sidenav #sidenav mode="side" opened="true" [fixedInViewport]="true">
+        <nav>
+          <app-sidenav
+            (buttonClick)="onSidenavButtonClick()"
+            (logoutButtonClick)="onLogOut()"
+            [isUserLoggedIn]="(isUserLoggedIn$ | async)!"
+            [loggedInUser]="userData$ | async"
+          ></app-sidenav>
+        </nav>
+      </mat-sidenav>
+      <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+    </mat-sidenav-container>
+  </main>
+</div>

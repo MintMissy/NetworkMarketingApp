@@ -1,3 +1,14 @@
+:host {
+  position: sticky;
+  // padding-top: var(--toolbar-height);
+  max-height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
 :host,
 .buttons-group {
   display: flex;
