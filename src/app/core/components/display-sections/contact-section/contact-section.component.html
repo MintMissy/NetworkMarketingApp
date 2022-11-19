@@ -1,0 +1,21 @@
+<div class="section">
+  <h2>Contact</h2>
+  <p>
+    <mat-icon>email</mat-icon>
+    Email:
+    <span>
+      {{ contactDetails.email === null ? "not provided" : contactDetails.email }}
+    </span>
+  </p>
+  <p>
+    <mat-icon>call</mat-icon>
+    Telephone:
+    <span>
+      {{
+        contactDetails.telephone === null || contactDetails.telephone === 0
+          ? "not provided"
+          : contactDetails.telephone
+      }}
+    </span>
+  </p>
+</div>

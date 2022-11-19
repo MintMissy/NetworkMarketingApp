@@ -1,0 +1,25 @@
+<div class="section">
+  <h2>Businessman</h2>
+  <p>
+    <mat-icon>person</mat-icon>
+    First Name:
+    <span>
+      {{
+        personDetails.firstName === null || personDetails.firstName == ""
+          ? "not provided"
+          : personDetails.firstName
+      }}
+    </span>
+  </p>
+  <p>
+    <mat-icon>people</mat-icon>
+    Surname:
+    <span>
+      {{
+        personDetails.surname === null || personDetails.surname == ""
+          ? "not provided"
+          : personDetails.surname
+      }}
+    </span>
+  </p>
+</div>

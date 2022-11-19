@@ -1,5 +1,5 @@
 <article class="card">
-  <img [src]="businessman.details.avatar" alt="" />
+  <img [src]="businessman.details.avatar" alt="" aria-hidden="true" />
   <div class="card-content">
     <h1>{{ businessman.details.firstName + " " + businessman.details.surname }}</h1>
     <a [routerLink]="'/businessmen/' + businessman.id" mat-raised-button color="primary">

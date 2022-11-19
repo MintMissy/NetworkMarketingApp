@@ -9,7 +9,8 @@
 - [x] image resolving pipe -> forms (update every x seconds) - directive
 - [x] form validators
 - [x] set form data before passing them to service (owner id etc)
-- [ ] Save user profile in database
+- [x] Save user profile in database
+- [x] Businessman page
 - [ ] Business page
 - [ ] Shop page
 - [ ] Product page

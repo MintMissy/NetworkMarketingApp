@@ -1,1 +1,18 @@
-<p>businessman works!</p>
+<div *ngIf="businessman$ | async as businessman" class="card card--padded profile-container">
+  <div class="image-container">
+    <img [src]="businessman.details.avatar" class="avatar" alt="" aria-hidden="true" />
+    <a
+      *ngIf="(loggedInUser$ | async)?.uid === selectedUserId"
+      mat-raised-button
+      color="primary"
+      routerLink="edit"
+    >
+      Edit Profile
+    </a>
+  </div>
+  <div class="sections-container">
+    <app-person-details-section [personDetails]="businessman.details"></app-person-details-section>
+    <app-address-section [address]="businessman.address"></app-address-section>
+    <app-contact-section [contactDetails]="businessman.contactDetails"></app-contact-section>
+  </div>
+</div>
