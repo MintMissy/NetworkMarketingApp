@@ -48,8 +48,6 @@ export class ShopFormComponent implements OnInit {
   }
 
   private getForm(): FormGroup<any> {
-    console.log(this.shop.details);
-
     return this._formBuilder.group({
       details: this._formBuilder.group({
         name: [this.shop.details.name],

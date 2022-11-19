@@ -19,3 +19,11 @@ export const selectShopEntity = (id: string) => {
     return Object.values({ ...state.entities }).find((entity) => entity?.id == id);
   });
 };
+
+export const selectShopsByBusinesses = (businessIds: string[]) => {
+  return createSelector(selectShopsState, (state) => {
+    return Object.values({ ...state.entities }).filter(
+      (shop) => shop !== undefined && businessIds.includes(shop.details.businessId)
+    );
+  });
+};

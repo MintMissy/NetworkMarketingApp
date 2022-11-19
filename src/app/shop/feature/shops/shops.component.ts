@@ -34,7 +34,6 @@ export class ShopsComponent implements OnInit {
 
   ngOnInit(): void {
     this._store.dispatch(loadShops());
-    // TODO stores state
     this.shops$ = this._store.select(selectAllShops);
     this.userData$ = this._authService.userData$;
   }

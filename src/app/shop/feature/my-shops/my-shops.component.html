@@ -1,4 +1,4 @@
-<app-shops-list>
+<app-shops-list [shops]="shops" [userData]="userData$ | async">
   <app-add-item-card
     title="Create Shop"
     content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."

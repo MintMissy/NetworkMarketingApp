@@ -17,8 +17,7 @@
 - [ ] Product page
 - [ ] translate app
 - [x] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
-- [ ] Get owned companies in busienss form
-- [ ] Get owned shops
+- [X] Get owned shops
 - [ ] Get shop products
 - [x] Update mat dialog style
 - [ ] Firebase data access rules

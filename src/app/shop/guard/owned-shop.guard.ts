@@ -1,9 +1,10 @@
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Injectable, Injector } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 
 import { AuthenticationService } from 'src/app/auth/data-access/authentication.service';
 import { ShopGuard } from './shop.guard';
+import { loadBusiness } from 'src/app/business/data-access/business.actions';
 import { selectBusinessEntity } from 'src/app/business/data-access/business.selectors';
 
 @Injectable({
@@ -23,9 +24,14 @@ export class OwnedShopGuard extends ShopGuard implements CanActivate {
     const shop$ = this.getSelectedShop(route.paramMap).pipe();
     return new Observable<boolean>((observer) => {
       shop$.subscribe((shop) => {
+        this.store.dispatch(loadBusiness({ id: shop?.details.businessId! }));
+
         const isUserShopOwner = this.store
           .select(selectBusinessEntity(shop?.details.businessId!))
-          .pipe(map((business) => business !== undefined && business.ownerId === userId));
+          .pipe(
+            tap((business) => console.log(business)),
+            map((business) => business !== undefined && business.ownerId === userId)
+          );
 
         isUserShopOwner.subscribe((shop) => {
           observer.next(shop);
