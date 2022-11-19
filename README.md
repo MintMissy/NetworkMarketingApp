@@ -12,6 +12,7 @@
 - [x] Save user profile in database
 - [x] Businessman page
 - [x] Business page
+- [x] Language configuration component
 - [ ] Shop page
 - [ ] Product page
 - [ ] translate app
@@ -21,11 +22,11 @@
 - [x] Update mat dialog style
 - [ ] Firebase data access rules
 - [ ] About app
-- [ ] Basic information on the home page
+- [x] Basic information on the home page
 
 ## Style todo
 
 - [x] remove footer
 - [x] responsive sidenav
 - [x] hide browser url on scroll on mobile
-- [ ] Change logo on navbar
+- [x] Change logo on navbar

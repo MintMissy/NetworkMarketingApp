@@ -1,0 +1,39 @@
+.language-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: auto;
+  padding-bottom: 1.5rem;
+  max-width: 1024px;
+  margin-inline: auto;
+
+  @media screen and (min-width: 600px) {
+    flex-direction: row-reverse;
+    gap: 2rem;
+  }
+}
+
+.content {
+  flex: 2;
+  p {
+    color: var(--color-light-4);
+    margin-bottom: 1rem;
+  }
+
+  mat-form-field {
+    max-width: 20rem;
+  }
+}
+
+.image {
+  flex: 1;
+  mat-icon {
+    color: var(--color-accent-light);
+    display: block;
+    height: 10rem;
+    width: 10rem;
+    font-size: 10rem;
+    line-height: 10rem;
+    margin-inline: auto;
+  }
+}

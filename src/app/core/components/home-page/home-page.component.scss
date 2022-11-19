@@ -1,3 +1,19 @@
 .items-container--home > * {
   flex: 1;
 }
+
+.card--about-app {
+  width: 100%;
+  min-width: 100%;
+  background: var(--color-dark-2);
+
+  .card-content {
+    box-shadow: unset;
+  }
+
+  p {
+    color: var(--color-light-4);
+    font-weight: 300;
+    line-height: 1.5rem;
+  }
+}
