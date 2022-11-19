@@ -15,9 +15,10 @@
 - [ ] Shop page
 - [ ] Product page
 - [ ] translate app
-- [ ] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
+- [X] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
 - [ ] Get owned companies
 - [ ] Get owned shops
+- [X] Update mat dialog style
 
 ## Style todo
 

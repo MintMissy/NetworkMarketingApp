@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Input,
   OnInit,
-  Output
+  Output,
 } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -71,6 +71,7 @@ export class ProductFormComponent implements OnInit {
 
 function getDummyProduct(): Product {
   return {
+    id: '',
     details: {
       name: '',
       description: '',

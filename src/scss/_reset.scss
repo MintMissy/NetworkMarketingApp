@@ -86,3 +86,18 @@ input:-webkit-autofill:active {
 mat-form-field mat-error :not(span:first-child) {
   display: none;
 }
+
+// Mat dialog styles
+mat-dialog-container {
+  background-color: var(--color-dark-5) !important;
+  border-radius: 0.75rem;
+}
+
+.mat-dialog-actions {
+  gap: 0.5rem;
+}
+
+// Mat select
+.mat-select-panel {
+  background-color: var(--color-dark-5) !important;
+}

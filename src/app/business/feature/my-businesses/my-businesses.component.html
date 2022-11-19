@@ -1,4 +1,8 @@
-<app-businesses-list [businesses]="businesses$ | async">
+<app-businesses-list
+  [businesses]="businesses$ | async"
+  (deleteClick)="deleteClick($event)"
+  [userData]="userData"
+>
   <app-add-item-card
     title="Create Company"
     content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."
