@@ -1,0 +1,19 @@
+<div class="section">
+  <h2>Welcome in the Shop!</h2>
+  <p>
+    Shop Name:
+    <span>{{
+      shopDetails.name === null || shopDetails.name === "" ? "not provided" : shopDetails.name
+    }}</span>
+  </p>
+  <h2 class="shop-description">Shop Description</h2>
+  <p>
+    <span>
+      {{
+        shopDetails.description === null || shopDetails.description === ""
+          ? "This business doesn't have a description"
+          : "+" + shopDetails.description
+      }}
+    </span>
+  </p>
+</div>

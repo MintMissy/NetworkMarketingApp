@@ -13,11 +13,11 @@
 - [x] Businessman page
 - [x] Business page
 - [x] Language configuration component
-- [ ] Shop page
+- [x] Shop page
 - [ ] Product page
 - [ ] translate app
 - [x] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
-- [X] Get owned shops
+- [x] Get owned shops
 - [ ] Get shop products
 - [x] Update mat dialog style
 - [ ] Firebase data access rules

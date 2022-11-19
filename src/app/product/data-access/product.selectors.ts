@@ -29,3 +29,9 @@ export const selectProductEntity = (id: string) => {
     return Object.values({ ...state.entities }).find((entity) => entity?.id == id);
   });
 };
+
+export const selectProductsByShop = (id: string) => {
+  return createSelector(selectProductsState, (state) => {
+    return Object.values({ ...state.entities }).filter((entity) => entity?.shopId === id);
+  });
+};
