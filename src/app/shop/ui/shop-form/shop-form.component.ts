@@ -40,7 +40,7 @@ export class ShopFormComponent implements OnInit {
       return;
     }
 
-    this.submit.emit(this.shopForm.value);
+    this.submit.emit(this.shopForm.getRawValue());
   }
 
   getFormGroup(name: string) {
@@ -48,6 +48,8 @@ export class ShopFormComponent implements OnInit {
   }
 
   private getForm(): FormGroup<any> {
+    console.log(this.shop.details);
+
     return this._formBuilder.group({
       details: this._formBuilder.group({
         name: [this.shop.details.name],

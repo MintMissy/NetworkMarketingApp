@@ -1,23 +1,21 @@
 <article class="card">
   <div
-    class="card-image"
-    [ngStyle]="{ backgroundImage: 'url(' + shop.details.shopBanner + ')' }"
+    class="card-banner"
+    [ngStyle]="{ backgroundImage: 'url(\'' + shop.details.shopBanner + '\')' }"
   ></div>
   <div class="card-content">
     <h1>{{ shop.details.name }}</h1>
     <p>{{ shop.details.description }}</p>
-    <!-- <p>{{ business.parentBusinessId }}</p> -->
-    <div class="card-actions">
-      <a [routerLink]="'/shops/' + shop.id">
-        <button mat-raised-button color="primary">View Shop</button>
-      </a>
-      // TODO add guards
-      <a [routerLink]="'/shops/' + shop.id + '/edit'" *ngIf="">
-        <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
-      </a>
-      <button mat-stroked-button color="" *ngIf="">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
+  </div>
+  <div class="card-actions">
+    <a [routerLink]="'/shops/' + shop.id">
+      <button mat-raised-button color="primary">View Shop</button>
+    </a>
+    <a [routerLink]="'/shops/' + shop.id + '/edit'" *ngIf="userId === (business$ | async)?.ownerId">
+      <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
+    </a>
+    <button mat-stroked-button color="" *ngIf="userId === (business$ | async)?.ownerId">
+      <mat-icon>delete</mat-icon>
+    </button>
   </div>
 </article>

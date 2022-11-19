@@ -12,6 +12,7 @@ import { Shop } from '../../model/shop.model';
 import { ShopsListComponent } from '../../ui/shops-list/shops-list.component';
 import { Store } from '@ngrx/store';
 import { User } from '@angular/fire/auth';
+import { selectAllShops } from '../../data-access/shop.selectors';
 
 @Component({
   selector: 'app-shops',
@@ -34,7 +35,7 @@ export class ShopsComponent implements OnInit {
   ngOnInit(): void {
     this._store.dispatch(loadShops());
     // TODO stores state
-    // this.shops$ = this._store.select(selectShopsEntities());
+    this.shops$ = this._store.select(selectAllShops);
     this.userData$ = this._authService.userData$;
   }
 

@@ -14,7 +14,11 @@ export class ShopService {
   constructor(private _httpClient: HttpClient) {}
 
   getShop(id: string): Observable<Shop> {
-    return this._httpClient.get<Shop>(environment.endpointUrl + `shops/${id}.json`);
+    return this._httpClient.get<Shop>(environment.endpointUrl + `shops/${id}.json`).pipe(
+      map((shop) => {
+        return { ...shop, id: id };
+      })
+    );
   }
 
   getShops(): Observable<Shop[]> {
@@ -28,7 +32,7 @@ export class ShopService {
 
   insertShop(shop: Shop) {
     return this._httpClient.post<FirebasePostResponse>(
-      environment.endpointUrl + `shops/${shop.id}.json`,
+      environment.endpointUrl + `shops.json`,
       shop
     );
   }

@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 import { Shop } from '../../model/shop.model';
 import { ShopFormComponent } from '../../ui/shop-form/shop-form.component';
 import { Store } from '@ngrx/store';
-import { insertShop } from '../../data-access/shop.actions';
 import { selectShopEntity } from '../../data-access/shop.selectors';
+import { updateShop } from '../../data-access/shop.actions';
 
 @Component({
   selector: 'app-edit-shop',
@@ -20,6 +20,7 @@ import { selectShopEntity } from '../../data-access/shop.selectors';
 })
 export class EditShopComponent implements OnInit {
   shop$!: Observable<Shop | undefined>;
+  selectedShop!: string;
 
   constructor(
     private _router: Router,
@@ -28,22 +29,23 @@ export class EditShopComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const shopId = this._activatedRoute.snapshot.paramMap.get('shopId');
-    if (shopId === null) {
+    this.selectedShop = this._activatedRoute.snapshot.paramMap.get('shopId')!;
+    if (this.selectedShop === null) {
       this.redirect();
       return;
     }
 
-    this.shop$ = this._store.select(selectShopEntity(shopId));
+    this.shop$ = this._store.select(selectShopEntity(this.selectedShop));
   }
 
   onSubmit(shop: Shop) {
-    this._store.dispatch(insertShop({shop: shop}));
+    const clonedShop: Shop = { ...shop, id: this.selectedShop };
+    this._store.dispatch(updateShop({ shop: clonedShop }));
   }
 
   redirect() {
     this._router.navigate(['shops', 'my']);
-  } 
+  }
 
   onDiscard() {
     this.redirect();
