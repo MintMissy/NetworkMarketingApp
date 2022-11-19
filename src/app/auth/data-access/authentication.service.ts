@@ -12,7 +12,7 @@ import { Injectable } from '@angular/core';
 import { LoginData } from '../model/login-data.model';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { insertBusinessmanSuccess } from 'src/app/businessman/data-access/businessman.actions';
+import { insertBusinessman } from 'src/app/businessman/data-access/businessman.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -160,6 +160,6 @@ export class AuthenticationService {
       },
       ownedBusinesses: [],
     };
-    this._store.dispatch(insertBusinessmanSuccess({ businessman: businessman }));
+    this._store.dispatch(insertBusinessman({ businessman: businessman }));
   }
 }

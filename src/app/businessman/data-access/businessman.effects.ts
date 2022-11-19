@@ -46,8 +46,7 @@ export class BusinessmanEffects {
         return this.businessmanService.insertBusinessman(action.businessman).pipe(
           map((response) => {
             this.redirect();
-            const clonedBusinessman = { ...action.businessman, id: response.name };
-            return BusinessmanActions.insertBusinessmanSuccess({ businessman: clonedBusinessman });
+            return BusinessmanActions.insertBusinessmanSuccess({ businessman: action.businessman });
           }),
           catchError(() =>
             of(BusinessmanActions.insertBusinessmanFailed({ businessman: action.businessman }))

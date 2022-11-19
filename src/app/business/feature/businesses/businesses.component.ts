@@ -32,8 +32,6 @@ export class BusinessesComponent implements OnInit {
   }
 
   deleteClick(business: Business) {
-    console.log(business);
-
     this._store.dispatch(deleteBusiness({ id: business.id }));
   }
 }
