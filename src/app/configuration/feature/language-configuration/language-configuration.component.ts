@@ -29,9 +29,15 @@ export class LanguageConfigurationComponent implements OnInit {
 
   constructor(private _translate: TranslateService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // @ts-ignore
+    this.selectedLanguage =
+      this._translate.currentLang === undefined
+        ? this._translate.getDefaultLang()
+        : this._translate.currentLang;
+  }
 
   handleLanguageChange(language: Language) {
-    this._translate.setDefaultLang(language + '');
+    this._translate.currentLang = language;
   }
 }
