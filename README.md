@@ -18,9 +18,8 @@
 - [ ] translate app
 - [x] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
 - [x] Get owned shops
-- [ ] Get shop products
+- [x] Get shop products
 - [x] Update mat dialog style
-- [ ] Firebase data access rules
 - [ ] About app
 - [x] Basic information on the home page
 

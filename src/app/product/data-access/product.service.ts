@@ -14,16 +14,20 @@ export class ProductService {
   constructor(private _httpClient: HttpClient) {}
 
   getProduct(id: string): Observable<Product> {
-    return this._httpClient.get<Product>(environment.endpointUrl + `products/${id}.json`);
+    return this._httpClient.get<Product>(environment.endpointUrl + `products/${id}.json`).pipe(
+      map((product) => {
+        return { ...product, id: id };
+      })
+    );
   }
 
-  // TODO get products from specified shop
   getProducts(): Observable<Product[]> {
     return this._httpClient
       .get<{ [id: string]: Product }>(environment.endpointUrl + 'products.json')
       .pipe(
         map((products) => (products !== undefined && products !== null ? products : {})),
-        map((product) => databaseGetObjectsAdapter(product)));
+        map((product) => databaseGetObjectsAdapter(product))
+      );
   }
 
   insertProduct(product: Product) {

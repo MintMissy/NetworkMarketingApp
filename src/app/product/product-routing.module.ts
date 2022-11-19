@@ -8,12 +8,6 @@ import { OwnedShopGuard } from '../shop/guard/owned-shop.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    loadComponent: () =>
-      import('./feature/products/products.component').then((c) => c.ProductsComponent),
-  },
-  {
     path: 'new',
     loadComponent: () =>
       import('./feature/add-product/add-product.component').then((c) => c.AddProductComponent),
