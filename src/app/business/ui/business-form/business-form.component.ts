@@ -101,7 +101,7 @@ export class BusinessFormComponent implements OnInit {
         backgroundImage: '',
       },
       address: {
-        country: Country.Poland,
+        country: Country.Undefined,
         city: '',
         street: '',
         localNumber: '',

@@ -1,4 +1,20 @@
-<p>business works!</p>
-<div *ngIf="business$ | async as business">
-  {{ business.details.companyName }}
+<div *ngIf="business$ | async as business" class="card card--padded business-container">
+  <div class="image-container">
+    <img [src]="business.details.backgroundImage" class="banner" alt="" aria-hidden="true" />
+    <a
+      *ngIf="(loggedInUser$ | async)?.uid === business.ownerId"
+      mat-raised-button
+      color="primary"
+      routerLink="edit"
+    >
+      Edit Business
+    </a>
+  </div>
+  <div class="sections-container">
+    <app-business-details-section
+      [businessDetails]="business.details"
+    ></app-business-details-section>
+    <app-address-section [address]="business.address"></app-address-section>
+    <app-contact-section [contactDetails]="business.contactDetails"></app-contact-section>
+  </div>
 </div>

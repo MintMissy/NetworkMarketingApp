@@ -20,24 +20,25 @@ import { updateBusiness } from '../../data-access/business.actions';
 })
 export class EditBusinessComponent implements OnInit {
   business$!: Observable<Business | undefined>;
+  selectedBusinessId!: string;
+
   constructor(
     private _router: Router,
     private _store: Store<AppState>,
-    private activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    const businessId = this.activatedRoute.snapshot.paramMap.get('id');
-    if (businessId === null) {
-      this.redirect();
-      return;
-    }
-
-    this.business$ = this._store.select(selectBusinessEntity(businessId));
+    this.selectedBusinessId = this._activatedRoute.snapshot.paramMap.get('id')!;
+    this.business$ = this._store.select(selectBusinessEntity(this.selectedBusinessId));
   }
 
   onSubmit(business: Business) {
-    this._store.dispatch(updateBusiness({ business: business }));
+    const businessCloned = {
+      ...business,
+      id: this.selectedBusinessId,
+    };
+    this._store.dispatch(updateBusiness({ business: businessCloned }));
   }
 
   onDiscard() {

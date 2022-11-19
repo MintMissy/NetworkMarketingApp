@@ -29,12 +29,10 @@ export class BusinessDetailsComponent implements OnInit {
     this.businessDetailsGroup
       .get('description')
       ?.setValidators([Validators.required, Validators.minLength(10), Validators.maxLength(512)]);
-    this.businessDetailsGroup.get('parentBusinessId')?.setValidators([Validators.required]);
     this.businessDetailsGroup.get('industry')?.setValidators([Validators.required]);
     this.businessDetailsGroup
       .get('backgroundImage')
       ?.setValidators([
-        Validators.required,
         Validators.pattern(/(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/g),
       ]);
     if (this.enabledNetworkSelection == false) {

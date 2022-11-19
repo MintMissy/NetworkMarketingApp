@@ -1,0 +1,35 @@
+<div class="section">
+  <h2>Business Details</h2>
+  <p>
+    <mat-icon>edit</mat-icon>
+    Company Name:
+    <span>
+      {{
+        businessDetails.companyName === null || businessDetails.description === ""
+          ? "not provided"
+          : businessDetails.companyName
+      }}
+    </span>
+  </p>
+  <p>
+    <mat-icon>business</mat-icon>
+    Industry:
+    <span>
+      {{
+        businessDetails.industry === null || businessDetails.industry + "" === "UNSET"
+          ? "not provided"
+          : businessDetails.industry
+      }}
+    </span>
+  </p>
+  <h2 class="description-title">Business Description</h2>
+  <p>
+    <span>
+      {{
+        businessDetails.description === null || businessDetails.description === ""
+          ? "This business doesn't have a description"
+          : "+" + businessDetails.description
+      }}
+    </span>
+  </p>
+</div>

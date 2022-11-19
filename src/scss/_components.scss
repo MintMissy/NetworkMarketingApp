@@ -25,6 +25,12 @@
   }
 }
 
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 /********** ICONS *************************************************************/
 .material-icons {
   font-family: "Material Symbols Outlined";

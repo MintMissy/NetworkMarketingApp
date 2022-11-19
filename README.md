@@ -11,10 +11,13 @@
 - [x] set form data before passing them to service (owner id etc)
 - [x] Save user profile in database
 - [x] Businessman page
-- [ ] Business page
+- [x] Business page
 - [ ] Shop page
 - [ ] Product page
 - [ ] translate app
+- [ ] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
+- [ ] Get owned companies
+- [ ] Get owned shops
 
 ## Style todo
 

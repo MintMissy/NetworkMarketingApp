@@ -15,8 +15,11 @@ export class BusinessService {
   constructor(private _httpClient: HttpClient, private _database: AngularFirestore) {}
 
   getBusiness(id: string): Observable<Business> {
-    return this._httpClient
-      .get<Business>(environment.endpointUrl + `businesses/${id}.json`);
+    return this._httpClient.get<Business>(environment.endpointUrl + `businesses/${id}.json`).pipe(
+      map((business) => {
+        return { ...business, id: id };
+      })
+    );
   }
 
   getBusinesses(): Observable<Business[]> {
