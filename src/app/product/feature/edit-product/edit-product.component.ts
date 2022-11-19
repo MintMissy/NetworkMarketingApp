@@ -39,11 +39,12 @@ export class EditProductComponent implements OnInit {
     const clonedProduct: Product = {
       ...product,
       shopId: this.selectedShop,
+      id: this.selectedProduct,
     };
     this._store.dispatch(updateProduct({ product: clonedProduct }));
   }
 
   onDiscard() {
-    this._router.navigate(['..']);
+    this._router.navigate(['..', '..']);
   }
 }

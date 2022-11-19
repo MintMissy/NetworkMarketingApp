@@ -43,7 +43,7 @@ export class ProductEffects {
       mergeMap((action) => {
         return this.productService.insertProduct(action.product).pipe(
           map((response) => {
-            this.redirect();
+            this._router.navigate(['..', '..']);
             const clonedProduct = { ...action.product, id: response.name };
             return ProductActions.insertProductSuccess({ product: clonedProduct });
           }),
@@ -82,7 +82,7 @@ export class ProductEffects {
   });
 
   private redirect() {
-    this._router.navigate(['..']);
+    this._router.navigate(['..', '..']);
   }
 
   constructor(
