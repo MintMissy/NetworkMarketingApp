@@ -3,9 +3,11 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { AppState } from 'src/app/app.state';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 import { Product } from '../../model/product.model';
 import { ProductFormComponent } from '../../ui/product-form/product-form.component';
 import { Store } from '@ngrx/store';
+import { selectProductEntity } from '../../data-access/product.selectors';
 import { updateProduct } from '../../data-access/product.actions';
 
 @Component({
@@ -17,7 +19,9 @@ import { updateProduct } from '../../data-access/product.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditProductComponent implements OnInit {
+  product$!: Observable<Product | undefined>;
   selectedShop!: string;
+  selectedProduct!: string;
 
   constructor(
     private _router: Router,
@@ -25,10 +29,13 @@ export class EditProductComponent implements OnInit {
     private _activatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectedShop = this._activatedRoute.snapshot.paramMap.get('shopId')!;
+    this.selectedProduct = this._activatedRoute.snapshot.paramMap.get('productId')!;
+    this.product$ = this._store.select(selectProductEntity(this.selectedProduct));
+  }
 
   onSubmit(product: Product) {
-    this.selectedShop = this._activatedRoute.snapshot.paramMap.get('shopId')!;
     const clonedProduct: Product = {
       ...product,
       shopId: this.selectedShop,

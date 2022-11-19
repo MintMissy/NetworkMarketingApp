@@ -14,7 +14,7 @@
 - [x] Business page
 - [x] Language configuration component
 - [x] Shop page
-- [ ] Product page
+- [x] Product page
 - [ ] translate app
 - [x] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
 - [x] Get owned shops

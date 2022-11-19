@@ -2,4 +2,5 @@
   title="Edit Product"
   (submit)="onSubmit($event)"
   (discard)="onDiscard()"
+  [product]="(product$ | async)!"
 ></app-product-form>

@@ -56,14 +56,14 @@ export class ProductFormComponent implements OnInit {
   private getForm(): FormGroup<any> {
     return this._formBuilder.group({
       details: this._formBuilder.group({
-        name: [''],
-        description: [''],
-        image: [''],
-        price: [0],
+        name: [this.product.details.name],
+        description: [this.product.details.description],
+        image: [this.product.details.image],
+        price: [this.product.details.price],
       }),
       saleStatistics: this._formBuilder.group({
-        amountInStorage: [0],
-        soldAmount: [0],
+        amountInStorage: [this.product.saleStatistics.amountInStorage],
+        soldAmount: [this.product.saleStatistics.soldAmount],
       }),
     });
   }
