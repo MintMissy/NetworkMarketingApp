@@ -17,6 +17,8 @@ import { insertProduct } from '../../data-access/product.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddProductComponent implements OnInit {
+  selectedShop!: string;
+
   constructor(
     private _router: Router,
     private _store: Store<AppState>,
@@ -26,8 +28,12 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(product: Product) {
-    product.shopId = this._activatedRoute.snapshot.paramMap.get('shopId')!;
-    this._store.dispatch(insertProduct({ product: product }));
+    this.selectedShop = this._activatedRoute.snapshot.paramMap.get('shopId')!;
+    const clonedProduct: Product = {
+      ...product,
+      shopId: this.selectedShop,
+    };
+    this._store.dispatch(insertProduct({ product: clonedProduct }));
   }
 
   onDiscard() {

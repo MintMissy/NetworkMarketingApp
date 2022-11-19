@@ -1,23 +1,23 @@
 <article class="card">
   <div
-    class="card-image"
-    [ngStyle]="{ backgroundImage: 'url(' + product.details.image + ')' }"
+    class="card-banner"
+    [ngStyle]="{ backgroundImage: 'url(\'' + product.details.image + '\')' }"
   ></div>
   <div class="card-content">
     <h1>{{ product.details.name }}</h1>
     <p>{{ product.details.description }}</p>
-    <div class="card-actions">
-      <a [routerLink]="product.id">
-        <button mat-raised-button color="primary">View Product</button>
-      </a>
-      <!-- TODO display logic -->
-      <a [routerLink]="product.id + '/edit'" *ngIf="">
-        <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
-      </a>
-      <!-- TODO display logic -->
-      <button mat-stroked-button color="" *ngIf="">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
+  </div>
+  <div class="card-actions">
+    <a [routerLink]="'products/' + product.id">
+      <button mat-raised-button color="primary">View Product</button>
+    </a>
+    <!-- TODO display logic -->
+    <a [routerLink]="'products/' + product.id + '/edit'" *ngIf="">
+      <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
+    </a>
+    <!-- TODO display logic -->
+    <button mat-stroked-button color="" *ngIf="">
+      <mat-icon>delete</mat-icon>
+    </button>
   </div>
 </article>
