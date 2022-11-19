@@ -1,4 +1,4 @@
-<app-businesses-list>
+<app-businesses-list [businesses]="businesses$ | async">
   <app-add-item-card
     title="Create Company"
     content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."

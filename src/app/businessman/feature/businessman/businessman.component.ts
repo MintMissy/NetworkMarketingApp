@@ -46,6 +46,5 @@ export class BusinessmanComponent implements OnInit {
     this.loggedInUser$ = this._authService.userData$.asObservable();
     this.selectedUserId = this._activatedRoute.snapshot.paramMap.get('id')!;
     this.businessman$ = this._store.select(selectBusinessmanEntity(this.selectedUserId));
-    console.log(this.businessman$);
   }
 }

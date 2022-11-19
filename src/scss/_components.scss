@@ -7,6 +7,7 @@
 
 .items-container--cards > * {
   min-width: min(320px, 70vw);
+  flex: 1;
 }
 
 .container {

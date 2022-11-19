@@ -4,7 +4,5 @@ export function databaseGetObjectsAdapter<T>(map: { [key: string]: T }) {
     mappedObject.push({ ...entry[1], id: entry[0] });
   }
 
-  console.log(mappedObject);
-
   return mappedObject;
 }
