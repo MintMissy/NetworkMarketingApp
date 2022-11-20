@@ -30,6 +30,8 @@ export class LanguageConfigurationComponent implements OnInit {
   constructor(private _translate: TranslateService) {}
 
   ngOnInit(): void {
+    console.log(this.selectedLanguage);
+
     // @ts-ignore
     this.selectedLanguage =
       this._translate.currentLang === undefined
@@ -38,6 +40,8 @@ export class LanguageConfigurationComponent implements OnInit {
   }
 
   handleLanguageChange(language: Language) {
-    this._translate.currentLang = language;
+    this.selectedLanguage = language;
+    this._translate.use(language);
+    localStorage.setItem('language', language);
   }
 }

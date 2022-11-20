@@ -15,14 +15,14 @@
 - [x] Language configuration component
 - [x] Shop page
 - [x] Product page
-- [ ] translate app
+- [X] translate app
 - [x] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
 - [x] Get owned shops
 - [x] Get shop products
 - [x] Update mat dialog style
 - [ ] About app
 - [x] Basic information on the home page
-- [ ] Save language in ls
+- [X] Save language in local storage
 
 ## Style todo
 
