@@ -1,12 +1,21 @@
 <form class="card" [formGroup]="loginForm" (ngSubmit)="login()">
   <div class="card-content">
-    <h1>Sign in</h1>
+    <h1>{{ "AUTH.LOGIN.TITLE" | translate }}</h1>
     <mat-form-field appearance="outline" *ngIf="{ control: loginForm.controls['email'] } as email">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Email" type="email" formControlName="email" />
+      <mat-label>{{ "AUTH.LOGIN.EMAIL_INPUT.LABEL" | translate }}</mat-label>
+      <input
+        matInput
+        [placeholder]="'AUTH.LOGIN.EMAIL_INPUT.LABEL' | translate"
+        type="email"
+        formControlName="email"
+      />
       <mat-error>
-        <span *ngIf="email.control.hasError('required')">Email is required</span>
-        <span *ngIf="email.control.hasError('email')">Email is invalid</span>
+        <span *ngIf="email.control.hasError('required')">{{
+          "AUTH.LOGIN.EMAIL_INPUT.ERRORS.REQUIRED" | translate
+        }}</span>
+        <span *ngIf="email.control.hasError('email')">{{
+          "AUTH.LOGIN.EMAIL_INPUT.ERRORS.INVALID" | translate
+        }}</span>
       </mat-error>
       <mat-icon
         matPrefix
@@ -19,22 +28,28 @@
       appearance="outline"
       *ngIf="{ control: loginForm.controls['password'] } as password"
     >
-      <mat-label>Password</mat-label>
+      <mat-label>{{ "AUTH.LOGIN.PASSWORD_INPUT.LABEL" | translate }}</mat-label>
       <input
         #passwordInput
         matInput
-        placeholder="Password"
+        [placeholder]="'AUTH.LOGIN.PASSWORD_INPUT.LABEL' | translate"
         type="password"
         autocomplete="on"
         formControlName="password"
       />
       <mat-error>
-        <span *ngIf="password.control.hasError('required')">Password is required</span>
-        <span *ngIf="password.control.hasError('minlength')">Password is too short</span>
-        <span *ngIf="password.control.hasError('maxlength')">Password is too long</span>
-        <span *ngIf="password.control.hasError('pattern')"
-          >Password must contain at least 1 number and letter</span
-        >
+        <span *ngIf="password.control.hasError('required')">{{
+          "AUTH.LOGIN.PASSWORD_INPUT.ERRORS.REQUIRED" | translate
+        }}</span>
+        <span *ngIf="password.control.hasError('minlength')">{{
+          "AUTH.LOGIN.PASSWORD_INPUT.ERRORS.TOO_SHORT" | translate
+        }}</span>
+        <span *ngIf="password.control.hasError('maxlength')">{{
+          "AUTH.LOGIN.PASSWORD_INPUT.ERRORS.TOO_LONG" | translate
+        }}</span>
+        <span *ngIf="password.control.hasError('pattern')">{{
+          "AUTH.LOGIN.PASSWORD_INPUT.ERRORS.PATTERN" | translate
+        }}</span>
       </mat-error>
       <mat-icon
         matPrefix
@@ -50,16 +65,16 @@
         >visibility</mat-icon
       >
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" class="auth-button">Login</button>
+    <button mat-raised-button color="primary" type="submit" class="auth-button">{{ 'AUTH.LOGIN.BUTTONS.LOGIN' | translate }}</button>
     <mat-error class="form-response-error">{{ errorMessage }}</mat-error>
-    <p class="media-auth-description">or login using</p>
+    <p class="media-auth-description">{{ 'AUTH.LOGIN.OTHER.LOGIN_ALTERNATIVE' | translate }}</p>
     <app-media-list
       class="media-auth"
       (googleIconClick)="googleLogin()"
       (facebookIconClick)="facebookLogin()"
       (githubIconClick)="githubLogin()"
     ></app-media-list>
-    <p class="account-description">Don't have an account?</p>
-    <a routerLink="/auth/signup">Sign Up</a>
+    <p class="account-description">{{ 'AUTH.LOGIN.OTHER.NO_ACCOUNT' | translate }}</p>
+    <a routerLink="/auth/signup">{{ 'AUTH.LOGIN.OTHER.SIGN_UP' | translate }}</a>
   </div>
 </form>

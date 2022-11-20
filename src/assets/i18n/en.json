@@ -1,1 +1,68 @@
-{}
+{
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": "Sign In",
+      "EMAIL_INPUT": {
+        "LABEL": "Email",
+        "ERRORS": {
+          "REQUIRED": "Email is Required",
+          "INVALID": "Email is invalid"
+        }
+      },
+      "PASSWORD_INPUT": {
+        "LABEL": "Password",
+        "ERRORS": {
+          "REQUIRED": "Pasword is Required",
+          "TOO_SHORT": "Password is too short",
+          "TOO_LONG": "Pasword is too long",
+          "PATTERN": "Password must contain at least 1 number and letter"
+        }
+      },
+      "BUTTONS": {
+        "LOGIN": "Login"
+      },
+      "OTHER": {
+        "LOGIN_ALTERNATIVE": "or login using",
+        "NO_ACCOUNT": "Don't have an account?",
+        "SIGN_UP": "Sign Up"
+      }
+    },
+    "SIGN_UP": {
+      "TITLE": "Sign Up",
+      "EMAIL_INPUT": {
+        "LABEL": "Email",
+        "ERRORS": {
+          "REQUIRED": "Email is Required",
+          "INVALID": "Email is invalid"
+        }
+      },
+      "PASSWORD_INPUT": {
+        "LABEL": "Password",
+        "ERRORS": {
+          "REQUIRED": "Password is Required",
+          "TOO_SHORT": "Password is too short",
+          "TOO_LONG": "Password is too long",
+          "PATTERN": "Password must contain at least 1 number and letter"
+        }
+      },
+      "REPEAT_PASSWORD_INPUT": {
+        "LABEL": "Repeat Password",
+        "ERRORS": {
+          "REQUIRED": "Password is Required",
+          "TOO_SHORT": "Password is too short",
+          "TOO_LONG": "Password is too long",
+          "PATTERN": "Password must contain at least 1 number and letter",
+          "NO_MATCH": "Password don't match",
+        }
+      },
+      "BUTTONS": {
+        "SIGN_UP": "Login"
+      },
+      "OTHER": {
+        "LOGIN_ALTERNATIVE": "or sign up using",
+        "HAVE_ACCOUNT": "Already have an account?",
+        "LOGIN": "Log in"
+      }
+    }
+  }
+}

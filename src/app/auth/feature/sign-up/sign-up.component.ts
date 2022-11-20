@@ -2,18 +2,19 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import {
-  createMatchValidator as passwordMatchValidator,
   getPasswordValidators,
+  createMatchValidator as passwordMatchValidator,
 } from '../../utils/password-validator';
 
+import { AuthenticationService } from '../../data-access/authentication.service';
+import { ChangeInputTypeDirective } from 'src/app/core/directive/change-input-type.directive';
 import { CommonModule } from '@angular/common';
+import { InvalidInputIconDirective } from 'src/app/core/directive/invalid-input-icon.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { ChangeInputTypeDirective } from 'src/app/core/directive/change-input-type.directive';
-import { InvalidInputIconDirective } from 'src/app/core/directive/invalid-input-icon.directive';
-import { AuthenticationService } from '../../data-access/authentication.service';
 import { MediaListComponent } from '../../ui/media-list/media-list.component';
+import { TranslateModule } from '@ngx-translate/core';
 import { errorToTranslateString } from '../../utils/error-message-parser';
 
 @Component({
@@ -29,6 +30,7 @@ import { errorToTranslateString } from '../../utils/error-message-parser';
     ReactiveFormsModule,
     ChangeInputTypeDirective,
     InvalidInputIconDirective,
+    TranslateModule
   ],
   templateUrl: './sign-up.component.html',
   styleUrls: ['../auth-form-styles.scss'],

@@ -1,12 +1,21 @@
 <form class="card" [formGroup]="signUpForm" (ngSubmit)="signUp()">
   <div class="card-content">
-    <h1>Sign Up</h1>
+    <h1>{{ "AUTH.SIGN_UP.TITLE" | translate }}</h1>
     <mat-form-field appearance="outline" *ngIf="{ control: signUpForm.controls['email'] } as email">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Email" type="email" formControlName="email" />
+      <mat-label>{{ "AUTH.SIGN_UP.EMAIL_INPUT.LABEL" | translate }}</mat-label>
+      <input
+        matInput
+        [placeholder]="'AUTH.SIGN_UP.EMAIL_INPUT.LABEL' | translate"
+        type="email"
+        formControlName="email"
+      />
       <mat-error>
-        <span *ngIf="email.control.hasError('required')">Email is required</span>
-        <span *ngIf="email.control.hasError('email')">Email is invalid</span>
+        <span *ngIf="email.control.hasError('required')">{{
+          "AUTH.SIGN_UP.EMAIL_INPUT.ERRORS.REQUIRED" | translate
+        }}</span>
+        <span *ngIf="email.control.hasError('email')">{{
+          "AUTH.SIGN_UP.EMAIL_INPUT.ERRORS.INVALID" | translate
+        }}</span>
       </mat-error>
       <mat-icon
         matPrefix
@@ -29,12 +38,18 @@
         formControlName="password"
       />
       <mat-error>
-        <span *ngIf="password.control.hasError('required')">Password is required</span>
-        <span *ngIf="password.control.hasError('minlength')">Password is too short</span>
-        <span *ngIf="password.control.hasError('maxlength')">Password is too long</span>
-        <span *ngIf="password.control.hasError('pattern')"
-          >Password must contain at least 1 number and letter</span
-        >
+        <span *ngIf="password.control.hasError('required')">{{
+          "AUTH.SIGN_UP.PASSWORD_INPUT.ERRORS.REQUIRED" | translate
+        }}</span>
+        <span *ngIf="password.control.hasError('minlength')">{{
+          "AUTH.SIGN_UP.PASSWORD_INPUT.ERRORS.TOO_SHORT" | translate
+        }}</span>
+        <span *ngIf="password.control.hasError('maxlength')">{{
+          "AUTH.SIGN_UP.PASSWORD_INPUT.ERRORS.TOO_LONG" | translate
+        }}</span>
+        <span *ngIf="password.control.hasError('pattern')">{{
+          "AUTH.SIGN_UP.PASSWORD_INPUT.ERRORS.PATTERN" | translate
+        }}</span>
       </mat-error>
       <mat-icon
         matPrefix
@@ -54,23 +69,28 @@
       appearance="outline"
       *ngIf="{ control: signUpForm.controls['repeatedPassword'] } as repeatedPassword"
     >
-      <mat-label>Repeat Password</mat-label>
+      <mat-label>{{ "AUTH.SIGN_UP.REPEAT_PASSWORD_INPUT.LABEL" | translate }}</mat-label>
       <input
         #repeatPasswordInput
         matInput
-        placeholder="Repeat Password"
+        [placeholder]="'AUTH.SIGN_UP.REPEAT_PASSWORD_INPUT.LABEL' | translate"
         type="password"
         autocomplete="on"
         formControlName="repeatedPassword"
       />
       <mat-error>
-        <span *ngIf="repeatedPassword.control.hasError('required')">Password is required</span>
-        <span *ngIf="repeatedPassword.control.hasError('minlength')">Password is too short</span>
-        <span *ngIf="repeatedPassword.control.hasError('maxlength')">Password is too long</span>
-        <span *ngIf="repeatedPassword.control.hasError('notsame')">Password is too long</span>
-        <span *ngIf="repeatedPassword.control.hasError('pattern')"
-          >Password must contain at least 1 number and letter</span
-        >
+        <span *ngIf="repeatedPassword.control.hasError('required')">{{
+          "AUTH.SIGN_UP.REPEAT_PASSWORD_INPUT.ERRORS.REQUIRED" | translate
+        }}</span>
+        <span *ngIf="repeatedPassword.control.hasError('minlength')">{{
+          "AUTH.SIGN_UP.REPEAT_PASSWORD_INPUT.ERRORS.TOO_SHORT" | translate
+        }}</span>
+        <span *ngIf="repeatedPassword.control.hasError('maxlength')">{{
+          "AUTH.SIGN_UP.REPEAT_PASSWORD_INPUT.ERRORS.TOO_LONG" | translate
+        }}</span>
+        <span *ngIf="repeatedPassword.control.hasError('pattern')">{{
+          "AUTH.SIGN_UP.REPEAT_PASSWORD_INPUT.ERRORS.PATTERN" | translate
+        }}</span>
         <span *ngIf="signUpForm?.hasError('nomatch')">Passwords don't match</span>
       </mat-error>
       <mat-icon
@@ -87,16 +107,16 @@
         >visibility</mat-icon
       >
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" class="auth-button">Sign Up</button>
+    <button mat-raised-button color="primary" type="submit" class="auth-button">{{ 'AUTH.SIGN_UP.BUTTONS.SIGN_UP' | translate }}</button>
     <mat-error class="form-response-error">{{ errorMessage }}</mat-error>
-    <p class="media-auth-description">or sign up using</p>
+    <p class="media-auth-description">{{ 'AUTH.SIGN_UP.OTHER.LOGIN_ALTERNATIVE' | translate }}</p>
     <app-media-list
       class="media-auth"
       (googleIconClick)="googleSignUp()"
       (facebookIconClick)="facebookSignUp()"
       (githubIconClick)="githubSignUp()"
     ></app-media-list>
-    <p class="account-description">Already have an account?</p>
-    <a routerLink="/auth/login">Log in</a>
+    <p class="account-description">{{ 'AUTH.SIGN_UP.OTHER.HAVE_ACCOUNT' | translate }}</p>
+    <a routerLink="/auth/login">{{ 'AUTH.SIGN_UP.OTHER.LOGIN' | translate }}</a>
   </div>
 </form>
