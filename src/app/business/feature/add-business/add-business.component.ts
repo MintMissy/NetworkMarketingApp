@@ -7,12 +7,13 @@ import { BusinessFormComponent } from '../../ui/business-form/business-form.comp
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { insertBusiness } from '../../data-access/business.actions';
 
 @Component({
   selector: 'app-add-business',
   standalone: true,
-  imports: [CommonModule, BusinessFormComponent],
+  imports: [CommonModule, BusinessFormComponent, TranslateModule],
   templateUrl: './add-business.component.html',
   styleUrls: ['./add-business.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

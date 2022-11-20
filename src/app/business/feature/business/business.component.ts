@@ -11,6 +11,7 @@ import { ContactSectionComponent } from 'src/app/core/components/display-section
 import { MatButtonModule } from '@angular/material/button';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { User } from '@angular/fire/auth';
 import { selectBusinessEntity } from '../../data-access/business.selectors';
 
@@ -24,6 +25,7 @@ import { selectBusinessEntity } from '../../data-access/business.selectors';
     AddressSectionComponent,
     BusinessDetailsSectionComponent,
     MatButtonModule,
+    TranslateModule,
   ],
   templateUrl: './business.component.html',
   styleUrls: ['./business.component.scss'],

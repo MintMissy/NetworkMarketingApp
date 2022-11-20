@@ -12,9 +12,9 @@
       "PASSWORD_INPUT": {
         "LABEL": "Password",
         "ERRORS": {
-          "REQUIRED": "Pasword is Required",
+          "REQUIRED": "Company Name is Required",
           "TOO_SHORT": "Password is too short",
-          "TOO_LONG": "Pasword is too long",
+          "TOO_LONG": "Password is too long",
           "PATTERN": "Password must contain at least 1 number and letter"
         }
       },
@@ -63,6 +63,58 @@
         "HAVE_ACCOUNT": "Already have an account?",
         "LOGIN": "Log in"
       }
+    }
+  },
+  "BUSINESS": {
+    "ADD_BUSINESS": {
+      "FORM_TITLE": "Create new Business"
+    },
+    "BUSINESS": {
+      "EDIT_BUTTON": "Edit Business"
+    },
+    "EDIT_BUSINESS": {
+      "FORM_TITLE": "Edit Business"
+    },
+    "MY_BUSINESSES": {
+      "CREATE_CARD": {
+        "TITLE": "Create Company",
+        "CONTENT": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."
+      }
+    },
+    "BUSINESS_CARD": {
+      "VIEW_BUTTON": "View Business"
+    },
+    "BUSINESS_DETAILS_FORM": {
+      "COMPANY_NAME_INPUT": {
+        "LABEL": "Company Name",
+        "REQUIRED": "Company Name is Required",
+        "TOO_SHORT": "Company Name is too short",
+        "TOO_LONG": "Company Name is too long"
+      },
+      "NETWORK_NAME_INPUT": {
+        "LABEL": "Network Name",
+        "NONE_OPTION": "None"
+      },
+      "COMPANY_DESCRIPTION_INPUT": {
+        "LABEL": "Company Name",
+        "REQUIRED": "Company Name is Required",
+        "TOO_SHORT": "Company Name is too short",
+        "TOO_LONG": "Company Name is too long"
+      },
+      "BANNER_INPUT": {
+        "LABEL": "Banner Url",
+        "INVALID": "This image url is invalid"
+      },
+      "BANNER_PREVIEW": "Banner Preview"
+    },
+    "BUSINESS_DETAILS_SECTION": {
+      "TITLE": "Business Details",
+      "COMPANY_NAME": "Company Name:",
+      "EMPTY_NAME": "Not provided",
+      "INDUSTRY": "Industry:",
+      "EMPTY_INDUSTRY": "Not provided",
+      "DESCRIPTION": "Business Description",
+      "EMPTY_DESCRIPTION": "This business doesn't have a description"
     }
   }
 }

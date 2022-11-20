@@ -22,6 +22,7 @@
 - [x] Update mat dialog style
 - [ ] About app
 - [x] Basic information on the home page
+- [ ] Save language in ls
 
 ## Style todo
 

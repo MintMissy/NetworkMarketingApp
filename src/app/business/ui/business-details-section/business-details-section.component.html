@@ -2,32 +2,34 @@
   <h2>Business Details</h2>
   <p>
     <mat-icon>edit</mat-icon>
-    Company Name:
+    {{ "BUSINESS.BUSINESS_DETAILS_SECTION.COMPANY_NAME" | translate }}
     <span>
       {{
         businessDetails.companyName === null || businessDetails.description === ""
-          ? "not provided"
+          ? ("BUSINESS.BUSINESS_DETAILS_SECTION.EMPTY_NAME" | translate)
           : businessDetails.companyName
       }}
     </span>
   </p>
   <p>
     <mat-icon>business</mat-icon>
-    Industry:
+    {{ "BUSINESS.BUSINESS_DETAILS_SECTION.INDUSTRY" | translate }}
     <span>
       {{
         businessDetails.industry === null || businessDetails.industry + "" === "UNSET"
-          ? "not provided"
+          ? ("BUSINESS.BUSINESS_DETAILS_SECTION.EMPTY_INDUSTRY" | translate)
           : businessDetails.industry
       }}
     </span>
   </p>
-  <h2 class="description-title">Business Description</h2>
+  <h2 class="description-title">
+    {{ "BUSINESS.BUSINESS_DETAILS_SECTION.DESCRIPTION" | translate }}
+  </h2>
   <p>
     <span>
       {{
         businessDetails.description === null || businessDetails.description === ""
-          ? "This business doesn't have a description"
+          ? ("BUSINESS.BUSINESS_DETAILS_SECTION.EMPTY_DESCRIPTION" | translate)
           : "+" + businessDetails.description
       }}
     </span>

@@ -6,11 +6,19 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-business-details',
   standalone: true,
-  imports: [CommonModule, MatInputModule, MatIconModule, MatSelectModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    TranslateModule,
+  ],
   templateUrl: './business-details.component.html',
   styleUrls: ['./business-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

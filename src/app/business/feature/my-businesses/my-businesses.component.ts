@@ -11,13 +11,20 @@ import { BusinessesListComponent } from '../../ui/businesses-list/businesses-lis
 import { CommonModule } from '@angular/common';
 import { ConfirmDialogComponent } from 'src/app/core/components/confirm-dialog/confirm-dialog.component';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { User } from '@angular/fire/auth';
 import { selectBusinessesByUser } from '../../data-access/business.selectors';
 
 @Component({
   selector: 'app-my-businesses',
   standalone: true,
-  imports: [CommonModule, BusinessesListComponent, AddItemCardComponent, MatDialogModule],
+  imports: [
+    CommonModule,
+    BusinessesListComponent,
+    AddItemCardComponent,
+    MatDialogModule,
+    TranslateModule,
+  ],
   templateUrl: './my-businesses.component.html',
   styleUrls: ['./my-businesses.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -7,13 +7,14 @@ import { BusinessFormComponent } from '../../ui/business-form/business-form.comp
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { selectBusinessEntity } from '../../data-access/business.selectors';
 import { updateBusiness } from '../../data-access/business.actions';
 
 @Component({
   selector: 'app-edit-business',
   standalone: true,
-  imports: [CommonModule, BusinessFormComponent],
+  imports: [CommonModule, BusinessFormComponent, TranslateModule],
   templateUrl: './edit-business.component.html',
   styleUrls: ['./edit-business.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

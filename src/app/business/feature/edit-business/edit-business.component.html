@@ -1,6 +1,6 @@
 <app-business-form
   *ngIf="business$ | async as business"
-  title="Edit Business"
+  [title]="'BUSINESS.EDIT_BUSINESS.FORM_TITLE' | translate"
   (submit)="onSubmit($event)"
   (discard)="onDiscard()"
   [business]="business"

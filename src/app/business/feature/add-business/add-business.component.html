@@ -1,5 +1,5 @@
 <app-business-form
-  title="Create new Business"
+  [title]="'BUSINESS.ADD_BUSINESS.FORM_TITLE' | translate"
   (discard)="onDiscard()"
   (submit)="onSubmit($event)"
   [enabledNetworkSelection]="true"
