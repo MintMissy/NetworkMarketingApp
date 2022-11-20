@@ -100,7 +100,7 @@
       formControlName="country"
     >
       <mat-option *ngFor="let country of Country" [value]="country[1]">
-        {{ country[0] }}
+        {{ country[0] | countryTextTransform }}
       </mat-option>
     </mat-select>
     <mat-icon matPrefix>language</mat-icon>

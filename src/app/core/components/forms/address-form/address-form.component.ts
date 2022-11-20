@@ -3,6 +3,7 @@ import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { Country } from 'src/app/core/model/country.enum';
+import { CountryTextTransformPipe } from 'src/app/core/pipe/country-text-transform.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -18,6 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     MatSelectModule,
     TranslateModule,
+    CountryTextTransformPipe,
   ],
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.scss'],

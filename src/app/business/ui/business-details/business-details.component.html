@@ -33,15 +33,20 @@
       class="input-business-type"
       *ngIf="{ control: businessDetailsGroup.controls['industry'] } as industry"
     >
-      <mat-label>Business Industry</mat-label>
-      <mat-select placeholder="Business Industry" formControlName="industry">
+      <mat-label>{{ "BUSINESS.BUSINESS_DETAILS_FORM.INDUSTRY_INPUT.LABEL" | translate }}</mat-label>
+      <mat-select
+        [placeholder]="'BUSINESS.BUSINESS_DETAILS_FORM.INDUSTRY_INPUT.LABEL' | translate"
+        formControlName="industry"
+      >
         <mat-option *ngFor="let industryEntry of BusinessIndustrySet" [value]="industryEntry.value">
           {{ industryEntry.key | translate }}
         </mat-option>
       </mat-select>
       <mat-icon matPrefix>business</mat-icon>
       <mat-error>
-        <span *ngIf="industry.control.hasError('required')">Industry is required</span>
+        <span *ngIf="industry.control.hasError('required')">{{
+          "BUSINESS.BUSINESS_DETAILS_FORM.INDUSTRY_INPUT.REQUIRED" | translate
+        }}</span>
       </mat-error>
     </mat-form-field>
 

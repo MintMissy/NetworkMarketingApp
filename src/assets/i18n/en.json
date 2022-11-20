@@ -91,6 +91,10 @@
         "TOO_SHORT": "Company Name is too short",
         "TOO_LONG": "Company Name is too long"
       },
+      "INDUSTRY_INPUT": {
+        "LABEL": "Business Industry",
+        "REQUIRED": "Industry is required"
+      },
       "NETWORK_NAME_INPUT": {
         "LABEL": "Parent Business",
         "NONE_OPTION": "None"
