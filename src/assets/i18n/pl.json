@@ -1,68 +1,408 @@
 {
   "AUTH": {
     "LOGIN": {
-      "TITLE": "Sign In",
+      "TITLE": "Zaloguj Się",
       "EMAIL_INPUT": {
         "LABEL": "Email",
         "ERRORS": {
-          "REQUIRED": "Email is Required",
-          "INVALID": "Email is invalid"
+          "REQUIRED": "Email jest wymagany",
+          "INVALID": "Email jest nieprawidłowy"
         }
       },
       "PASSWORD_INPUT": {
-        "LABEL": "Password",
+        "LABEL": "Hasło",
         "ERRORS": {
-          "REQUIRED": "Pasword is Required",
-          "TOO_SHORT": "Password is too short",
-          "TOO_LONG": "Pasword is too long",
-          "PATTERN": "Password must contain at least 1 number and letter"
+          "REQUIRED": "Hasło jest wymagane",
+          "TOO_SHORT": "Hasło jest zbyt krótkie",
+          "TOO_LONG": "Hasło jest zbyt długie",
+          "PATTERN": "Hasło musi zawierać co najmniej 1 cyfrę i literę"
         }
       },
       "BUTTONS": {
-        "LOGIN": "Login"
+        "LOGIN": "Zaloguj się"
       },
       "OTHER": {
-        "LOGIN_ALTERNATIVE": "or login using",
+        "LOGIN_ALTERNATIVE": "albo zaloguj się przez",
         "NO_ACCOUNT": "Don't have an account?",
-        "SIGN_UP": "Sign Up"
+        "SIGN_UP": "Zarejestruj się"
       }
     },
     "SIGN_UP": {
-      "TITLE": "Sign Up",
+      "TITLE": "Zarejestruj Się",
       "EMAIL_INPUT": {
         "LABEL": "Email",
         "ERRORS": {
-          "REQUIRED": "Email is Required",
-          "INVALID": "Email is invalid"
+          "REQUIRED": "Email jest wymagany",
+          "INVALID": "Email jest nieprawidłowy"
         }
       },
       "PASSWORD_INPUT": {
         "LABEL": "Password",
         "ERRORS": {
-          "REQUIRED": "Password is Required",
-          "TOO_SHORT": "Password is too short",
-          "TOO_LONG": "Password is too long",
-          "PATTERN": "Password must contain at least 1 number and letter"
+          "REQUIRED": "Hasło jest wymagane",
+          "TOO_SHORT": "Hasło jest zbyt krótkie",
+          "TOO_LONG": "Hasło jest zbyt długie",
+          "PATTERN": "Hasło musi zawierać co najmniej 1 cyfrę i literę"
         }
       },
       "REPEAT_PASSWORD_INPUT": {
         "LABEL": "Repeat Password",
         "ERRORS": {
-          "REQUIRED": "Password is Required",
-          "TOO_SHORT": "Password is too short",
-          "TOO_LONG": "Password is too long",
-          "PATTERN": "Password must contain at least 1 number and letter",
-          "NO_MATCH": "Password don't match"
+          "REQUIRED": "Hasło jest wymagane",
+          "TOO_SHORT": "Hasło jest zbyt krótkie",
+          "TOO_LONG": "Hasło jest zbyt długie",
+          "PATTERN": "Hasło musi zawierać co najmniej 1 cyfrę i literę",
+          "NO_MATCH": "Hasła się nie zgadzają"
         }
       },
       "BUTTONS": {
-        "SIGN_UP": "Login"
+        "SIGN_UP": "Zaloguj się"
       },
       "OTHER": {
-        "LOGIN_ALTERNATIVE": "or sign up using",
-        "HAVE_ACCOUNT": "Already have an account?",
-        "LOGIN": "Log in"
+        "LOGIN_ALTERNATIVE": "albo zarejestruj się przez",
+        "HAVE_ACCOUNT": "Już masz konto?",
+        "LOGIN": "Zaloguj się"
       }
+    }
+  },
+  "BUSINESS": {
+    "ADD_BUSINESS": {
+      "FORM_TITLE": "Stwórz nowy Biznes"
+    },
+    "BUSINESS": {
+      "EDIT_BUTTON": "Edytuj Biznes"
+    },
+    "EDIT_BUSINESS": {
+      "FORM_TITLE": "Edytuj Biznes"
+    },
+    "MY_BUSINESSES": {
+      "CREATE_CARD": {
+        "TITLE": "Stwórz Firmę",
+        "CONTENT": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."
+      }
+    },
+    "BUSINESS_CARD": {
+      "VIEW_BUTTON": "Zobacz Biznes"
+    },
+    "BUSINESS_DETAILS_FORM": {
+      "COMPANY_NAME_INPUT": {
+        "LABEL": "Nazwa Firmy",
+        "REQUIRED": "Nazwa Firmy jest wymagana",
+        "TOO_SHORT": "Nazwa Firmy jest zbyt krótka",
+        "TOO_LONG": "Nazwa Firmy jest zbyt długa"
+      },
+      "NETWORK_NAME_INPUT": {
+        "LABEL": "Nadrzędny Biznes",
+        "NONE_OPTION": "Brak"
+      },
+      "COMPANY_DESCRIPTION_INPUT": {
+        "LABEL": "Description",
+        "REQUIRED": "Opis jest wymagany",
+        "TOO_SHORT": "Opis jest zbyt krótki",
+        "TOO_LONG": "Opis jest zbyt długi"
+      },
+      "BANNER_INPUT": {
+        "LABEL": "Url Baneru",
+        "INVALID": "Url baneru jest nieprawidłowy"
+      },
+      "BANNER_PREVIEW": "Podgląd Baneru"
+    },
+    "BUSINESS_DETAILS_SECTION": {
+      "TITLE": "Informacje o Biznesie",
+      "COMPANY_NAME": "Nazwa Firmy:",
+      "EMPTY_NAME": "Nie podano",
+      "INDUSTRY": "Sektor:",
+      "EMPTY_INDUSTRY": "Nie podano",
+      "DESCRIPTION": "Opis Biznesu",
+      "EMPTY_DESCRIPTION": "Ten biznes nie ma opisu"
+    }
+  },
+  "BUSINESSMAN": {
+    "BUSINESSMAN": {
+      "EDIT_BUTTON": "Edytuj Profil"
+    },
+    "BUSINESSMAN_FORM": {
+      "TITLE": "Edytuj Profil"
+    },
+    "PERSON_DETAILS_FORM": {
+      "TITLE": "Dane Osobiste",
+      "FIRST_NAME_INPUT": {
+        "LABEL": "Imię",
+        "TOO_LONG": "Imię jest zbyt długie"
+      },
+      "SURNAME_INPUT": {
+        "LABEL": "Nazwisko",
+        "TOO_LONG": "Nazwisko jest zbyt długie"
+      },
+      "AVATAR": {
+        "LABEL": "Url Avatara",
+        "INVALID": "Podany url jest nieprawidłowy"
+      },
+      "AVATAR_PREVIEW": "Podgląd Avatara"
+    },
+    "PERSON_DETAILS_SECTION": {
+      "BUSINESSMAN": "Biznesmen",
+      "FIRST_NAME": "Imię:",
+      "FIRST_NAME_EMPTY": "Nie podano",
+      "SURNAME": "Nazwisko:",
+      "SURNAME_EMPTY": "Nie podano"
+    }
+  },
+  "CONFIGURATION": {
+    "LANGUAGE": {
+      "TITLE": "Wybierz Preferowany Język",
+      "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi libero unde harum quia, laudantium quae labore praesentium ipsa facilis quasi illum, mollitia omnis. Sapiente ullam harum quo magni sunt."
+    }
+  },
+  "CORE": {
+    "CONFIRM_DIALOG": {
+      "TITLE": "Czy jesteś Pewnien?",
+      "CONTENT": "Po przejściu dalej nie będziesz miał możliwości cofnięcia tej akcji.",
+      "CONTINUE_BUTTON": "Kontynuuj",
+      "DISCARD_BUTTON": "Anuluj"
+    },
+    "ADDRESS_SECTION": {
+      "TITLE": "Adres",
+      "COUNTRY": "Kraj:",
+      "COUNTRY_EMPTY": "Nie podano",
+      "CITY": "Miasto:",
+      "CITY_EMPTY": "Nie podano",
+      "POSTAL_CODE": "Kod Pocztowy:",
+      "POSTAL_CODE_EMPTY": "Nie podano",
+      "STREET": "Ulica:",
+      "STREET_EMPTY": "Nie podano",
+      "LOCAL_NUMBER": "Lokal:",
+      "LOCAL_NUMBER_EMPTY": "Nie podano"
+    },
+    "CONTACT_SECTION": {
+      "TITLE": "Kontakt",
+      "EMAIL": "Email:",
+      "EMAIL_EMPTY": "Nie podano",
+      "TELEPHONE": "Telefon:",
+      "TELEPHONE_EMPTY": "Nie podano"
+    },
+    "ADDRESS_FORM": {
+      "TITLE": "Adres",
+      "STREET_INPUT": {
+        "LABEL": "Ulica",
+        "TOO_SHORT": "Nazwa ulicy jest za krótka",
+        "TOO_LONG": "Nazwa ulicy jest za długa"
+      },
+      "LOCAL_NUMBER_INPUT": {
+        "LABEL": "Numer Lokalu",
+        "TOO_SHORT": "Numer lokalu jest za krótki",
+        "TOO_LONG": "Numer lokalu jest za długi"
+      },
+      "POSTAL_CODE_INPUT": {
+        "LABEL": "Kod Pocztowy",
+        "TOO_SHORT": "Kod jest za krótki",
+        "TOO_LONG": "Kod jest za długi"
+      },
+      "CITY_INPUT": {
+        "LABEL": "Miasto",
+        "TOO_SHORT": "Nazwa miasta jest za krótka",
+        "TOO_LONG": "Nazwa miasta jest za długa"
+      },
+      "COUNTRY_INPUT": {
+        "LABEL": "Kraj"
+      }
+    },
+    "CONTACT_FORM": {
+      "EMAIL_INPUT": {
+        "LABEL": "Email",
+        "INVALID": "Email jest nieprawidłowy",
+        "TOO_LONG": "Email jest za długi"
+      },
+      "TELEPHONE_INPUT": {
+        "LABEL": "Numer Telefonu",
+        "MIN": "Number jest za krótki (musi zawierać kod kraju)",
+        "MAX": "Number jest za długi"
+      }
+    },
+    "FORM_ACTIONS": {
+      "SAVE_BUTTON": "Zapisz Zmiany",
+      "DISCARD_BUTTON": "Anuluj"
+    },
+    "HOME_PAGE": {
+      "ABOUT_CARD": {
+        "TITLE": "O Aplikacji",
+        "DESCRIPTION": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt expedita laboriosam doloribus illum, ex minus. Ratione velit consequatur corrupti. Debitis alias illo accusantium nihil laboriosam deserunt eaque aperiam, quisquam tempore."
+      },
+      "BUSINESSES_CARD": {
+        "TITLE": "Wiodące Światowe Firmy",
+        "SUBTITLE": "Ogromny Rynek",
+        "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos pariatur temporibus fugiat cum aperiam.",
+        "BROWSE_BUTTON": "Przeglądaj Biznesy",
+        "JOIN_BUTTON": "Stwórz Biznes"
+      },
+      "SHOPS_CARD": {
+        "TITLE": "Sztuka Wszechstronnych Produktów",
+        "SUBTITLE": "Najpopularniejsze Sklepy",
+        "DESCRIPTION": "Assumenda, aspernatur dignissimos voluptatum unde repellat alias nisi rerum eligendi animi aut ex sequi accusantium, sint.",
+        "BROWSE_BUTTON": "Przeglądaj Sklepy",
+        "JOIN_BUTTON": "Stwórz Sklep"
+      },
+      "BUSINESSMEN_CARD": {
+        "TITLE": "Dobrze znani biznesmeni",
+        "SUBTITLE": "Niesamowite marzenia",
+        "DESCRIPTION": "Expedita, ipsa voluptatum officia iste quia maxime provident porro similique sunt! Accusantium ad, maiores officia quae delectus.",
+        "BROWSE_BUTTON": "Przeglądaj Biznesmenów",
+        "JOIN_BUTTON": "Utwórz Konto"
+      }
+    },
+    "SIDENAV": {
+      "PAGES_GROUP": {
+        "TITLE": "Dostępne Strony",
+        "HOME": "Strona Główna",
+        "BUSINESSES": "Biznesy",
+        "SHOPS": "Sklepy",
+        "BUSINESSMEN": "Biznesmeni"
+      },
+      "OWNED_GROUP": {
+        "TITLE": "Twoje podmioty",
+        "COMPANIES": "Firmy",
+        "SHOPS": "Sklepy"
+      },
+      "SETTINGS_GROUP": {
+        "TITLE": "Ustawienia Generalne",
+        "LANGUAGE": "Język",
+        "MY_PROFILE": "Mój Profil"
+      },
+      "INFORMATION_GROUP": {
+        "TITLE": "Informacje",
+        "ABOUT": "O Projekcie"
+      },
+      "SESSION_GROUP": {
+        "TITLE": "Sesja",
+        "LOGIN": "Zaloguj się",
+        "SIGN_UP": "Zarejestruj się",
+        "LOG_OUT": "Wyloguj się"
+      }
+    },
+    "NOT_FOUND_PAGE": {
+      "ERROR404": "404",
+      "TITLE": "Nie Znaleziono Strony",
+      "DESCRIPTION": "Ooops! Ta strona nie istnieje.",
+      "GO_BACK_BUTTON": "Wróć do Strony Głównej"
+    }
+  },
+  "PRODUCT": {
+    "ADD_PRODUCT": {
+      "TITLE": "Dodaj nowy Produkt"
+    },
+    "EDIT_PRODUCT": {
+      "TITLE": "Edytuj Produkt"
+    },
+    "PRODUCT": {
+      "EDIT_BUTTON": "Edytuj Produkt",
+      "DESCRIPTION_TITLE": "Opis Produktu",
+      "INFORMATION_TITLE": "Informacje",
+      "AMOUNT_BOUGHT": "{{amount}} użytkowników kupiło ten produkt",
+      "AMOUNT_LEFT": "Pozostało {{amount}} sztuk",
+      "BUY_BUTTON": "Kup teraz za ${{price}}",
+      "GO_BACK_BUTTON": "Wróc do Sklepu"
+    },
+    "PRODUCT_CARD": {
+      "VIEW_BUTTON": "Zobacz Produkt"
+    },
+    "PRODUCT_DETAILS_FORM": {
+      "NAME_INPUT": {
+        "LABEL": "Nazwa Produktu",
+        "REQUIRED": "Nazwa Produktu jest wymagana",
+        "TOO_SHORT": "Nazwa Produktu jest za krótka",
+        "TOO_LONG": "Nazwa Produktu jest za długa"
+      },
+      "PRICE_INPUT": {
+        "LABEL": "Cena",
+        "REQUIRED": "Cena jest wymagana",
+        "MIN": "Cena musi być liczbą pozytywną"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Opis Produktu",
+        "REQUIRED": "Opis jest wymagany",
+        "TOO_SHORT": "Opis jest za krótki",
+        "TOO_LONG": "Opis jest za długi"
+      },
+      "BANNER_INPUT": {
+        "LABEL": "Url Banera",
+        "REQUIRED": "Baner Produktu jest wymagany",
+        "INVALID": "Podany url baneru jest nieprawidłowy"
+      },
+      "BANNER_PREVIEW": "Podgląd Baneru"
+    },
+    "SALE_STATISTICS_FORM": {
+      "TITLE": " Magazyn oraz Statystyki",
+      "AMOUNT_STORAGE_INPUT": {
+        "LABEL": "Ilość w Magazynie",
+        "MIN": "Ilość musi być liczbą pozytywną"
+      },
+      "AMOUNT_SOLD_INPUT": {
+        "LABEL": "Ilość Sprzedanych Sztuk",
+        "MIN": "Ilość musi być liczbą pozytywną"
+      }
+    }
+  },
+  "SHOPS": {
+    "ADD_SHOP": {
+      "TITLE": "Stwórz nowy Sklep"
+    },
+    "EDIT_SHOP": {
+      "TITLE": "Edytuj Sklep"
+    },
+    "MY_SHOPS": {
+      "ADD_SHOP_CARD": {
+        "TITLE": "Stwórz Sklep",
+        "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."
+      }
+    },
+    "SHOP": {
+      "EDIT_BUTTON": "Edytuj Sklep",
+      "PRODUCTS_TITLE": "Dostępne Produkty",
+      "ADD_PRODUCT_CARD": {
+        "TITLE": "Stwórz Produkt",
+        "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."
+      }
+    },
+    "SHOP_CARD": {
+      "VIEW_BUTTON": "Obejrzyj Sklep"
+    },
+    "SHOP_DETAILS_FORM": {
+      "TITLE": "Informacje o Sklepie",
+      "NAME_INPUT": {
+        "LABEL": "Nazwa",
+        "REQUIRED": "Nazwa Sklepu jest wymagana",
+        "TOO_SHORT": "Nazwa Sklepu jest za krótka",
+        "TOO_LONG": "Nazwa Sklepu jest za długa"
+      },
+      "BUSINESS_INPUT": {
+        "LABEL": "Biznes",
+        "REQUIRED": "Biznes jest wymagany"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Opis Sklepu",
+        "REQUIRED": "Opis jest wymagany",
+        "TOO_SHORT": "Opis jest za krótki",
+        "TOO_LONG": "Opis jest za długi"
+      },
+      "BANNER_INPUT": {
+        "LABEL": "Url Banneru",
+        "REQUIRED": "Url Banneru jest wymagany",
+        "INVALID": "Url baneru jest niepoprawny"
+      },
+      "BANNER_PREVIEW": "Podgląd Baneru"
+    },
+    "SHOP_DETAILS_SELECTION": {
+      "TITLE": "Witaj w Sklepie!",
+      "SHOP_NAME": "Nazwa Sklepu:",
+      "SHOP_NAME_EMPTY": "Nie podano",
+      "SHOP_DESCRIPTION": "Opis Sklepu",
+      "SHOP_DESCRIPTION_EMPTY": "Ten Sklep nie ma opisu"
+    }
+  },
+  "ENUM": {
+    "LANGUAGE": {
+      "POLISH": "Polski",
+      "ENGLISH": "Angielski"
     }
   }
 }

@@ -5,14 +5,14 @@
       "EMAIL_INPUT": {
         "LABEL": "Email",
         "ERRORS": {
-          "REQUIRED": "Email is Required",
+          "REQUIRED": "Email is required",
           "INVALID": "Email is invalid"
         }
       },
       "PASSWORD_INPUT": {
         "LABEL": "Password",
         "ERRORS": {
-          "REQUIRED": "Company Name is Required",
+          "REQUIRED": "Password is required",
           "TOO_SHORT": "Password is too short",
           "TOO_LONG": "Password is too long",
           "PATTERN": "Password must contain at least 1 number and letter"
@@ -32,14 +32,14 @@
       "EMAIL_INPUT": {
         "LABEL": "Email",
         "ERRORS": {
-          "REQUIRED": "Email is Required",
+          "REQUIRED": "Email is required",
           "INVALID": "Email is invalid"
         }
       },
       "PASSWORD_INPUT": {
         "LABEL": "Password",
         "ERRORS": {
-          "REQUIRED": "Password is Required",
+          "REQUIRED": "Password is required",
           "TOO_SHORT": "Password is too short",
           "TOO_LONG": "Password is too long",
           "PATTERN": "Password must contain at least 1 number and letter"
@@ -48,11 +48,11 @@
       "REPEAT_PASSWORD_INPUT": {
         "LABEL": "Repeat Password",
         "ERRORS": {
-          "REQUIRED": "Password is Required",
+          "REQUIRED": "Password is required",
           "TOO_SHORT": "Password is too short",
           "TOO_LONG": "Password is too long",
           "PATTERN": "Password must contain at least 1 number and letter",
-          "NO_MATCH": "Password don't match"
+          "NO_MATCH": "Passwords don't match"
         }
       },
       "BUTTONS": {
@@ -87,19 +87,19 @@
     "BUSINESS_DETAILS_FORM": {
       "COMPANY_NAME_INPUT": {
         "LABEL": "Company Name",
-        "REQUIRED": "Company Name is Required",
+        "REQUIRED": "Company Name is required",
         "TOO_SHORT": "Company Name is too short",
         "TOO_LONG": "Company Name is too long"
       },
       "NETWORK_NAME_INPUT": {
-        "LABEL": "Network Name",
+        "LABEL": "Parent Business",
         "NONE_OPTION": "None"
       },
       "COMPANY_DESCRIPTION_INPUT": {
-        "LABEL": "Company Name",
-        "REQUIRED": "Company Name is Required",
-        "TOO_SHORT": "Company Name is too short",
-        "TOO_LONG": "Company Name is too long"
+        "LABEL": "Description",
+        "REQUIRED": "Description is required",
+        "TOO_SHORT": "Description is too short",
+        "TOO_LONG": "Description is too long"
       },
       "BANNER_INPUT": {
         "LABEL": "Banner Url",
@@ -169,7 +169,7 @@
       "CITY_EMPTY": "Not provided",
       "POSTAL_CODE": "Postal Code:",
       "POSTAL_CODE_EMPTY": "Not provided",
-      "STREET": "Postal Code:",
+      "STREET": "Street:",
       "STREET_EMPTY": "Not provided",
       "LOCAL_NUMBER": "Local Number:",
       "LOCAL_NUMBER_EMPTY": "Not provided"
@@ -230,14 +230,14 @@
       },
       "BUSINESSES_CARD": {
         "TITLE": "World Leading Businesses",
-        "SUBTITLE": "Marketing Market",
+        "SUBTITLE": "Enormous Global Market",
         "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos pariatur temporibus fugiat cum aperiam.",
         "BROWSE_BUTTON": "Browse Businesses",
         "JOIN_BUTTON": "Create Business"
       },
       "SHOPS_CARD": {
         "TITLE": "The Art of Versatile Shops",
-        "SUBTITLE": "Top Quality Products",
+        "SUBTITLE": "Most Popular Shops",
         "DESCRIPTION": "Assumenda, aspernatur dignissimos voluptatum unde repellat alias nisi rerum eligendi animi aut ex sequi accusantium, sint.",
         "BROWSE_BUTTON": "Browse Shops",
         "JOIN_BUTTON": "Start a Shop"
@@ -370,9 +370,9 @@
       "TITLE": "Shop Details",
       "NAME_INPUT": {
         "LABEL": "Name",
-        "REQUIRED": "Product Name is required",
-        "TOO_SHORT": "Product Name is too short",
-        "TOO_LONG": "Product Name is too long"
+        "REQUIRED": "Shop Name is required",
+        "TOO_SHORT": "Shop Name is too short",
+        "TOO_LONG": "Shop Name is too long"
       },
       "BUSINESS_INPUT": {
         "LABEL": "Business",
@@ -392,11 +392,11 @@
       "BANNER_PREVIEW": "Banner Preview"
     },
     "SHOP_DETAILS_SELECTION": {
-        "TITLE": "Welcome in the Shop!",
-        "SHOP_NAME": "Shop Name:",
-        "SHOP_NAME_EMPTY": "Not provided",
-        "SHOP_DESCRIPTION": "Shop Description",
-        "SHOP_DESCRIPTION_EMPTY": "This business doesn't have a description"
+      "TITLE": "Welcome in the Shop!",
+      "SHOP_NAME": "Shop Name:",
+      "SHOP_NAME_EMPTY": "Not provided",
+      "SHOP_DESCRIPTION": "Shop Description",
+      "SHOP_DESCRIPTION_EMPTY": "This shop doesn't have a description"
     }
   },
   "ENUM": {
