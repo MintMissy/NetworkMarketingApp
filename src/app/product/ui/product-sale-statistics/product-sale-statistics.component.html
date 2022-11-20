@@ -1,38 +1,46 @@
 <div class="card card--padded card--form" [formGroup]="saleStatisticsGroup">
-  <p>Storage and Statistics</p>
+  <p>{{ 'PRODUCT.SALE_STATISTICS_FORM.TITLE' | translate }}</p>
   <div class="input-group">
     <mat-form-field
       appearance="outline"
       *ngIf="{ control: saleStatisticsGroup.controls['amountInStorage'] } as amountInStorage"
     >
-      <mat-label>Amount in Storage</mat-label>
+      <mat-label>{{
+        "PRODUCT.SALE_STATISTICS_FORM.AMOUNT_STORAGE_INPUT.LABEL" | translate
+      }}</mat-label>
       <input
         matInput
-        placeholder="Amount in Storage"
+        [placeholder]="'PRODUCT.SALE_STATISTICS_FORM.AMOUNT_STORAGE_INPUT.LABEL' | translate"
         value=""
         type="number"
         formControlName="amountInStorage"
       />
       <mat-icon matPrefix>edit</mat-icon>
       <mat-error>
-        <span *ngIf="amountInStorage.control.hasError('min')">Value must be a positive number</span>
+        <span *ngIf="amountInStorage.control.hasError('min')">{{
+          "PRODUCT.SALE_STATISTICS_FORM.AMOUNT_STORAGE_INPUT.MIN" | translate
+        }}</span>
       </mat-error>
     </mat-form-field>
     <mat-form-field
       appearance="outline"
       *ngIf="{ control: saleStatisticsGroup.controls['soldAmount'] } as soldAmount"
     >
-      <mat-label>Sold Amount</mat-label>
+      <mat-label>{{
+        "PRODUCT.SALE_STATISTICS_FORM.AMOUNT_SOLD_INPUT.LABEL" | translate
+      }}</mat-label>
       <input
         matInput
-        placeholder="Sold Amount"
+        [placeholder]="'PRODUCT.SALE_STATISTICS_FORM.AMOUNT_SOLD_INPUT.LABEL' | translate"
         value=""
         type="number"
         formControlName="soldAmount"
       />
       <mat-icon matPrefix>inventory_2</mat-icon>
       <mat-error>
-        <span *ngIf="soldAmount.control.hasError('min')">Value must be a positive number</span>
+        <span *ngIf="soldAmount.control.hasError('min')">{{
+          "PRODUCT.SALE_STATISTICS_FORM.AMOUNT_SOLD_INPUT.MIN" | translate
+        }}</span>
       </mat-error>
     </mat-form-field>
   </div>

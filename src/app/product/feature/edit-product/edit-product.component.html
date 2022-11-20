@@ -1,5 +1,5 @@
 <app-product-form
-  title="Edit Product"
+  [title]="'PRODUCT.EDIT_PRODUCT.TITLE' | translate"
   (submit)="onSubmit($event)"
   (discard)="onDiscard()"
   [product]="(product$ | async)!"

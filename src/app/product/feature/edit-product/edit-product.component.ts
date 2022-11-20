@@ -7,13 +7,14 @@ import { Observable } from 'rxjs';
 import { Product } from '../../model/product.model';
 import { ProductFormComponent } from '../../ui/product-form/product-form.component';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { selectProductEntity } from '../../data-access/product.selectors';
 import { updateProduct } from '../../data-access/product.actions';
 
 @Component({
   selector: 'app-edit-product',
   standalone: true,
-  imports: [CommonModule, ProductFormComponent],
+  imports: [CommonModule, ProductFormComponent, TranslateModule],
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

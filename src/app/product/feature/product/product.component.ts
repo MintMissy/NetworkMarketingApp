@@ -9,13 +9,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { Product } from '../../model/product.model';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { User } from '@angular/fire/auth';
 import { selectProductEntity } from '../../data-access/product.selectors';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, RouterModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule, RouterModule, TranslateModule],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

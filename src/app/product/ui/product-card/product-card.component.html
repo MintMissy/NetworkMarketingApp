@@ -9,7 +9,7 @@
   </div>
   <div class="card-actions">
     <a [routerLink]="'products/' + product.id">
-      <button mat-raised-button color="primary">View Product</button>
+      <button mat-raised-button color="primary">{{ 'PRODUCT.PRODUCT_CARD.VIEW_BUTTON' | translate }}</button>
     </a>
     <!-- TODO display logic -->
     <a [routerLink]="'products/' + product.id + '/edit'" *ngIf="">

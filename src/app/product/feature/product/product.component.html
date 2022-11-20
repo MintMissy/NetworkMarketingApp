@@ -3,30 +3,47 @@
     <img [src]="product.details.image" class="image" alt="" aria-hidden="true" />
     <!-- TODO product owner check -->
     <!-- *ngIf="(loggedInUser$ | async)?.uid === selectedUserId" -->
-    <a mat-raised-button color="primary" routerLink="edit"> Edit Product </a>
+    <a mat-raised-button color="primary" routerLink="edit">
+      {{ "PRODUCT.PRODUCT.EDIT_BUTTON" | translate }}
+    </a>
   </div>
   <div class="information">
     <h1>{{ product.details.name }}</h1>
     <div class="section">
-      <h2>Product Description</h2>
+      <h2>{{ "PRODUCT.PRODUCT.DESCRIPTION_TITLE" | translate }}</h2>
       <p>{{ product.details.description }}</p>
     </div>
     <div class="section">
-      <h2>Information</h2>
+      <h2>{{ "PRODUCT.PRODUCT.INFORMATION_TITLE" | translate }}</h2>
       <p>
         <mat-icon>people</mat-icon>
-        <span>{{ product.saleStatistics.soldAmount }} users bought this product</span>
+        <span>
+          {{
+            "PRODUCT.PRODUCT.AMOUNT_BOUGHT"
+              | translate: { amount: product.saleStatistics.soldAmount }
+          }}</span
+        >
       </p>
       <p>
         <mat-icon>inventory_2</mat-icon>
-        <span>{{ product.saleStatistics.amountInStorage }} units left</span>
+        <span
+          >{{
+            "PRODUCT.PRODUCT.AMOUNT_LEFT"
+              | translate: { amount: product.saleStatistics.amountInStorage }
+          }}
+        </span>
       </p>
     </div>
     <div class="product-action">
       <button mat-raised-button color="primary">
-        Buy Now for ${{ product.details.price | number: "0.2" }}
+        {{
+          "PRODUCT.PRODUCT.BUY_BUTTON"
+            | translate: { price: (product.details.price | number: "0.2") }
+        }}
       </button>
-      <button mat-stroked-button routerLink="../../">Go Back</button>
+      <button mat-stroked-button routerLink="../../">
+        {{ "PRODUCT.PRODUCT.GO_BACK_BUTTON" | translate }}
+      </button>
     </div>
   </div>
 </div>

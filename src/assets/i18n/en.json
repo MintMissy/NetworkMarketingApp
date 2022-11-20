@@ -286,6 +286,62 @@
       "GO_BACK_BUTTON": "GO BACK TO HOMEPAGE"
     }
   },
+  "PRODUCT": {
+    "ADD_PRODUCT": {
+      "TITLE": "Add new Product"
+    },
+    "EDIT_PRODUCT": {
+      "TITLE": "Edit Product"
+    },
+    "PRODUCT": {
+      "EDIT_BUTTON": "Edit Product",
+      "DESCRIPTION_TITLE": "Product Description",
+      "INFORMATION_TITLE": "Information",
+      "AMOUNT_BOUGHT": "{{amount}} users bought this product",
+      "AMOUNT_LEFT": "{{amount}} units left",
+      "BUY_BUTTON": "Buy Now for ${{price}}",
+      "GO_BACK_BUTTON": "Go Back"
+    },
+    "PRODUCT_CARD": {
+      "VIEW_BUTTON": "View Product"
+    },
+    "PRODUCT_DETAILS_FORM": {
+      "NAME_INPUT": {
+        "LABEL": "Product Name",
+        "REQUIRED": "Product Name is required",
+        "TOO_SHORT": "Product name is too short",
+        "TOO_LONG": "Product Name is too long"
+      },
+      "PRICE_INPUT": {
+        "LABEL": "Price",
+        "REQUIRED": "Price is required",
+        "MIN": "Price must be a positive number"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Product Description",
+        "REQUIRED": "Description is required",
+        "TOO_SHORT": "Description is too short",
+        "TOO_LONG": "Description is too long"
+      },
+      "BANNER_INPUT": {
+        "LABEL": "Banner Url",
+        "REQUIRED": "Product banner is required",
+        "INVALID": "Image url is invalid"
+      },
+      "BANNER_PREVIEW": "Banner Preview"
+    },
+    "SALE_STATISTICS_FORM": {
+        "TITLE": "Storage and Statistics",
+        "AMOUNT_STORAGE_INPUT": {
+            "LABEL": "Amount in Storage",
+            "MIN": "Value must be a positive number"
+        },
+        "AMOUNT_SOLD_INPUT": {
+            "LABEL": "Sold Amount",
+            "MIN": "Value must be a positive number"
+        }
+    }
+  },
   "ENUM": {
     "LANGUAGE": {
       "POLISH": "Polish",

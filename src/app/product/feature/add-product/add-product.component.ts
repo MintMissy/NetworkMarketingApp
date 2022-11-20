@@ -6,12 +6,13 @@ import { CommonModule } from '@angular/common';
 import { Product } from '../../model/product.model';
 import { ProductFormComponent } from '../../ui/product-form/product-form.component';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { insertProduct } from '../../data-access/product.actions';
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [CommonModule, ProductFormComponent],
+  imports: [CommonModule, ProductFormComponent, TranslateModule],
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
