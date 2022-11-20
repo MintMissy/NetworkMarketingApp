@@ -52,7 +52,7 @@
           "TOO_SHORT": "Password is too short",
           "TOO_LONG": "Password is too long",
           "PATTERN": "Password must contain at least 1 number and letter",
-          "NO_MATCH": "Password don't match",
+          "NO_MATCH": "Password don't match"
         }
       },
       "BUTTONS": {

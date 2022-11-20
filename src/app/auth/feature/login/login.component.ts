@@ -27,7 +27,7 @@ import { getPasswordValidators } from '../../utils/password-validator';
     ReactiveFormsModule,
     ChangeInputTypeDirective,
     InvalidInputIconDirective,
-    TranslateModule
+    TranslateModule,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['../auth-form-styles.scss'],
