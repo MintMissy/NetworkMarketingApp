@@ -1,11 +1,6 @@
 <div *ngIf="product$ | async as product" class="card card--padded product-container">
   <div class="image-container">
     <img [src]="product.details.image" class="image" alt="" aria-hidden="true" />
-    <!-- TODO product owner check -->
-    <!-- *ngIf="(loggedInUser$ | async)?.uid === selectedUserId" -->
-    <a mat-raised-button color="primary" routerLink="edit">
-      {{ "PRODUCT.PRODUCT.EDIT_BUTTON" | translate }}
-    </a>
   </div>
   <div class="information">
     <h1>{{ product.details.name }}</h1>

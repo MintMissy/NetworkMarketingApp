@@ -14,7 +14,7 @@
     <a [routerLink]="'/shops/' + shop.id + '/edit'" *ngIf="userId === (business$ | async)?.ownerId">
       <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
     </a>
-    <button mat-stroked-button color="" *ngIf="userId === (business$ | async)?.ownerId">
+    <button mat-stroked-button color="" *ngIf="userId === (business$ | async)?.ownerId" (click)="deleteClick.emit(shop.id)">
       <mat-icon>delete</mat-icon>
     </button>
   </div>

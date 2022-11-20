@@ -1,22 +1,33 @@
-<div *ngIf="shop$ | async as shop" class="card card--padded shop-container">
-  <div class="image-container">
-    <img [src]="shop.details.shopBanner" class="banner" alt="" aria-hidden="true" />
-    <!-- TODO shop owner check -->
-    <!-- *ngIf="(loggedInUser$ | async)?.uid === shop.ownerId" -->
-    <a mat-raised-button color="primary" routerLink="edit">
-      {{ "SHOPS.SHOP.EDIT_BUTTON" | translate }}
-    </a>
-  </div>
-  <div class="sections-container">
-    <app-shop-details-section [shopDetails]="shop.details"></app-shop-details-section>
-  </div>
-</div>
-<h1 class="available-products">{{ "SHOPS.SHOP.PRODUCTS_TITLE" | translate }}</h1>
-<app-products-list [products]="products$ | async">
-  <!-- TODO check if user is shop owner -->
-  <app-add-item-card
-    [title]="'SHOPS.SHOP.ADD_PRODUCT_CARD.TITLE' | translate"
-    [content]="'SHOPS.SHOP.ADD_PRODUCT_CARD.DESCRIPTION' | translate"
-    link="products/new"
-  ></app-add-item-card>
-</app-products-list>
+<ng-container *ngIf="shop$ | async as shop">
+  <ng-container *ngIf="{ ids: userBusinessesIds$ | async } as userBusinesses">
+    <div class="card card--padded shop-container">
+      <div class="image-container">
+        <img [src]="shop.details.shopBanner" class="banner" alt="" aria-hidden="true" />
+        <a
+          mat-raised-button
+          color="primary"
+          routerLink="edit"
+          *ngIf="isShopOwner(userBusinesses.ids!, shop.details.businessId)"
+        >
+          {{ "SHOPS.SHOP.EDIT_BUTTON" | translate }}
+        </a>
+      </div>
+      <div class="sections-container">
+        <app-shop-details-section [shopDetails]="shop.details"></app-shop-details-section>
+      </div>
+    </div>
+    <h1 class="available-products">{{ "SHOPS.SHOP.PRODUCTS_TITLE" | translate }}</h1>
+    <app-products-list
+      [products]="products$ | async"
+      [displayEditButtons]="isShopOwner(userBusinesses.ids!, shop.details.businessId)"
+      (removeClick)="onProductRemove($event)"
+    >
+      <app-add-item-card
+        *ngIf="isShopOwner(userBusinesses.ids!, shop.details.businessId)"
+        [title]="'SHOPS.SHOP.ADD_PRODUCT_CARD.TITLE' | translate"
+        [content]="'SHOPS.SHOP.ADD_PRODUCT_CARD.DESCRIPTION' | translate"
+        link="products/new"
+      ></app-add-item-card>
+    </app-products-list>
+  </ng-container>
+</ng-container>

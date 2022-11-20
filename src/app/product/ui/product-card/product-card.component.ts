@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,7 +17,9 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product!: Product;
-  @Input() userId!: string | undefined;
+  @Input() canEdit = false;
+  @Input() canRemove = false;
+  @Output() removeClick = new EventEmitter<string>();
 
   constructor() {}
 

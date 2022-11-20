@@ -58,7 +58,7 @@ export class ProductEffects {
       mergeMap((action) => {
         return this.productService.updateProduct(action.product).pipe(
           map(() => {
-            this.redirect();
+            this._router.navigate(['..', '..']);
             return ProductActions.updateProductSuccess({ product: action.product });
           }),
           catchError(() => of(ProductActions.updateProductFailed({ product: action.product })))
@@ -72,7 +72,6 @@ export class ProductEffects {
       mergeMap((action) => {
         return this.productService.deleteProduct(action.id).pipe(
           map(() => {
-            this.redirect();
             return ProductActions.deleteProductSuccess({ id: action.id });
           }),
           catchError(() => of(ProductActions.deleteProductFailed({ id: action.id })))
@@ -82,7 +81,7 @@ export class ProductEffects {
   });
 
   private redirect() {
-    this._router.navigate(['..', '..']);
+    this._router.navigate(['/']);
   }
 
   constructor(

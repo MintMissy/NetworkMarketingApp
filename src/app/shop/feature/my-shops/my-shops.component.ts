@@ -78,12 +78,11 @@ export class MyShopsComponent implements OnInit, OnDestroy {
     this.destroySignal.unsubscribe();
   }
 
-  // TODO method implementation in childred
-  deleteClick(shop: Shop) {
+  onShopDelete(shopId: string) {
     const openedDialog = this._dialog.open(ConfirmDialogComponent);
     openedDialog.afterClosed().subscribe((result) => {
       if (result) {
-        this._store.dispatch(deleteShop({ id: shop.id }));
+        this._store.dispatch(deleteShop({ id: shopId }));
       }
     });
   }

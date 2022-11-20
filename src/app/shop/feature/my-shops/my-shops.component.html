@@ -1,4 +1,4 @@
-<app-shops-list [shops]="shops" [userData]="userData$ | async">
+<app-shops-list [shops]="shops" [userData]="userData$ | async" (deleteClick)="onShopDelete($event)">
   <app-add-item-card
     [title]="'SHOPS.MY_SHOPS.ADD_SHOP_CARD.TITLE' | translate"
     [content]="'SHOPS.MY_SHOPS.ADD_SHOP_CARD.DESCRIPTION' | translate"

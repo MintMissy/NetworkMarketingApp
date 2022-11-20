@@ -9,14 +9,14 @@
   </div>
   <div class="card-actions">
     <a [routerLink]="'products/' + product.id">
-      <button mat-raised-button color="primary">{{ 'PRODUCT.PRODUCT_CARD.VIEW_BUTTON' | translate }}</button>
+      <button mat-raised-button color="primary">
+        {{ "PRODUCT.PRODUCT_CARD.VIEW_BUTTON" | translate }}
+      </button>
     </a>
-    <!-- TODO display logic -->
-    <a [routerLink]="'products/' + product.id + '/edit'" *ngIf="">
+    <a [routerLink]="'products/' + product.id + '/edit'" *ngIf="canRemove">
       <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>
     </a>
-    <!-- TODO display logic -->
-    <button mat-stroked-button color="" *ngIf="">
+    <button mat-stroked-button color="" *ngIf="canEdit" (click)="removeClick.emit(product.id)">
       <mat-icon>delete</mat-icon>
     </button>
   </div>

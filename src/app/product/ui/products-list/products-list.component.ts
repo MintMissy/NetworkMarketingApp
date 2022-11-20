@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { Product } from '../../model/product.model';
@@ -16,6 +16,8 @@ import { User } from '@angular/fire/auth';
 export class ProductsListComponent implements OnInit {
   @Input() products!: Product[] | null;
   @Input() userData!: User | null;
+  @Input() displayEditButtons = false;
+  @Output() removeClick = new EventEmitter<string>();
 
   constructor() {}
 
