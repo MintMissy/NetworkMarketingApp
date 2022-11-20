@@ -17,6 +17,7 @@ import { ConfirmDialogComponent } from 'src/app/core/components/confirm-dialog/c
 import { Shop } from '../../model/shop.model';
 import { ShopsListComponent } from '../../ui/shops-list/shops-list.component';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { User } from '@angular/fire/auth';
 import { loadBusinesses } from 'src/app/business/data-access/business.actions';
 import { selectBusinessesByUser } from 'src/app/business/data-access/business.selectors';
@@ -25,7 +26,13 @@ import { selectShopsByBusinesses } from '../../data-access/shop.selectors';
 @Component({
   selector: 'app-my-shops',
   standalone: true,
-  imports: [CommonModule, ShopsListComponent, AddItemCardComponent, MatDialogModule],
+  imports: [
+    CommonModule,
+    ShopsListComponent,
+    AddItemCardComponent,
+    MatDialogModule,
+    TranslateModule,
+  ],
   templateUrl: './my-shops.component.html',
   styleUrls: ['./my-shops.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

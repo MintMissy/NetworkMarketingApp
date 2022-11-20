@@ -1,6 +1,6 @@
 <app-shop-form
   *ngIf="shop$ | async as shop"
-  title="Edit Shop"
+  [title]="'SHOPS.EDIT_SHOP.TITLE' | translate"
   (submit)="onSubmit($event)"
   (discard)="onDiscard()"
   [shop]="shop"

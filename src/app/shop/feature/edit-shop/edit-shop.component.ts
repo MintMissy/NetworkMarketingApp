@@ -7,13 +7,14 @@ import { Observable } from 'rxjs';
 import { Shop } from '../../model/shop.model';
 import { ShopFormComponent } from '../../ui/shop-form/shop-form.component';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { selectShopEntity } from '../../data-access/shop.selectors';
 import { updateShop } from '../../data-access/shop.actions';
 
 @Component({
   selector: 'app-edit-shop',
   standalone: true,
-  imports: [CommonModule, ShopFormComponent],
+  imports: [CommonModule, ShopFormComponent, TranslateModule],
   templateUrl: './edit-shop.component.html',
   styleUrls: ['./edit-shop.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

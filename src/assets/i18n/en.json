@@ -331,15 +331,72 @@
       "BANNER_PREVIEW": "Banner Preview"
     },
     "SALE_STATISTICS_FORM": {
-        "TITLE": "Storage and Statistics",
-        "AMOUNT_STORAGE_INPUT": {
-            "LABEL": "Amount in Storage",
-            "MIN": "Value must be a positive number"
-        },
-        "AMOUNT_SOLD_INPUT": {
-            "LABEL": "Sold Amount",
-            "MIN": "Value must be a positive number"
-        }
+      "TITLE": "Storage and Statistics",
+      "AMOUNT_STORAGE_INPUT": {
+        "LABEL": "Amount in Storage",
+        "MIN": "Value must be a positive number"
+      },
+      "AMOUNT_SOLD_INPUT": {
+        "LABEL": "Sold Amount",
+        "MIN": "Value must be a positive number"
+      }
+    }
+  },
+  "SHOPS": {
+    "ADD_SHOP": {
+      "TITLE": "Create new Shop"
+    },
+    "EDIT_SHOP": {
+      "TITLE": "Edit Shop"
+    },
+    "MY_SHOPS": {
+      "ADD_SHOP_CARD": {
+        "TITLE": "Create Shop",
+        "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."
+      }
+    },
+    "SHOP": {
+      "EDIT_BUTTON": "Edit Shop",
+      "PRODUCTS_TITLE": "Available Products",
+      "ADD_PRODUCT_CARD": {
+        "TITLE": "Create Product",
+        "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."
+      }
+    },
+    "SHOP_CARD": {
+      "VIEW_BUTTON": "View Shop"
+    },
+    "SHOP_DETAILS_FORM": {
+      "TITLE": "Shop Details",
+      "NAME_INPUT": {
+        "LABEL": "Name",
+        "REQUIRED": "Product Name is required",
+        "TOO_SHORT": "Product Name is too short",
+        "TOO_LONG": "Product Name is too long"
+      },
+      "BUSINESS_INPUT": {
+        "LABEL": "Business",
+        "REQUIRED": "Business is required"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Shop Description",
+        "REQUIRED": "Description is required",
+        "TOO_SHORT": "Description is too short",
+        "TOO_LONG": "Description is too long"
+      },
+      "BANNER_INPUT": {
+        "LABEL": "Banner Url",
+        "REQUIRED": "Banner is required",
+        "INVALID": "This image url is invalid"
+      },
+      "BANNER_PREVIEW": "Banner Preview"
+    },
+    "SHOP_DETAILS_SELECTION": {
+        "TITLE": "Welcome in the Shop!",
+        "SHOP_NAME": "Shop Name:",
+        "SHOP_NAME_EMPTY": "Not provided",
+        "SHOP_DESCRIPTION": "Shop Description",
+        "SHOP_DESCRIPTION_EMPTY": "This business doesn't have a description"
     }
   },
   "ENUM": {

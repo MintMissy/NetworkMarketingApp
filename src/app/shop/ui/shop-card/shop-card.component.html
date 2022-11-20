@@ -9,7 +9,7 @@
   </div>
   <div class="card-actions">
     <a [routerLink]="'/shops/' + shop.id">
-      <button mat-raised-button color="primary">View Shop</button>
+      <button mat-raised-button color="primary">{{ 'SHOPS.SHOP_CARD.VIEW_BUTTON' | translate }}</button>
     </a>
     <a [routerLink]="'/shops/' + shop.id + '/edit'" *ngIf="userId === (business$ | async)?.ownerId">
       <button mat-stroked-button color=""><mat-icon>edit</mat-icon></button>

@@ -12,6 +12,7 @@ import { ProductsListComponent } from 'src/app/product/ui/products-list/products
 import { Shop } from '../../model/shop.model';
 import { ShopDetailsSectionComponent } from '../../ui/shop-details-section/shop-details-section.component';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { loadProducts } from 'src/app/product/data-access/product.actions';
 import { selectProductsByShop } from 'src/app/product/data-access/product.selectors';
 import { selectShopEntity } from '../../data-access/shop.selectors';
@@ -25,6 +26,7 @@ import { selectShopEntity } from '../../data-access/shop.selectors';
     ShopDetailsSectionComponent,
     MatButtonModule,
     AddItemCardComponent,
+    TranslateModule,
   ],
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss'],

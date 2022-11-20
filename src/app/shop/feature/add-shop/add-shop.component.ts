@@ -6,12 +6,13 @@ import { Router } from '@angular/router';
 import { Shop } from '../../model/shop.model';
 import { ShopFormComponent } from '../../ui/shop-form/shop-form.component';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { insertShop } from '../../data-access/shop.actions';
 
 @Component({
   selector: 'app-add-shop',
   standalone: true,
-  imports: [CommonModule, ShopFormComponent],
+  imports: [CommonModule, ShopFormComponent, TranslateModule],
   templateUrl: './add-shop.component.html',
   styleUrls: ['./add-shop.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

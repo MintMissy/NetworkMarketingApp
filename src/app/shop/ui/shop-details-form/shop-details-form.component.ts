@@ -10,13 +10,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { loadBusinesses } from 'src/app/business/data-access/business.actions';
 import { selectBusinessesByUser } from 'src/app/business/data-access/business.selectors';
 
 @Component({
   selector: 'app-shop-details-form',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatInputModule, ReactiveFormsModule, MatSelectModule],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    TranslateModule,
+  ],
   templateUrl: './shop-details-form.component.html',
   styleUrls: ['./shop-details-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

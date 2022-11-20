@@ -3,19 +3,20 @@
     <img [src]="shop.details.shopBanner" class="banner" alt="" aria-hidden="true" />
     <!-- TODO shop owner check -->
     <!-- *ngIf="(loggedInUser$ | async)?.uid === shop.ownerId" -->
-    <a mat-raised-button color="primary" routerLink="edit"> Edit shop </a>
+    <a mat-raised-button color="primary" routerLink="edit">
+      {{ "SHOPS.SHOP.EDIT_BUTTON" | translate }}
+    </a>
   </div>
   <div class="sections-container">
     <app-shop-details-section [shopDetails]="shop.details"></app-shop-details-section>
   </div>
 </div>
-<h1 class="available-products">Available Products:</h1>
-<!-- TODO create new product card -->
+<h1 class="available-products">{{ "SHOPS.SHOP.PRODUCTS_TITLE" | translate }}</h1>
 <app-products-list [products]="products$ | async">
   <!-- TODO check if user is shop owner -->
   <app-add-item-card
-    title="Create Product"
-    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit dolore tempora."
+    [title]="'SHOPS.SHOP.ADD_PRODUCT_CARD.TITLE' | translate"
+    [content]="'SHOPS.SHOP.ADD_PRODUCT_CARD.DESCRIPTION' | translate"
     link="products/new"
   ></app-add-item-card>
 </app-products-list>

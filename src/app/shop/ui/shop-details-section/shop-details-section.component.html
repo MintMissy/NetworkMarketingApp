@@ -1,18 +1,22 @@
 <div class="section">
-  <h2>Welcome in the Shop!</h2>
+  <h2>{{ "SHOPS.SHOP_DETAILS_SELECTION.TITLE" | translate }}</h2>
   <p>
-    Shop Name:
+    {{ "SHOPS.SHOP_DETAILS_SELECTION.SHOP_NAME" | translate }}
     <span>{{
-      shopDetails.name === null || shopDetails.name === "" ? "not provided" : shopDetails.name
+      shopDetails.name === null || shopDetails.name === ""
+        ? ("SHOPS.SHOP_DETAILS_SELECTION.SHOP_NAME_EMPTY" | translate)
+        : shopDetails.name
     }}</span>
   </p>
-  <h2 class="shop-description">Shop Description</h2>
+  <h2 class="shop-description">
+    {{ "SHOPS.SHOP_DETAILS_SELECTION.SHOP_DESCRIPTION" | translate }}
+  </h2>
   <p>
     <span>
       {{
         shopDetails.description === null || shopDetails.description === ""
-          ? "This business doesn't have a description"
-          : "+" + shopDetails.description
+          ? ("SHOPS.SHOP_DETAILS_SELECTION.SHOP_DESCRIPTION_EMPTY" | translate)
+          : shopDetails.description
       }}
     </span>
   </p>

@@ -8,13 +8,14 @@ import { Observable } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { Shop } from '../../model/shop.model';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { loadBusiness } from 'src/app/business/data-access/business.actions';
 import { selectBusinessEntity } from 'src/app/business/data-access/business.selectors';
 
 @Component({
   selector: 'app-shop-card',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatIconModule, MatButtonModule],
+  imports: [CommonModule, RouterModule, MatIconModule, MatButtonModule, TranslateModule],
   templateUrl: './shop-card.component.html',
   styleUrls: ['./shop-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

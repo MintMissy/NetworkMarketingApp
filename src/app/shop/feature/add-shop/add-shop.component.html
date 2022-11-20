@@ -1,5 +1,5 @@
 <app-shop-form
-  title="Create new Shop"
+  [title]="'SHOPS.ADD_SHOP.TITLE' | translate"
   (submit)="onSubmit($event)"
   (discard)="onDiscard()"
   [enabledEditingBusiness]="true"

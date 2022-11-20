@@ -1,16 +1,28 @@
 <div class="card card--padded card--form" [formGroup]="shopDetailsGroup">
-  <p>Shop Details</p>
+  <p>{{ "SHOPS.SHOP_DETAILS_FORM.TITLE" | translate }}</p>
   <div class="input-group">
     <mat-form-field
       appearance="outline"
       *ngIf="{ control: shopDetailsGroup.controls['name'] } as name"
     >
-      <mat-label>Name</mat-label>
-      <input matInput placeholder="Name" value="" type="string" formControlName="name" />
+      <mat-label>{{ "SHOPS.SHOP_DETAILS_FORM.NAME_INPUT.LABEL" | translate }}</mat-label>
+      <input
+        matInput
+        [placeholder]="'SHOPS.SHOP_DETAILS_FORM.NAME_INPUT.LABEL' | translate"
+        value=""
+        type="string"
+        formControlName="name"
+      />
       <mat-error>
-        <span *ngIf="name.control.hasError('required')">Description is required</span>
-        <span *ngIf="name.control.hasError('minlength')">Description is too short</span>
-        <span *ngIf="name.control.hasError('maxlength')">Description is too long</span>
+        <span *ngIf="name.control.hasError('required')">{{
+          "SHOPS.SHOP_DETAILS_FORM.NAME_INPUT.REQUIRED" | translate
+        }}</span>
+        <span *ngIf="name.control.hasError('minlength')">{{
+          "SHOPS.SHOP_DETAILS_FORM.NAME_INPUT.TOO_SHORT" | translate
+        }}</span>
+        <span *ngIf="name.control.hasError('maxlength')">{{
+          "SHOPS.SHOP_DETAILS_FORM.NAME_INPUT.TOO_LONG" | translate
+        }}</span>
       </mat-error>
       <mat-icon matPrefix>edit</mat-icon>
     </mat-form-field>
@@ -18,15 +30,20 @@
       appearance="outline"
       *ngIf="{ control: shopDetailsGroup.controls['businessId'] } as businessId"
     >
-      <mat-label>Business</mat-label>
-      <mat-select placeholder="Business" formControlName="businessId">
+      <mat-label>{{ "SHOPS.SHOP_DETAILS_FORM.BUSINESS_INPUT.LABEL" | translate }}</mat-label>
+      <mat-select
+        [placeholder]="'SHOPS.SHOP_DETAILS_FORM.BUSINESS_INPUT.LABEL' | translate"
+        formControlName="businessId"
+      >
         <mat-option *ngFor="let business of userBusinesses$ | async" [value]="business.id">
           {{ business.details.companyName }}
         </mat-option>
       </mat-select>
       <mat-icon matPrefix>business</mat-icon>
       <mat-error>
-        <span *ngIf="businessId.control.hasError('required')">Business is required</span>
+        <span *ngIf="businessId.control.hasError('required')">{{
+          "SHOPS.SHOP_DETAILS_FORM.BUSINESS_INPUT.REQUIRED" | translate
+        }}</span>
       </mat-error>
     </mat-form-field>
   </div>
@@ -34,38 +51,54 @@
     appearance="outline"
     *ngIf="{ control: shopDetailsGroup.controls['description'] } as description"
   >
-    <mat-label>Shop Description</mat-label>
+    <mat-label>{{ "SHOPS.SHOP_DETAILS_FORM.DESCRIPTION_INPUT.LABEL" | translate }}</mat-label>
     <textarea
       matInput
       cdkTextareaAutosize
       cdkAutosizeMinRows="3"
       cdkAutosizeMaxRows="6"
-      placeholder="Company Description"
+      [placeholder]="'SHOPS.SHOP_DETAILS_FORM.DESCRIPTION_INPUT.LABEL' | translate"
       value=""
       formControlName="description"
     ></textarea>
     <mat-error>
-      <span *ngIf="description.control.hasError('required')">Description is required</span>
-      <span *ngIf="description.control.hasError('minlength')">Description is too short</span>
-      <span *ngIf="description.control.hasError('maxlength')">Description is too long</span>
+      <span *ngIf="description.control.hasError('required')">{{
+        "SHOPS.SHOP_DETAILS_FORM.DESCRIPTION_INPUT.REQUIRED" | translate
+      }}</span>
+      <span *ngIf="description.control.hasError('minlength')">{{
+        "SHOPS.SHOP_DETAILS_FORM.DESCRIPTION_INPUT.TOO_SHORT" | translate
+      }}</span>
+      <span *ngIf="description.control.hasError('maxlength')">{{
+        "SHOPS.SHOP_DETAILS_FORM.DESCRIPTION_INPUT.TOO_LONG" | translate
+      }}</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field
     appearance="outline"
     *ngIf="{ control: shopDetailsGroup.controls['shopBanner'] } as shopBanner"
   >
-    <mat-label>Banner Url</mat-label>
-    <input matInput placeholder="Banner Url" value="" type="string" formControlName="shopBanner" />
+    <mat-label>{{ "SHOPS.SHOP_DETAILS_FORM.BANNER_INPUT.LABEL" | translate }}</mat-label>
+    <input
+      matInput
+      [placeholder]="'SHOPS.SHOP_DETAILS_FORM.BANNER_INPUT.LABEL' | translate"
+      value=""
+      type="string"
+      formControlName="shopBanner"
+    />
     <mat-error>
-      <span *ngIf="shopBanner.control.hasError('required')">Banner is required</span>
-      <span *ngIf="shopBanner.control.hasError('pattern')">This image url is invalid</span>
+      <span *ngIf="shopBanner.control.hasError('required')">{{
+        "SHOPS.SHOP_DETAILS_FORM.BANNER_INPUT.REQUIRED" | translate
+      }}</span>
+      <span *ngIf="shopBanner.control.hasError('pattern')">{{
+        "SHOPS.SHOP_DETAILS_FORM.BANNER_INPUT.INVALID" | translate
+      }}</span>
     </mat-error>
     <mat-icon matPrefix>link</mat-icon>
   </mat-form-field>
   <ng-container
     *ngIf="shopDetailsGroup.get('shopBanner')?.value && shopDetailsGroup.get('shopBanner')?.valid"
   >
-    <p>Banner Preview</p>
+    <p>{{ "SHOPS.SHOP_DETAILS_FORM.BANNER_PREVIEW" | translate }}</p>
     <img
       class="banner-preview"
       [src]="shopDetailsGroup.get('shopBanner')?.value"
