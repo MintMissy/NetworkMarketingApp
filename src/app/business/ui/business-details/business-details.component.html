@@ -53,11 +53,13 @@
       <mat-label>{{
         "BUSINESS.BUSINESS_DETAILS_FORM.NETWORK_NAME_INPUT.LABEL" | translate
       }}</mat-label>
-      <mat-select placeholder="Network Name" formControlName="parentBusinessId">
-        <!-- TODO fetch parent businesses -->
-        <!-- <mat-option *ngFor="let industryEntry of BusinessIndustrySet" [value]="industryEntry.value">
-          {{ industryEntry.key }}
-        </mat-option> -->
+      <mat-select
+        [placeholder]="'BUSINESS.BUSINESS_DETAILS_FORM.NETWORK_NAME_INPUT.LABEL' | translate"
+        formControlName="parentBusinessId"
+      >
+        <mat-option *ngFor="let business of businesses$ | async" [value]="business.id">
+          {{ business.details.companyName }}
+        </mat-option>
         <mat-option value="">{{
           "BUSINESS.BUSINESS_DETAILS_FORM.NETWORK_NAME_INPUT.NONE_OPTION" | translate
         }}</mat-option>
@@ -118,7 +120,7 @@
       businessDetailsGroup.get('backgroundImage')?.valid
     "
   >
-    <p>{{ 'BUSINESS.BUSINESS_DETAILS_FORM.BANNER_PREVIEW' | translate }}</p>
+    <p>{{ "BUSINESS.BUSINESS_DETAILS_FORM.BANNER_PREVIEW" | translate }}</p>
     <img
       class="banner-preview"
       [src]="businessDetailsGroup.get('backgroundImage')?.value"

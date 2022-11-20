@@ -14,7 +14,6 @@ export class ChangeInputTypeDirective implements OnInit {
   @Input() toggledType: string = 'password';
   @Input() hiddenType: string = 'text';
 
-  // TODO translate
   @Input() ariaLabelShow: string = 'Show Password';
   @Input() ariaLabelHide: string = 'Hide Password';
 
