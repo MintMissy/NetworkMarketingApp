@@ -36,7 +36,7 @@
       <mat-label>Business Industry</mat-label>
       <mat-select placeholder="Business Industry" formControlName="industry">
         <mat-option *ngFor="let industryEntry of BusinessIndustrySet" [value]="industryEntry.value">
-          {{ industryEntry.key }}
+          {{ industryEntry.key | translate }}
         </mat-option>
       </mat-select>
       <mat-icon matPrefix>business</mat-icon>

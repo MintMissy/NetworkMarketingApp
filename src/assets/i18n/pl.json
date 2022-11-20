@@ -403,6 +403,29 @@
     "LANGUAGE": {
       "POLISH": "Polski",
       "ENGLISH": "Angielski"
+    },
+    "BUSINESS_INDUSTRIES": {
+        "UNSET": "Nieustawiony",
+        "ACCOMMODATION": "Zakwaterowanie",
+        "FOOD": "Żywność",
+        "BUSINESS_SUPPORT": "Wsparcie Biznesów",
+        "AGRICULTURE": "Rolnictwo",
+        "FORESTRY": "Leśnictwo",
+        "FISHING": "Rybołówstwo",
+        "HUNTING": "Łowiectwo",
+        "ARTS": "Sztuka",
+        "CONSTRUCTION": "Budownictwo",
+        "EDUCATIONAL": "Edukacja",
+        "FINANCE": "Finanse",
+        "HEALTHCARE": "Opieka zdrowotna",
+        "MANUFACTURING": "Produkcja",
+        "MINING": "Górnictwo",
+        "SCIENTIFIC": "Naukowe",
+        "TECHNICAL_SERVICES": "Techniczne",
+        "REAL_ESTATE": "Nieruchomości",
+        "RETAIL_TRADE": "Detaliczna",
+        "TRANSPORTATION": "Transport",
+        "WAREHOUSING": "Magazynowanie"
     }
   }
 }

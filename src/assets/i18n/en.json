@@ -403,6 +403,29 @@
     "LANGUAGE": {
       "POLISH": "Polish",
       "ENGLISH": "English"
+    },
+    "BUSINESS_INDUSTRIES": {
+        "UNSET": "Unset",
+        "ACCOMMODATION": "Accommodation",
+        "FOOD": "Food",
+        "BUSINESS_SUPPORT": "Business Support",
+        "AGRICULTURE": "Agriculture",
+        "FORESTRY": "Forestry",
+        "FISHING": "Fishing",
+        "HUNTING": "Hunting",
+        "ARTS": "Arts",
+        "CONSTRUCTION": "Construction",
+        "EDUCATIONAL": "Educational",
+        "FINANCE": "Finance",
+        "HEALTHCARE": "Healthcare",
+        "MANUFACTURING": "Manufacturing",
+        "MINING": "Mining",
+        "SCIENTIFIC": "Scientific",
+        "TECHNICAL_SERVICES": "Technical Services",
+        "REAL_ESTATE": "Real Estate",
+        "RETAIL_TRADE": "Retail Trade",
+        "TRANSPORTATION": "Transportation",
+        "WAREHOUSING": "Warehousing"
     }
   }
 }
