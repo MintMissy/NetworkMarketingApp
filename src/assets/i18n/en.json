@@ -147,5 +147,17 @@
       "SURNAME": "Surname:",
       "SURNAME_EMPTY": "Not provided"
     }
+  },
+  "CONFIGURATION": {
+    "LANGUAGE": {
+      "TITLE": "Select Preferred Language",
+      "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi libero unde harum quia, laudantium quae labore praesentium ipsa facilis quasi illum, mollitia omnis. Sapiente ullam harum quo magni sunt."
+    }
+  },
+  "ENUM": {
+    "LANGUAGE": {
+      "POLISH": "Polish",
+      "ENGLISH": "English"
+    }
   }
 }

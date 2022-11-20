@@ -4,6 +4,6 @@ export enum Language {
 }
 
 export const LanguageSet = [
-  { key: 'language.polish', value: Language.pl },
-  { key: 'language.english', value: Language.en },
+  { key: 'ENUM.LANGUAGE.POLISH', value: Language.pl },
+  { key: 'ENUM.LANGUAGE.ENGLISH', value: Language.en },
 ];

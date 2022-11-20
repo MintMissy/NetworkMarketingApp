@@ -3,12 +3,8 @@
     <mat-icon>translate</mat-icon>
   </div>
   <div class="content">
-    <h1>Select Prefered Language</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi libero unde harum
-      quia, laudantium quae labore praesentium ipsa facilis quasi illum, mollitia omnis. Sapiente
-      ullam harum quo magni sunt.
-    </p>
+    <h1>{{ "CONFIGURATION.LANGUAGE.TITLE" | translate }}</h1>
+    <p>{{ "CONFIGURATION.LANGUAGE.DESCRIPTION" | translate }}</p>
     <mat-form-field [appearance]="'outline'">
       <mat-select
         placeholder="Select"
@@ -16,7 +12,7 @@
         (ngModelChange)="handleLanguageChange($event)"
       >
         <mat-option *ngFor="let language of languageSet" [value]="language.value">
-          {{ language.key }}
+          {{ language.key | translate }}
         </mat-option>
       </mat-select>
       <mat-icon matPrefix>translate</mat-icon>
