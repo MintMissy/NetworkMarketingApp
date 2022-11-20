@@ -1,86 +1,86 @@
 <!-- Available Pages -->
 <div class="buttons-group">
-  <h2>Available Pages</h2>
+  <h2>{{ "CORE.SIDENAV.PAGES_GROUP.TITLE" | translate }}</h2>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="Home"
+    [text]="'CORE.SIDENAV.PAGES_GROUP.HOME' | translate"
     link=""
     icon="home"
   ></app-sidenav-button>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="Businesses"
+    [text]="'CORE.SIDENAV.PAGES_GROUP.BUSINESSES' | translate"
     link="businesses"
     icon="business"
   ></app-sidenav-button>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="Shops"
+    [text]="'CORE.SIDENAV.PAGES_GROUP.SHOPS' | translate"
     link="shops"
     icon="shop"
   ></app-sidenav-button>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="Businessmen"
+    [text]="'CORE.SIDENAV.PAGES_GROUP.BUSINESSMEN' | translate"
     link="businessmen"
     icon="people"
   ></app-sidenav-button>
 </div>
 <!-- My Businesses -->
 <div class="buttons-group" *ngIf="isUserLoggedIn">
-  <h2>Owned Entities</h2>
+  <h2>{{ "CORE.SIDENAV.OWNED_GROUP.TITLE" | translate }}</h2>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="Companies"
+    [text]="'CORE.SIDENAV.OWNED_GROUP.COMPANIES' | translate"
     link="businesses/my"
     icon="business"
   ></app-sidenav-button>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="Shops"
+    [text]="'CORE.SIDENAV.OWNED_GROUP.SHOPS' | translate"
     link="shops/my"
     icon="shop"
   ></app-sidenav-button>
 </div>
 <!-- General Settings -->
 <div class="buttons-group">
-  <h2>General Settings</h2>
+  <h2>{{ "CORE.SIDENAV.SETTINGS_GROUP.TITLE" | translate }}</h2>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="Language"
+    [text]="'CORE.SIDENAV.SETTINGS_GROUP.LANGUAGE' | translate"
     link="configuration/language"
     icon="language"
   ></app-sidenav-button>
   <app-sidenav-button
     *ngIf="isUserLoggedIn"
     (click)="onButtonClick()"
-    text="My Profile"
+    [text]="'CORE.SIDENAV.SETTINGS_GROUP.MY_PROFILE' | translate"
     [link]="'/businessmen/' + loggedInUser?.uid"
     icon="person"
   ></app-sidenav-button>
 </div>
 <!-- Information -->
 <div class="buttons-group">
-  <h2>Information</h2>
+  <h2>{{ "CORE.SIDENAV.INFORMATION_GROUP.TITLE" | translate }}</h2>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="About Project"
+    [text]="'CORE.SIDENAV.INFORMATION_GROUP.ABOUT' | translate"
     link="credits"
     icon="information"
   ></app-sidenav-button>
 </div>
 <!-- Session (user is logged out) -->
 <div class="buttons-group" *ngIf="!isUserLoggedIn">
-  <h2>Session</h2>
+  <h2>{{ "CORE.SIDENAV.SESSION_GROUP.TITLE" | translate }}</h2>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="Login"
+    [text]="'CORE.SIDENAV.SESSION_GROUP.LOGIN' | translate"
     link="auth/login"
     icon="login"
   ></app-sidenav-button>
   <app-sidenav-button
     (click)="onButtonClick()"
-    text="Sign Up"
+    [text]="'CORE.SIDENAV.SESSION_GROUP.SIGN_UP' | translate"
     link="auth/signup"
     icon="editnote"
   ></app-sidenav-button>
@@ -89,7 +89,7 @@
   <h2>Session</h2>
   <app-sidenav-button
     (click)="onLogoutButtonClick()"
-    text="Log Out"
+    [text]="'CORE.SIDENAV.SESSION_GROUP.LOG_OUT' | translate"
     icon="logout"
     link="/"
     [activeLinkHighlight]="false"

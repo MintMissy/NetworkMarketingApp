@@ -1,4 +1,6 @@
-<h2>404</h2>
-<h1>Page Not Found</h1>
-<p>Ooops! This page doesn't exist.</p>
-<button mat-raised-button color="primary" (click)="moveToHomepage()">GO BACK TO HOMEPAGE</button>
+<h2>{{ 'CORE.NOT_FOUND_PAGE.ERROR404' | translate }}</h2>
+<h1>{{ "CORE.NOT_FOUND_PAGE.TITLE" | translate }}</h1>
+<p>{{ "CORE.NOT_FOUND_PAGE.DESCRIPTION" | translate }}</p>
+<button mat-raised-button color="primary" (click)="moveToHomepage()">
+  {{ "CORE.NOT_FOUND_PAGE.GO_BACK_BUTTON" | translate }}
+</button>

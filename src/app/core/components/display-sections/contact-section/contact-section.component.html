@@ -1,19 +1,23 @@
 <div class="section">
-  <h2>Contact</h2>
+  <h2>{{ "CORE.CONTACT_SECTION.TITLE" | translate }}</h2>
   <p>
     <mat-icon>email</mat-icon>
-    Email:
+    {{ "CORE.CONTACT_SECTION.EMAIL" | translate }}
     <span>
-      {{ contactDetails.email === null ? "not provided" : contactDetails.email }}
+      {{
+        contactDetails.email === null
+          ? ("CORE.CONTACT_SECTION.EMAIL_EMPTY" | translate)
+          : contactDetails.email
+      }}
     </span>
   </p>
   <p>
     <mat-icon>call</mat-icon>
-    Telephone:
+    {{ "CORE.CONTACT_SECTION.TELEPHONE" | translate }}
     <span>
       {{
         contactDetails.telephone === null || contactDetails.telephone === 0
-          ? "not provided"
+          ? ("CORE.CONTACT_SECTION.TELEPHONE_EMPTY" | translate)
           : "+" + contactDetails.telephone
       }}
     </span>

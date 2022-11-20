@@ -1,15 +1,25 @@
 <div class="card card--padded card--form" [formGroup]="addressGroup">
-  <p>Address</p>
+  <p>{{ "CORE.ADDRESS_FORM.TITLE" | translate }}</p>
   <div class="input-group">
     <mat-form-field
       appearance="outline"
       *ngIf="{ control: addressGroup.controls['street'] } as street"
     >
-      <mat-label>Street</mat-label>
-      <input matInput placeholder="Street" value="" type="string" formControlName="street" />
+      <mat-label>{{ "CORE.ADDRESS_FORM.STREET_INPUT.LABEL" | translate }}</mat-label>
+      <input
+        matInput
+        [placeholder]="'CORE.ADDRESS_FORM.STREET_INPUT.LABEL' | translate"
+        value=""
+        type="string"
+        formControlName="street"
+      />
       <mat-error>
-        <span *ngIf="street.control.hasError('minlength')">Street name is too short</span>
-        <span *ngIf="street.control.hasError('maxlength')">Street name is too long</span>
+        <span *ngIf="street.control.hasError('minlength')">{{
+          "CORE.ADDRESS_FORM.STREET_INPUT.TOO_SHORT" | translate
+        }}</span>
+        <span *ngIf="street.control.hasError('maxlength')">{{
+          "CORE.ADDRESS_FORM.STREET_INPUT.TOO_LONG" | translate
+        }}</span>
       </mat-error>
       <mat-icon matPrefix>traffic</mat-icon>
     </mat-form-field>
@@ -17,17 +27,21 @@
       appearance="outline"
       *ngIf="{ control: addressGroup.controls['localNumber'] } as localNumber"
     >
-      <mat-label>Local Number</mat-label>
+      <mat-label>{{ "CORE.ADDRESS_FORM.LOCAL_NUMBER_INPUT.LABEL" | translate }}</mat-label>
       <input
         matInput
-        placeholder="Local Number"
+        [placeholder]="'CORE.ADDRESS_FORM.LOCAL_NUMBER_INPUT.LABEL' | translate"
         value=""
         type="string"
         formControlName="localNumber"
       />
       <mat-error>
-        <span *ngIf="localNumber.control.hasError('minlength')">Number is too short</span>
-        <span *ngIf="localNumber.control.hasError('maxlength')">Number is too long</span>
+        <span *ngIf="localNumber.control.hasError('minlength')">{{
+          "CORE.ADDRESS_FORM.LOCAL_NUMBER_INPUT.TOO_SHORT" | translate
+        }}</span>
+        <span *ngIf="localNumber.control.hasError('maxlength')">{{
+          "CORE.ADDRESS_FORM.LOCAL_NUMBER_INPUT.TOO_LONG" | translate
+        }}</span>
       </mat-error>
       <mat-icon matPrefix>location_on</mat-icon>
     </mat-form-field>
@@ -37,26 +51,40 @@
       appearance="outline"
       *ngIf="{ control: addressGroup.controls['postalCode'] } as postalCode"
     >
-      <mat-label>Postal Code</mat-label>
+      <mat-label>{{ "CORE.ADDRESS_FORM.POSTAL_CODE_INPUT.LABEL" | translate }}</mat-label>
       <input
         matInput
-        placeholder="Postal Code"
+        [placeholder]="'CORE.ADDRESS_FORM.POSTAL_CODE_INPUT.LABEL' | translate"
         value=""
         type="string"
         formControlName="postalCode"
       />
       <mat-error>
-        <span *ngIf="postalCode.control.hasError('minlength')">Postal code is too short</span>
-        <span *ngIf="postalCode.control.hasError('maxlength')">Postal code is too long</span>
+        <span *ngIf="postalCode.control.hasError('minlength')">{{
+          "CORE.ADDRESS_FORM.POSTAL_CODE_INPUT.TOO_SHORT" | translate
+        }}</span>
+        <span *ngIf="postalCode.control.hasError('maxlength')">{{
+          "CORE.ADDRESS_FORM.POSTAL_CODE_INPUT.TOO_LONG" | translate
+        }}</span>
       </mat-error>
       <mat-icon matPrefix>signpost</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline" *ngIf="{ control: addressGroup.controls['city'] } as city">
-      <mat-label>City</mat-label>
-      <input matInput placeholder="City" value="" type="string" formControlName="city" />
+      <mat-label>{{ "CORE.ADDRESS_FORM.CITY_INPUT.LABEL" | translate }}</mat-label>
+      <input
+        matInput
+        [placeholder]="'CORE.ADDRESS_FORM.CITY_INPUT.LABEL' | translate"
+        value=""
+        type="string"
+        formControlName="city"
+      />
       <mat-error>
-        <span *ngIf="city.control.hasError('minlength')">City name is too short</span>
-        <span *ngIf="city.control.hasError('maxlength')">City name is too long</span>
+        <span *ngIf="city.control.hasError('minlength')">{{
+          "CORE.ADDRESS_FORM.CITY_INPUT.TOO_SHORT" | translate
+        }}</span>
+        <span *ngIf="city.control.hasError('maxlength')">{{
+          "CORE.ADDRESS_FORM.CITY_INPUT.TOO_LONG" | translate
+        }}</span>
       </mat-error>
       <mat-icon matPrefix>location_city</mat-icon>
     </mat-form-field>
@@ -66,15 +94,15 @@
     class="input-network-name"
     *ngIf="{ control: addressGroup.controls['country'] } as countryControl"
   >
-    <mat-label>Country</mat-label>
-    <mat-select placeholder="Country" formControlName="country">
+    <mat-label>{{ "CORE.ADDRESS_FORM.COUNTRY_INPUT.LABEL" | translate }}</mat-label>
+    <mat-select
+      [placeholder]="'CORE.ADDRESS_FORM.COUNTRY_INPUT.LABEL' | translate"
+      formControlName="country"
+    >
       <mat-option *ngFor="let country of Country" [value]="country[1]">
         {{ country[0] }}
       </mat-option>
     </mat-select>
     <mat-icon matPrefix>language</mat-icon>
-    <mat-error>
-      <span *ngIf="countryControl.control.hasError('required')">Country is required</span>
-    </mat-error>
   </mat-form-field>
 </div>

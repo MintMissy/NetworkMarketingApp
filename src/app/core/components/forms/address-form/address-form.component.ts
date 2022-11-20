@@ -6,11 +6,19 @@ import { Country } from 'src/app/core/model/country.enum';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-address-form',
   standalone: true,
-  imports: [CommonModule, MatInputModule, MatIconModule, ReactiveFormsModule, MatSelectModule],
+  imports: [
+    CommonModule,
+    MatInputModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    TranslateModule,
+  ],
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,7 +30,6 @@ export class AddressFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.addressGroup.get('country')?.setValidators([Validators.required]);
     this.addressGroup
       .get('city')
       ?.setValidators([Validators.minLength(1), Validators.maxLength(100)]);

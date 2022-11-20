@@ -1,4 +1,6 @@
 <button mat-raised-button type="submit" color="primary" (click)="onSubmitClick($event)">
-  Save Changes
+  {{ "CORE.FORM_ACTIONS.SAVE_BUTTON" | translate }}
 </button>
-<button mat-raised-button class="discard-button" (click)="onDiscardClick($event)">Discard</button>
+<button mat-raised-button class="discard-button" (click)="onDiscardClick($event)">
+  {{ "CORE.FORM_ACTIONS.DISCARD_BUTTON" | translate }}
+</button>

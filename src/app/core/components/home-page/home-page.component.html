@@ -1,45 +1,38 @@
 <div class="items-container items-container--cards items-container--home">
   <div class="card card--padded card--about-app">
     <div class="card-content">
-      <h1>About the Application</h1>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt expedita laboriosam
-        doloribus illum, ex minus. Ratione velit consequatur corrupti. Debitis alias illo
-        accusantium nihil laboriosam deserunt eaque aperiam, quisquam tempore.
-      </p>
+      <h1>{{ "CORE.HOME_PAGE.ABOUT_CARD.TITLE" | translate }}</h1>
+      <p>{{ "CORE.HOME_PAGE.ABOUT_CARD.DESCRIPTION" | translate }}</p>
     </div>
   </div>
   <app-content-card
     imageSource="assets/images/cards/businesses.avif"
-    subtitle="Marketing Market"
-    title="World Leading Businesses"
-    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos
-    pariatur temporibus fugiat cum aperiam."
-    primaryButtonText="Browse"
-    secondaryButtonText="Join Network"
+    [subtitle]="'CORE.HOME_PAGE.BUSINESSES_CARD.SUBTITLE' | translate"
+    [title]="'CORE.HOME_PAGE.BUSINESSES_CARD.TITLE' | translate"
+    [content]="'CORE.HOME_PAGE.BUSINESSES_CARD.DESCRIPTION' | translate"
+    [primaryButtonText]="'CORE.HOME_PAGE.BUSINESSES_CARD.BROWSE_BUTTON' | translate"
+    [secondaryButtonText]="'CORE.HOME_PAGE.BUSINESSES_CARD.JOIN_BUTTON' | translate"
     primaryButtonLink="businesses"
-    secondaryButtonLink="businesses/join"
+    secondaryButtonLink="businesses/new"
   ></app-content-card>
   <app-content-card
     imageSource="assets/images/cards/shops.avif"
-    subtitle="Top Quality Products"
-    title="The Art of Versatile Shops"
-    content="Assumenda, aspernatur dignissimos voluptatum unde repellat
-    alias nisi rerum eligendi animi aut ex sequi accusantium, sint."
-    primaryButtonText="Browse"
-    secondaryButtonText="Start a Shop"
+    [subtitle]="'CORE.HOME_PAGE.SHOPS_CARD.SUBTITLE' | translate"
+    [title]="'CORE.HOME_PAGE.SHOPS_CARD.TITLE' | translate"
+    [content]="'CORE.HOME_PAGE.SHOPS_CARD.DESCRIPTION' | translate"
+    [primaryButtonText]="'CORE.HOME_PAGE.SHOPS_CARD.BROWSE_BUTTON' | translate"
+    [secondaryButtonText]="'CORE.HOME_PAGE.SHOPS_CARD.JOIN_BUTTON' | translate"
     primaryButtonLink="shops"
-    secondaryButtonLink="shops/create"
+    secondaryButtonLink="shops/new"
   ></app-content-card>
   <app-content-card
     imageSource="assets/images/cards/businessman.avif"
-    subtitle="Incredible Dreams"
-    title="Most Popular Businessmen"
-    content="Expedita, ipsa voluptatum officia iste quia
-    maxime provident porro similique sunt! Accusantium ad, maiores officia quae delectus."
-    primaryButtonText="Browse"
-    secondaryButtonText="Become One"
+    [subtitle]="'CORE.HOME_PAGE.BUSINESSMEN_CARD.SUBTITLE' | translate"
+    [title]="'CORE.HOME_PAGE.BUSINESSMEN_CARD.TITLE' | translate"
+    [content]="'CORE.HOME_PAGE.BUSINESSMEN_CARD.DESCRIPTION' | translate"
+    [primaryButtonText]="'CORE.HOME_PAGE.BUSINESSMEN_CARD.BROWSE_BUTTON' | translate"
+    [secondaryButtonText]="'CORE.HOME_PAGE.BUSINESSMEN_CARD.JOIN_BUTTON' | translate"
     primaryButtonLink="owners"
-    secondaryButtonLink="owners/become"
+    secondaryButtonLink="auth/signup"
   ></app-content-card>
 </div>

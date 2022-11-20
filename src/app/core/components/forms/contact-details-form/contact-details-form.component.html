@@ -5,11 +5,21 @@
       appearance="outline"
       *ngIf="{ control: contactGroup.controls['email'] } as email"
     >
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Email" value="" type="email" formControlName="email" />
+      <mat-label>{{ "CORE.CONTACT_FORM.EMAIL_INPUT.LABEL" | translate }}</mat-label>
+      <input
+        matInput
+        [placeholder]="'CORE.CONTACT_FORM.EMAIL_INPUT.LABEL' | translate"
+        value=""
+        type="email"
+        formControlName="email"
+      />
       <mat-error>
-        <span *ngIf="email.control.hasError('email')">Email is invalid</span>
-        <span *ngIf="email.control.hasError('maxlength')">Email is too long</span>
+        <span *ngIf="email.control.hasError('email')">{{
+          "CORE.CONTACT_FORM.EMAIL_INPUT.INVALID" | translate
+        }}</span>
+        <span *ngIf="email.control.hasError('maxlength')">{{
+          "CORE.CONTACT_FORM.EMAIL_INPUT.TOO_LONG" | translate
+        }}</span>
       </mat-error>
       <mat-icon matPrefix>mail</mat-icon>
     </mat-form-field>
@@ -17,19 +27,21 @@
       appearance="outline"
       *ngIf="{ control: contactGroup.controls['telephone'] } as telephone"
     >
-      <mat-label>Phone Number</mat-label>
+      <mat-label>{{ "CORE.CONTACT_FORM.TELEPHONE_INPUT.LABEL" | translate }}</mat-label>
       <input
         matInput
-        placeholder="Phone Number"
+        [placeholder]="'CORE.CONTACT_FORM.TELEPHONE_INPUT.LABEL' | translate"
         value=""
         type="number"
         formControlName="telephone"
       />
       <mat-error>
-        <span *ngIf="telephone.control.hasError('min')"
-          >Number is too short (must contain country code)</span
-        >
-        <span *ngIf="telephone.control.hasError('max')">Number is too long</span>
+        <span *ngIf="telephone.control.hasError('min')">{{
+          "CORE.CONTACT_FORM.TELEPHONE_INPUT.MIN" | translate
+        }}</span>
+        <span *ngIf="telephone.control.hasError('max')">{{
+          "CORE.CONTACT_FORM.TELEPHONE_INPUT.MAX" | translate
+        }}</span>
       </mat-error>
       <mat-icon matPrefix>call</mat-icon>
     </mat-form-field>

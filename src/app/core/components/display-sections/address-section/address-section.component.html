@@ -1,48 +1,56 @@
 <div class="section">
-  <h2>Address</h2>
+  <h2>{{ "CORE.ADDRESS_SECTION.TITLE" | translate }}</h2>
   <p>
     <mat-icon>language</mat-icon>
-    Country:
+    {{ "CORE.ADDRESS_SECTION.COUNTRY" | translate }}
     <span>
       {{
         address.country === null || address.country === "UNDEFINED"
-          ? "not provided"
+          ? ("CORE.ADDRESS_SECTION.COUNTRY_EMPTY" | translate)
           : address.country
       }}
     </span>
   </p>
   <p>
     <mat-icon>location_city</mat-icon>
-    City:
+    {{ "CORE.ADDRESS_SECTION.CITY" | translate }}
     <span>
-      {{ address.city === null || address.city === "" ? "not provided" : address.city }}
+      {{
+        address.city === null || address.city === ""
+          ? ("CORE.ADDRESS_SECTION.CITY_EMPTY" | translate)
+          : address.city
+      }}
     </span>
   </p>
   <p>
     <mat-icon>signpost</mat-icon>
-    Post Code:
+    {{ "CORE.ADDRESS_SECTION.POSTAL_CODE" | translate }}
     <span>
       {{
         address.postalCode === null || address.postalCode === ""
-          ? "not provided"
+          ? ("CORE.ADDRESS_SECTION.POSTAL_CODE_EMPTY" | translate)
           : address.postalCode
       }}
     </span>
   </p>
   <p>
     <mat-icon>traffic</mat-icon>
-    Street:
+    {{ "CORE.ADDRESS_SECTION.STREET" | translate }}
     <span>
-      {{ address.street === null || address.street === "" ? "not provided" : address.street }}
+      {{
+        address.street === null || address.street === ""
+          ? ("CORE.ADDRESS_SECTION.STREET_EMPTY" | translate)
+          : address.street
+      }}
     </span>
   </p>
   <p>
     <mat-icon>location_on</mat-icon>
-    Local Number:
+    {{ "CORE.ADDRESS_SECTION.LOCAL_NUMBER" | translate }}
     <span>
       {{
         address.localNumber === null || address.localNumber === ""
-          ? "not provided"
+          ? ("CORE.ADDRESS_SECTION.LOCAL_NUMBER_EMPTY" | translate)
           : address.localNumber
       }}
     </span>

@@ -4,11 +4,12 @@ import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-details-form',
   standalone: true,
-  imports: [CommonModule, MatInputModule, MatIconModule, ReactiveFormsModule],
+  imports: [CommonModule, MatInputModule, MatIconModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './contact-details-form.component.html',
   styleUrls: ['./contact-details-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -154,6 +154,138 @@
       "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi libero unde harum quia, laudantium quae labore praesentium ipsa facilis quasi illum, mollitia omnis. Sapiente ullam harum quo magni sunt."
     }
   },
+  "CORE": {
+    "CONFIRM_DIALOG": {
+      "TITLE": "Are your Sure?",
+      "CONTENT": "Once you proceed there won't be a way to undo this action.",
+      "CONTINUE_BUTTON": "Continue",
+      "DISCARD_BUTTON": "Discard"
+    },
+    "ADDRESS_SECTION": {
+      "TITLE": "Address",
+      "COUNTRY": "Country:",
+      "COUNTRY_EMPTY": "Not provided",
+      "CITY": "City:",
+      "CITY_EMPTY": "Not provided",
+      "POSTAL_CODE": "Postal Code:",
+      "POSTAL_CODE_EMPTY": "Not provided",
+      "STREET": "Postal Code:",
+      "STREET_EMPTY": "Not provided",
+      "LOCAL_NUMBER": "Local Number:",
+      "LOCAL_NUMBER_EMPTY": "Not provided"
+    },
+    "CONTACT_SECTION": {
+      "TITLE": "Contact",
+      "EMAIL": "Email:",
+      "EMAIL_EMPTY": "Not provided",
+      "TELEPHONE": "Telephone:",
+      "TELEPHONE_EMPTY": "Not provided"
+    },
+    "ADDRESS_FORM": {
+      "TITLE": "Address",
+      "STREET_INPUT": {
+        "LABEL": "Street",
+        "TOO_SHORT": "Street name is too short",
+        "TOO_LONG": "Street name is too long"
+      },
+      "LOCAL_NUMBER_INPUT": {
+        "LABEL": "Local Number",
+        "TOO_SHORT": "Number is too short",
+        "TOO_LONG": "Number is too long"
+      },
+      "POSTAL_CODE_INPUT": {
+        "LABEL": "Postal Code",
+        "TOO_SHORT": "Code is too short",
+        "TOO_LONG": "Code is too long"
+      },
+      "CITY_INPUT": {
+        "LABEL": "City",
+        "TOO_SHORT": "City name is too short",
+        "TOO_LONG": "City name is too long"
+      },
+      "COUNTRY_INPUT": {
+        "LABEL": "COUNTRY"
+      }
+    },
+    "CONTACT_FORM": {
+      "EMAIL_INPUT": {
+        "LABEL": "Email",
+        "INVALID": "Email is invalid",
+        "TOO_LONG": "Email is too long"
+      },
+      "TELEPHONE_INPUT": {
+        "LABEL": "Phone Number",
+        "MIN": "Number is too short (must contain country code)",
+        "MAX": "Number is too long"
+      }
+    },
+    "FORM_ACTIONS": {
+      "SAVE_BUTTON": "Save Changes",
+      "DISCARD_BUTTON": "Discard"
+    },
+    "HOME_PAGE": {
+      "ABOUT_CARD": {
+        "TITLE": "About the Application",
+        "DESCRIPTION": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt expedita laboriosam doloribus illum, ex minus. Ratione velit consequatur corrupti. Debitis alias illo accusantium nihil laboriosam deserunt eaque aperiam, quisquam tempore."
+      },
+      "BUSINESSES_CARD": {
+        "TITLE": "World Leading Businesses",
+        "SUBTITLE": "Marketing Market",
+        "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos pariatur temporibus fugiat cum aperiam.",
+        "BROWSE_BUTTON": "Browse Businesses",
+        "JOIN_BUTTON": "Create Business"
+      },
+      "SHOPS_CARD": {
+        "TITLE": "The Art of Versatile Shops",
+        "SUBTITLE": "Top Quality Products",
+        "DESCRIPTION": "Assumenda, aspernatur dignissimos voluptatum unde repellat alias nisi rerum eligendi animi aut ex sequi accusantium, sint.",
+        "BROWSE_BUTTON": "Browse Shops",
+        "JOIN_BUTTON": "Start a Shop"
+      },
+      "BUSINESSMEN_CARD": {
+        "TITLE": "Well Known Businessmen",
+        "SUBTITLE": "Incredible Dreams",
+        "DESCRIPTION": "Expedita, ipsa voluptatum officia iste quia maxime provident porro similique sunt! Accusantium ad, maiores officia quae delectus.",
+        "BROWSE_BUTTON": "Browse Businessmen",
+        "JOIN_BUTTON": "Create Account"
+      }
+    },
+    "SIDENAV": {
+      "PAGES_GROUP": {
+        "TITLE": "Available Pages",
+        "HOME": "Home",
+        "BUSINESSES": "Businesses",
+        "SHOPS": "Shops",
+        "BUSINESSMEN": "Businessmen"
+      },
+      "OWNED_GROUP": {
+        "TITLE": "Owned Entities",
+        "COMPANIES": "Companies",
+        "SHOPS": "Shops"
+      },
+      "SETTINGS_GROUP": {
+        "TITLE": "General Settings",
+        "LANGUAGE": "Language",
+        "MY_PROFILE": "My Profile"
+      },
+      "INFORMATION_GROUP": {
+        "TITLE": "Information",
+        "ABOUT": "About Project"
+      },
+      "SESSION_GROUP": {
+        "TITLE": "Session",
+        "LOGIN": "Login",
+        "SIGN_UP": "Sign Up",
+        "LOG_OUT": "Log Out"
+      }
+    },
+    "NOT_FOUND_PAGE": {
+      "ERROR404": "404",
+      "TITLE": "Page Not Found",
+      "DESCRIPTION": "Ooops! This page doesn't exist.",
+      "GO_BACK_BUTTON": "GO BACK TO HOMEPAGE"
+    }
+  },
   "ENUM": {
     "LANGUAGE": {
       "POLISH": "Polish",

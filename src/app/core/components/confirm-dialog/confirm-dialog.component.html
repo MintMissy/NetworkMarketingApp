@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Are you Sure?</h1>
-<div mat-dialog-content>Once you proceed there won't be a way to undo this action.</div>
+<h1 mat-dialog-title>{{ 'CORE.CONFIRM_DIALOG.TITLE' | translate }}</h1>
+<div mat-dialog-content>{{ 'CORE.CONFIRM_DIALOG.CONTENT' | translate }}</div>
 <div mat-dialog-actions>
-  <button mat-raised-button mat-dialog-close color="primary">Continue</button>
-  <button mat-raised-button mat-dialog-close cdkFocusInitial class="button-discard">Discard</button>
+  <button mat-raised-button mat-dialog-close color="primary">{{ 'CORE.CONFIRM_DIALOG.CONTINUE_BUTTON' | translate }}</button>
+  <button mat-raised-button mat-dialog-close cdkFocusInitial class="button-discard">{{ 'CORE.CONFIRM_DIALOG.DISCARD_BUTTON' | translate }}</button>
 </div>
