@@ -4,11 +4,12 @@ import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-person-details-form',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatInputModule, ReactiveFormsModule],
+  imports: [CommonModule, MatIconModule, MatInputModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './person-details-form.component.html',
   styleUrls: ['./person-details-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

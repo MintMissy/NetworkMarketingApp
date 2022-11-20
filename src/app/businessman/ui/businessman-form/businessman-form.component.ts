@@ -15,6 +15,7 @@ import { ContactDetailsFormComponent } from 'src/app/core/components/forms/conta
 import { Country } from 'src/app/core/model/country.enum';
 import { FormActionsComponent } from 'src/app/core/components/forms/form-actions/form-actions.component';
 import { PersonDetailsFormComponent } from '../person-details-form/person-details-form.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-businessman-form',
@@ -26,13 +27,13 @@ import { PersonDetailsFormComponent } from '../person-details-form/person-detail
     ContactDetailsFormComponent,
     FormActionsComponent,
     ReactiveFormsModule,
+    TranslateModule,
   ],
   templateUrl: './businessman-form.component.html',
   styleUrls: ['./businessman-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BusinessmanFormComponent implements OnInit {
-  @Input() title: string = 'Default Title';
   @Input() businessman: Businessman = this.getDummyBusinessman();
   @Output() submit = new EventEmitter<Businessman>();
   @Output() discard = new EventEmitter<void>();

@@ -103,7 +103,7 @@
       },
       "BANNER_INPUT": {
         "LABEL": "Banner Url",
-        "INVALID": "This image url is invalid"
+        "INVALID": "Image url is invalid"
       },
       "BANNER_PREVIEW": "Banner Preview"
     },
@@ -115,6 +115,37 @@
       "EMPTY_INDUSTRY": "Not provided",
       "DESCRIPTION": "Business Description",
       "EMPTY_DESCRIPTION": "This business doesn't have a description"
+    }
+  },
+  "BUSINESSMAN": {
+    "BUSINESSMAN": {
+      "EDIT_BUTTON": "Edit Profile"
+    },
+    "BUSINESSMAN_FORM": {
+      "TITLE": "Edit Profile"
+    },
+    "PERSON_DETAILS_FORM": {
+      "TITLE": "Person Details",
+      "FIRST_NAME_INPUT": {
+        "LABEL": "First Name",
+        "TOO_LONG": "First Name is too long"
+      },
+      "SURNAME_INPUT": {
+        "LABEL": "Surname",
+        "TOO_LONG": "Surname is too long"
+      },
+      "AVATAR": {
+        "LABEL": "Avatar Url",
+        "INVALID": "Image url is invalid"
+      },
+      "AVATAR_PREVIEW": "Avatar Preview"
+    },
+    "PERSON_DETAILS_SECTION": {
+      "BUSINESSMAN": "Businessman",
+      "FIRST_NAME": "First Name:",
+      "FIRST_NAME_EMPTY": "Not provided",
+      "SURNAME": "Surname:",
+      "SURNAME_EMPTY": "Not provided"
     }
   }
 }

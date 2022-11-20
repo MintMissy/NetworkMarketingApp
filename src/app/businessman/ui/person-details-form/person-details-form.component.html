@@ -1,14 +1,24 @@
 <div class="card card--padded card--form" [formGroup]="personDetailsGroup">
-  <p>Person Details</p>
+  <p>{{ "BUSINESSMAN.PERSON_DETAILS_FORM.TITLE" | translate }}</p>
   <div class="input-group">
     <mat-form-field
       appearance="outline"
       *ngIf="{ control: personDetailsGroup.controls['firstName'] } as firstName"
     >
-      <mat-label>First Name</mat-label>
-      <input matInput placeholder="First Name" value="" type="string" formControlName="firstName" />
+      <mat-label>{{
+        "BUSINESSMAN.PERSON_DETAILS_FORM.FIRST_NAME_INPUT.LABEL" | translate
+      }}</mat-label>
+      <input
+        matInput
+        [placeholder]="'BUSINESSMAN.PERSON_DETAILS_FORM.FIRST_NAME_INPUT.LABEL' | translate"
+        value=""
+        type="string"
+        formControlName="firstName"
+      />
       <mat-error>
-        <span *ngIf="firstName.control.hasError('maxlength')">First Name is too long</span>
+        <span *ngIf="firstName.control.hasError('maxlength')">{{
+          "BUSINESSMAN.PERSON_DETAILS_FORM.FIRST_NAME_INPUT.TOO_LONG" | translate
+        }}</span>
       </mat-error>
       <mat-icon matPrefix>person</mat-icon>
     </mat-form-field>
@@ -16,10 +26,17 @@
       appearance="outline"
       *ngIf="{ control: personDetailsGroup.controls['surname'] } as surname"
     >
-      <mat-label>Surname</mat-label>
-      <input matInput placeholder="Surname" value="" type="surnmae" formControlName="surname" />
+      <mat-label>{{ "BUSINESSMAN.PERSON_DETAILS_FORM.SURNAME_INPUT.LABEL" | translate }}</mat-label>
+      <input
+        matInput
+        placeholder="'BUSINESSMAN.PERSON_DETAILS_FORM.SURNAME_INPUT.LABEL' | translate"
+        value=""
+        formControlName="surname"
+      />
       <mat-error>
-        <span *ngIf="surname.control.hasError('maxlength')">Surname is too long</span>
+        <span *ngIf="surname.control.hasError('maxlength')">{{
+          "BUSINESSMAN.PERSON_DETAILS_FORM.SURNAME_INPUT.TOO_LONG" | translate
+        }}</span>
       </mat-error>
       <mat-icon matPrefix>people</mat-icon>
     </mat-form-field>
@@ -28,17 +45,25 @@
     appearance="outline"
     *ngIf="{ control: personDetailsGroup.controls['avatar'] } as avatar"
   >
-    <mat-label>Avatar Url</mat-label>
-    <input matInput placeholder="Avatar Url" value="" type="string" formControlName="avatar" />
+    <mat-label>{{ "BUSINESSMAN.PERSON_DETAILS_FORM.AVATAR.LABEL" | translate }}</mat-label>
+    <input
+      matInput
+      [placeholder]="'BUSINESSMAN.PERSON_DETAILS_FORM.AVATAR.LABEL' | translate"
+      value=""
+      type="string"
+      formControlName="avatar"
+    />
     <mat-error>
-      <span *ngIf="avatar.control.hasError('pattern')">Image url is invalid</span>
+      <span *ngIf="avatar.control.hasError('pattern')">{{
+        "BUSINESSMAN.PERSON_DETAILS_FORM.AVATAR.INVALID" | translate
+      }}</span>
     </mat-error>
     <mat-icon matPrefix>link</mat-icon>
   </mat-form-field>
   <ng-container
     *ngIf="personDetailsGroup.get('avatar')?.value && personDetailsGroup.get('avatar')?.valid"
   >
-    <p>Avatar Preview</p>
+    <p>{{ "BUSINESSMAN.PERSON_DETAILS_FORM.AVATAR_PREVIEW" | translate }}</p>
     <img
       class="avatar-preview"
       [src]="personDetailsGroup.get('avatar')?.value"

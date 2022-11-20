@@ -1,23 +1,23 @@
 <div class="section">
-  <h2>Businessman</h2>
+  <h2>{{ 'BUSINESSMAN.PERSON_DETAILS_SECTION.BUSINESSMAN' | translate }}</h2>
   <p>
     <mat-icon>person</mat-icon>
-    First Name:
+    {{ 'BUSINESSMAN.PERSON_DETAILS_SECTION.FIRST_NAME' | translate }}
     <span>
       {{
         personDetails.firstName === null || personDetails.firstName == ""
-          ? "not provided"
+          ? ('BUSINESSMAN.PERSON_DETAILS_SECTION.FIRST_NAME_EMPTY' | translate)
           : personDetails.firstName
       }}
     </span>
   </p>
   <p>
     <mat-icon>people</mat-icon>
-    Surname:
+    {{ 'BUSINESSMAN.PERSON_DETAILS_SECTION.SURNAME' | translate }}
     <span>
       {{
         personDetails.surname === null || personDetails.surname == ""
-          ? "not provided"
+          ? ('BUSINESSMAN.PERSON_DETAILS_SECTION.SURNAME_EMPTY' | translate)
           : personDetails.surname
       }}
     </span>

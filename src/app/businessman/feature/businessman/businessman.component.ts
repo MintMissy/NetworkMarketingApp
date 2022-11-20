@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { PersonDetailsSectionComponent } from '../../ui/person-details-section/person-details-section.component';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { User } from '@angular/fire/auth';
 import { selectBusinessmanEntity } from '../../data-access/businessman.selectors';
 
@@ -26,6 +27,7 @@ import { selectBusinessmanEntity } from '../../data-access/businessman.selectors
     PersonDetailsSectionComponent,
     MatButtonModule,
     RouterModule,
+    TranslateModule
   ],
   templateUrl: './businessman.component.html',
   styleUrls: ['./businessman.component.scss'],
