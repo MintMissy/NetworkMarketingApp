@@ -230,7 +230,7 @@
     "HOME_PAGE": {
       "ABOUT_CARD": {
         "TITLE": "O Aplikacji",
-        "DESCRIPTION": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt expedita laboriosam doloribus illum, ex minus. Ratione velit consequatur corrupti. Debitis alias illo accusantium nihil laboriosam deserunt eaque aperiam, quisquam tempore."
+        "DESCRIPTION": "NetView to aplikacja typu social-media dla biznesów. Użytkownicy, którzy nie mają konta mogą swobodnie przeglądać istniejących biznesmenów, biznesy, sklepy oraz produkty. Po zalogowaniu użytkownik może dodać swój własny biznes, który może swobodnie rozwijać."
       },
       "BUSINESSES_CARD": {
         "TITLE": "Wiodące Światowe Firmy",
@@ -405,7 +405,7 @@
   },
   "CREDITS": {
     "MAIN_TITLE": "Cześć! Miło Cię tutaj widzieć",
-    "APP_DESCRIPTIONS": "NetView to aplikacja typu social-media dla biznesów. Użytkownicy, którzy nie mają konta mogą swobodnie przeglądać istniejących biznesmenów, biznesy, sklepy oraz produkty. Po zalogowaniu użytkownik może dodać swój własny biznes, który może swobodnie rozwijać",
+    "APP_DESCRIPTIONS": "NetView to aplikacja typu social-media dla biznesów. Użytkownicy, którzy nie mają konta mogą swobodnie przeglądać istniejących biznesmenów, biznesy, sklepy oraz produkty. Po zalogowaniu użytkownik może dodać swój własny biznes, który może swobodnie rozwijać.",
     "GITHUB_TITLE": "Mój GitHub",
     "GITHUB_DESCRIPTION": "Moje inne projekty są dostępne w serwisie GitHub.",
     "GITHUB_BUTTON": "Zobacz GitHub'a"

@@ -31,4 +31,8 @@
 The application is deployed on the google firebase hosting. You can view it here:
 https://networkmarketingapp-5d6ae.web.app/
 
+## Issues During Development
+
+During development of this project I really missed a backend developer. Lack of customized data and endpoints brought me to the ground. Due to this little issue some parts of the application could be designed better (mainly features related to data models that have a database relation, e.g. products and shops).
+
 ## Screen Shots

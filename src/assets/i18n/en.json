@@ -230,7 +230,7 @@
     "HOME_PAGE": {
       "ABOUT_CARD": {
         "TITLE": "About the Application",
-        "DESCRIPTION": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt expedita laboriosam doloribus illum, ex minus. Ratione velit consequatur corrupti. Debitis alias illo accusantium nihil laboriosam deserunt eaque aperiam, quisquam tempore."
+        "DESCRIPTION": "NetView is a social network application for businessmen. Users without account can browse existing businessman, business, shops and products. After you login you'll be able to add your own businesses and start expanding network!"
       },
       "BUSINESSES_CARD": {
         "TITLE": "World Leading Businesses",
@@ -416,27 +416,27 @@
       "ENGLISH": "English"
     },
     "BUSINESS_INDUSTRIES": {
-        "UNSET": "Unset",
-        "ACCOMMODATION": "Accommodation",
-        "FOOD": "Food",
-        "BUSINESS_SUPPORT": "Business Support",
-        "AGRICULTURE": "Agriculture",
-        "FORESTRY": "Forestry",
-        "FISHING": "Fishing",
-        "HUNTING": "Hunting",
-        "ARTS": "Arts",
-        "CONSTRUCTION": "Construction",
-        "EDUCATIONAL": "Educational",
-        "FINANCE": "Finance",
-        "HEALTHCARE": "Healthcare",
-        "MANUFACTURING": "Manufacturing",
-        "MINING": "Mining",
-        "SCIENTIFIC": "Scientific",
-        "TECHNICAL_SERVICES": "Technical Services",
-        "REAL_ESTATE": "Real Estate",
-        "RETAIL_TRADE": "Retail Trade",
-        "TRANSPORTATION": "Transportation",
-        "WAREHOUSING": "Warehousing"
+      "UNSET": "Unset",
+      "ACCOMMODATION": "Accommodation",
+      "FOOD": "Food",
+      "BUSINESS_SUPPORT": "Business Support",
+      "AGRICULTURE": "Agriculture",
+      "FORESTRY": "Forestry",
+      "FISHING": "Fishing",
+      "HUNTING": "Hunting",
+      "ARTS": "Arts",
+      "CONSTRUCTION": "Construction",
+      "EDUCATIONAL": "Educational",
+      "FINANCE": "Finance",
+      "HEALTHCARE": "Healthcare",
+      "MANUFACTURING": "Manufacturing",
+      "MINING": "Mining",
+      "SCIENTIFIC": "Scientific",
+      "TECHNICAL_SERVICES": "Technical Services",
+      "REAL_ESTATE": "Real Estate",
+      "RETAIL_TRADE": "Retail Trade",
+      "TRANSPORTATION": "Transportation",
+      "WAREHOUSING": "Warehousing"
     }
   }
 }
