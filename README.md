@@ -14,7 +14,7 @@
   <a href="#screen-shots">Application Preview</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+![screenshot](/docs/screen-2.png)
 
 ## Key Features
 
@@ -36,3 +36,22 @@ https://networkmarketingapp-5d6ae.web.app/
 During development of this project I really missed a backend developer. Lack of customized data and endpoints brought me to the ground. Due to this little issue some parts of the application could be designed better (mainly features related to data models that have a database relation, e.g. products and shops).
 
 ## Screen Shots
+
+- Login Page
+  ![screenshot](/docs/screen-3.png)
+- Home Page
+  ![screenshot](/docs/screen-1.png)
+- My Companies Page
+  ![screenshot](/docs/screen-4.png)
+- My Profile Page
+  ![screenshot](/docs/screen-5.png)
+- Business Form Page
+  ![screenshot](/docs/screen-6.png)
+- Confirm dialog for removing Shop
+  ![screenshot](/docs/screen-7.png)
+- Shop Page
+  ![screenshot](/docs/screen-8.png)
+- Add Product Form
+  ![screenshot](/docs/screen-9.png)
+- Product Page
+  ![screenshot](/docs/screen-10.png)
