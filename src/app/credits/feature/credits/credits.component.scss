@@ -1,0 +1,17 @@
+.card {
+  max-width: 700px;
+  margin-inline: auto;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  p {
+    line-height: 1.5rem;
+    color: var(--color-light-4);
+  }
+
+  a {
+    max-width: 10rem;
+  }
+}

@@ -1,32 +1,34 @@
-## Core Todo
+<h1 align="center">
+  <br>
+  <a href="https://networkmarketingapp-5d6ae.web.app/"><img src="docs/logo.png" alt="NetView" width="200"></a>
+  <br>
+  NetView | Business App
+  <br>
+</h1>
 
-- [x] reusable component lists
-- [x] resolvers
-- [x] services
-- [x] ngrx
-- [x] auth
-- [x] guards
-- [x] image resolving pipe -> forms (update every x seconds) - directive
-- [x] form validators
-- [x] set form data before passing them to service (owner id etc)
-- [x] Save user profile in database
-- [x] Businessman page
-- [x] Business page
-- [x] Language configuration component
-- [x] Shop page
-- [x] Product page
-- [X] translate app
-- [x] Remove item logic (with make sure model) - Are you sure that you want to perform this action?
-- [x] Get owned shops
-- [x] Get shop products
-- [x] Update mat dialog style
-- [ ] About app
-- [x] Basic information on the home page
-- [X] Save language in local storage
+<h4 align="center">NetView is a social network application for businessmen. Users without account can browse existing businessmen, business, shops and products. After you login you'll be able to add your own businesses and start expanding network!</h4>
 
-## Style todo
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#deployed-app">Deployed App</a> •
+  <a href="#screen-shots">Application Preview</a>
+</p>
 
-- [x] remove footer
-- [x] responsive sidenav
-- [x] hide browser url on scroll on mobile
-- [x] Change logo on navbar
+![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+
+## Key Features
+
+- List of existing businesses, businessman, shops.
+- Forms for adding and editing user profile, business, shops and products.
+- Separate lazy-loaded pages for businesses, businessmen, shops and products.
+- Language configuration (supports only application UI)
+- Authentication feature through email, google, facebook and github
+- Designed with mobile first approach
+- CRUD operations are executed on firebase database
+
+## Deployed App
+
+The application is deployed on the google firebase hosting. You can view it here:
+https://networkmarketingapp-5d6ae.web.app/
+
+## Screen Shots

@@ -403,6 +403,13 @@
       "SHOP_DESCRIPTION_EMPTY": "Ten Sklep nie ma opisu"
     }
   },
+  "CREDITS": {
+    "MAIN_TITLE": "Cześć! Miło Cię tutaj widzieć",
+    "APP_DESCRIPTIONS": "NetView to aplikacja typu social-media dla biznesów. Użytkownicy, którzy nie mają konta mogą swobodnie przeglądać istniejących biznesmenów, biznesy, sklepy oraz produkty. Po zalogowaniu użytkownik może dodać swój własny biznes, który może swobodnie rozwijać",
+    "GITHUB_TITLE": "Mój GitHub",
+    "GITHUB_DESCRIPTION": "Moje inne projekty są dostępne w serwisie GitHub.",
+    "GITHUB_BUTTON": "Zobacz GitHub'a"
+  },
   "ENUM": {
     "LANGUAGE": {
       "POLISH": "Polski",

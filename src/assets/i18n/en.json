@@ -403,6 +403,13 @@
       "SHOP_DESCRIPTION_EMPTY": "This shop doesn't have a description"
     }
   },
+  "CREDITS": {
+    "MAIN_TITLE": "Hello! It's nice to see you here",
+    "APP_DESCRIPTIONS": "NetView is a social network application for businessmen. Users without account can browse existing businessman, business, shops and products. After you login you'll be able to add your own businesses and start expanding network!",
+    "GITHUB_TITLE": "My GitHub",
+    "GITHUB_DESCRIPTION": "You can see my other projects on my github.",
+    "GITHUB_BUTTON": "View GitHub"
+  },
   "ENUM": {
     "LANGUAGE": {
       "POLISH": "Polish",
